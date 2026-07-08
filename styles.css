@@ -776,6 +776,76 @@ pre.code-block {
   z-index: 1200;
 }
 
+/* ============================================================
+   RANGOS (Fase 4)
+   ============================================================ */
+
+.sidebar-rank {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.rank-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 22px;
+}
+.rank-caption { margin: 14px 0 0; font-size: 13px; color: var(--text-dim); text-align: center; }
+.rank-caption strong { color: var(--accent-strong); }
+
+.rank-stepper {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.rank-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 92px;
+  opacity: .4;
+}
+.rank-step.reached { opacity: 1; }
+.rank-step-icon {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.rank-step.reached .rank-step-icon { border-color: var(--teal); background: var(--teal-soft); }
+.rank-step.current .rank-step-icon { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 4px var(--accent-soft); }
+.rank-step-name { font-size: 10.5px; color: var(--text-dim); text-align: center; white-space: nowrap; }
+.rank-step.current .rank-step-name { color: var(--accent-strong); font-weight: 700; }
+.rank-step-connector { flex: 1; min-width: 20px; height: 2px; background: var(--border); margin-bottom: 22px; }
+
+/* ============================================================
+   INSIGNIAS — secciones y condiciones (Fase 4)
+   ============================================================ */
+
+.badge-section-title { font-size: 13px; color: var(--text-dim); margin: 8px 0 12px; }
+.badge-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.b-state { font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: .04em; }
+.b-state.unlocked { color: var(--green); }
+.b-desc { font-size: 10.5px; color: var(--text-faint); line-height: 1.4; margin-top: 2px; }
+
+/* ============================================================
+   REPASO DE ERRORES — evolución (Fase 5)
+   ============================================================ */
+
+.evolution-card { max-width: 360px; margin-bottom: 22px; }
+
 /* responsive */
 @media (max-width: 900px) {
   #app { flex-direction: column; }

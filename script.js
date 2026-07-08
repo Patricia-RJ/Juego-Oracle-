@@ -63,18 +63,70 @@ function addXP(amount) {
   toast(`+${amount} XP`);
 }
 
-/* ---------------- Insignias ---------------- */
+/* ---------------- Rangos (Fase 4) ---------------- */
+/* Progresión nominal ligada al número de niveles base (0-15) completados. */
+
+const RANKS = [
+  { id: "r1", name: "SQL Explorer", min: 0, icon: "🧭" },
+  { id: "r2", name: "Query Builder", min: 3, icon: "🧱" },
+  { id: "r3", name: "Join Master", min: 6, icon: "🔗" },
+  { id: "r4", name: "Aggregate Expert", min: 9, icon: "📊" },
+  { id: "r5", name: "Oracle Specialist", min: 12, icon: "🛡️" },
+  { id: "r6", name: "Certification Ready", min: 16, icon: "🎓" }
+];
+
+function getCurrentRank() {
+  const n = completedCoreLevelsCount();
+  let current = RANKS[0];
+  RANKS.forEach(r => { if (n >= r.min) current = r; });
+  return current;
+}
+
+function getNextRank() {
+  const n = completedCoreLevelsCount();
+  return RANKS.find(r => r.min > n) || null;
+}
+
+function getRankProgressPercent() {
+  const n = completedCoreLevelsCount();
+  const current = getCurrentRank();
+  const next = getNextRank();
+  if (!next) return 100;
+  const span = next.min - current.min;
+  return Math.round(((n - current.min) / span) * 100);
+}
+
+function renderRankStepper() {
+  const n = completedCoreLevelsCount();
+  const currentId = getCurrentRank().id;
+  const steps = RANKS.map(r => {
+    const reached = n >= r.min;
+    return `<div class="rank-step ${reached ? "reached" : ""} ${r.id === currentId ? "current" : ""}">
+      <span class="rank-step-icon">${reached ? r.icon : "🔒"}</span>
+      <span class="rank-step-name">${r.name}</span>
+    </div>`;
+  });
+  return `<div class="rank-stepper">${steps.join(`<div class="rank-step-connector"></div>`)}</div>`;
+}
+
+/* ---------------- Insignias (Fase 4) ---------------- */
+/* group "rango": ligadas a un nivel concreto del temario.
+   group "logro": hitos adicionales de constancia/rendimiento. */
 
 const BADGE_DEFS = [
-  { id: "b_start", icon: "🌱", name: "Primer paso", check: s => Object.keys(s.levels).length > 0 },
-  { id: "b_5levels", icon: "🔥", name: "5 niveles", check: s => Object.values(s.levels).filter(l => l.completed).length >= 5 },
-  { id: "b_10levels", icon: "⚡", name: "10 niveles", check: s => Object.values(s.levels).filter(l => l.completed).length >= 10 },
-  { id: "b_alllevels", icon: "👑", name: "Todos los niveles base", check: s => Object.values(s.levels).filter(l => l.completed).length >= 16 },
-  { id: "b_perfectquiz", icon: "🎯", name: "Quiz perfecto", check: s => Object.values(s.levels).some(l => l.quizDone && l.quizTotal > 0 && l.quizScore === l.quizTotal) },
-  { id: "b_exam1", icon: "🏁", name: "Primer simulacro superado", check: s => s.examHistory.some(e => e.score / e.total >= 0.7) },
-  { id: "b_expert", icon: "🏆", name: "Nivel experto superado", check: s => s.examHistory.some(e => e.levelId === 17 && e.score / e.total >= 0.7) },
-  { id: "b_reviewer", icon: "🧠", name: "Repasador aplicado", check: s => s.errorLog.length >= 10 },
-  { id: "b_streak3", icon: "📅", name: "Racha de 3 días", check: s => s.streakDays >= 3 }
+  { id: "badge_sql_explorer", icon: "🏅", name: "SQL Explorer", group: "rango", desc: "Completa el Nivel 1 · SELECT básico.", check: s => !!(s.levels[1] && s.levels[1].completed) },
+  { id: "badge_join_master", icon: "🏅", name: "Join Master", group: "rango", desc: "Completa el Nivel 8 · JOINs.", check: s => !!(s.levels[8] && s.levels[8].completed) },
+  { id: "badge_aggregate_expert", icon: "🏅", name: "Aggregate Expert", group: "rango", desc: "Completa el Nivel 7 · GROUP BY y HAVING.", check: s => !!(s.levels[7] && s.levels[7].completed) },
+  { id: "badge_subquery_hunter", icon: "🏅", name: "Subquery Hunter", group: "rango", desc: "Completa el Nivel 9 · Subconsultas.", check: s => !!(s.levels[9] && s.levels[9].completed) },
+  { id: "badge_oracle_specialist", icon: "🏅", name: "Oracle Specialist", group: "rango", desc: "Completa el Nivel 15 · Control de transacciones.", check: s => !!(s.levels[15] && s.levels[15].completed) },
+  { id: "badge_certification_ready", icon: "🏅", name: "Certification Ready", group: "rango", desc: "Completa los 16 niveles base (N0 a N15).", check: s => APP_DATA.levels.filter(l => !l.isExamLevel).every(l => s.levels[l.id] && s.levels[l.id].completed) },
+
+  { id: "b_start", icon: "🌱", name: "Primer paso", group: "logro", desc: "Empieza a trabajar en cualquier nivel.", check: s => Object.keys(s.levels).length > 0 },
+  { id: "b_perfectquiz", icon: "🎯", name: "Quiz perfecto", group: "logro", desc: "Acierta el 100% de las preguntas del quiz de un nivel.", check: s => Object.values(s.levels).some(l => l.quizDone && l.quizTotal > 0 && l.quizScore === l.quizTotal) },
+  { id: "b_exam1", icon: "🏁", name: "Primer simulacro superado", group: "logro", desc: "Aprueba (≥70%) cualquier simulacro cronometrado.", check: s => s.examHistory.some(e => e.score / e.total >= 0.7) },
+  { id: "b_expert", icon: "🏆", name: "Nivel experto superado", group: "logro", desc: "Aprueba (≥70%) el simulacro del Nivel Experto.", check: s => s.examHistory.some(e => e.levelId === 17 && e.score / e.total >= 0.7) },
+  { id: "b_reviewer", icon: "🧠", name: "Repasador aplicado", group: "logro", desc: "Acumula 10 elementos en tu registro de errores (señal de que practicas de verdad).", check: s => s.errorLog.length >= 10 },
+  { id: "b_streak3", icon: "📅", name: "Racha de 3 días", group: "logro", desc: "Entra a estudiar 3 días seguidos.", check: s => s.streakDays >= 3 }
 ];
 
 function checkBadges() {
@@ -154,6 +206,12 @@ function maybeCompleteLevel(level) {
 
 /* ---------------- Métricas agregadas (dashboard / landing) ---------------- */
 
+function completedCoreLevelsCount() {
+  // Solo cuenta niveles base (0-15), nunca los niveles de simulacro (16/EXP),
+  // para que el % de certificación no se infle al aprobar un examen cronometrado.
+  return APP_DATA.levels.filter(l => !l.isExamLevel && getLevelState(l.id).completed).length;
+}
+
 function totalExercisesCount() { return APP_DATA.levels.reduce((s, l) => s + l.exercises.length, 0); }
 function totalExercisesDoneCount() { return Object.values(STATE.levels).reduce((s, l) => s + (l.exercisesDone ? l.exercisesDone.length : 0), 0); }
 function totalChallengesCount() { return APP_DATA.levels.reduce((s, l) => s + l.challenges.length, 0); }
@@ -164,7 +222,7 @@ function totalQuizPreguntas() { return Object.values(STATE.levels).reduce((s, l)
 function pendingErrorsCount() { return STATE.errorLog.filter(e => !e.mastered).length; }
 
 function overallCertificationPercent() {
-  const completed = Object.values(STATE.levels).filter(l => l.completed).length;
+  const completed = completedCoreLevelsCount();
   const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
   return totalLevels === 0 ? 0 : Math.round((completed / totalLevels) * 100);
 }
@@ -182,7 +240,7 @@ function findNextLevelToStudy() {
 
 function getMotivationalMessage() {
   const pct = overallCertificationPercent();
-  const completed = Object.values(STATE.levels).filter(l => l.completed).length;
+  const completed = completedCoreLevelsCount();
   const remainingToSim = Math.max(0, 16 - completed);
   if (pct >= 100) return { icon: "🏆", text: "¡Has completado todos los niveles! Estás listo para el simulacro final y el nivel experto." };
   if (STATE.examHistory.some(e => e.levelId === 17 && e.score / e.total >= PASS_RATIO)) return { icon: "👑", text: "Has superado el nivel experto. ¡Dominas la certificación Oracle 1Z0-071!" };
@@ -282,7 +340,9 @@ function renderHeroStats() {
     return;
   }
   const pct = overallCertificationPercent();
+  const rank = getCurrentRank();
   el.innerHTML = `
+    <div class="hero-stat"><strong>${rank.icon} ${rank.name}</strong>rango actual</div>
     <div class="hero-stat"><strong>${STATE.xp}</strong>XP acumulada</div>
     <div class="hero-stat"><strong>${pct}%</strong>hacia la certificación</div>
     <div class="hero-stat"><strong>${STATE.badges.length}</strong>insignias</div>
@@ -345,7 +405,7 @@ function navigate(view, levelId) {
 
 function renderTopStats() {
   document.getElementById("xp-value").textContent = STATE.xp;
-  const completed = Object.values(STATE.levels).filter(l => l.completed).length;
+  const completed = completedCoreLevelsCount();
   const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
   document.getElementById("xp-levels-done").textContent = `${completed}/${totalLevels} niveles`;
   document.getElementById("xp-streak").textContent = STATE.streakDays;
@@ -353,6 +413,9 @@ function renderTopStats() {
   if (topbarStreak) topbarStreak.textContent = STATE.streakDays; // antes quedaba siempre en 0
   const pct = Math.min(100, Math.round((completed / totalLevels) * 100));
   document.getElementById("xp-progress-fill").style.width = pct + "%";
+  const rank = getCurrentRank();
+  const sidebarRank = document.getElementById("sidebar-rank");
+  if (sidebarRank) sidebarRank.textContent = `${rank.icon} ${rank.name}`;
 }
 
 function renderSidebar() {
@@ -378,9 +441,11 @@ function renderSidebar() {
 
 function renderDashboard() {
   const el = document.getElementById("view-dashboard");
-  const completed = Object.values(STATE.levels).filter(l => l.completed).length;
+  const completed = completedCoreLevelsCount();
   const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
   const certPct = overallCertificationPercent();
+  const rank = getCurrentRank();
+  const nextRank = getNextRank();
   const quizDoneCount = totalQuizzesCompletedCount();
   const aciertos = totalQuizAciertos();
   const preguntas = totalQuizPreguntas();
@@ -418,6 +483,11 @@ function renderDashboard() {
 
     <div class="motivational-banner"><span class="mb-icon">${msg.icon}</span><span>${msg.text}</span></div>
 
+    <div class="rank-card">
+      ${renderRankStepper()}
+      <p class="rank-caption">${nextRank ? `Te ${(nextRank.min - completed) === 1 ? "falta 1 nivel" : "faltan " + (nextRank.min - completed) + " niveles"} para alcanzar <strong>${nextRank.icon} ${nextRank.name}</strong>.` : `🎉 Has alcanzado el rango máximo: <strong>${rank.icon} ${rank.name}</strong>.`}</p>
+    </div>
+
     <div class="progress-ring-row">
       <div class="ring-card">
         ${circularProgressSVG(certPct, "var(--accent)")}
@@ -434,7 +504,7 @@ function renderDashboard() {
     </div>
 
     <div class="kpi-row">
-      <div class="kpi-card"><div class="num">Nivel ${Math.min(completed + 1, totalLevels)}</div><div class="lbl">Nivel actual</div></div>
+      <div class="kpi-card"><div class="num">${rank.icon} ${rank.name}</div><div class="lbl">Rango actual · ${completed}/${totalLevels} niveles</div></div>
       <div class="kpi-card"><div class="num">${STATE.xp}</div><div class="lbl">XP acumulada</div></div>
       <div class="kpi-card"><div class="num">${STATE.badges.length}/${BADGE_DEFS.length}</div><div class="lbl">Insignias desbloqueadas</div></div>
       <div class="kpi-card"><div class="num">${quizDoneCount}/${totalLevels}</div><div class="lbl">Quiz completados</div></div>
@@ -554,22 +624,27 @@ function renderExercises(level) {
       <p>${escapeHtml(ex.prompt)}</p>
       <details><summary>💡 Ver pista</summary><div>${escapeHtml(ex.hint)}</div></details>
       <details><summary>🔎 Ver solución</summary><div><pre class="code-block">${escapeHtml(ex.solution)}</pre></div></details>
-      <div style="margin-top:12px;">
-        <button class="btn ${done ? "secondary" : ""}" ${done ? "disabled" : ""} onclick="markExerciseDone(${level.id}, ${idx})">
-          ${done ? "Ejercicio completado" : "Marcar como resuelto (+" + XP_RULES.exercise + " XP)"}
+      <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn ${done ? "secondary" : ""}" ${done ? "disabled" : ""} onclick="markExerciseDone(${level.id}, ${idx}, false)">
+          ${done ? "Ejercicio completado" : "✅ Lo conseguí (+" + XP_RULES.exercise + " XP)"}
         </button>
+        ${!done ? `<button class="btn secondary" onclick="markExerciseDone(${level.id}, ${idx}, true)">🙈 Necesité la solución</button>` : ""}
       </div>
     </div>`;
   }).join("");
 }
 
-function markExerciseDone(levelId, idx) {
+function markExerciseDone(levelId, idx, neededHelp) {
   const ls = getLevelState(levelId);
   if (ls.exercisesDone.includes(idx)) return;
   ls.exercisesDone.push(idx);
   saveState();
   addXP(XP_RULES.exercise);
   const level = APP_DATA.levels.find(l => l.id === levelId);
+  if (neededHelp) {
+    const ex = level.exercises[idx];
+    logError({ kind: "exercise", title: ex.title, prompt: ex.prompt, solution: ex.solution, topic: level.title });
+  }
   maybeCompleteLevel(level);
   renderLevel(levelId);
   selectTab("ejercicios");
@@ -586,22 +661,27 @@ function renderChallenges(level) {
       <h4>${diffLabel} ${done ? "✅" : ""}<span class="diff-badge">${"⭐".repeat(ch.level)}</span></h4>
       <p>${escapeHtml(ch.prompt)}</p>
       <details><summary>🔎 Ver solución propuesta</summary><div><pre class="code-block">${escapeHtml(ch.solution)}</pre></div></details>
-      <div style="margin-top:12px;">
-        <button class="btn ${done ? "secondary" : ""}" ${done ? "disabled" : ""} onclick="markChallengeDone(${level.id}, ${idx})">
-          ${done ? "Reto superado" : "Marcar como superado (+" + XP_RULES.challenge + " XP)"}
+      <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn ${done ? "secondary" : ""}" ${done ? "disabled" : ""} onclick="markChallengeDone(${level.id}, ${idx}, false)">
+          ${done ? "Reto superado" : "✅ Lo conseguí (+" + XP_RULES.challenge + " XP)"}
         </button>
+        ${!done ? `<button class="btn secondary" onclick="markChallengeDone(${level.id}, ${idx}, true)">🙈 Necesité la solución</button>` : ""}
       </div>
     </div>`;
   }).join("");
 }
 
-function markChallengeDone(levelId, idx) {
+function markChallengeDone(levelId, idx, neededHelp) {
   const ls = getLevelState(levelId);
   if (ls.challengesDone.includes(idx)) return;
   ls.challengesDone.push(idx);
   saveState();
   addXP(XP_RULES.challenge);
   const level = APP_DATA.levels.find(l => l.id === levelId);
+  if (neededHelp) {
+    const ch = level.challenges[idx];
+    logError({ kind: "challenge", title: "Reto de nivel " + ch.level, prompt: ch.prompt, solution: ch.solution, topic: level.title });
+  }
   maybeCompleteLevel(level);
   renderLevel(levelId);
   selectTab("retos");
@@ -698,9 +778,36 @@ function logError(entry) {
   entry.id = "err_" + Date.now() + "_" + Math.floor(Math.random() * 10000);
   entry.ts = Date.now();
   entry.mastered = false;
+  entry.kind = entry.kind || "quiz"; // "quiz" (pregunta fallada) | "exercise" | "challenge" (necesitó la solución)
   STATE.errorLog.unshift(entry);
   saveState();
   checkBadges();
+}
+
+function renderErrorCard(e, canMaster) {
+  if (e.kind === "exercise" || e.kind === "challenge") {
+    return `
+    <div class="error-card">
+      <div class="eq">${e.kind === "exercise" ? "✏️" : "🚀"} ${escapeHtml(e.title || "")}</div>
+      <p style="color:var(--text-dim); font-size:13px; margin:0 0 10px;">${escapeHtml(e.prompt)}</p>
+      <details><summary>🔎 Ver solución</summary><div><pre class="code-block">${escapeHtml(e.solution)}</pre></div></details>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+        <span class="pill">${escapeHtml(e.topic)}</span>
+        ${canMaster ? `<button class="btn secondary" onclick="masterError('${e.id}')">Ya lo domino ✓</button>` : ""}
+      </div>
+    </div>`;
+  }
+  return `
+    <div class="error-card">
+      <div class="eq">${escapeHtml(e.question)}</div>
+      <div class="your-answer">Tu respuesta: ${escapeHtml(e.options[e.yourIndex])}</div>
+      <div class="right-answer">Correcta: ${escapeHtml(e.options[e.correctIndex])}</div>
+      <div class="explain-box">${escapeHtml(e.explain)}</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+        <span class="pill">${escapeHtml(e.topic)}</span>
+        ${canMaster ? `<button class="btn secondary" onclick="masterError('${e.id}')">Ya lo domino ✓</button>` : ""}
+      </div>
+    </div>`;
 }
 
 function renderErrors() {
@@ -713,25 +820,24 @@ function renderErrors() {
     return;
   }
 
-  const renderCard = (e, canMaster) => `
-    <div class="error-card">
-      <div class="eq">${escapeHtml(e.question)}</div>
-      <div class="your-answer">Tu respuesta: ${escapeHtml(e.options[e.yourIndex])}</div>
-      <div class="right-answer">Correcta: ${escapeHtml(e.options[e.correctIndex])}</div>
-      <div class="explain-box">${escapeHtml(e.explain)}</div>
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
-        <span class="pill">${escapeHtml(e.topic)}</span>
-        ${canMaster ? `<button class="btn secondary" onclick="masterError('${e.id}')">Ya lo domino ✓</button>` : ""}
-      </div>
-    </div>`;
+  const total = STATE.errorLog.length;
+  const masteredPct = total ? Math.round((mastered.length / total) * 100) : 0;
 
   el.innerHTML = `
     <div class="dash-header">
       <h2>Repaso de errores</h2>
       <p>${pending.length} pendientes de repasar · ${mastered.length} ya dominados</p>
     </div>
-    ${pending.map(e => renderCard(e, true)).join("") || "<div class='card'><p>No tienes errores pendientes ahora mismo. 🎉</p></div>"}
-    ${mastered.length ? `<h3 style="margin-top:26px; color:var(--text-dim); font-size:14px;">Dominados</h3>${mastered.map(e => renderCard(e, false)).join("")}` : ""}
+
+    <div class="ring-card evolution-card">
+      ${circularProgressSVG(masteredPct, "var(--green)")}
+      <div><div class="ring-label">Evolución</div><div class="ring-value">${mastered.length}/${total} errores dominados</div></div>
+    </div>
+
+    ${pending.length ? `<button class="btn" style="margin-bottom:20px;" onclick="startErrorReview()">🔁 Repasar solo estos errores (${pending.length})</button>` : ""}
+
+    ${pending.map(e => renderErrorCard(e, true)).join("") || "<div class='card'><p>No tienes errores pendientes ahora mismo. 🎉</p></div>"}
+    ${mastered.length ? `<h3 style="margin-top:26px; color:var(--text-dim); font-size:14px;">Dominados</h3>${mastered.map(e => renderErrorCard(e, false)).join("")}` : ""}
   `;
 }
 
@@ -739,27 +845,127 @@ function masterError(id) {
   const e = STATE.errorLog.find(x => x.id === id);
   if (e) e.mastered = true;
   saveState();
+  checkBadges();
   renderErrors();
+}
+
+/* ---------------- Repaso dirigido: "repetir solo errores" (Fase 5) ---------------- */
+
+let REVIEW_STATE = null;
+
+function startErrorReview() {
+  const pending = STATE.errorLog.filter(e => !e.mastered);
+  if (!pending.length) return;
+  REVIEW_STATE = { items: shuffle(pending), index: 0, correct: 0 };
+  renderReviewItem();
+}
+
+function renderReviewItem() {
+  const el = document.getElementById("view-errors");
+  const { items, index } = REVIEW_STATE;
+  if (index >= items.length) { finishErrorReview(); return; }
+  const e = items[index];
+
+  if (e.kind === "exercise" || e.kind === "challenge") {
+    el.innerHTML = `
+      <div class="dash-header"><h2>Repasando errores</h2><p>Elemento ${index + 1} de ${items.length}</p></div>
+      <div class="card">
+        <span class="pill">${e.kind === "exercise" ? "✏️ Ejercicio" : "🚀 Reto"} · ${escapeHtml(e.topic)}</span>
+        <h4 style="margin-top:10px;">${escapeHtml(e.title || "")}</h4>
+        <p>${escapeHtml(e.prompt)}</p>
+        <details><summary>🔎 Ver solución</summary><div><pre class="code-block">${escapeHtml(e.solution)}</pre></div></details>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn" onclick="reviewAnswer(true)">✅ Ahora sí lo tengo</button>
+          <button class="btn secondary" onclick="reviewAnswer(false)">🔁 Todavía no</button>
+        </div>
+      </div>`;
+    return;
+  }
+
+  el.innerHTML = `
+    <div class="dash-header"><h2>Repasando errores</h2><p>Pregunta ${index + 1} de ${items.length}</p></div>
+    <div class="card">
+      <span class="pill">${escapeHtml(e.topic)}</span>
+      <p class="quiz-question" style="margin-top:10px;">${escapeHtml(e.question)}</p>
+      <div class="option-list">
+        ${e.options.map((opt, i) => `<button class="option-btn" data-i="${i}">${escapeHtml(opt)}</button>`).join("")}
+      </div>
+      <div id="review-explain"></div>
+      <button class="btn" id="review-next-btn" style="display:none;">Siguiente ➜</button>
+    </div>`;
+  el.querySelectorAll(".option-btn").forEach(btn => {
+    btn.onclick = () => reviewAnswerQuiz(parseInt(btn.dataset.i, 10));
+  });
+}
+
+function reviewAnswerQuiz(selectedIdx) {
+  const { items, index } = REVIEW_STATE;
+  const e = items[index];
+  const correct = selectedIdx === e.correctIndex;
+  document.querySelectorAll(".option-btn").forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === e.correctIndex) btn.classList.add("correct");
+    else if (i === selectedIdx) btn.classList.add("incorrect");
+  });
+  document.getElementById("review-explain").innerHTML = `<div class="explain-box">${correct ? "✅ ¡Correcto! " : "❌ Todavía no. "}${escapeHtml(e.explain)}</div>`;
+  document.getElementById("review-next-btn").style.display = "inline-block";
+  if (correct) { masterErrorSilent(e.id); REVIEW_STATE.correct++; }
+  document.getElementById("review-next-btn").onclick = () => { REVIEW_STATE.index++; renderReviewItem(); };
+}
+
+function reviewAnswer(gotIt) {
+  const { items, index } = REVIEW_STATE;
+  if (gotIt) { masterErrorSilent(items[index].id); REVIEW_STATE.correct++; }
+  REVIEW_STATE.index++;
+  renderReviewItem();
+}
+
+function masterErrorSilent(id) {
+  const e = STATE.errorLog.find(x => x.id === id);
+  if (e) e.mastered = true;
+  saveState();
+}
+
+function finishErrorReview() {
+  const el = document.getElementById("view-errors");
+  const { items, correct } = REVIEW_STATE;
+  checkBadges();
+  el.innerHTML = `
+    <div class="card quiz-result">
+      <div class="big-score">${correct}/${items.length}</div>
+      <p style="margin-top:8px;">Errores dominados en esta ronda de repaso.</p>
+      <button class="btn" style="margin-top:16px;" onclick="navigate('errors')">Volver al listado</button>
+    </div>`;
+  REVIEW_STATE = null;
 }
 
 /* ---------------- Insignias ---------------- */
 
+function renderBadgeGroup(list) {
+  return list.map(b => {
+    const unlocked = STATE.badges.includes(b.id);
+    return `<div class="badge-item ${unlocked ? "" : "locked"}">
+      <span class="b-icon">${b.icon}</span>
+      <span class="b-name">${b.name}</span>
+      <span class="b-state ${unlocked ? "unlocked" : ""}">${unlocked ? "✓ Desbloqueada" : "Pendiente"}</span>
+      ${!unlocked ? `<span class="b-desc">${escapeHtml(b.desc)}</span>` : ""}
+    </div>`;
+  }).join("");
+}
+
 function renderBadges() {
   const el = document.getElementById("view-badges");
+  const rankBadges = BADGE_DEFS.filter(b => b.group === "rango");
+  const achievementBadges = BADGE_DEFS.filter(b => b.group === "logro");
   el.innerHTML = `
     <div class="dash-header">
       <h2>Insignias</h2>
       <p>${STATE.badges.length} de ${BADGE_DEFS.length} desbloqueadas</p>
     </div>
-    <div class="badge-grid">
-      ${BADGE_DEFS.map(b => {
-        const unlocked = STATE.badges.includes(b.id);
-        return `<div class="badge-item ${unlocked ? "" : "locked"}">
-          <span class="b-icon">${b.icon}</span>
-          <span class="b-name">${b.name}</span>
-        </div>`;
-      }).join("")}
-    </div>
+    <h3 class="badge-section-title">🎓 Progreso de certificación</h3>
+    <div class="badge-grid">${renderBadgeGroup(rankBadges)}</div>
+    <h3 class="badge-section-title">🏆 Logros</h3>
+    <div class="badge-grid">${renderBadgeGroup(achievementBadges)}</div>
   `;
 }
 
