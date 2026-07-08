@@ -10,6 +10,11 @@
 </head>
 <body>
 
+<div id="demo-banner" class="demo-banner hidden">
+  🎬 MODO DEMO — datos ficticios con fines de presentación
+  <button class="btn secondary" id="btn-exit-demo">Salir del modo demo</button>
+</div>
+
 <!-- ================= LANDING ================= -->
 <div id="landing" class="landing">
   <header class="landing-header">
@@ -31,14 +36,56 @@
       <h1>Oracle SQL Quest</h1>
       <p class="hero-sub">Preparación gamificada para la certificación Oracle Database SQL 1Z0-071.</p>
       <div class="hero-actions">
-        <button class="btn btn-hero" id="btn-start-mission">🚀 Comenzar misión</button>
-        <button class="btn secondary btn-hero" id="btn-continue-learning">📚 Continuar aprendizaje</button>
+        <button class="btn btn-hero" id="btn-start-mission">🚀 Continuar preparación</button>
+        <button class="btn secondary btn-hero" id="btn-take-exam">🎓 Realizar simulador</button>
+        <button class="btn secondary btn-hero" id="btn-continue-learning">📚 Ver mi progreso</button>
       </div>
       <div class="hero-stats" id="hero-stats"></div>
     </div>
   </section>
 
   <section class="landing-cards" id="landing-cards"></section>
+
+  <section class="why-section">
+    <h2>¿Por qué existe Oracle SQL Quest?</h2>
+    <p>
+      Esta plataforma nace para centralizar la preparación de la certificación Oracle Database SQL 1Z0-071
+      mediante una experiencia gamificada que permite:
+    </p>
+    <ul class="why-list">
+      <li>📈 Aprender de forma progresiva, nivel a nivel.</li>
+      <li>📊 Medir el avance con datos reales, no sensaciones.</li>
+      <li>🎯 Detectar debilidades por tema antes del examen real.</li>
+      <li>🚀 Aumentar la tasa de éxito en certificaciones técnicas.</li>
+    </ul>
+  </section>
+
+  <section class="value-section">
+    <h2>Valor para Stemdo</h2>
+    <div class="value-grid">
+      <div class="value-card">
+        <h4>Beneficios</h4>
+        <ul>
+          <li>Centralización del conocimiento de certificación.</li>
+          <li>Formación autónoma, sin depender de un formador.</li>
+          <li>Seguimiento real del progreso de cada persona.</li>
+          <li>Preparación efectiva para certificaciones oficiales.</li>
+          <li>Arquitectura escalable a otras tecnologías.</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <h4>Futuro</h4>
+        <p style="color:var(--text-dim); font-size:13px; margin-bottom:12px;">Misma plataforma, mismo motor de gamificación, nuevo contenido:</p>
+        <div class="future-chips">
+          <span class="future-chip">🔜 Oracle PL/SQL</span>
+          <span class="future-chip">🔜 Data Engineering</span>
+          <span class="future-chip">🔜 Python</span>
+          <span class="future-chip">🔜 IA Generativa</span>
+          <span class="future-chip">🔜 Cloud</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer class="landing-footer">
     <span>Stemdo · Oracle SQL Quest — plataforma interna de formación</span>
@@ -76,8 +123,11 @@
 
     <div class="sidebar-footer">
       <button class="ghost-btn" id="btn-dashboard" data-view="dashboard">🗺️ Mapa general</button>
+      <button class="ghost-btn" id="btn-analytics" data-view="analytics">📊 Analytics</button>
       <button class="ghost-btn" id="btn-errors" data-view="errors">🧠 Repaso de errores</button>
       <button class="ghost-btn" id="btn-badges" data-view="badges">🏅 Insignias</button>
+      <button class="ghost-btn" id="btn-certificate" data-view="certificate">🎓 Certificado</button>
+      <button class="ghost-btn" id="btn-demo">🎬 Ver demostración</button>
       <button class="ghost-btn" id="btn-reset">♻️ Reiniciar progreso</button>
     </div>
   </aside>
@@ -96,6 +146,8 @@
     <section id="view-level" class="view"></section>
     <section id="view-errors" class="view"></section>
     <section id="view-badges" class="view"></section>
+    <section id="view-analytics" class="view"></section>
+    <section id="view-certificate" class="view"></section>
   </main>
 
 </div>

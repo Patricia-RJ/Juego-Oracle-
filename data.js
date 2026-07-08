@@ -12,7 +12,7 @@ levels: [
 // NIVEL 0
 // =====================================================================
 {
-  id: 0, code: "N0", icon: "🏛️",
+  id: 0, code: "N0", icon: "🏛️", category: "SELECT",
   title: "Introducción a bases de datos y SQL",
   intro: "Qué es una base de datos relacional, dónde encaja Oracle y cómo se organiza el lenguaje SQL.",
   theory: [
@@ -81,7 +81,7 @@ levels: [
 // NIVEL 1
 // =====================================================================
 {
-  id: 1, code: "N1", icon: "🔍",
+  id: 1, code: "N1", icon: "🔍", category: "SELECT",
   title: "SELECT básico",
   intro: "La instrucción más usada en SQL: elegir columnas y tablas.",
   theory: [
@@ -135,7 +135,7 @@ levels: [
 // NIVEL 2
 // =====================================================================
 {
-  id: 2, code: "N2", icon: "🧭",
+  id: 2, code: "N2", icon: "🧭", category: "SELECT",
   title: "WHERE, operadores, comparaciones y condiciones",
   intro: "Filtrar filas según condiciones numéricas, de texto y de fecha.",
   theory: [
@@ -196,7 +196,7 @@ levels: [
 // NIVEL 3
 // =====================================================================
 {
-  id: 3, code: "N3", icon: "🔤",
+  id: 3, code: "N3", icon: "🔤", category: "SELECT",
   title: "ORDER BY, DISTINCT, alias y concatenación",
   intro: "Ordenar resultados, eliminar duplicados y construir texto combinado.",
   theory: [
@@ -252,7 +252,7 @@ levels: [
 // NIVEL 4
 // =====================================================================
 {
-  id: 4, code: "N4", icon: "🧩",
+  id: 4, code: "N4", icon: "🧩", category: "Funciones",
   title: "Funciones de una sola fila (visión general)",
   intro: "Cómo se clasifican las funciones que Oracle aplica fila a fila, antes de entrar en detalle.",
   theory: [
@@ -296,7 +296,7 @@ levels: [
 // NIVEL 5
 // =====================================================================
 {
-  id: 5, code: "N5", icon: "🛠️",
+  id: 5, code: "N5", icon: "🛠️", category: "Funciones",
   title: "Funciones numéricas, texto, fechas y conversión",
   intro: "El bloque de funciones más denso del examen: casi todo es contenido añadido respecto a tus apuntes.",
   theory: [
@@ -369,7 +369,7 @@ levels: [
 // NIVEL 6
 // =====================================================================
 {
-  id: 6, code: "N6", icon: "📊",
+  id: 6, code: "N6", icon: "📊", category: "GROUP BY",
   title: "Funciones de grupo",
   intro: "Resumir muchas filas en un solo valor: COUNT, SUM, AVG, MIN, MAX y algo más.",
   theory: [
@@ -425,7 +425,7 @@ levels: [
 // NIVEL 7
 // =====================================================================
 {
-  id: 7, code: "N7", icon: "🗂️",
+  id: 7, code: "N7", icon: "🗂️", category: "GROUP BY",
   title: "GROUP BY y HAVING",
   intro: "Agrupar filas para calcular agregados por grupo, y filtrar esos grupos.",
   theory: [
@@ -485,7 +485,7 @@ levels: [
 // NIVEL 8
 // =====================================================================
 {
-  id: 8, code: "N8", icon: "🔗",
+  id: 8, code: "N8", icon: "🔗", category: "JOINS",
   title: "JOINs",
   intro: "Combinar filas de varias tablas relacionadas, con sintaxis ANSI y con la sintaxis clásica de Oracle.",
   theory: [
@@ -550,7 +550,7 @@ levels: [
 // NIVEL 9
 // =====================================================================
 {
-  id: 9, code: "N9", icon: "🪆",
+  id: 9, code: "N9", icon: "🪆", category: "Subconsultas",
   title: "Subconsultas",
   intro: "Consultas dentro de consultas: en WHERE, en SELECT, en FROM, correlacionadas y con EXISTS.",
   theory: [
@@ -617,7 +617,7 @@ levels: [
 // NIVEL 10
 // =====================================================================
 {
-  id: 10, code: "N10", icon: "➗",
+  id: 10, code: "N10", icon: "➗", category: "SELECT",
   title: "Operadores de conjunto",
   intro: "Combinar los resultados de dos o más SELECT compatibles.",
   theory: [
@@ -674,7 +674,7 @@ levels: [
 // NIVEL 11
 // =====================================================================
 {
-  id: 11, code: "N11", icon: "✍️",
+  id: 11, code: "N11", icon: "✍️", category: "DML",
   title: "INSERT, UPDATE y DELETE",
   intro: "Las tres sentencias DML clásicas, más MERGE e INSERT multitabla, propios de Oracle.",
   theory: [
@@ -740,7 +740,7 @@ levels: [
 // NIVEL 12
 // =====================================================================
 {
-  id: 12, code: "N12", icon: "🏗️",
+  id: 12, code: "N12", icon: "🏗️", category: "DDL",
   title: "CREATE TABLE, ALTER TABLE y DROP TABLE",
   intro: "Crear y modificar la estructura de las tablas con sintaxis y tipos de dato Oracle.",
   theory: [
@@ -798,7 +798,7 @@ levels: [
 // NIVEL 13
 // =====================================================================
 {
-  id: 13, code: "N13", icon: "🔒",
+  id: 13, code: "N13", icon: "🔒", category: "Restricciones",
   title: "Constraints",
   intro: "Reglas de integridad: NOT NULL, PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, y su gestión en Oracle.",
   theory: [
@@ -862,7 +862,7 @@ levels: [
 // NIVEL 14
 // =====================================================================
 {
-  id: 14, code: "N14", icon: "🧰",
+  id: 14, code: "N14", icon: "🧰", category: "DDL",
   title: "Vistas, secuencias, sinónimos e índices",
   intro: "Objetos de esquema más allá de las tablas: casi todo el detalle de sintaxis Oracle es contenido añadido.",
   theory: [
@@ -926,7 +926,7 @@ levels: [
 // NIVEL 15
 // =====================================================================
 {
-  id: 15, code: "N15", icon: "🔁",
+  id: 15, code: "N15", icon: "🔁", category: "DML",
   title: "Control de transacciones: COMMIT, ROLLBACK y SAVEPOINT",
   intro: "Bloque completo ausente de tus apuntes originales: cómo Oracle agrupa cambios en transacciones.",
   theory: [
@@ -988,7 +988,7 @@ levels: [
 // NIVEL 16 — SIMULACROS
 // =====================================================================
 {
-  id: 16, code: "N16", icon: "⏱️",
+  id: 16, code: "N16", icon: "⏱️", category: null,
   title: "Simulacros tipo Oracle 1Z0-071",
   intro: "Exámenes cronometrados con preguntas mezcladas de todos los temas anteriores.",
   isExamLevel: true,
@@ -1013,7 +1013,7 @@ levels: [
 // NIVEL EXPERTO
 // =====================================================================
 {
-  id: 17, code: "EXP", icon: "🏆",
+  id: 17, code: "EXP", icon: "🏆", category: null,
   title: "Nivel experto — retos mezclados tipo examen real",
   intro: "El desafío final: preguntas de mayor dificultad, mezclando trampas típicas del examen 1Z0-071.",
   isExamLevel: true,
@@ -1039,68 +1039,68 @@ levels: [
 // Se combina con todas las preguntas de quiz de los niveles 0-15.
 // =====================================================================
 examBank: [
-  { q: "¿Qué devuelve 'SELECT 10/0 FROM DUAL;' en Oracle?", options: ["0", "NULL", "Error ORA-01476: divisor is equal to zero", "Infinito"], a: 2, exp: "Oracle lanza un error explícito de división por cero, no devuelve NULL ni infinito." },
-  { q: "¿Cuál es el resultado de 'SELECT NULL = NULL FROM DUAL;'?", options: ["TRUE", "FALSE", "NULL (desconocido)", "Error de sintaxis"], a: 2, exp: "Cualquier comparación con NULL da como resultado NULL (desconocido), nunca TRUE ni FALSE." },
-  { q: "¿Qué palabra clave usa Oracle para limitar filas de forma estándar SQL:2008 (12c en adelante)?", options: ["LIMIT", "TOP", "OFFSET ... FETCH NEXT ... ROWS ONLY", "ROWNUM_MAX"], a: 2, exp: "Oracle 12c introdujo OFFSET/FETCH; LIMIT no existe en Oracle." },
-  { q: "¿Qué pseudocolumna se usaba tradicionalmente en Oracle para limitar filas antes de 12c?", options: ["ROWID", "ROWNUM", "ROW_NUMBER_OVER", "LIMIT"], a: 1, exp: "ROWNUM numera las filas según se devuelven, y se usaba en WHERE ROWNUM <= n." },
-  { q: "¿Qué hace REGEXP_LIKE(columna, '^A')?", options: ["Busca filas donde la columna contiene la letra A en cualquier posición", "Busca filas donde la columna empieza por A", "Cuenta cuántas A hay", "Sustituye la A por otra letra"], a: 1, exp: "El símbolo ^ en una expresión regular indica inicio de cadena." },
-  { q: "¿Qué cláusula permite consultas jerárquicas en Oracle (por ejemplo un organigrama)?", options: ["HIERARCHY BY", "CONNECT BY ... START WITH", "GROUP BY ROLLUP", "PARTITION BY"], a: 1, exp: "CONNECT BY junto con START WITH y la pseudocolumna LEVEL permite recorrer jerarquías." },
-  { q: "En una consulta jerárquica con CONNECT BY, ¿qué pseudocolumna indica la profundidad del nodo?", options: ["DEPTH", "LEVEL", "PRIOR", "RANK"], a: 1, exp: "LEVEL devuelve 1 para la raíz, 2 para sus hijos, etc." },
-  { q: "¿Qué formato de fecha por defecto usa Oracle habitualmente al mostrar una DATE?", options: ["YYYY-MM-DD", "DD-MON-RR", "MM/DD/YYYY", "Depende siempre del sistema operativo"], a: 1, exp: "El formato NLS_DATE_FORMAT por defecto suele ser DD-MON-RR, aunque es configurable." },
-  { q: "¿Cuál es la diferencia entre CHAR(10) y VARCHAR2(10) en Oracle?", options: [
+  { category: "SELECT", q: "¿Qué devuelve 'SELECT 10/0 FROM DUAL;' en Oracle?", options: ["0", "NULL", "Error ORA-01476: divisor is equal to zero", "Infinito"], a: 2, exp: "Oracle lanza un error explícito de división por cero, no devuelve NULL ni infinito." },
+  { category: "SELECT", q: "¿Cuál es el resultado de 'SELECT NULL = NULL FROM DUAL;'?", options: ["TRUE", "FALSE", "NULL (desconocido)", "Error de sintaxis"], a: 2, exp: "Cualquier comparación con NULL da como resultado NULL (desconocido), nunca TRUE ni FALSE." },
+  { category: "SELECT", q: "¿Qué palabra clave usa Oracle para limitar filas de forma estándar SQL:2008 (12c en adelante)?", options: ["LIMIT", "TOP", "OFFSET ... FETCH NEXT ... ROWS ONLY", "ROWNUM_MAX"], a: 2, exp: "Oracle 12c introdujo OFFSET/FETCH; LIMIT no existe en Oracle." },
+  { category: "SELECT", q: "¿Qué pseudocolumna se usaba tradicionalmente en Oracle para limitar filas antes de 12c?", options: ["ROWID", "ROWNUM", "ROW_NUMBER_OVER", "LIMIT"], a: 1, exp: "ROWNUM numera las filas según se devuelven, y se usaba en WHERE ROWNUM <= n." },
+  { category: "Funciones", q: "¿Qué hace REGEXP_LIKE(columna, '^A')?", options: ["Busca filas donde la columna contiene la letra A en cualquier posición", "Busca filas donde la columna empieza por A", "Cuenta cuántas A hay", "Sustituye la A por otra letra"], a: 1, exp: "El símbolo ^ en una expresión regular indica inicio de cadena." },
+  { category: "SELECT", q: "¿Qué cláusula permite consultas jerárquicas en Oracle (por ejemplo un organigrama)?", options: ["HIERARCHY BY", "CONNECT BY ... START WITH", "GROUP BY ROLLUP", "PARTITION BY"], a: 1, exp: "CONNECT BY junto con START WITH y la pseudocolumna LEVEL permite recorrer jerarquías." },
+  { category: "SELECT", q: "En una consulta jerárquica con CONNECT BY, ¿qué pseudocolumna indica la profundidad del nodo?", options: ["DEPTH", "LEVEL", "PRIOR", "RANK"], a: 1, exp: "LEVEL devuelve 1 para la raíz, 2 para sus hijos, etc." },
+  { category: "Funciones", q: "¿Qué formato de fecha por defecto usa Oracle habitualmente al mostrar una DATE?", options: ["YYYY-MM-DD", "DD-MON-RR", "MM/DD/YYYY", "Depende siempre del sistema operativo"], a: 1, exp: "El formato NLS_DATE_FORMAT por defecto suele ser DD-MON-RR, aunque es configurable." },
+  { category: "DDL", q: "¿Cuál es la diferencia entre CHAR(10) y VARCHAR2(10) en Oracle?", options: [
       "Son idénticos", "CHAR siempre ocupa 10 caracteres rellenando con espacios; VARCHAR2 ocupa solo lo necesario",
       "VARCHAR2 rellena con ceros", "CHAR no admite texto"
     ], a: 1, exp: "CHAR es de longitud fija (rellena con espacios), VARCHAR2 es de longitud variable real." },
-  { q: "¿Qué hace TRUNC(SYSDATE) sin segundo argumento?", options: ["Da error", "Elimina la parte de hora, dejando la fecha a las 00:00:00", "Redondea al mes más cercano", "Convierte la fecha a texto"], a: 1, exp: "TRUNC sobre una fecha sin formato indicado trunca a día completo." },
-  { q: "¿Qué devuelve COALESCE(NULL, NULL, 5, 10)?", options: ["NULL", "5", "10", "Error, muchos argumentos NULL"], a: 1, exp: "COALESCE devuelve el primer valor no nulo de la lista, en este caso 5." },
-  { q: "¿Qué diferencia hay entre RANK y ROW_NUMBER en un contexto de funciones analíticas (concepto avanzado)?", options: [
+  { category: "Funciones", q: "¿Qué hace TRUNC(SYSDATE) sin segundo argumento?", options: ["Da error", "Elimina la parte de hora, dejando la fecha a las 00:00:00", "Redondea al mes más cercano", "Convierte la fecha a texto"], a: 1, exp: "TRUNC sobre una fecha sin formato indicado trunca a día completo." },
+  { category: "Funciones", q: "¿Qué devuelve COALESCE(NULL, NULL, 5, 10)?", options: ["NULL", "5", "10", "Error, muchos argumentos NULL"], a: 1, exp: "COALESCE devuelve el primer valor no nulo de la lista, en este caso 5." },
+  { category: "Funciones", q: "¿Qué diferencia hay entre RANK y ROW_NUMBER en un contexto de funciones analíticas (concepto avanzado)?", options: [
       "Son exactamente iguales", "RANK puede dejar huecos en el ranking cuando hay empates; ROW_NUMBER siempre asigna números consecutivos únicos",
       "ROW_NUMBER solo funciona con fechas", "RANK no existe en Oracle"
     ], a: 1, exp: "Con empates, RANK salta números (1,1,3) y ROW_NUMBER no (1,2,3)." },
-  { q: "¿Qué instrucción crea un usuario/rol y le concede permisos de solo lectura sobre una tabla?", options: ["GRANT SELECT ON tabla TO usuario;", "ALLOW SELECT ON tabla TO usuario;", "PERMIT SELECT tabla usuario;", "GIVE READ tabla TO usuario;"], a: 0, exp: "GRANT privilegio ON objeto TO usuario/rol; es la sintaxis DCL estándar." },
-  { q: "¿Qué instrucción retira un permiso previamente concedido?", options: ["DENY", "REVOKE", "CANCEL GRANT", "DROP PRIVILEGE"], a: 1, exp: "REVOKE privilegio ON objeto FROM usuario; retira el permiso." },
-  { q: "¿Qué vista del diccionario de datos muestra las columnas de tus propias tablas?", options: ["ALL_TABLES", "USER_TAB_COLUMNS", "DBA_USERS", "SYSTEM.COLUMNS"], a: 1, exp: "USER_TAB_COLUMNS lista columnas de los objetos propiedad del usuario actual." },
-  { q: "¿Qué hace 'SELECT * FROM employees FETCH FIRST 5 ROWS ONLY;'?", options: ["Da error de sintaxis en Oracle", "Devuelve las primeras 5 filas del resultado", "Devuelve todas las filas excepto las 5 primeras", "Cuenta cuántas filas hay"], a: 1, exp: "FETCH FIRST n ROWS ONLY es la sintaxis moderna de Oracle (12c+) para limitar filas, similar a LIMIT en otros motores." },
-  { q: "¿Qué operador de comparación de patrones usa REGEXP_LIKE frente a LIKE?", options: [
+  { category: "DDL", q: "¿Qué instrucción crea un usuario/rol y le concede permisos de solo lectura sobre una tabla?", options: ["GRANT SELECT ON tabla TO usuario;", "ALLOW SELECT ON tabla TO usuario;", "PERMIT SELECT tabla usuario;", "GIVE READ tabla TO usuario;"], a: 0, exp: "GRANT privilegio ON objeto TO usuario/rol; es la sintaxis DCL estándar." },
+  { category: "DDL", q: "¿Qué instrucción retira un permiso previamente concedido?", options: ["DENY", "REVOKE", "CANCEL GRANT", "DROP PRIVILEGE"], a: 1, exp: "REVOKE privilegio ON objeto FROM usuario; retira el permiso." },
+  { category: "DDL", q: "¿Qué vista del diccionario de datos muestra las columnas de tus propias tablas?", options: ["ALL_TABLES", "USER_TAB_COLUMNS", "DBA_USERS", "SYSTEM.COLUMNS"], a: 1, exp: "USER_TAB_COLUMNS lista columnas de los objetos propiedad del usuario actual." },
+  { category: "SELECT", q: "¿Qué hace 'SELECT * FROM employees FETCH FIRST 5 ROWS ONLY;'?", options: ["Da error de sintaxis en Oracle", "Devuelve las primeras 5 filas del resultado", "Devuelve todas las filas excepto las 5 primeras", "Cuenta cuántas filas hay"], a: 1, exp: "FETCH FIRST n ROWS ONLY es la sintaxis moderna de Oracle (12c+) para limitar filas, similar a LIMIT en otros motores." },
+  { category: "Funciones", q: "¿Qué operador de comparación de patrones usa REGEXP_LIKE frente a LIKE?", options: [
       "Son exactamente iguales", "REGEXP_LIKE admite expresiones regulares completas, LIKE solo admite % y _",
       "LIKE es más potente que REGEXP_LIKE", "REGEXP_LIKE no existe en Oracle"
     ], a: 1, exp: "REGEXP_LIKE permite patrones mucho más ricos (rangos, alternancias, cuantificadores)." },
-  { q: "¿Qué hace GROUPING SETS respecto a ROLLUP y CUBE?", options: [
+  { category: "GROUP BY", q: "¿Qué hace GROUPING SETS respecto a ROLLUP y CUBE?", options: [
       "Es sinónimo exacto de ROLLUP", "Permite definir manualmente exactamente qué combinaciones de agrupación calcular, sin generar todas las de CUBE",
       "Solo puede usarse con una columna", "No existe en Oracle"
     ], a: 1, exp: "GROUPING SETS da control total sobre qué subtotales calcular, a diferencia del comportamiento automático de ROLLUP/CUBE." },
-  { q: "¿Qué es más eficiente en general para comprobar existencia de filas relacionadas en tablas grandes: EXISTS o IN?", options: ["IN siempre", "EXISTS suele ser más eficiente porque para en la primera coincidencia", "Son siempre idénticos en rendimiento", "IN no se puede usar con subconsultas"], a: 1, exp: "EXISTS puede parar en cuanto encuentra una fila, mientras IN evalúa toda la lista de valores." },
-  { q: "¿Qué ocurre si defines una FOREIGN KEY sin especificar ON DELETE y tratas de borrar la fila padre con hijos existentes?", options: ["Se borra en cascada automáticamente", "Oracle lanza un error de violación de integridad (ORA-02292) y no permite el borrado", "Se pone a NULL la clave foránea", "No pasa nada, se ignora la relación"], a: 1, exp: "El comportamiento por defecto es restrictivo: protege la integridad impidiendo el borrado." },
-  { q: "¿Cuál es la sintaxis correcta para crear un índice compuesto sobre dos columnas?", options: ["CREATE INDEX idx ON tabla(col1); CREATE INDEX idx ON tabla(col2);", "CREATE INDEX idx ON tabla(col1, col2);", "CREATE COMPOUND INDEX idx ON tabla(col1 AND col2);", "CREATE INDEX idx ON tabla USING (col1, col2);"], a: 1, exp: "Basta con listar las columnas separadas por coma dentro del mismo CREATE INDEX." },
-  { q: "¿Qué devuelve NVL2(commission_pct, 'CON COMISION', 'SIN COMISION') cuando commission_pct es NULL?", options: ["CON COMISION", "SIN COMISION", "NULL", "Error"], a: 1, exp: "NVL2 evalúa la segunda expresión cuando el primer argumento es NULL." },
-  { q: "¿Qué tipo de JOIN produce el mismo resultado combinado que escribir dos tablas separadas por coma en el FROM sin condición WHERE?", options: ["INNER JOIN", "CROSS JOIN", "FULL JOIN", "NATURAL JOIN"], a: 1, exp: "FROM tabla1, tabla2 sin condición equivale a un CROSS JOIN (producto cartesiano)." },
-  { q: "¿Qué hace 'ALTER TABLE empleados MODIFY (salario NUMBER(4,2))' si ya existen salarios de 5 dígitos?", options: ["Trunca automáticamente los valores", "Da error porque los datos existentes no caben en la nueva precisión", "Redondea los valores al nuevo tamaño", "Convierte la columna a texto"], a: 1, exp: "Oracle valida que los datos existentes sean compatibles antes de aplicar el cambio de tipo." },
-  { q: "¿Qué mecanismo usa Oracle para que otras sesiones no vean cambios no confirmados (antes del COMMIT)?", options: ["Bloqueo total de la base de datos", "Consistencia de lectura (read consistency) mediante segmentos de deshacer", "Copia completa de la tabla por cada sesión", "No es posible, todos ven los cambios al instante"], a: 1, exp: "Oracle mantiene una 'foto' consistente para cada consulta usando información de undo." },
-  { q: "¿Qué produce 'SELECT department_id FROM employees INTERSECT SELECT department_id FROM job_history;'?", options: ["Todos los departamentos de ambas tablas sin duplicar", "Solo los department_id que aparecen en ambas tablas a la vez", "Los department_id de employees que no están en job_history", "Error de sintaxis"], a: 1, exp: "INTERSECT devuelve la intersección: filas presentes en ambos resultados." },
-  { q: "¿Qué palabra clave se usa junto a INSERT para introducir varias filas en varias tablas según condiciones en una sola sentencia?", options: ["INSERT MANY", "INSERT ALL", "MULTI INSERT", "INSERT BATCH"], a: 1, exp: "INSERT ALL (o INSERT FIRST) permite repartir una única consulta origen entre varias tablas destino." },
-  { q: "En 'WHERE salary BETWEEN 3000 AND 6000', ¿se incluyen los valores 3000 y 6000 exactos?", options: ["No, BETWEEN excluye siempre los extremos", "Sí, BETWEEN incluye ambos extremos", "Solo se incluye el valor menor", "Depende del tipo de dato"], a: 1, exp: "BETWEEN es inclusivo en ambos extremos del rango." },
-  { q: "¿Qué diferencia hay entre una vista normal y una vista materializada (concepto avanzado)?", options: [
+  { category: "Subconsultas", q: "¿Qué es más eficiente en general para comprobar existencia de filas relacionadas en tablas grandes: EXISTS o IN?", options: ["IN siempre", "EXISTS suele ser más eficiente porque para en la primera coincidencia", "Son siempre idénticos en rendimiento", "IN no se puede usar con subconsultas"], a: 1, exp: "EXISTS puede parar en cuanto encuentra una fila, mientras IN evalúa toda la lista de valores." },
+  { category: "Restricciones", q: "¿Qué ocurre si defines una FOREIGN KEY sin especificar ON DELETE y tratas de borrar la fila padre con hijos existentes?", options: ["Se borra en cascada automáticamente", "Oracle lanza un error de violación de integridad (ORA-02292) y no permite el borrado", "Se pone a NULL la clave foránea", "No pasa nada, se ignora la relación"], a: 1, exp: "El comportamiento por defecto es restrictivo: protege la integridad impidiendo el borrado." },
+  { category: "DDL", q: "¿Cuál es la sintaxis correcta para crear un índice compuesto sobre dos columnas?", options: ["CREATE INDEX idx ON tabla(col1); CREATE INDEX idx ON tabla(col2);", "CREATE INDEX idx ON tabla(col1, col2);", "CREATE COMPOUND INDEX idx ON tabla(col1 AND col2);", "CREATE INDEX idx ON tabla USING (col1, col2);"], a: 1, exp: "Basta con listar las columnas separadas por coma dentro del mismo CREATE INDEX." },
+  { category: "Funciones", q: "¿Qué devuelve NVL2(commission_pct, 'CON COMISION', 'SIN COMISION') cuando commission_pct es NULL?", options: ["CON COMISION", "SIN COMISION", "NULL", "Error"], a: 1, exp: "NVL2 evalúa la segunda expresión cuando el primer argumento es NULL." },
+  { category: "JOINS", q: "¿Qué tipo de JOIN produce el mismo resultado combinado que escribir dos tablas separadas por coma en el FROM sin condición WHERE?", options: ["INNER JOIN", "CROSS JOIN", "FULL JOIN", "NATURAL JOIN"], a: 1, exp: "FROM tabla1, tabla2 sin condición equivale a un CROSS JOIN (producto cartesiano)." },
+  { category: "DDL", q: "¿Qué hace 'ALTER TABLE empleados MODIFY (salario NUMBER(4,2))' si ya existen salarios de 5 dígitos?", options: ["Trunca automáticamente los valores", "Da error porque los datos existentes no caben en la nueva precisión", "Redondea los valores al nuevo tamaño", "Convierte la columna a texto"], a: 1, exp: "Oracle valida que los datos existentes sean compatibles antes de aplicar el cambio de tipo." },
+  { category: "DML", q: "¿Qué mecanismo usa Oracle para que otras sesiones no vean cambios no confirmados (antes del COMMIT)?", options: ["Bloqueo total de la base de datos", "Consistencia de lectura (read consistency) mediante segmentos de deshacer", "Copia completa de la tabla por cada sesión", "No es posible, todos ven los cambios al instante"], a: 1, exp: "Oracle mantiene una 'foto' consistente para cada consulta usando información de undo." },
+  { category: "SELECT", q: "¿Qué produce 'SELECT department_id FROM employees INTERSECT SELECT department_id FROM job_history;'?", options: ["Todos los departamentos de ambas tablas sin duplicar", "Solo los department_id que aparecen en ambas tablas a la vez", "Los department_id de employees que no están en job_history", "Error de sintaxis"], a: 1, exp: "INTERSECT devuelve la intersección: filas presentes en ambos resultados." },
+  { category: "DML", q: "¿Qué palabra clave se usa junto a INSERT para introducir varias filas en varias tablas según condiciones en una sola sentencia?", options: ["INSERT MANY", "INSERT ALL", "MULTI INSERT", "INSERT BATCH"], a: 1, exp: "INSERT ALL (o INSERT FIRST) permite repartir una única consulta origen entre varias tablas destino." },
+  { category: "SELECT", q: "En 'WHERE salary BETWEEN 3000 AND 6000', ¿se incluyen los valores 3000 y 6000 exactos?", options: ["No, BETWEEN excluye siempre los extremos", "Sí, BETWEEN incluye ambos extremos", "Solo se incluye el valor menor", "Depende del tipo de dato"], a: 1, exp: "BETWEEN es inclusivo en ambos extremos del rango." },
+  { category: "DDL", q: "¿Qué diferencia hay entre una vista normal y una vista materializada (concepto avanzado)?", options: [
       "Son idénticas", "La vista materializada almacena físicamente los datos calculados, mejorando el rendimiento a costa de estar potencialmente desactualizada",
       "La vista normal ocupa más espacio en disco", "Las vistas materializadas no pueden usarse en Oracle"
     ], a: 1, exp: "Una vista materializada guarda el resultado, mientras la vista normal recalcula cada vez que se consulta." },
-  { q: "¿Cuál es el resultado de SUBSTR('ORACLE', -3, 2) en Oracle?", options: ["'OR'", "'CL'", "'AC'", "Error, no se permiten índices negativos"], a: 1, exp: "Un índice negativo en SUBSTR cuenta desde el final: -3 sitúa el inicio en la 'C', y toma 2 caracteres: 'CL'." },
-  { q: "¿Cuál de las siguientes NO es una función de grupo válida en Oracle?", options: ["SUM", "MEDIAN", "UPPER", "STDDEV"], a: 2, exp: "UPPER es una función de una sola fila; el resto son funciones de grupo/estadísticas." },
-  { q: "¿Qué hace ALTER TABLE tabla RENAME COLUMN antigua TO nueva;?", options: ["Cambia el tipo de dato de la columna", "Cambia el nombre de una columna existente", "Elimina la columna", "Crea una columna nueva copiando otra"], a: 1, exp: "RENAME COLUMN cambia únicamente el nombre, conservando datos y tipo." },
-  { q: "¿Qué resultado da 'SELECT MOD(10,3) FROM DUAL;'?", options: ["3", "1", "3.33", "0"], a: 1, exp: "MOD devuelve el resto de la división entera: 10 = 3*3 + 1." },
-  { q: "¿En qué orden se procesan lógicamente WHERE y HAVING respecto a GROUP BY?", options: ["Ambos antes de GROUP BY", "WHERE antes de GROUP BY, HAVING después", "HAVING antes de GROUP BY, WHERE después", "Ambos después de GROUP BY"], a: 1, exp: "WHERE filtra filas antes de agrupar; HAVING filtra los grupos ya formados." },
-  { q: "¿Qué hace 'CREATE TABLE copia AS SELECT * FROM empleados WHERE 1=0;'?", options: [
+  { category: "Funciones", q: "¿Cuál es el resultado de SUBSTR('ORACLE', -3, 2) en Oracle?", options: ["'OR'", "'CL'", "'AC'", "Error, no se permiten índices negativos"], a: 1, exp: "Un índice negativo en SUBSTR cuenta desde el final: -3 sitúa el inicio en la 'C', y toma 2 caracteres: 'CL'." },
+  { category: "GROUP BY", q: "¿Cuál de las siguientes NO es una función de grupo válida en Oracle?", options: ["SUM", "MEDIAN", "UPPER", "STDDEV"], a: 2, exp: "UPPER es una función de una sola fila; el resto son funciones de grupo/estadísticas." },
+  { category: "DDL", q: "¿Qué hace ALTER TABLE tabla RENAME COLUMN antigua TO nueva;?", options: ["Cambia el tipo de dato de la columna", "Cambia el nombre de una columna existente", "Elimina la columna", "Crea una columna nueva copiando otra"], a: 1, exp: "RENAME COLUMN cambia únicamente el nombre, conservando datos y tipo." },
+  { category: "Funciones", q: "¿Qué resultado da 'SELECT MOD(10,3) FROM DUAL;'?", options: ["3", "1", "3.33", "0"], a: 1, exp: "MOD devuelve el resto de la división entera: 10 = 3*3 + 1." },
+  { category: "GROUP BY", q: "¿En qué orden se procesan lógicamente WHERE y HAVING respecto a GROUP BY?", options: ["Ambos antes de GROUP BY", "WHERE antes de GROUP BY, HAVING después", "HAVING antes de GROUP BY, WHERE después", "Ambos después de GROUP BY"], a: 1, exp: "WHERE filtra filas antes de agrupar; HAVING filtra los grupos ya formados." },
+  { category: "DDL", q: "¿Qué hace 'CREATE TABLE copia AS SELECT * FROM empleados WHERE 1=0;'?", options: [
       "Copia todos los datos de empleados", "Crea una tabla nueva con la misma estructura que empleados pero sin filas (WHERE 1=0 nunca es verdadero)",
       "Da error porque 1=0 es inválido", "Elimina la tabla empleados"
     ], a: 1, exp: "Es un truco muy usado en Oracle para clonar la estructura de una tabla sin copiar datos." },
-  { q: "¿Qué representa la pseudocolumna ROWID?", options: [
+  { category: "SELECT", q: "¿Qué representa la pseudocolumna ROWID?", options: [
       "Un número secuencial que se puede reiniciar", "La dirección física única de una fila dentro de la base de datos", "El número de columnas de una fila", "Un alias de ROWNUM"
     ], a: 1, exp: "ROWID identifica la ubicación física de la fila, es distinto de ROWNUM (que es el orden en el resultado)." },
-  { q: "¿Qué hace 'SELECT last_name FROM employees WHERE department_id = ANY (SELECT department_id FROM departments WHERE location_id = 1700);'?", options: [
+  { category: "Subconsultas", q: "¿Qué hace 'SELECT last_name FROM employees WHERE department_id = ANY (SELECT department_id FROM departments WHERE location_id = 1700);'?", options: [
       "Da error de sintaxis", "Devuelve empleados cuyo departamento coincide con al menos uno de los departamentos ubicados en location_id 1700",
       "Devuelve empleados que no tienen departamento", "Es equivalente a usar ALL"
     ], a: 1, exp: "= ANY con una lista se comporta de forma equivalente a IN." },
-  { q: "¿Cuál es la forma correcta de escribir un comentario de varias líneas en SQL Oracle?", options: ["// comentario //", "# comentario #", "/* comentario */", "<!-- comentario -->"], a: 2, exp: "Oracle usa /* ... */ para comentarios multilínea, igual que el estándar SQL." },
-  { q: "¿Qué hace 'SELECT last_name, department_id FROM employees ORDER BY 2, 1;'?", options: [
+  { category: "SELECT", q: "¿Cuál es la forma correcta de escribir un comentario de varias líneas en SQL Oracle?", options: ["// comentario //", "# comentario #", "/* comentario */", "<!-- comentario -->"], a: 2, exp: "Oracle usa /* ... */ para comentarios multilínea, igual que el estándar SQL." },
+  { category: "SELECT", q: "¿Qué hace 'SELECT last_name, department_id FROM employees ORDER BY 2, 1;'?", options: [
       "Da error, no se pueden usar números en ORDER BY", "Ordena por la segunda columna del SELECT y luego por la primera (por posición)",
       "Ordena por las columnas 2 y 1 de toda la tabla, no del SELECT", "Es idéntico a no usar ORDER BY"
     ], a: 1, exp: "ORDER BY admite referenciar columnas por su posición en la lista del SELECT." }

@@ -14,12 +14,15 @@ function defaultState() {
   return {
     xp: 0,
     levels: {},        // { [levelId]: { quizScore, quizTotal, quizDone, exercisesDone: [idx], challengesDone: [idx], completed } }
-    errorLog: [],       // { id, question, options, correctIndex, yourIndex, explain, topic, ts }
+    errorLog: [],       // { id, question, options, correctIndex, yourIndex, explain, topic, category, ts }
     badges: [],         // lista de ids de insignia conseguidas
-    examHistory: [],    // { levelId, score, total, minutes, ts }
+    examHistory: [],    // { levelId, score, total, minutes, elapsedSeconds, ts }
     streakDays: 0,
     lastActiveDate: null,
-    studyMinutes: 0     // minutos activos acumulados (Fase 3: tiempo de estudio)
+    studyMinutes: 0,    // minutos activos acumulados (Fase 3: tiempo de estudio)
+    categoryStats: {},  // { [categoria]: { correct, total } } — base del radar/heatmap de Analytics
+    history: [],        // snapshots diarios: { date, xp, certPct, aciertoPct, studyMinutes }
+    studentName: ""     // nombre para el certificado
   };
 }
 
@@ -37,6 +40,7 @@ function loadState() {
 }
 
 function saveState() {
+  if (DEMO_ACTIVE) return; // los datos ficticios del modo demo nunca se persisten
   localStorage.setItem(STORAGE_KEY, JSON.stringify(STATE));
 }
 
@@ -53,7 +57,20 @@ function updateStreak() {
   const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
   STATE.streakDays = (STATE.lastActiveDate === yesterday) ? STATE.streakDays + 1 : 1;
   STATE.lastActiveDate = today;
+  recordDailySnapshot(today);
   saveState();
+}
+
+function recordDailySnapshot(dateStr) {
+  const preguntas = totalQuizPreguntas();
+  STATE.history.push({
+    date: dateStr,
+    xp: STATE.xp,
+    certPct: overallCertificationPercent(),
+    aciertoPct: preguntas ? Math.round((totalQuizAciertos() / preguntas) * 100) : 0,
+    studyMinutes: STATE.studyMinutes
+  });
+  if (STATE.history.length > 60) STATE.history = STATE.history.slice(-60);
 }
 
 function addXP(amount) {
@@ -141,6 +158,135 @@ function checkBadges() {
     saveState();
     newOnes.forEach(b => toast(`🏅 Insignia desbloqueada: ${b.name}`));
   }
+}
+
+/* ---------------- Categorías del temario (Analytics / informe del simulador) ---------------- */
+
+const CATEGORIES = [
+  { id: "SELECT", icon: "🔍" },
+  { id: "JOINS", icon: "🔗" },
+  { id: "Funciones", icon: "🧮" },
+  { id: "GROUP BY", icon: "📊" },
+  { id: "Subconsultas", icon: "🪆" },
+  { id: "DDL", icon: "🏗️" },
+  { id: "DML", icon: "✍️" },
+  { id: "Restricciones", icon: "🔒" }
+];
+
+const CATEGORY_TO_LEVELS = {
+  "SELECT": [0, 1, 2, 3, 10],
+  "JOINS": [8],
+  "Funciones": [4, 5],
+  "GROUP BY": [6, 7],
+  "Subconsultas": [9],
+  "DDL": [12, 14],
+  "DML": [11, 15],
+  "Restricciones": [13]
+};
+
+function recordCategoryAnswer(category, correct) {
+  if (!category) return;
+  if (!STATE.categoryStats[category]) STATE.categoryStats[category] = { correct: 0, total: 0 };
+  STATE.categoryStats[category].total++;
+  if (correct) STATE.categoryStats[category].correct++;
+  saveState();
+}
+
+function categoryMasteryPercent(category) {
+  const s = STATE.categoryStats[category];
+  if (!s || s.total === 0) return null;
+  return Math.round((s.correct / s.total) * 100);
+}
+
+/* ---------------- Demo mode (Fase 6) ---------------- */
+
+let DEMO_ACTIVE = false;
+let REAL_STATE_SNAPSHOT = null;
+
+function buildDemoState() {
+  const demo = defaultState();
+  demo.xp = 3200;
+  demo.streakDays = 12;
+  demo.studyMinutes = 640;
+  demo.lastActiveDate = new Date().toISOString().slice(0, 10);
+  demo.studentName = "Alumno/a Demo";
+
+  APP_DATA.levels.forEach(level => {
+    if (level.isExamLevel) return;
+    if (level.id <= 12) {
+      demo.levels[level.id] = {
+        quizScore: level.quiz.length, quizTotal: level.quiz.length, quizDone: true,
+        exercisesDone: level.exercises.map((_, i) => i),
+        challengesDone: level.challenges.map((_, i) => i),
+        completed: true
+      };
+    }
+  });
+
+  demo.examHistory = [
+    { levelId: 16, score: 15, total: 20, minutes: 20, elapsedSeconds: 1080, ts: Date.now() - 86400000 * 5 },
+    { levelId: 16, score: 17, total: 20, minutes: 20, elapsedSeconds: 950, ts: Date.now() - 86400000 * 1 }
+  ];
+
+  demo.categoryStats = {
+    "SELECT": { correct: 27, total: 30 },
+    "JOINS": { correct: 8, total: 10 },
+    "Funciones": { correct: 18, total: 24 },
+    "GROUP BY": { correct: 9, total: 12 },
+    "Subconsultas": { correct: 5, total: 10 },
+    "DDL": { correct: 10, total: 12 },
+    "DML": { correct: 7, total: 8 },
+    "Restricciones": { correct: 4, total: 8 }
+  };
+
+  demo.history = [];
+  for (let i = 5; i >= 0; i--) {
+    demo.history.push({
+      date: new Date(Date.now() - i * 7 * 86400000).toISOString().slice(0, 10),
+      xp: Math.round(3200 * (6 - i) / 6),
+      certPct: Math.round(82 * (6 - i) / 6),
+      aciertoPct: 68 + (5 - i) * 3,
+      studyMinutes: Math.round(640 * (6 - i) / 6)
+    });
+  }
+
+  demo.badges = BADGE_DEFS.filter(b => b.check(demo)).map(b => b.id);
+  demo.errorLog = [];
+  return demo;
+}
+
+function enterDemoMode() {
+  if (DEMO_ACTIVE) return;
+  REAL_STATE_SNAPSHOT = STATE;
+  STATE = buildDemoState();
+  DEMO_ACTIVE = true;
+  document.getElementById("demo-banner").classList.remove("hidden");
+  document.body.classList.add("demo-mode");
+  toast("🎬 Modo demo activado: datos ficticios para presentación");
+  if (!document.getElementById("app").classList.contains("hidden")) {
+    navigate(CURRENT_VIEW === "level" ? "dashboard" : CURRENT_VIEW);
+  } else {
+    renderHeroStats();
+    renderLandingCards();
+  }
+  renderSidebar();
+}
+
+function exitDemoMode() {
+  if (!DEMO_ACTIVE) return;
+  STATE = REAL_STATE_SNAPSHOT;
+  REAL_STATE_SNAPSHOT = null;
+  DEMO_ACTIVE = false;
+  document.getElementById("demo-banner").classList.add("hidden");
+  document.body.classList.remove("demo-mode");
+  toast("Modo demo desactivado: has vuelto a tu progreso real");
+  if (!document.getElementById("app").classList.contains("hidden")) {
+    navigate("dashboard");
+  } else {
+    renderHeroStats();
+    renderLandingCards();
+  }
+  renderSidebar();
 }
 
 /* ---------------- Utilidades ---------------- */
@@ -316,6 +462,191 @@ function launchConfetti(durationMs) {
   requestAnimationFrame(frame);
 }
 
+/* ---------------- Estado de preparación ---------------- */
+
+function getPreparationStatus() {
+  const pct = overallCertificationPercent();
+  const examCount = STATE.examHistory.length;
+  const examAvg = examCount ? STATE.examHistory.reduce((s, h) => s + (h.score / h.total * 100), 0) / examCount : 0;
+  if (pct >= 90 && examAvg >= 70) return { level: "green", label: "🟢 Preparado para certificación" };
+  if (pct >= 50 || examCount > 0) return { level: "yellow", label: "🟡 En progreso" };
+  return { level: "red", label: "🔴 Riesgo alto" };
+}
+
+/* ---------------- Analytics (Fase 5) ---------------- */
+
+function renderRadarChart() {
+  const size = 360, center = size / 2, maxR = 82;
+  const labelR = maxR + 52;
+  const n = CATEGORIES.length;
+  const angleStep = (Math.PI * 2) / n;
+  const points = CATEGORIES.map((cat, i) => {
+    const pct = categoryMasteryPercent(cat.id);
+    const r = pct === null ? 0 : (pct / 100) * maxR;
+    const angle = -Math.PI / 2 + i * angleStep;
+    return { x: center + r * Math.cos(angle), y: center + r * Math.sin(angle) };
+  });
+  const polygonPoints = points.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
+  const rings = [0.25, 0.5, 0.75, 1].map(f => {
+    const ringPts = CATEGORIES.map((c, i) => {
+      const angle = -Math.PI / 2 + i * angleStep;
+      const r = f * maxR;
+      return `${(center + r * Math.cos(angle)).toFixed(1)},${(center + r * Math.sin(angle)).toFixed(1)}`;
+    }).join(" ");
+    return `<polygon points="${ringPts}" class="radar-ring"></polygon>`;
+  }).join("");
+  const labels = CATEGORIES.map((c, i) => {
+    const angle = -Math.PI / 2 + i * angleStep;
+    const lx = center + labelR * Math.cos(angle);
+    const ly = center + labelR * Math.sin(angle);
+    const anchor = Math.cos(angle) > 0.3 ? "end" : Math.cos(angle) < -0.3 ? "start" : "middle";
+    return `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" class="radar-label" text-anchor="${anchor}" dominant-baseline="middle">${c.icon} ${c.id}</text>`;
+  }).join("");
+  return `
+    <svg viewBox="0 0 ${size} ${size}" class="radar-svg">
+      ${rings}
+      <polygon points="${polygonPoints}" class="radar-shape"></polygon>
+      ${points.map(p => `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3.5" class="radar-dot"></circle>`).join("")}
+      ${labels}
+    </svg>`;
+}
+
+function renderCategoryHeatmap() {
+  return `<div class="heatmap-grid">${CATEGORIES.map(c => {
+    const pct = categoryMasteryPercent(c.id);
+    const tier = pct === null ? "nodata" : pct >= 75 ? "high" : pct >= 50 ? "mid" : "low";
+    return `<div class="heatmap-cell tier-${tier}">
+      <span class="hm-icon">${c.icon}</span>
+      <span class="hm-name">${c.id}</span>
+      <span class="hm-pct">${pct === null ? "Sin datos" : pct + "%"}</span>
+    </div>`;
+  }).join("")}</div>`;
+}
+
+function xpDistribution() {
+  const quizXP = totalQuizAciertos() * XP_RULES.quizCorrect;
+  const exerciseXP = totalExercisesDoneCount() * XP_RULES.exercise;
+  const challengeXP = totalChallengesDoneCount() * XP_RULES.challenge;
+  const examXP = STATE.examHistory.reduce((s, h) => s + h.score * 5 + (h.score / h.total >= PASS_RATIO ? XP_RULES.examPass : 0), 0);
+  const levelBonusXP = completedCoreLevelsCount() * XP_RULES.levelComplete;
+  const total = quizXP + exerciseXP + challengeXP + examXP + levelBonusXP || 1;
+  return [
+    { label: "Quiz", value: quizXP, color: "var(--teal)" },
+    { label: "Ejercicios", value: exerciseXP, color: "var(--accent)" },
+    { label: "Retos", value: challengeXP, color: "var(--purple)" },
+    { label: "Simulacros", value: examXP, color: "var(--red)" },
+    { label: "Bonus de nivel", value: levelBonusXP, color: "var(--green)" }
+  ].map(d => ({ ...d, pct: Math.round((d.value / total) * 100) }));
+}
+
+function renderXpDistribution() {
+  const dist = xpDistribution();
+  return `
+    <div class="dist-bar">${dist.map(d => `<div style="width:${d.pct}%; background:${d.color};" title="${d.label}: ${d.pct}%"></div>`).join("")}</div>
+    <div class="dist-legend">${dist.map(d => `<span class="dist-legend-item"><span class="dist-dot" style="background:${d.color}"></span>${d.label} · ${d.pct}%</span>`).join("")}</div>`;
+}
+
+function renderEvolutionChart() {
+  if (!STATE.history.length) {
+    return `<p style="color:var(--text-faint); font-size:13px;">Todavía no hay historial suficiente: cada día que abras la app se añadirá un punto real a este gráfico. (En modo demo se simulan varias semanas.)</p>`;
+  }
+  const maxXp = Math.max(...STATE.history.map(h => h.xp), 1);
+  return `<div class="evo-chart">${STATE.history.map(h => `
+    <div class="evo-bar-wrap" title="${h.date}: ${h.xp} XP">
+      <div class="evo-bar" style="height:${Math.max(4, Math.round((h.xp / maxXp) * 100))}%"></div>
+      <span class="evo-date">${h.date.slice(5)}</span>
+    </div>`).join("")}</div>`;
+}
+
+function renderAnalytics() {
+  const el = document.getElementById("view-analytics");
+  el.innerHTML = `
+    <div class="dash-header">
+      <h2>Analytics</h2>
+      <p>Tu dominio real por categoría del temario 1Z0-071, calculado a partir de tus respuestas en quiz, repasos y simulacros.</p>
+    </div>
+    <div class="card">
+      <h4>Radar de conocimientos</h4>
+      ${renderRadarChart()}
+    </div>
+    <div class="card">
+      <h4>Mapa de calor por tema</h4>
+      ${renderCategoryHeatmap()}
+    </div>
+    <div class="card">
+      <h4>Distribución del aprendizaje (XP por tipo de actividad)</h4>
+      ${renderXpDistribution()}
+    </div>
+    <div class="card">
+      <h4>Evolución</h4>
+      ${renderEvolutionChart()}
+    </div>
+  `;
+}
+
+/* ---------------- Certificado final (Fase 8) ---------------- */
+
+function isCertificateEligible() {
+  const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
+  const allDone = completedCoreLevelsCount() === totalLevels;
+  const examPassed = STATE.examHistory.some(h => h.levelId === 16 && h.score / h.total >= PASS_RATIO);
+  return allDone && examPassed;
+}
+
+function certificateAverageScore() {
+  if (!STATE.examHistory.length) return 0;
+  return Math.round(STATE.examHistory.reduce((s, h) => s + (h.score / h.total * 100), 0) / STATE.examHistory.length);
+}
+
+function editCertificateName() {
+  const name = prompt("Escribe tu nombre para el certificado:", STATE.studentName || "");
+  if (name) { STATE.studentName = name; saveState(); renderCertificate(); }
+}
+
+function renderCertificate() {
+  const el = document.getElementById("view-certificate");
+  const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
+
+  if (!isCertificateEligible()) {
+    const examOk = STATE.examHistory.some(h => h.levelId === 16 && h.score / h.total >= PASS_RATIO);
+    el.innerHTML = `
+      <div class="dash-header"><h2>Certificado</h2><p>Todavía no has completado los requisitos para desbloquearlo.</p></div>
+      <div class="card">
+        <ul class="mistake-list">
+          <li>${completedCoreLevelsCount() === totalLevels ? "✅" : "⚠️"} ${completedCoreLevelsCount()}/${totalLevels} niveles base completados</li>
+          <li>${examOk ? "✅" : "⚠️"} Simulacro del Nivel 16 aprobado (≥70%)</li>
+        </ul>
+      </div>`;
+    return;
+  }
+
+  if (!STATE.studentName) {
+    const name = prompt("Escribe tu nombre para el certificado:");
+    STATE.studentName = name || "Alumno/a";
+    saveState();
+  }
+
+  const avg = certificateAverageScore();
+  const rank = getCurrentRank();
+  el.innerHTML = `
+    <div class="dash-header no-print"><h2>Tu certificado</h2><p>Descárgalo como PDF con el botón de imprimir de tu navegador.</p></div>
+    <div class="certificate">
+      <div class="cert-brand">🧭 STEMDO</div>
+      <h1 class="cert-title">Certificado de Preparación</h1>
+      <p class="cert-sub">Oracle Database SQL — 1Z0-071</p>
+      <p class="cert-name">${escapeHtml(STATE.studentName)}</p>
+      <p class="cert-body">ha completado el itinerario formativo de Oracle SQL Quest, alcanzando el rango
+      <strong>${rank.icon} ${rank.name}</strong> con una nota media de simulacro del <strong>${avg}%</strong>
+      y ${STATE.xp} XP acumulada.</p>
+      <p class="cert-date">${new Date().toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}</p>
+    </div>
+    <div class="no-print" style="text-align:center; margin-top:20px; display:flex; gap:10px; justify-content:center;">
+      <button class="btn" onclick="window.print()">🖨️ Imprimir / Guardar como PDF</button>
+      <button class="btn secondary" onclick="editCertificateName()">✏️ Cambiar nombre</button>
+    </div>
+  `;
+}
+
 /* ---------------- Landing ---------------- */
 
 function showLanding() {
@@ -341,7 +672,9 @@ function renderHeroStats() {
   }
   const pct = overallCertificationPercent();
   const rank = getCurrentRank();
+  const prep = getPreparationStatus();
   el.innerHTML = `
+    <div class="hero-stat"><strong>${prep.label}</strong>estado del alumno</div>
     <div class="hero-stat"><strong>${rank.icon} ${rank.name}</strong>rango actual</div>
     <div class="hero-stat"><strong>${STATE.xp}</strong>XP acumulada</div>
     <div class="hero-stat"><strong>${pct}%</strong>hacia la certificación</div>
@@ -398,6 +731,8 @@ function navigate(view, levelId) {
   if (view === "level") renderLevel(CURRENT_LEVEL_ID);
   if (view === "errors") renderErrors();
   if (view === "badges") renderBadges();
+  if (view === "analytics") renderAnalytics();
+  if (view === "certificate") renderCertificate();
   window.scrollTo(0, 0);
 }
 
@@ -454,6 +789,9 @@ function renderDashboard() {
   const bestExam16Runs = STATE.examHistory.filter(e => e.levelId === 16);
   const bestExam16Pct = bestExam16Runs.length ? Math.max(...bestExam16Runs.map(h => Math.round((h.score / h.total) * 100))) : 0;
   const msg = getMotivationalMessage();
+  const prep = getPreparationStatus();
+  const examCount = STATE.examHistory.length;
+  const examAvgPct = examCount ? Math.round(STATE.examHistory.reduce((s, h) => s + (h.score / h.total * 100), 0) / examCount) : 0;
 
   const cards = APP_DATA.levels.map(level => {
     const unlocked = isLevelUnlocked(level.id);
@@ -481,7 +819,7 @@ function renderDashboard() {
       <p>Progreso general y acceso rápido a todos los niveles.</p>
     </div>
 
-    <div class="motivational-banner"><span class="mb-icon">${msg.icon}</span><span>${msg.text}</span></div>
+    <div class="motivational-banner"><span class="mb-icon">${msg.icon}</span><span>${msg.text}</span><span class="prep-pill prep-${prep.level}">${prep.label}</span></div>
 
     <div class="rank-card">
       ${renderRankStepper()}
@@ -515,6 +853,13 @@ function renderDashboard() {
       <div class="kpi-card"><div class="num">${pendErrors}</div><div class="lbl">Errores pendientes</div></div>
       <div class="kpi-card"><div class="num">${formatMinutes(STATE.studyMinutes)}</div><div class="lbl">Tiempo de estudio</div></div>
       <div class="kpi-card"><div class="num">🔥 ${STATE.streakDays}</div><div class="lbl">Días seguidos</div></div>
+      <div class="kpi-card"><div class="num">${examCount}</div><div class="lbl">Simuladores realizados</div></div>
+      <div class="kpi-card"><div class="num">${examAvgPct}%</div><div class="lbl">Nota media de simulacro</div></div>
+    </div>
+
+    <div class="card">
+      <h4>Distribución del aprendizaje</h4>
+      ${renderXpDistribution()}
     </div>
 
     <div class="level-grid">${cards}</div>
@@ -586,15 +931,24 @@ function sourceTag(source) {
     : `<span class="source-tag added">🟧 Contenido añadido para certificación</span>`;
 }
 
+const ORACLE_OFFICIAL_DOCS_URL = "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/index.html";
+
 function renderTheory(level) {
   if (!level.theory.length) return `<div class="card"><p>Sin teoría adicional en este nivel: es un bloque de simulacro.</p></div>`;
-  return level.theory.map(t => `
+  const cards = level.theory.map(t => `
     <div class="card">
       ${sourceTag(t.source)}
       <h4>${escapeHtml(t.heading)}</h4>
       <p>${escapeHtml(t.body)}</p>
     </div>
   `).join("");
+  const docsLink = `
+    <div class="card docs-link-card">
+      <a href="${ORACLE_OFFICIAL_DOCS_URL}" target="_blank" rel="noopener noreferrer">
+        📚 Consultar la documentación oficial de Oracle (Database SQL Language Reference) ↗
+      </a>
+    </div>`;
+  return cards + docsLink;
 }
 
 function renderExamples(level) {
@@ -742,11 +1096,12 @@ function answerQuizQuestion(selectedIdx) {
   document.getElementById("quiz-next-btn").style.display = "inline-block";
   document.getElementById("quiz-next-btn").onclick = () => { QUIZ_STATE.index++; renderQuizQuestion(); };
 
+  recordCategoryAnswer(level.category, correct);
   if (correct) {
     QUIZ_STATE.correct++;
     addXP(XP_RULES.quizCorrect);
   } else {
-    logError({ question: q.q, options: q.options, correctIndex: q.a, yourIndex: selectedIdx, explain: q.exp, topic: level.title });
+    logError({ question: q.q, options: q.options, correctIndex: q.a, yourIndex: selectedIdx, explain: q.exp, topic: level.title, category: level.category });
   }
   QUIZ_STATE.results.push(correct);
 }
@@ -909,6 +1264,7 @@ function reviewAnswerQuiz(selectedIdx) {
   });
   document.getElementById("review-explain").innerHTML = `<div class="explain-box">${correct ? "✅ ¡Correcto! " : "❌ Todavía no. "}${escapeHtml(e.explain)}</div>`;
   document.getElementById("review-next-btn").style.display = "inline-block";
+  recordCategoryAnswer(e.category, correct);
   if (correct) { masterErrorSilent(e.id); REVIEW_STATE.correct++; }
   document.getElementById("review-next-btn").onclick = () => { REVIEW_STATE.index++; renderReviewItem(); };
 }
@@ -976,7 +1332,7 @@ let EXAM_STATE = null;
 function buildQuestionPool() {
   const pool = [];
   APP_DATA.levels.forEach(level => {
-    level.quiz.forEach(q => pool.push({ ...q, topic: level.title }));
+    level.quiz.forEach(q => pool.push({ ...q, topic: level.title, category: q.category || level.category }));
   });
   APP_DATA.examBank.forEach(q => pool.push({ ...q, topic: "Banco de examen" }));
   return pool;
@@ -1057,11 +1413,10 @@ function renderExamScreen() {
       <div class="option-list">
         ${q.options.map((opt, i) => `<button class="option-btn ${answers[index] === i ? "correct" : ""}" data-i="${i}" onclick="answerExamQuestion(${i})">${escapeHtml(opt)}</button>`).join("")}
       </div>
-      <div style="display:flex; gap:10px; margin-top:14px;">
+      <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
         <button class="btn secondary" ${index === 0 ? "disabled" : ""} onclick="goToExamQuestion(${index - 1})">◀ Anterior</button>
-        ${index < questions.length - 1
-          ? `<button class="btn" onclick="goToExamQuestion(${index + 1})">Siguiente ▶</button>`
-          : `<button class="btn danger" onclick="submitExam()">Finalizar simulacro ✔</button>`}
+        ${index < questions.length - 1 ? `<button class="btn secondary" onclick="goToExamQuestion(${index + 1})">Siguiente ▶</button>` : ""}
+        <button class="btn" onclick="renderExamReview()">📝 Revisar y finalizar</button>
       </div>
     </div>
   `;
@@ -1078,22 +1433,72 @@ function goToExamQuestion(i) {
   renderExamScreen();
 }
 
+function renderExamReview() {
+  const el = document.getElementById("view-level");
+  const { level, questions, answers } = EXAM_STATE;
+  const answeredCount = answers.filter(a => a !== null).length;
+  el.innerHTML = `
+    <div class="level-header">
+      <span class="lh-icon">📝</span>
+      <div><h2>Revisión final</h2><p>${answeredCount}/${questions.length} preguntas respondidas</p></div>
+    </div>
+    <div class="card">
+      ${questions.map((q, i) => `
+        <div class="review-row" onclick="goToExamQuestion(${i})">
+          <span class="review-num ${answers[i] !== null ? "answered" : "unanswered"}">${i + 1}</span>
+          <span class="review-q-text">${escapeHtml(q.q.length > 90 ? q.q.slice(0, 90) + "…" : q.q)}</span>
+          <span class="review-status">${answers[i] !== null ? "✅" : "⚠️ Sin responder"}</span>
+        </div>`).join("")}
+    </div>
+    <div style="display:flex; gap:10px; margin-top:14px;">
+      <button class="btn secondary" onclick="goToExamQuestion(0)">◀ Seguir respondiendo</button>
+      <button class="btn danger" onclick="submitExam()">Finalizar simulacro ✔</button>
+    </div>
+  `;
+}
+
+function buildExamReport(questions, answers) {
+  const perCat = {};
+  questions.forEach((q, i) => {
+    const cat = q.category || "SELECT";
+    if (!perCat[cat]) perCat[cat] = { correct: 0, total: 0 };
+    perCat[cat].total++;
+    if (answers[i] === q.a) perCat[cat].correct++;
+  });
+  const rows = Object.keys(perCat).map(cat => ({ cat, correct: perCat[cat].correct, total: perCat[cat].total, pct: Math.round((perCat[cat].correct / perCat[cat].total) * 100) }));
+  rows.sort((a, b) => b.pct - a.pct);
+  const strengths = rows.filter(r => r.pct >= 75);
+  const weaknesses = rows.filter(r => r.pct < 60);
+  const levelsToReview = [...new Set(weaknesses.flatMap(w => CATEGORY_TO_LEVELS[w.cat] || []))].sort((a, b) => a - b);
+  return { rows, strengths, weaknesses, levelsToReview };
+}
+
+function formatSeconds(s) {
+  const m = Math.floor(s / 60), sec = s % 60;
+  return `${m}m ${sec}s`;
+}
+
 function submitExam() {
   clearInterval(EXAM_STATE.timerId);
   const { level, questions, answers } = EXAM_STATE;
+  const elapsedSeconds = level.examConfig.minutes * 60 - EXAM_STATE.secondsLeft;
   let score = 0;
   questions.forEach((q, i) => {
     const yourIndex = answers[i];
-    if (yourIndex === q.a) {
-      score++;
-    } else if (yourIndex !== null) {
-      logError({ question: q.q, options: q.options, correctIndex: q.a, yourIndex, explain: q.exp, topic: q.topic });
-    } else {
-      logError({ question: q.q, options: q.options, correctIndex: q.a, yourIndex: q.a === 0 ? (q.options.length - 1) : 0, explain: q.exp + " (no respondiste a tiempo)", topic: q.topic });
+    const correct = yourIndex === q.a;
+    if (correct) score++;
+    recordCategoryAnswer(q.category, correct);
+    if (!correct) {
+      if (yourIndex !== null) {
+        logError({ question: q.q, options: q.options, correctIndex: q.a, yourIndex, explain: q.exp, topic: q.topic, category: q.category });
+      } else {
+        logError({ question: q.q, options: q.options, correctIndex: q.a, yourIndex: q.a === 0 ? (q.options.length - 1) : 0, explain: q.exp + " (no respondiste a tiempo)", topic: q.topic, category: q.category });
+      }
     }
   });
   const total = questions.length;
-  STATE.examHistory.push({ levelId: level.id, score, total, minutes: level.examConfig.minutes, ts: Date.now() });
+  const report = buildExamReport(questions, answers);
+  STATE.examHistory.push({ levelId: level.id, score, total, minutes: level.examConfig.minutes, elapsedSeconds, ts: Date.now() });
   addXP(score * 5);
   if (score / total >= PASS_RATIO) {
     addXP(XP_RULES.examPass);
@@ -1103,24 +1508,43 @@ function submitExam() {
   }
   saveState();
   checkBadges();
-  renderExamResult(level, score, total);
+  renderExamResult(level, score, total, elapsedSeconds, report);
 }
 
-function renderExamResult(level, score, total) {
+function renderExamResult(level, score, total, elapsedSeconds, report) {
   const el = document.getElementById("view-level");
   const pct = Math.round((score / total) * 100);
-  const passed = score / total >= PASS_RATIO;
+  const statusLabel = pct >= 70 ? "🟢 Preparado para certificación" : pct >= 50 ? "🟡 Necesita repaso" : "🔴 No apto todavía";
+  const statusColor = pct >= 70 ? "var(--green)" : pct >= 50 ? "#eab308" : "var(--red)";
+
+  const examRuns = STATE.examHistory.filter(h => h.levelId === level.id);
+  const bestPct = Math.max(...examRuns.map(h => Math.round((h.score / h.total) * 100)));
+  const rankingLine = examRuns.length > 1
+    ? `Tu mejor resultado en este simulacro: ${bestPct}% (de ${examRuns.length} intentos).`
+    : `Este ha sido tu primer intento en este simulacro.`;
+
   el.innerHTML = `
     <div class="card quiz-result">
       <div class="big-score">${score}/${total}</div>
       <p style="font-size:20px; margin-top:6px;">${pct}%</p>
-      <p style="margin-top:10px; color:${passed ? "var(--green)" : "var(--red)"}">
-        ${passed ? "✅ ¡Aprobado! Nivel similar al del examen real." : "❌ Todavía no llegas al 70%. Repasa el registro de errores y vuelve a intentarlo."}
-      </p>
-      <div style="margin-top:20px; display:flex; gap:10px; justify-content:center;">
-        <button class="btn" onclick="navigate('level', ${level.id})">Volver al nivel</button>
-        <button class="btn secondary" onclick="navigate('errors')">Ver errores</button>
-      </div>
+      <p style="margin-top:6px; color:var(--text-dim);">⏱️ Tiempo empleado: ${formatSeconds(elapsedSeconds)}</p>
+      <p style="margin-top:10px; font-weight:700; color:${statusColor};">${statusLabel}</p>
+      <p style="margin-top:6px; color:var(--text-faint); font-size:13px;">${rankingLine}</p>
+    </div>
+
+    <div class="card">
+      <h4>Informe del simulador</h4>
+      ${report.strengths.length ? `<p><strong style="color:var(--green)">Fortalezas:</strong> ${report.strengths.map(s => escapeHtml(s.cat)).join(", ")}</p>` : ""}
+      ${report.weaknesses.length
+        ? `<p style="margin-top:8px;"><strong style="color:var(--red)">Necesitas reforzar:</strong> ${report.weaknesses.map(w => `${escapeHtml(w.cat)} (${w.pct}%)`).join(", ")}</p>`
+        : `<p style="color:var(--text-dim);">Sin debilidades claras detectadas en este intento. 🎉</p>`}
+      ${report.levelsToReview.length ? `<p style="margin-top:10px;">📌 Se recomienda revisar los niveles: ${report.levelsToReview.map(id => "N" + id).join(", ")} antes de repetir el simulacro.</p>` : ""}
+    </div>
+
+    <div style="margin-top:10px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+      <button class="btn" onclick="navigate('level', ${level.id})">Volver al nivel</button>
+      <button class="btn secondary" onclick="navigate('errors')">Ver errores</button>
+      <button class="btn secondary" onclick="navigate('analytics')">Ver Analytics</button>
     </div>
   `;
 }
@@ -1128,6 +1552,7 @@ function renderExamResult(level, score, total) {
 /* ---------------- Reinicio de progreso ---------------- */
 
 function resetProgress() {
+  if (DEMO_ACTIVE) { toast("Sal del modo demo antes de reiniciar tu progreso real."); return; }
   if (!confirm("¿Seguro que quieres borrar todo tu progreso? Esta acción no se puede deshacer.")) return;
   STATE = defaultState();
   saveState();
@@ -1141,12 +1566,17 @@ function init() {
   updateStreak();
   checkBadges();
   document.getElementById("btn-dashboard").onclick = () => navigate("dashboard");
+  document.getElementById("btn-analytics").onclick = () => navigate("analytics");
   document.getElementById("btn-errors").onclick = () => navigate("errors");
   document.getElementById("btn-badges").onclick = () => navigate("badges");
+  document.getElementById("btn-certificate").onclick = () => navigate("certificate");
   document.getElementById("btn-reset").onclick = resetProgress;
   document.getElementById("btn-go-landing").onclick = () => showLanding();
   document.getElementById("btn-start-mission").onclick = () => enterApp("level", findNextLevelToStudy().id);
   document.getElementById("btn-continue-learning").onclick = () => enterApp("dashboard");
+  document.getElementById("btn-take-exam").onclick = () => enterApp("level", 16);
+  document.getElementById("btn-demo").onclick = () => enterDemoMode();
+  document.getElementById("btn-exit-demo").onclick = () => exitDemoMode();
 
   renderSidebar();
   showLanding();
