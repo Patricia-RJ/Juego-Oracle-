@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oracle SQL Quest — Preparación 1Z0-071</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="logo">🧭</span>
+      <div>
+        <h1>Oracle SQL Quest</h1>
+        <span>Preparación 1Z0-071</span>
+      </div>
+    </div>
+
+    <div class="xp-panel">
+      <div class="row">
+        <span class="xp-label">Experiencia</span>
+        <span class="xp-value" id="xp-value">0</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="xp-progress-fill" style="width:0%"></div></div>
+      <div class="xp-sub">
+        <span id="xp-levels-done">0/16 niveles</span>
+        <span>🔥 <span id="xp-streak">0</span> días</span>
+      </div>
+    </div>
+
+    <div class="nav-section-title">Niveles</div>
+    <ul class="level-list" id="level-list"></ul>
+
+    <div class="sidebar-footer">
+      <button class="ghost-btn" id="btn-dashboard" data-view="dashboard">🗺️ Mapa general</button>
+      <button class="ghost-btn" id="btn-errors" data-view="errors">🧠 Repaso de errores</button>
+      <button class="ghost-btn" id="btn-badges" data-view="badges">🏅 Insignias</button>
+      <button class="ghost-btn" id="btn-reset">♻️ Reiniciar progreso</button>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="main">
+    <div class="topbar">
+      <div class="badges">
+        <span class="pill streak">🔥 Racha: <span id="topbar-streak">0</span> días</span>
+        <span class="pill">🟦 De tus apuntes</span>
+        <span class="pill">🟧 Añadido para certificación</span>
+      </div>
+    </div>
+
+    <section id="view-dashboard" class="view"></section>
+    <section id="view-level" class="view"></section>
+    <section id="view-errors" class="view"></section>
+    <section id="view-badges" class="view"></section>
+  </main>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
