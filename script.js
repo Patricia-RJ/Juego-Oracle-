@@ -18,7 +18,8 @@ function defaultState() {
     badges: [],         // lista de ids de insignia conseguidas
     examHistory: [],    // { levelId, score, total, minutes, ts }
     streakDays: 0,
-    lastActiveDate: null
+    lastActiveDate: null,
+    studyMinutes: 0     // minutos activos acumulados (Fase 3: tiempo de estudio)
   };
 }
 
@@ -145,9 +146,180 @@ function maybeCompleteLevel(level) {
     saveState();
     checkBadges();
     toast(`✅ Nivel completado: ${level.title}`);
+    launchConfetti();
   }
   saveState();
   checkBadges();
+}
+
+/* ---------------- Métricas agregadas (dashboard / landing) ---------------- */
+
+function totalExercisesCount() { return APP_DATA.levels.reduce((s, l) => s + l.exercises.length, 0); }
+function totalExercisesDoneCount() { return Object.values(STATE.levels).reduce((s, l) => s + (l.exercisesDone ? l.exercisesDone.length : 0), 0); }
+function totalChallengesCount() { return APP_DATA.levels.reduce((s, l) => s + l.challenges.length, 0); }
+function totalChallengesDoneCount() { return Object.values(STATE.levels).reduce((s, l) => s + (l.challengesDone ? l.challengesDone.length : 0), 0); }
+function totalQuizzesCompletedCount() { return Object.values(STATE.levels).filter(l => l.quizDone).length; }
+function totalQuizAciertos() { return Object.values(STATE.levels).reduce((s, l) => s + (l.quizScore || 0), 0); }
+function totalQuizPreguntas() { return Object.values(STATE.levels).reduce((s, l) => s + (l.quizTotal || 0), 0); }
+function pendingErrorsCount() { return STATE.errorLog.filter(e => !e.mastered).length; }
+
+function overallCertificationPercent() {
+  const completed = Object.values(STATE.levels).filter(l => l.completed).length;
+  const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
+  return totalLevels === 0 ? 0 : Math.round((completed / totalLevels) * 100);
+}
+
+function formatMinutes(m) {
+  m = m || 0;
+  const h = Math.floor(m / 60), mm = m % 60;
+  return h > 0 ? `${h}h ${mm}m` : `${mm} min`;
+}
+
+function findNextLevelToStudy() {
+  const lvl = APP_DATA.levels.find(l => !l.isExamLevel && isLevelUnlocked(l.id) && !getLevelState(l.id).completed);
+  return lvl || APP_DATA.levels[0];
+}
+
+function getMotivationalMessage() {
+  const pct = overallCertificationPercent();
+  const completed = Object.values(STATE.levels).filter(l => l.completed).length;
+  const remainingToSim = Math.max(0, 16 - completed);
+  if (pct >= 100) return { icon: "🏆", text: "¡Has completado todos los niveles! Estás listo para el simulacro final y el nivel experto." };
+  if (STATE.examHistory.some(e => e.levelId === 17 && e.score / e.total >= PASS_RATIO)) return { icon: "👑", text: "Has superado el nivel experto. ¡Dominas la certificación Oracle 1Z0-071!" };
+  if (remainingToSim > 0 && remainingToSim <= 2) return { icon: "⏱️", text: `Solo ${remainingToSim === 1 ? "queda 1 nivel" : "quedan " + remainingToSim + " niveles"} para desbloquear el simulador de examen.` };
+  if (pct >= 70) return { icon: "🔥", text: `Has completado el ${pct}% de la certificación. ¡Excelente progreso!` };
+  if (STATE.streakDays >= 3) return { icon: "📅", text: `Llevas ${STATE.streakDays} días seguidos estudiando. La constancia es la clave del 1Z0-071.` };
+  if (pendingErrorsCount() >= 8) return { icon: "🧠", text: `Tienes ${pendingErrorsCount()} errores pendientes de repasar. Un buen repaso vale más que un nivel nuevo.` };
+  if (completed === 0) return { icon: "🚀", text: "Cada experto en Oracle empezó por el Nivel 0. ¡Vamos con la primera lección!" };
+  return { icon: "💪", text: `Vas por el ${pct}% del camino hacia la certificación Oracle 1Z0-071. Sigue así.` };
+}
+
+/* ---------------- Indicador circular (SVG, sin librerías) ---------------- */
+
+function circularProgressSVG(percent, colorVar, size, stroke) {
+  size = size || 84; stroke = stroke || 8;
+  const r = (size - stroke) / 2;
+  const c = 2 * Math.PI * r;
+  const safePct = Math.min(100, Math.max(0, percent || 0));
+  const offset = c - (safePct / 100) * c;
+  return `
+    <svg class="progress-ring" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+      <circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="var(--border)" stroke-width="${stroke}"></circle>
+      <circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="${colorVar}" stroke-width="${stroke}"
+        stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${offset}"
+        transform="rotate(-90 ${size / 2} ${size / 2})"></circle>
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">${Math.round(safePct)}%</text>
+    </svg>`;
+}
+
+/* ---------------- Confeti vanilla (Canvas, sin dependencias) ---------------- */
+
+function launchConfetti(durationMs) {
+  durationMs = durationMs || 2200;
+  const canvas = document.createElement("canvas");
+  canvas.id = "confetti-canvas";
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext("2d");
+  const colors = ["#4f46e5", "#6d64ff", "#14b8a6", "#ef4444", "#8b7ff0", "#22c55e"];
+  const pieces = Array.from({ length: 140 }, () => ({
+    x: Math.random() * canvas.width,
+    y: -20 - Math.random() * canvas.height * 0.5,
+    w: 6 + Math.random() * 6,
+    h: 8 + Math.random() * 10,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    speedY: 2 + Math.random() * 3,
+    speedX: -1.5 + Math.random() * 3,
+    rotation: Math.random() * 360,
+    rotSpeed: -6 + Math.random() * 12
+  }));
+  const start = performance.now();
+  function frame(now) {
+    const elapsed = now - start;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.rotation += p.rotSpeed;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate((p.rotation * Math.PI) / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    });
+    if (elapsed < durationMs) {
+      requestAnimationFrame(frame);
+    } else {
+      canvas.remove();
+    }
+  }
+  requestAnimationFrame(frame);
+}
+
+/* ---------------- Landing ---------------- */
+
+function showLanding() {
+  document.getElementById("landing").classList.remove("hidden");
+  document.getElementById("app").classList.add("hidden");
+  renderHeroStats();
+  renderLandingCards();
+}
+
+function enterApp(startView, levelId) {
+  document.getElementById("landing").classList.add("hidden");
+  document.getElementById("app").classList.remove("hidden");
+  if (startView === "level") navigate("level", levelId);
+  else navigate("dashboard");
+}
+
+function renderHeroStats() {
+  const el = document.getElementById("hero-stats");
+  if (!el) return;
+  if (STATE.xp === 0 && Object.keys(STATE.levels).length === 0) {
+    el.innerHTML = `<div class="hero-stat">Aún no has empezado. ¡Dale al botón y arrancamos! 🚀</div>`;
+    return;
+  }
+  const pct = overallCertificationPercent();
+  el.innerHTML = `
+    <div class="hero-stat"><strong>${STATE.xp}</strong>XP acumulada</div>
+    <div class="hero-stat"><strong>${pct}%</strong>hacia la certificación</div>
+    <div class="hero-stat"><strong>${STATE.badges.length}</strong>insignias</div>
+    <div class="hero-stat"><strong>🔥 ${STATE.streakDays}</strong>días de racha</div>
+  `;
+}
+
+function renderLandingCards() {
+  const el = document.getElementById("landing-cards");
+  if (!el) return;
+  const exTotal = totalExercisesCount(), exDone = totalExercisesDoneCount();
+  const chTotal = totalChallengesCount(), chDone = totalChallengesDoneCount();
+  const examLevel16 = STATE.examHistory.filter(e => e.levelId === 16);
+  const bestExam = examLevel16.length ? Math.max(...examLevel16.map(h => Math.round((h.score / h.total) * 100))) : null;
+  const certPct = overallCertificationPercent();
+  const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
+
+  const cards = [
+    { icon: "📘", title: "Teoría", desc: "18 niveles con contenido Oracle real, marcado por origen.", status: `${totalLevels} niveles disponibles`, action: () => enterApp("level", findNextLevelToStudy().id) },
+    { icon: "✏️", title: "Ejercicios", desc: "Practica cada bloque con ejercicios guiados y solución explicada.", status: `${exDone}/${exTotal} resueltos`, action: () => enterApp("level", findNextLevelToStudy().id) },
+    { icon: "🚀", title: "Retos", desc: "Dificultad progresiva para poner a prueba lo aprendido.", status: `${chDone}/${chTotal} superados`, action: () => enterApp("level", findNextLevelToStudy().id) },
+    { icon: "⏱️", title: "Simuladores", desc: "Exámenes cronometrados con banco de preguntas mezclado.", status: bestExam !== null ? `Mejor resultado: ${bestExam}%` : "Aún no realizado", action: () => enterApp("level", 16) },
+    { icon: "🎓", title: "Certificación", desc: "Sigue tu progreso real hacia el examen Oracle 1Z0-071.", status: `${certPct}% completado`, action: () => enterApp("dashboard") }
+  ];
+
+  el.innerHTML = cards.map(c => `
+    <div class="landing-card">
+      <span class="lcard-icon">${c.icon}</span>
+      <h3>${c.title}</h3>
+      <p>${c.desc}</p>
+      <span class="lcard-status">${c.status}</span>
+    </div>
+  `).join("");
+
+  el.querySelectorAll(".landing-card").forEach((cardEl, i) => {
+    cardEl.onclick = cards[i].action;
+  });
 }
 
 /* ---------------- Navegación ---------------- */
@@ -177,6 +349,8 @@ function renderTopStats() {
   const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
   document.getElementById("xp-levels-done").textContent = `${completed}/${totalLevels} niveles`;
   document.getElementById("xp-streak").textContent = STATE.streakDays;
+  const topbarStreak = document.getElementById("topbar-streak");
+  if (topbarStreak) topbarStreak.textContent = STATE.streakDays; // antes quedaba siempre en 0
   const pct = Math.min(100, Math.round((completed / totalLevels) * 100));
   document.getElementById("xp-progress-fill").style.width = pct + "%";
 }
@@ -206,6 +380,15 @@ function renderDashboard() {
   const el = document.getElementById("view-dashboard");
   const completed = Object.values(STATE.levels).filter(l => l.completed).length;
   const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
+  const certPct = overallCertificationPercent();
+  const quizDoneCount = totalQuizzesCompletedCount();
+  const aciertos = totalQuizAciertos();
+  const preguntas = totalQuizPreguntas();
+  const aciertoPct = preguntas ? Math.round((aciertos / preguntas) * 100) : 0;
+  const pendErrors = pendingErrorsCount();
+  const bestExam16Runs = STATE.examHistory.filter(e => e.levelId === 16);
+  const bestExam16Pct = bestExam16Runs.length ? Math.max(...bestExam16Runs.map(h => Math.round((h.score / h.total) * 100))) : 0;
+  const msg = getMotivationalMessage();
 
   const cards = APP_DATA.levels.map(level => {
     const unlocked = isLevelUnlocked(level.id);
@@ -232,13 +415,38 @@ function renderDashboard() {
       <h2>Tu ruta hacia el 1Z0-071</h2>
       <p>Progreso general y acceso rápido a todos los niveles.</p>
     </div>
-    <div class="stats-row">
-      <div class="stat-card"><div class="num">${STATE.xp}</div><div class="lbl">XP total</div></div>
-      <div class="stat-card"><div class="num">${completed}/${totalLevels}</div><div class="lbl">Niveles completados</div></div>
-      <div class="stat-card"><div class="num">${STATE.badges.length}/${BADGE_DEFS.length}</div><div class="lbl">Insignias</div></div>
-      <div class="stat-card"><div class="num">${STATE.errorLog.length}</div><div class="lbl">Errores registrados</div></div>
-      <div class="stat-card"><div class="num">${STATE.streakDays}</div><div class="lbl">Días seguidos</div></div>
+
+    <div class="motivational-banner"><span class="mb-icon">${msg.icon}</span><span>${msg.text}</span></div>
+
+    <div class="progress-ring-row">
+      <div class="ring-card">
+        ${circularProgressSVG(certPct, "var(--accent)")}
+        <div><div class="ring-label">Certificación</div><div class="ring-value">${certPct}% completado</div></div>
+      </div>
+      <div class="ring-card">
+        ${circularProgressSVG(aciertoPct, "var(--teal)")}
+        <div><div class="ring-label">Precisión en quizzes</div><div class="ring-value">${aciertos}/${preguntas} aciertos</div></div>
+      </div>
+      <div class="ring-card">
+        ${circularProgressSVG(bestExam16Pct, "var(--purple)")}
+        <div><div class="ring-label">Mejor simulacro (N16)</div><div class="ring-value">${bestExam16Runs.length ? bestExam16Pct + "%" : "Sin intentos"}</div></div>
+      </div>
     </div>
+
+    <div class="kpi-row">
+      <div class="kpi-card"><div class="num">Nivel ${Math.min(completed + 1, totalLevels)}</div><div class="lbl">Nivel actual</div></div>
+      <div class="kpi-card"><div class="num">${STATE.xp}</div><div class="lbl">XP acumulada</div></div>
+      <div class="kpi-card"><div class="num">${STATE.badges.length}/${BADGE_DEFS.length}</div><div class="lbl">Insignias desbloqueadas</div></div>
+      <div class="kpi-card"><div class="num">${quizDoneCount}/${totalLevels}</div><div class="lbl">Quiz completados</div></div>
+      <div class="kpi-card">
+        <div class="num">${aciertoPct}%</div><div class="lbl">Aciertos (${aciertos}/${preguntas})</div>
+        <div class="sub-bar"><div class="seg-correct" style="width:${aciertoPct}%"></div><div class="seg-wrong" style="width:${100 - aciertoPct}%"></div></div>
+      </div>
+      <div class="kpi-card"><div class="num">${pendErrors}</div><div class="lbl">Errores pendientes</div></div>
+      <div class="kpi-card"><div class="num">${formatMinutes(STATE.studyMinutes)}</div><div class="lbl">Tiempo de estudio</div></div>
+      <div class="kpi-card"><div class="num">🔥 ${STATE.streakDays}</div><div class="lbl">Días seguidos</div></div>
+    </div>
+
     <div class="level-grid">${cards}</div>
   `;
 }
@@ -685,6 +893,7 @@ function submitExam() {
     addXP(XP_RULES.examPass);
     const ls = getLevelState(level.id);
     ls.completed = true;
+    launchConfetti(2600);
   }
   saveState();
   checkBadges();
@@ -729,8 +938,21 @@ function init() {
   document.getElementById("btn-errors").onclick = () => navigate("errors");
   document.getElementById("btn-badges").onclick = () => navigate("badges");
   document.getElementById("btn-reset").onclick = resetProgress;
+  document.getElementById("btn-go-landing").onclick = () => showLanding();
+  document.getElementById("btn-start-mission").onclick = () => enterApp("level", findNextLevelToStudy().id);
+  document.getElementById("btn-continue-learning").onclick = () => enterApp("dashboard");
+
   renderSidebar();
-  navigate("dashboard");
+  showLanding();
+
+  // Tiempo de estudio: cuenta minutos solo mientras la pestaña está activa
+  setInterval(() => {
+    if (!document.hidden) {
+      STATE.studyMinutes = (STATE.studyMinutes || 0) + 1;
+      saveState();
+      if (CURRENT_VIEW === "dashboard") renderDashboard();
+    }
+  }, 60000);
 }
 
 document.addEventListener("DOMContentLoaded", init);

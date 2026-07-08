@@ -1,17 +1,27 @@
-# Oracle SQL Quest — Preparación gamificada para 1Z0-071
+# Oracle SQL Quest — Stemdo · Preparación gamificada para 1Z0-071
 
-Aplicación web (HTML + CSS + JS puro, sin dependencias ni build) para aprender SQL Oracle desde cero hasta el nivel de la certificación **Oracle Database SQL 1Z0-071**.
+Plataforma de formación interna (HTML + CSS + JS puro, sin dependencias ni build) para preparar la certificación **Oracle Database SQL 1Z0-071**, con la identidad corporativa de **Stemdo**.
 
 ## Cómo abrirla
 
 Abre `index.html` directamente en el navegador (doble clic). No necesita servidor, ni instalación, ni conexión a internet. El progreso se guarda en `localStorage` del navegador.
 
+Al abrir la app aparece primero la **landing** (portada corporativa con logo, hero y tarjetas de acceso). Desde ahí:
+- **🚀 Comenzar misión** te lleva directo al siguiente nivel pendiente.
+- **📚 Continuar aprendizaje** te lleva al dashboard con tu progreso.
+- Haciendo clic en el logo de la barra lateral, dentro de la app, vuelves a la landing en cualquier momento.
+
 ## Estructura de archivos
 
-- `index.html` — esqueleto de la app y pantallas.
-- `styles.css` — estilos visuales (tema oscuro, tarjetas, barras de progreso, etc.).
+- `index.html` — landing corporativa + esqueleto de la app y pantallas.
+- `styles.css` — estilos visuales (tema oscuro con la paleta de marca Stemdo, landing, dashboard con KPIs/anillos de progreso, tarjetas, confeti, microinteracciones, responsive).
 - `data.js` — todo el contenido educativo: los 18 niveles (teoría, ejemplos, errores típicos, quiz, ejercicios, retos) y el banco de preguntas para los simulacros.
-- `script.js` — lógica de la aplicación: navegación, puntuación, progreso, repaso de errores, simulacro cronometrado.
+- `script.js` — lógica de la aplicación: landing, navegación, gamificación (XP/insignias/confeti), progreso, tiempo de estudio, repaso de errores, simulacro cronometrado.
+- `logo.png` / `fondo.png` — activos de marca Stemdo (logo en cabecera/sidebar, fondo usado como banner del hero de la landing).
+
+## Diseño y marca
+
+La paleta de color (`:root` en `styles.css`) se extrajo directamente de `fondo.png`: negro carbón de fondo + índigo (`--accent`) como color principal, más teal, rojo y violeta como acentos secundarios en tarjetas, KPIs, anillos de progreso y confeti. Cambiar la marca en el futuro es tan sencillo como editar esas variables.
 
 ## Origen del contenido
 
@@ -49,8 +59,14 @@ Así siempre sabes qué es una adaptación de lo tuyo y qué es material nuevo q
 
 - **XP y niveles**: cada quiz acertado, ejercicio resuelto y reto superado da puntos de experiencia.
 - **Progreso por nivel**: barra de avance y estado (bloqueado / en curso / completado) por nivel, guardado en `localStorage`.
+- **Dashboard con KPIs**: nivel actual, XP, insignias, quiz completados, % de aciertos, errores pendientes, tiempo de estudio activo y racha de días, con anillos de progreso circulares y un mensaje motivacional que cambia según tu avance real.
+- **Confeti y microinteracciones**: al completar un nivel o aprobar un simulacro se lanza una animación de confeti (Canvas, sin librerías externas); botones, tarjetas e insignias tienen hover/press sutiles.
 - **Registro de errores**: cada fallo en un quiz o simulacro se guarda con la pregunta, tu respuesta y la explicación correcta, disponible en la pantalla "Repaso de errores".
 - **Simulacro cronometrado**: en el nivel 16 y el nivel experto se genera un examen de N preguntas aleatorias del banco completo con temporizador, igual que en Oracle.
+
+## Hoja de ruta (próximos lotes)
+
+Este rebranding corresponde al **Lote A** de una hoja de ruta más amplia hacia una plataforma corporativa completa (rangos e insignias nominales, repaso inteligente "solo errores", análisis de debilidades por categoría, certificado descargable, ranking). El detalle completo de fases y su clasificación por impacto/esfuerzo se compartió como informe de análisis antes de implementar este lote.
 
 ## Extender el contenido
 
