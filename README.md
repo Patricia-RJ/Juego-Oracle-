@@ -8,6 +8,8 @@
 
 Ábrelo en el navegador (móvil, tablet u ordenador) y empieza a jugar. No hace falta cuenta, ni instalar nada, ni saber programar.
 
+> **Aviso de transparencia**: Oracle SQL Quest es una plataforma de aprendizaje complementaria. No está afiliada ni certificada por Oracle Corporation. Todas las preguntas son originales o están basadas en la [documentación oficial de Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/index.html) con fines formativos; no reproducen preguntas reales del examen.
+
 ---
 
 ## ¿Qué es esto?

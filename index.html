@@ -10,8 +10,11 @@
 </head>
 <body>
 
-<div id="demo-banner" class="demo-banner hidden">
-  🎬 MODO DEMO — datos ficticios con fines de presentación
+<div id="demo-banner" class="demo-banner hidden" role="alert">
+  <span class="demo-banner-text">
+    <strong>⚠️ MODO DEMOSTRACIÓN ACTIVADO</strong>
+    <span>Los datos mostrados son ficticios y no representan progreso real.</span>
+  </span>
   <button class="btn secondary" id="btn-exit-demo">Salir del modo demo</button>
 </div>
 
@@ -55,9 +58,33 @@
     <ul class="why-list">
       <li>📈 Aprender de forma progresiva, nivel a nivel.</li>
       <li>📊 Medir el avance con datos reales, no sensaciones.</li>
-      <li>🎯 Detectar debilidades por tema antes del examen real.</li>
+      <li>🎯 Detectar debilidades por tema antes del examen oficial.</li>
       <li>🚀 Aumentar la tasa de éxito en certificaciones técnicas.</li>
     </ul>
+  </section>
+
+  <section class="sources-section">
+    <h2>Fuentes de referencia</h2>
+    <p class="sources-intro">Todas las preguntas de Oracle SQL Quest son originales o están basadas en la documentación oficial de Oracle con fines formativos. No reproducen preguntas reales del examen.</p>
+    <ul class="sources-list">
+      <li>
+        <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/index.html" target="_blank" rel="noopener noreferrer">📘 Oracle Database SQL Language Reference ↗</a>
+        <span>Documentación oficial de sintaxis SQL de Oracle.</span>
+      </li>
+      <li>
+        <a href="https://livesql.oracle.com/" target="_blank" rel="noopener noreferrer">💻 Oracle Live SQL ↗</a>
+        <span>Entorno oficial gratuito de Oracle para practicar SQL en el navegador.</span>
+      </li>
+      <li>
+        <a href="https://www.oracle.com/education/certification/" target="_blank" rel="noopener noreferrer">🎓 Oracle Certification (Oracle University) ↗</a>
+        <span>Portal oficial de certificaciones y formación de Oracle.</span>
+      </li>
+    </ul>
+    <div class="disclaimer-box">
+      <p><strong>Oracle SQL Quest es una plataforma de aprendizaje complementaria.</strong></p>
+      <p>No está afiliada ni certificada por Oracle Corporation.</p>
+      <p>Los contenidos se basan en documentación oficial pública y materiales elaborados con fines educativos.</p>
+    </div>
   </section>
 
   <footer class="landing-footer">
@@ -100,7 +127,7 @@
       <button class="ghost-btn" id="btn-errors" data-view="errors">🧠 Repaso de errores</button>
       <button class="ghost-btn" id="btn-badges" data-view="badges">🏅 Insignias</button>
       <button class="ghost-btn" id="btn-certificate" data-view="certificate">🎓 Certificado</button>
-      <button class="ghost-btn" id="btn-demo">🎬 Ver demostración</button>
+      <button class="ghost-btn" id="btn-demo" title="Solo para presentaciones internas: sustituye tu progreso por datos ficticios de forma temporal">🎬 Ver demostración (uso interno)</button>
       <button class="ghost-btn" id="btn-reset">♻️ Reiniciar progreso</button>
     </div>
   </aside>

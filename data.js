@@ -995,12 +995,14 @@ levels: [
   theory: [
     { heading: "Cómo funciona este nivel", source: "added", body:
       "Aquí no hay teoría nueva: se genera un simulacro de 20 preguntas aleatorias del banco completo, con un " +
-      "temporizador (20 minutos), igual que un bloque del examen real. Al terminar verás tu puntuación, el " +
-      "tiempo empleado, y todas tus fallas se añaden automáticamente al repaso de errores." }
+      "temporizador (20 minutos), reproduciendo el formato y la duración de un bloque del examen oficial. Al " +
+      "terminar verás tu puntuación, el tiempo empleado, y todas tus fallas se añaden automáticamente al repaso " +
+      "de errores. Importante: todas las preguntas de este simulacro son de elaboración propia, inspiradas en " +
+      "la documentación oficial de Oracle; no son preguntas reales filtradas del examen." }
   ],
   examples: [],
   mistakes: [
-    "Leer la pregunta demasiado rápido: en el examen real muchas 'trampas' están en detalles como NULL, mayúsculas de funciones, o el orden de columnas.",
+    "Leer la pregunta demasiado rápido: en el examen oficial muchas 'trampas' están en detalles como NULL, mayúsculas de funciones, o el orden de columnas.",
     "No gestionar el tiempo: es mejor marcar mentalmente una duda y seguir, que bloquearse en una pregunta."
   ],
   quiz: [],
@@ -1014,15 +1016,16 @@ levels: [
 // =====================================================================
 {
   id: 17, code: "EXP", icon: "🏆", category: null,
-  title: "Nivel experto — retos mezclados tipo examen real",
-  intro: "El desafío final: preguntas de mayor dificultad, mezclando trampas típicas del examen 1Z0-071.",
+  title: "Nivel experto — retos mezclados de dificultad de examen",
+  intro: "El desafío final: preguntas de mayor dificultad, mezclando trampas típicas del temario 1Z0-071.",
   isExamLevel: true,
   theory: [
     { heading: "Qué esperar en este nivel", source: "added", body:
       "Simulacro de 30 preguntas con dificultad alta, mezclando todos los bloques, incluidas las preguntas más " +
       "'trampa' del banco (precedencia de operadores, NULL en funciones de grupo, MINUS vs EXCEPT, ROLLBACK vs " +
       "TRUNCATE, subconsultas de una fila vs varias filas). Pensado para hacerse cuando ya hayas completado " +
-      "todos los niveles anteriores." }
+      "todos los niveles anteriores. Como en todo el banco de preguntas de Oracle SQL Quest, son preguntas de " +
+      "elaboración propia inspiradas en la documentación oficial de Oracle, no preguntas reales del examen." }
   ],
   examples: [],
   mistakes: [],

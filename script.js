@@ -138,7 +138,7 @@ const BADGE_DEFS = [
   { id: "badge_oracle_specialist", icon: "🏅", name: "Oracle Specialist", group: "rango", desc: "Completa el Nivel 15 · Control de transacciones.", check: s => !!(s.levels[15] && s.levels[15].completed) },
   { id: "badge_certification_ready", icon: "🏅", name: "Certification Ready", group: "rango", desc: "Completa los 16 niveles base (N0 a N15).", check: s => APP_DATA.levels.filter(l => !l.isExamLevel).every(l => s.levels[l.id] && s.levels[l.id].completed) },
 
-  { id: "b_start", icon: "🌱", name: "Primer paso", group: "logro", desc: "Empieza a trabajar en cualquier nivel.", check: s => Object.keys(s.levels).length > 0 },
+  { id: "b_start", icon: "🌱", name: "Primer paso", group: "logro", desc: "Empieza a trabajar en cualquier nivel.", check: s => Object.values(s.levels).some(l => l.completed || l.quizDone || l.exercisesDone.length > 0 || l.challengesDone.length > 0) },
   { id: "b_perfectquiz", icon: "🎯", name: "Quiz perfecto", group: "logro", desc: "Acierta el 100% de las preguntas del quiz de un nivel.", check: s => Object.values(s.levels).some(l => l.quizDone && l.quizTotal > 0 && l.quizScore === l.quizTotal) },
   { id: "b_exam1", icon: "🏁", name: "Primer simulacro superado", group: "logro", desc: "Aprueba (≥70%) cualquier simulacro cronometrado.", check: s => s.examHistory.some(e => e.score / e.total >= 0.7) },
   { id: "b_expert", icon: "🏆", name: "Nivel experto superado", group: "logro", desc: "Aprueba (≥70%) el simulacro del Nivel Experto.", check: s => s.examHistory.some(e => e.levelId === 17 && e.score / e.total >= 0.7) },
@@ -262,7 +262,7 @@ function enterDemoMode() {
   DEMO_ACTIVE = true;
   document.getElementById("demo-banner").classList.remove("hidden");
   document.body.classList.add("demo-mode");
-  toast("🎬 Modo demo activado: datos ficticios para presentación");
+  toast("⚠️ Modo demostración activado: los datos son ficticios, no representan progreso real");
   if (!document.getElementById("app").classList.contains("hidden")) {
     navigate(CURRENT_VIEW === "level" ? "dashboard" : CURRENT_VIEW);
   } else {
