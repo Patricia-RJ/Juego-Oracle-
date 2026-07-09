@@ -84,12 +84,12 @@ function addXP(amount) {
 /* Progresión nominal ligada al número de niveles base (0-15) completados. */
 
 const RANKS = [
-  { id: "r1", name: "SQL Explorer", min: 0, icon: "🧭" },
-  { id: "r2", name: "Query Builder", min: 3, icon: "🧱" },
-  { id: "r3", name: "Join Master", min: 6, icon: "🔗" },
-  { id: "r4", name: "Aggregate Expert", min: 9, icon: "📊" },
-  { id: "r5", name: "Oracle Specialist", min: 12, icon: "🛡️" },
-  { id: "r6", name: "Certification Ready", min: 16, icon: "🎓" }
+  { id: "r1", name: "SQL Explorer", min: 0 },
+  { id: "r2", name: "Query Builder", min: 3 },
+  { id: "r3", name: "Join Master", min: 6 },
+  { id: "r4", name: "Aggregate Expert", min: 9 },
+  { id: "r5", name: "Oracle Specialist", min: 12 },
+  { id: "r6", name: "Certification Ready", min: 16 }
 ];
 
 function getCurrentRank() {
@@ -119,7 +119,6 @@ function renderRankStepper() {
   const steps = RANKS.map(r => {
     const reached = n >= r.min;
     return `<div class="rank-step ${reached ? "reached" : ""} ${r.id === currentId ? "current" : ""}">
-      <span class="rank-step-icon">${reached ? r.icon : "🔒"}</span>
       <span class="rank-step-name">${r.name}</span>
     </div>`;
   });
@@ -131,19 +130,19 @@ function renderRankStepper() {
    group "logro": hitos adicionales de constancia/rendimiento. */
 
 const BADGE_DEFS = [
-  { id: "badge_sql_explorer", icon: "🏅", name: "SQL Explorer", group: "rango", desc: "Completa el Nivel 1 · SELECT básico.", check: s => !!(s.levels[1] && s.levels[1].completed) },
-  { id: "badge_join_master", icon: "🏅", name: "Join Master", group: "rango", desc: "Completa el Nivel 8 · JOINs.", check: s => !!(s.levels[8] && s.levels[8].completed) },
-  { id: "badge_aggregate_expert", icon: "🏅", name: "Aggregate Expert", group: "rango", desc: "Completa el Nivel 7 · GROUP BY y HAVING.", check: s => !!(s.levels[7] && s.levels[7].completed) },
-  { id: "badge_subquery_hunter", icon: "🏅", name: "Subquery Hunter", group: "rango", desc: "Completa el Nivel 9 · Subconsultas.", check: s => !!(s.levels[9] && s.levels[9].completed) },
-  { id: "badge_oracle_specialist", icon: "🏅", name: "Oracle Specialist", group: "rango", desc: "Completa el Nivel 15 · Control de transacciones.", check: s => !!(s.levels[15] && s.levels[15].completed) },
-  { id: "badge_certification_ready", icon: "🏅", name: "Certification Ready", group: "rango", desc: "Completa los 16 niveles base (N0 a N15).", check: s => APP_DATA.levels.filter(l => !l.isExamLevel).every(l => s.levels[l.id] && s.levels[l.id].completed) },
+  { id: "badge_sql_explorer", name: "SQL Explorer", group: "rango", desc: "Completa el Nivel 1 · SELECT básico.", check: s => !!(s.levels[1] && s.levels[1].completed) },
+  { id: "badge_join_master", name: "Join Master", group: "rango", desc: "Completa el Nivel 8 · JOINs.", check: s => !!(s.levels[8] && s.levels[8].completed) },
+  { id: "badge_aggregate_expert", name: "Aggregate Expert", group: "rango", desc: "Completa el Nivel 7 · GROUP BY y HAVING.", check: s => !!(s.levels[7] && s.levels[7].completed) },
+  { id: "badge_subquery_hunter", name: "Subquery Hunter", group: "rango", desc: "Completa el Nivel 9 · Subconsultas.", check: s => !!(s.levels[9] && s.levels[9].completed) },
+  { id: "badge_oracle_specialist", name: "Oracle Specialist", group: "rango", desc: "Completa el Nivel 15 · Control de transacciones.", check: s => !!(s.levels[15] && s.levels[15].completed) },
+  { id: "badge_certification_ready", name: "Certification Ready", group: "rango", desc: "Completa los 16 niveles base (N0 a N15).", check: s => APP_DATA.levels.filter(l => !l.isExamLevel).every(l => s.levels[l.id] && s.levels[l.id].completed) },
 
-  { id: "b_start", icon: "🌱", name: "Primer paso", group: "logro", desc: "Empieza a trabajar en cualquier nivel.", check: s => Object.values(s.levels).some(l => l.completed || l.quizDone || l.exercisesDone.length > 0 || l.challengesDone.length > 0) },
-  { id: "b_perfectquiz", icon: "🎯", name: "Quiz perfecto", group: "logro", desc: "Acierta el 100% de las preguntas del quiz de un nivel.", check: s => Object.values(s.levels).some(l => l.quizDone && l.quizTotal > 0 && l.quizScore === l.quizTotal) },
-  { id: "b_exam1", icon: "🏁", name: "Primer simulacro superado", group: "logro", desc: "Aprueba (≥70%) cualquier simulacro cronometrado.", check: s => s.examHistory.some(e => e.score / e.total >= 0.7) },
-  { id: "b_expert", icon: "🏆", name: "Nivel experto superado", group: "logro", desc: "Aprueba (≥70%) el simulacro del Nivel Experto.", check: s => s.examHistory.some(e => e.levelId === 17 && e.score / e.total >= 0.7) },
-  { id: "b_reviewer", icon: "🧠", name: "Repasador aplicado", group: "logro", desc: "Acumula 10 elementos en tu registro de errores (señal de que practicas de verdad).", check: s => s.errorLog.length >= 10 },
-  { id: "b_streak3", icon: "📅", name: "Racha de 3 días", group: "logro", desc: "Entra a estudiar 3 días seguidos.", check: s => s.streakDays >= 3 }
+  { id: "b_start", name: "Primer paso", group: "logro", desc: "Empieza a trabajar en cualquier nivel.", check: s => Object.values(s.levels).some(l => l.completed || l.quizDone || l.exercisesDone.length > 0 || l.challengesDone.length > 0) },
+  { id: "b_perfectquiz", name: "Quiz perfecto", group: "logro", desc: "Acierta el 100% de las preguntas del quiz de un nivel.", check: s => Object.values(s.levels).some(l => l.quizDone && l.quizTotal > 0 && l.quizScore === l.quizTotal) },
+  { id: "b_exam1", name: "Primer simulacro superado", group: "logro", desc: "Aprueba (≥70%) cualquier simulacro cronometrado.", check: s => s.examHistory.some(e => e.score / e.total >= 0.7) },
+  { id: "b_expert", name: "Nivel experto superado", group: "logro", desc: "Aprueba (≥70%) el simulacro del Nivel Experto.", check: s => s.examHistory.some(e => e.levelId === 17 && e.score / e.total >= 0.7) },
+  { id: "b_reviewer", name: "Repasador aplicado", group: "logro", desc: "Acumula 10 elementos en tu registro de errores (señal de que practicas de verdad).", check: s => s.errorLog.length >= 10 },
+  { id: "b_streak3", name: "Racha de 3 días", group: "logro", desc: "Entra a estudiar 3 días seguidos.", check: s => s.streakDays >= 3 }
 ];
 
 function checkBadges() {
@@ -156,21 +155,21 @@ function checkBadges() {
   });
   if (newOnes.length) {
     saveState();
-    newOnes.forEach(b => toast(`🏅 Insignia desbloqueada: ${b.name}`));
+    newOnes.forEach(b => toast(`Insignia desbloqueada: ${b.name}`));
   }
 }
 
 /* ---------------- Categorías del temario (Analytics / informe del simulador) ---------------- */
 
 const CATEGORIES = [
-  { id: "SELECT", icon: "🔍" },
-  { id: "JOINS", icon: "🔗" },
-  { id: "Funciones", icon: "🧮" },
-  { id: "GROUP BY", icon: "📊" },
-  { id: "Subconsultas", icon: "🪆" },
-  { id: "DDL", icon: "🏗️" },
-  { id: "DML", icon: "✍️" },
-  { id: "Restricciones", icon: "🔒" }
+  { id: "SELECT" },
+  { id: "JOINS" },
+  { id: "Funciones" },
+  { id: "GROUP BY" },
+  { id: "Subconsultas" },
+  { id: "DDL" },
+  { id: "DML" },
+  { id: "Restricciones" }
 ];
 
 const CATEGORY_TO_LEVELS = {
@@ -260,9 +259,10 @@ function enterDemoMode() {
   REAL_STATE_SNAPSHOT = STATE;
   STATE = buildDemoState();
   DEMO_ACTIVE = true;
-  document.getElementById("demo-banner").classList.remove("hidden");
+  const banner = document.getElementById("demo-banner");
+  if (banner) banner.classList.remove("hidden");
   document.body.classList.add("demo-mode");
-  toast("⚠️ Modo demostración activado: los datos son ficticios, no representan progreso real");
+  toast("Modo demostración activado: los datos son ficticios, no representan progreso real");
   if (!document.getElementById("app").classList.contains("hidden")) {
     navigate(CURRENT_VIEW === "level" ? "dashboard" : CURRENT_VIEW);
   } else {
@@ -277,7 +277,8 @@ function exitDemoMode() {
   STATE = REAL_STATE_SNAPSHOT;
   REAL_STATE_SNAPSHOT = null;
   DEMO_ACTIVE = false;
-  document.getElementById("demo-banner").classList.add("hidden");
+  const banner = document.getElementById("demo-banner");
+  if (banner) banner.classList.add("hidden");
   document.body.classList.remove("demo-mode");
   toast("Modo demo desactivado: has vuelto a tu progreso real");
   if (!document.getElementById("app").classList.contains("hidden")) {
@@ -343,7 +344,7 @@ function maybeCompleteLevel(level) {
     addXP(XP_RULES.levelComplete);
     saveState();
     checkBadges();
-    toast(`✅ Nivel completado: ${level.title}`);
+    toast(`Nivel completado: ${level.title}`);
     launchConfetti();
   }
   saveState();
@@ -388,14 +389,14 @@ function getMotivationalMessage() {
   const pct = overallCertificationPercent();
   const completed = completedCoreLevelsCount();
   const remainingToSim = Math.max(0, 16 - completed);
-  if (pct >= 100) return { icon: "🏆", text: "¡Has completado todos los niveles! Estás listo para el simulacro final y el nivel experto." };
-  if (STATE.examHistory.some(e => e.levelId === 17 && e.score / e.total >= PASS_RATIO)) return { icon: "👑", text: "Has superado el nivel experto. ¡Dominas la certificación Oracle 1Z0-071!" };
-  if (remainingToSim > 0 && remainingToSim <= 2) return { icon: "⏱️", text: `Solo ${remainingToSim === 1 ? "queda 1 nivel" : "quedan " + remainingToSim + " niveles"} para desbloquear el simulador de examen.` };
-  if (pct >= 70) return { icon: "🔥", text: `Has completado el ${pct}% de la certificación. ¡Excelente progreso!` };
-  if (STATE.streakDays >= 3) return { icon: "📅", text: `Llevas ${STATE.streakDays} días seguidos estudiando. La constancia es la clave del 1Z0-071.` };
-  if (pendingErrorsCount() >= 8) return { icon: "🧠", text: `Tienes ${pendingErrorsCount()} errores pendientes de repasar. Un buen repaso vale más que un nivel nuevo.` };
-  if (completed === 0) return { icon: "🚀", text: "Cada experto en Oracle empezó por el Nivel 0. ¡Vamos con la primera lección!" };
-  return { icon: "💪", text: `Vas por el ${pct}% del camino hacia la certificación Oracle 1Z0-071. Sigue así.` };
+  if (pct >= 100) return { text: "¡Has completado todos los niveles! Estás listo para el simulacro final y el nivel experto." };
+  if (STATE.examHistory.some(e => e.levelId === 17 && e.score / e.total >= PASS_RATIO)) return { text: "Has superado el nivel experto. ¡Dominas la certificación Oracle 1Z0-071!" };
+  if (remainingToSim > 0 && remainingToSim <= 2) return { text: `Solo ${remainingToSim === 1 ? "queda 1 nivel" : "quedan " + remainingToSim + " niveles"} para desbloquear el simulador de examen.` };
+  if (pct >= 70) return { text: `Has completado el ${pct}% de la certificación. ¡Excelente progreso!` };
+  if (STATE.streakDays >= 3) return { text: `Llevas ${STATE.streakDays} días seguidos estudiando. La constancia es la clave del 1Z0-071.` };
+  if (pendingErrorsCount() >= 8) return { text: `Tienes ${pendingErrorsCount()} errores pendientes de repasar. Un buen repaso vale más que un nivel nuevo.` };
+  if (completed === 0) return { text: "Cada experto en Oracle empezó por el Nivel 0. ¡Vamos con la primera lección!" };
+  return { text: `Vas por el ${pct}% del camino hacia la certificación Oracle 1Z0-071. Sigue así.` };
 }
 
 /* ---------------- Indicador circular (SVG, sin librerías) ---------------- */
@@ -468,9 +469,9 @@ function getPreparationStatus() {
   const pct = overallCertificationPercent();
   const examCount = STATE.examHistory.length;
   const examAvg = examCount ? STATE.examHistory.reduce((s, h) => s + (h.score / h.total * 100), 0) / examCount : 0;
-  if (pct >= 90 && examAvg >= 70) return { level: "green", label: "🟢 Preparado para certificación" };
-  if (pct >= 50 || examCount > 0) return { level: "yellow", label: "🟡 En progreso" };
-  return { level: "red", label: "🔴 Riesgo alto" };
+  if (pct >= 90 && examAvg >= 70) return { level: "green", label: "Preparado para certificación" };
+  if (pct >= 50 || examCount > 0) return { level: "yellow", label: "En progreso" };
+  return { level: "red", label: "Riesgo alto" };
 }
 
 /* ---------------- Analytics (Fase 5) ---------------- */
@@ -500,7 +501,7 @@ function renderRadarChart() {
     const lx = center + labelR * Math.cos(angle);
     const ly = center + labelR * Math.sin(angle);
     const anchor = Math.cos(angle) > 0.3 ? "end" : Math.cos(angle) < -0.3 ? "start" : "middle";
-    return `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" class="radar-label" text-anchor="${anchor}" dominant-baseline="middle">${c.icon} ${c.id}</text>`;
+    return `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" class="radar-label" text-anchor="${anchor}" dominant-baseline="middle">${c.id}</text>`;
   }).join("");
   return `
     <svg viewBox="0 0 ${size} ${size}" class="radar-svg">
@@ -516,7 +517,6 @@ function renderCategoryHeatmap() {
     const pct = categoryMasteryPercent(c.id);
     const tier = pct === null ? "nodata" : pct >= 75 ? "high" : pct >= 50 ? "mid" : "low";
     return `<div class="heatmap-cell tier-${tier}">
-      <span class="hm-icon">${c.icon}</span>
       <span class="hm-name">${c.id}</span>
       <span class="hm-pct">${pct === null ? "Sin datos" : pct + "%"}</span>
     </div>`;
@@ -613,8 +613,8 @@ function renderCertificate() {
       <div class="dash-header"><h2>Certificado</h2><p>Todavía no has completado los requisitos para desbloquearlo.</p></div>
       <div class="card">
         <ul class="mistake-list">
-          <li>${completedCoreLevelsCount() === totalLevels ? "✅" : "⚠️"} ${completedCoreLevelsCount()}/${totalLevels} niveles base completados</li>
-          <li>${examOk ? "✅" : "⚠️"} Simulacro del Nivel 16 aprobado (≥70%)</li>
+          <li>${completedCoreLevelsCount()}/${totalLevels} niveles base completados ${completedCoreLevelsCount() === totalLevels ? "(completo)" : "(pendiente)"}</li>
+          <li>Simulacro del Nivel 16 aprobado (≥70%): ${examOk ? "sí" : "todavía no"}</li>
         </ul>
       </div>`;
     return;
@@ -631,18 +631,18 @@ function renderCertificate() {
   el.innerHTML = `
     <div class="dash-header no-print"><h2>Tu certificado</h2><p>Descárgalo como PDF con el botón de imprimir de tu navegador.</p></div>
     <div class="certificate">
-      <div class="cert-brand">🧭 STEMDO</div>
+      <div class="cert-brand"> STEMDO</div>
       <h1 class="cert-title">Certificado de Preparación</h1>
       <p class="cert-sub">Oracle Database SQL — 1Z0-071</p>
       <p class="cert-name">${escapeHtml(STATE.studentName)}</p>
       <p class="cert-body">ha completado el itinerario formativo de Oracle SQL Quest, alcanzando el rango
-      <strong>${rank.icon} ${rank.name}</strong> con una nota media de simulacro del <strong>${avg}%</strong>
+      <strong>${rank.name}</strong> con una nota media de simulacro del <strong>${avg}%</strong>
       y ${STATE.xp} XP acumulada.</p>
       <p class="cert-date">${new Date().toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}</p>
     </div>
     <div class="no-print" style="text-align:center; margin-top:20px; display:flex; gap:10px; justify-content:center;">
-      <button class="btn" onclick="window.print()">🖨️ Imprimir / Guardar como PDF</button>
-      <button class="btn secondary" onclick="editCertificateName()">✏️ Cambiar nombre</button>
+      <button class="btn" onclick="window.print()">Imprimir / Guardar como PDF</button>
+      <button class="btn secondary" onclick="editCertificateName()">Cambiar nombre</button>
     </div>
   `;
 }
@@ -667,7 +667,7 @@ function renderHeroStats() {
   const el = document.getElementById("hero-stats");
   if (!el) return;
   if (STATE.xp === 0 && Object.keys(STATE.levels).length === 0) {
-    el.innerHTML = `<div class="hero-stat">Aún no has empezado. ¡Dale al botón y arrancamos! 🚀</div>`;
+    el.innerHTML = `<div class="hero-stat">Aún no has empezado. ¡Dale al botón y arrancamos!</div>`;
     return;
   }
   const pct = overallCertificationPercent();
@@ -675,11 +675,11 @@ function renderHeroStats() {
   const prep = getPreparationStatus();
   el.innerHTML = `
     <div class="hero-stat"><strong>${prep.label}</strong>estado del alumno</div>
-    <div class="hero-stat"><strong>${rank.icon} ${rank.name}</strong>rango actual</div>
+    <div class="hero-stat"><strong>${rank.name}</strong>rango actual</div>
     <div class="hero-stat"><strong>${STATE.xp}</strong>XP acumulada</div>
     <div class="hero-stat"><strong>${pct}%</strong>hacia la certificación</div>
     <div class="hero-stat"><strong>${STATE.badges.length}</strong>insignias</div>
-    <div class="hero-stat"><strong>🔥 ${STATE.streakDays}</strong>días de racha</div>
+    <div class="hero-stat"><strong>${STATE.streakDays}</strong>días de racha</div>
   `;
 }
 
@@ -694,16 +694,15 @@ function renderLandingCards() {
   const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
 
   const cards = [
-    { icon: "📘", title: "Teoría", desc: "18 niveles con contenido Oracle real, marcado por origen.", status: `${totalLevels} niveles disponibles`, action: () => enterApp("level", findNextLevelToStudy().id) },
-    { icon: "✏️", title: "Ejercicios", desc: "Practica cada bloque con ejercicios guiados y solución explicada.", status: `${exDone}/${exTotal} resueltos`, action: () => enterApp("level", findNextLevelToStudy().id) },
-    { icon: "🚀", title: "Retos", desc: "Dificultad progresiva para poner a prueba lo aprendido.", status: `${chDone}/${chTotal} superados`, action: () => enterApp("level", findNextLevelToStudy().id) },
-    { icon: "⏱️", title: "Simuladores", desc: "Exámenes cronometrados con banco de preguntas mezclado.", status: bestExam !== null ? `Mejor resultado: ${bestExam}%` : "Aún no realizado", action: () => enterApp("level", 16) },
-    { icon: "🎓", title: "Certificación", desc: "Sigue tu progreso real hacia el examen Oracle 1Z0-071.", status: `${certPct}% completado`, action: () => enterApp("dashboard") }
+    { title: "Teoría", desc: "18 niveles con contenido Oracle real, marcado por origen.", status: `${totalLevels} niveles disponibles`, action: () => enterApp("level", findNextLevelToStudy().id) },
+    { title: "Ejercicios", desc: "Practica cada bloque con ejercicios guiados y solución explicada.", status: `${exDone}/${exTotal} resueltos`, action: () => enterApp("level", findNextLevelToStudy().id) },
+    { title: "Retos", desc: "Dificultad progresiva para poner a prueba lo aprendido.", status: `${chDone}/${chTotal} superados`, action: () => enterApp("level", findNextLevelToStudy().id) },
+    { title: "Simuladores", desc: "Exámenes cronometrados con banco de preguntas mezclado.", status: bestExam !== null ? `Mejor resultado: ${bestExam}%` : "Aún no realizado", action: () => enterApp("level", 16) },
+    { title: "Certificación", desc: "Sigue tu progreso real hacia el examen Oracle 1Z0-071.", status: `${certPct}% completado`, action: () => enterApp("dashboard") }
   ];
 
   el.innerHTML = cards.map(c => `
     <div class="landing-card">
-      <span class="lcard-icon">${c.icon}</span>
       <h3>${c.title}</h3>
       <p>${c.desc}</p>
       <span class="lcard-status">${c.status}</span>
@@ -750,7 +749,7 @@ function renderTopStats() {
   document.getElementById("xp-progress-fill").style.width = pct + "%";
   const rank = getCurrentRank();
   const sidebarRank = document.getElementById("sidebar-rank");
-  if (sidebarRank) sidebarRank.textContent = `${rank.icon} ${rank.name}`;
+  if (sidebarRank) sidebarRank.textContent = rank.name;
 }
 
 function renderSidebar() {
@@ -761,8 +760,8 @@ function renderSidebar() {
     const ls = getLevelState(level.id);
     const li = document.createElement("li");
     li.className = "level-item" + (!unlocked ? " locked" : "") + (ls.completed ? " completed" : "") + (CURRENT_VIEW === "level" && CURRENT_LEVEL_ID === level.id ? " active" : "");
-    const statusIcon = ls.completed ? "✅" : (unlocked ? "▶️" : "🔒");
-    li.innerHTML = `<span class="lv-icon">${level.icon}</span><span class="lv-title">${level.code} · ${level.title}</span><span class="lv-status">${statusIcon}</span>`;
+    const statusText = ls.completed ? "Completado" : (unlocked ? "En curso" : "Bloqueado");
+    li.innerHTML = `<span class="lv-title">${level.code} · ${level.title}</span><span class="lv-status">${statusText}</span>`;
     if (unlocked) li.onclick = () => navigate("level", level.id);
     list.appendChild(li);
   });
@@ -797,13 +796,10 @@ function renderDashboard() {
     const unlocked = isLevelUnlocked(level.id);
     const ls = getLevelState(level.id);
     const pct = levelProgressPercent(level);
-    const tag = ls.completed ? "✅" : (level.isExamLevel ? "⏱️" : "");
+    const tag = ls.completed ? "Completado" : (level.isExamLevel ? "Simulacro" : "");
     return `
       <div class="level-card ${unlocked ? "" : "locked"}" ${unlocked ? `onclick="navigate('level', ${level.id})"` : ""}>
         <span class="lc-tag">${tag}</span>
-        <div class="lc-top">
-          <span class="lc-icon">${level.icon}</span>
-        </div>
         <div class="lc-code">${level.code}${level.isExamLevel ? " · SIMULACRO" : ""}</div>
         <h3>${level.title}</h3>
         ${unlocked ? `
@@ -819,11 +815,11 @@ function renderDashboard() {
       <p>Progreso general y acceso rápido a todos los niveles.</p>
     </div>
 
-    <div class="motivational-banner"><span class="mb-icon">${msg.icon}</span><span>${msg.text}</span><span class="prep-pill prep-${prep.level}">${prep.label}</span></div>
+    <div class="motivational-banner"><span>${msg.text}</span><span class="prep-pill prep-${prep.level}">${prep.label}</span></div>
 
     <div class="rank-card">
       ${renderRankStepper()}
-      <p class="rank-caption">${nextRank ? `Te ${(nextRank.min - completed) === 1 ? "falta 1 nivel" : "faltan " + (nextRank.min - completed) + " niveles"} para alcanzar <strong>${nextRank.icon} ${nextRank.name}</strong>.` : `🎉 Has alcanzado el rango máximo: <strong>${rank.icon} ${rank.name}</strong>.`}</p>
+      <p class="rank-caption">${nextRank ? `Te ${(nextRank.min - completed) === 1 ? "falta 1 nivel" : "faltan " + (nextRank.min - completed) + " niveles"} para alcanzar <strong>${nextRank.name}</strong>.` : `Has alcanzado el rango máximo: <strong>${rank.name}</strong>.`}</p>
     </div>
 
     <div class="progress-ring-row">
@@ -842,7 +838,7 @@ function renderDashboard() {
     </div>
 
     <div class="kpi-row">
-      <div class="kpi-card"><div class="num">${rank.icon} ${rank.name}</div><div class="lbl">Rango actual · ${completed}/${totalLevels} niveles</div></div>
+      <div class="kpi-card"><div class="num">${rank.name}</div><div class="lbl">Rango actual · ${completed}/${totalLevels} niveles</div></div>
       <div class="kpi-card"><div class="num">${STATE.xp}</div><div class="lbl">XP acumulada</div></div>
       <div class="kpi-card"><div class="num">${STATE.badges.length}/${BADGE_DEFS.length}</div><div class="lbl">Insignias desbloqueadas</div></div>
       <div class="kpi-card"><div class="num">${quizDoneCount}/${totalLevels}</div><div class="lbl">Quiz completados</div></div>
@@ -852,7 +848,7 @@ function renderDashboard() {
       </div>
       <div class="kpi-card"><div class="num">${pendErrors}</div><div class="lbl">Errores pendientes</div></div>
       <div class="kpi-card"><div class="num">${formatMinutes(STATE.studyMinutes)}</div><div class="lbl">Tiempo de estudio</div></div>
-      <div class="kpi-card"><div class="num">🔥 ${STATE.streakDays}</div><div class="lbl">Días seguidos</div></div>
+      <div class="kpi-card"><div class="num">${STATE.streakDays}</div><div class="lbl">Días seguidos</div></div>
       <div class="kpi-card"><div class="num">${examCount}</div><div class="lbl">Simuladores realizados</div></div>
       <div class="kpi-card"><div class="num">${examAvgPct}%</div><div class="lbl">Nota media de simulacro</div></div>
     </div>
@@ -880,11 +876,10 @@ function renderLevel(levelId) {
   }
 
   CURRENT_TAB = CURRENT_TAB || "teoria";
-  const completedBanner = ls.completed ? `<div class="complete-banner">✅ Has completado este nivel. Puedes repasarlo cuando quieras.</div>` : "";
+  const completedBanner = ls.completed ? `<div class="complete-banner">Has completado este nivel. Puedes repasarlo cuando quieras.</div>` : "";
 
   el.innerHTML = `
     <div class="level-header">
-      <span class="lh-icon">${level.icon}</span>
       <div>
         <h2>${level.code} · ${level.title}</h2>
         <p>${level.intro}</p>
@@ -892,12 +887,12 @@ function renderLevel(levelId) {
     </div>
     ${completedBanner}
     <div class="tabs">
-      <button class="tab-btn" data-tab="teoria">📘 Teoría</button>
-      <button class="tab-btn" data-tab="ejemplos">💻 Ejemplos</button>
-      <button class="tab-btn" data-tab="errores">⚠️ Errores típicos</button>
-      <button class="tab-btn" data-tab="quiz">❓ Quiz (${ls.quizDone ? "hecho" : level.quiz.length + " preguntas"})</button>
-      <button class="tab-btn" data-tab="ejercicios">✏️ Ejercicios</button>
-      <button class="tab-btn" data-tab="retos">🚀 Retos</button>
+      <button class="tab-btn" data-tab="teoria">Teoría</button>
+      <button class="tab-btn" data-tab="ejemplos">Ejemplos</button>
+      <button class="tab-btn" data-tab="errores">Errores típicos</button>
+      <button class="tab-btn" data-tab="quiz">Quiz (${ls.quizDone ? "hecho" : level.quiz.length + " preguntas"})</button>
+      <button class="tab-btn" data-tab="ejercicios">Ejercicios</button>
+      <button class="tab-btn" data-tab="retos">Retos</button>
     </div>
     <div id="tab-teoria" class="tab-pane">${renderTheory(level)}</div>
     <div id="tab-ejemplos" class="tab-pane">${renderExamples(level)}</div>
@@ -927,8 +922,8 @@ function selectTab(tab, level) {
 
 function sourceTag(source) {
   return source === "apuntes"
-    ? `<span class="source-tag apuntes">🟦 De tus apuntes</span>`
-    : `<span class="source-tag added">🟧 Contenido añadido para certificación</span>`;
+    ? `<span class="source-tag apuntes">De tus apuntes</span>`
+    : `<span class="source-tag added">Contenido añadido para certificación</span>`;
 }
 
 const ORACLE_OFFICIAL_DOCS_URL = "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/index.html";
@@ -945,7 +940,7 @@ function renderTheory(level) {
   const docsLink = `
     <div class="card docs-link-card">
       <a href="${ORACLE_OFFICIAL_DOCS_URL}" target="_blank" rel="noopener noreferrer">
-        📚 Consultar la documentación oficial de Oracle (Database SQL Language Reference) ↗
+        Consultar la documentación oficial de Oracle (Database SQL Language Reference)
       </a>
     </div>`;
   return cards + docsLink;
@@ -964,7 +959,7 @@ function renderExamples(level) {
 
 function renderMistakes(level) {
   if (!level.mistakes.length) return `<div class="card"><p>No hay errores típicos registrados para este nivel.</p></div>`;
-  return `<ul class="mistake-list">${level.mistakes.map(m => `<li>⚠️ ${escapeHtml(m)}</li>`).join("")}</ul>`;
+  return `<ul class="mistake-list">${level.mistakes.map(m => `<li>${escapeHtml(m)}</li>`).join("")}</ul>`;
 }
 
 function renderExercises(level) {
@@ -974,15 +969,15 @@ function renderExercises(level) {
     const done = ls.exercisesDone.includes(idx);
     return `
     <div class="card exercise-card">
-      <h4>${escapeHtml(ex.title)} ${done ? "✅" : ""}</h4>
+      <h4>${escapeHtml(ex.title)} ${done ? "(hecho)" : ""}</h4>
       <p>${escapeHtml(ex.prompt)}</p>
-      <details><summary>💡 Ver pista</summary><div>${escapeHtml(ex.hint)}</div></details>
-      <details><summary>🔎 Ver solución</summary><div><pre class="code-block">${escapeHtml(ex.solution)}</pre></div></details>
+      <details><summary>Ver pista</summary><div>${escapeHtml(ex.hint)}</div></details>
+      <details><summary>Ver solución</summary><div><pre class="code-block">${escapeHtml(ex.solution)}</pre></div></details>
       <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
         <button class="btn ${done ? "secondary" : ""}" ${done ? "disabled" : ""} onclick="markExerciseDone(${level.id}, ${idx}, false)">
-          ${done ? "Ejercicio completado" : "✅ Lo conseguí (+" + XP_RULES.exercise + " XP)"}
+          ${done ? "Ejercicio completado" : "Lo conseguí (+" + XP_RULES.exercise + " XP)"}
         </button>
-        ${!done ? `<button class="btn secondary" onclick="markExerciseDone(${level.id}, ${idx}, true)">🙈 Necesité la solución</button>` : ""}
+        ${!done ? `<button class="btn secondary" onclick="markExerciseDone(${level.id}, ${idx}, true)">Necesité la solución</button>` : ""}
       </div>
     </div>`;
   }).join("");
@@ -1012,14 +1007,14 @@ function renderChallenges(level) {
     const diffLabel = ch.level === 1 ? "Reto 1" : ch.level === 2 ? "Reto 2 (difícil)" : "Reto " + ch.level;
     return `
     <div class="card exercise-card">
-      <h4>${diffLabel} ${done ? "✅" : ""}<span class="diff-badge">${"⭐".repeat(ch.level)}</span></h4>
+      <h4>${diffLabel} ${done ? "(hecho)" : ""}<span class="diff-badge">Dificultad ${ch.level}</span></h4>
       <p>${escapeHtml(ch.prompt)}</p>
-      <details><summary>🔎 Ver solución propuesta</summary><div><pre class="code-block">${escapeHtml(ch.solution)}</pre></div></details>
+      <details><summary>Ver solución propuesta</summary><div><pre class="code-block">${escapeHtml(ch.solution)}</pre></div></details>
       <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
         <button class="btn ${done ? "secondary" : ""}" ${done ? "disabled" : ""} onclick="markChallengeDone(${level.id}, ${idx}, false)">
-          ${done ? "Reto superado" : "✅ Lo conseguí (+" + XP_RULES.challenge + " XP)"}
+          ${done ? "Reto superado" : "Lo conseguí (+" + XP_RULES.challenge + " XP)"}
         </button>
-        ${!done ? `<button class="btn secondary" onclick="markChallengeDone(${level.id}, ${idx}, true)">🙈 Necesité la solución</button>` : ""}
+        ${!done ? `<button class="btn secondary" onclick="markChallengeDone(${level.id}, ${idx}, true)">Necesité la solución</button>` : ""}
       </div>
     </div>`;
   }).join("");
@@ -1073,7 +1068,7 @@ function renderQuizQuestion() {
         ${q.options.map((opt, i) => `<button class="option-btn" data-i="${i}">${escapeHtml(opt)}</button>`).join("")}
       </div>
       <div id="quiz-explain"></div>
-      <button class="btn" id="quiz-next-btn" style="display:none;">Siguiente ➜</button>
+      <button class="btn" id="quiz-next-btn" style="display:none;">Siguiente</button>
     </div>
   `;
   container.querySelectorAll(".option-btn").forEach(btn => {
@@ -1092,7 +1087,7 @@ function answerQuizQuestion(selectedIdx) {
     if (i === q.a) btn.classList.add("correct");
     else if (i === selectedIdx) btn.classList.add("incorrect");
   });
-  document.getElementById("quiz-explain").innerHTML = `<div class="explain-box">${correct ? "✅ ¡Correcto! " : "❌ No es correcto. "}${escapeHtml(q.exp)}</div>`;
+  document.getElementById("quiz-explain").innerHTML = `<div class="explain-box">${correct ? "¡Correcto! " : "No es correcto. "}${escapeHtml(q.exp)}</div>`;
   document.getElementById("quiz-next-btn").style.display = "inline-block";
   document.getElementById("quiz-next-btn").onclick = () => { QUIZ_STATE.index++; renderQuizQuestion(); };
 
@@ -1143,12 +1138,12 @@ function renderErrorCard(e, canMaster) {
   if (e.kind === "exercise" || e.kind === "challenge") {
     return `
     <div class="error-card">
-      <div class="eq">${e.kind === "exercise" ? "✏️" : "🚀"} ${escapeHtml(e.title || "")}</div>
+      <div class="eq">${e.kind === "exercise" ? "Ejercicio" : "Reto"} · ${escapeHtml(e.title || "")}</div>
       <p style="color:var(--text-dim); font-size:13px; margin:0 0 10px;">${escapeHtml(e.prompt)}</p>
-      <details><summary>🔎 Ver solución</summary><div><pre class="code-block">${escapeHtml(e.solution)}</pre></div></details>
+      <details><summary>Ver solución</summary><div><pre class="code-block">${escapeHtml(e.solution)}</pre></div></details>
       <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
         <span class="pill">${escapeHtml(e.topic)}</span>
-        ${canMaster ? `<button class="btn secondary" onclick="masterError('${e.id}')">Ya lo domino ✓</button>` : ""}
+        ${canMaster ? `<button class="btn secondary" onclick="masterError('${e.id}')">Ya lo domino</button>` : ""}
       </div>
     </div>`;
   }
@@ -1160,7 +1155,7 @@ function renderErrorCard(e, canMaster) {
       <div class="explain-box">${escapeHtml(e.explain)}</div>
       <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
         <span class="pill">${escapeHtml(e.topic)}</span>
-        ${canMaster ? `<button class="btn secondary" onclick="masterError('${e.id}')">Ya lo domino ✓</button>` : ""}
+        ${canMaster ? `<button class="btn secondary" onclick="masterError('${e.id}')">Ya lo domino</button>` : ""}
       </div>
     </div>`;
 }
@@ -1171,7 +1166,7 @@ function renderErrors() {
   const mastered = STATE.errorLog.filter(e => e.mastered);
 
   if (!STATE.errorLog.length) {
-    el.innerHTML = `<div class="empty-state"><span class="big-icon">🎉</span>Todavía no tienes errores registrados.<br>¡Sigue así!</div>`;
+    el.innerHTML = `<div class="empty-state">Todavía no tienes errores registrados.<br>¡Sigue así!</div>`;
     return;
   }
 
@@ -1189,9 +1184,9 @@ function renderErrors() {
       <div><div class="ring-label">Evolución</div><div class="ring-value">${mastered.length}/${total} errores dominados</div></div>
     </div>
 
-    ${pending.length ? `<button class="btn" style="margin-bottom:20px;" onclick="startErrorReview()">🔁 Repasar solo estos errores (${pending.length})</button>` : ""}
+    ${pending.length ? `<button class="btn" style="margin-bottom:20px;" onclick="startErrorReview()">Repasar solo estos errores (${pending.length})</button>` : ""}
 
-    ${pending.map(e => renderErrorCard(e, true)).join("") || "<div class='card'><p>No tienes errores pendientes ahora mismo. 🎉</p></div>"}
+    ${pending.map(e => renderErrorCard(e, true)).join("") || "<div class='card'><p>No tienes errores pendientes ahora mismo.</p></div>"}
     ${mastered.length ? `<h3 style="margin-top:26px; color:var(--text-dim); font-size:14px;">Dominados</h3>${mastered.map(e => renderErrorCard(e, false)).join("")}` : ""}
   `;
 }
@@ -1225,13 +1220,13 @@ function renderReviewItem() {
     el.innerHTML = `
       <div class="dash-header"><h2>Repasando errores</h2><p>Elemento ${index + 1} de ${items.length}</p></div>
       <div class="card">
-        <span class="pill">${e.kind === "exercise" ? "✏️ Ejercicio" : "🚀 Reto"} · ${escapeHtml(e.topic)}</span>
+        <span class="pill">${e.kind === "exercise" ? "Ejercicio" : "Reto"} · ${escapeHtml(e.topic)}</span>
         <h4 style="margin-top:10px;">${escapeHtml(e.title || "")}</h4>
         <p>${escapeHtml(e.prompt)}</p>
-        <details><summary>🔎 Ver solución</summary><div><pre class="code-block">${escapeHtml(e.solution)}</pre></div></details>
+        <details><summary>Ver solución</summary><div><pre class="code-block">${escapeHtml(e.solution)}</pre></div></details>
         <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-          <button class="btn" onclick="reviewAnswer(true)">✅ Ahora sí lo tengo</button>
-          <button class="btn secondary" onclick="reviewAnswer(false)">🔁 Todavía no</button>
+          <button class="btn" onclick="reviewAnswer(true)">Ahora sí lo tengo</button>
+          <button class="btn secondary" onclick="reviewAnswer(false)">Todavía no</button>
         </div>
       </div>`;
     return;
@@ -1246,7 +1241,7 @@ function renderReviewItem() {
         ${e.options.map((opt, i) => `<button class="option-btn" data-i="${i}">${escapeHtml(opt)}</button>`).join("")}
       </div>
       <div id="review-explain"></div>
-      <button class="btn" id="review-next-btn" style="display:none;">Siguiente ➜</button>
+      <button class="btn" id="review-next-btn" style="display:none;">Siguiente</button>
     </div>`;
   el.querySelectorAll(".option-btn").forEach(btn => {
     btn.onclick = () => reviewAnswerQuiz(parseInt(btn.dataset.i, 10));
@@ -1262,7 +1257,7 @@ function reviewAnswerQuiz(selectedIdx) {
     if (i === e.correctIndex) btn.classList.add("correct");
     else if (i === selectedIdx) btn.classList.add("incorrect");
   });
-  document.getElementById("review-explain").innerHTML = `<div class="explain-box">${correct ? "✅ ¡Correcto! " : "❌ Todavía no. "}${escapeHtml(e.explain)}</div>`;
+  document.getElementById("review-explain").innerHTML = `<div class="explain-box">${correct ? "¡Correcto! " : "Todavía no. "}${escapeHtml(e.explain)}</div>`;
   document.getElementById("review-next-btn").style.display = "inline-block";
   recordCategoryAnswer(e.category, correct);
   if (correct) { masterErrorSilent(e.id); REVIEW_STATE.correct++; }
@@ -1301,9 +1296,8 @@ function renderBadgeGroup(list) {
   return list.map(b => {
     const unlocked = STATE.badges.includes(b.id);
     return `<div class="badge-item ${unlocked ? "" : "locked"}">
-      <span class="b-icon">${b.icon}</span>
       <span class="b-name">${b.name}</span>
-      <span class="b-state ${unlocked ? "unlocked" : ""}">${unlocked ? "✓ Desbloqueada" : "Pendiente"}</span>
+      <span class="b-state ${unlocked ? "unlocked" : ""}">${unlocked ? "Desbloqueada" : "Pendiente"}</span>
       ${!unlocked ? `<span class="b-desc">${escapeHtml(b.desc)}</span>` : ""}
     </div>`;
   }).join("");
@@ -1318,9 +1312,9 @@ function renderBadges() {
       <h2>Insignias</h2>
       <p>${STATE.badges.length} de ${BADGE_DEFS.length} desbloqueadas</p>
     </div>
-    <h3 class="badge-section-title">🎓 Progreso de certificación</h3>
+    <h3 class="badge-section-title">Progreso de certificación</h3>
     <div class="badge-grid">${renderBadgeGroup(rankBadges)}</div>
-    <h3 class="badge-section-title">🏆 Logros</h3>
+    <h3 class="badge-section-title">Logros</h3>
     <div class="badge-grid">${renderBadgeGroup(achievementBadges)}</div>
   `;
 }
@@ -1343,7 +1337,6 @@ function renderExamIntro(level, el) {
   const best = history.length ? Math.max(...history.map(h => Math.round((h.score / h.total) * 100))) : null;
   el.innerHTML = `
     <div class="level-header">
-      <span class="lh-icon">${level.icon}</span>
       <div>
         <h2>${level.code} · ${level.title}</h2>
         <p>${level.intro}</p>
@@ -1358,7 +1351,7 @@ function renderExamIntro(level, el) {
       <h4>Configuración del simulacro</h4>
       <p>${level.examConfig.numQuestions} preguntas · ${level.examConfig.minutes} minutos · banco mezclado de todos los temas.</p>
       ${best !== null ? `<p style="margin-top:8px;">Tu mejor resultado hasta ahora: <strong style="color:var(--accent-strong)">${best}%</strong> (${history.length} intento/s)</p>` : ""}
-      <button class="btn" style="margin-top:14px;" onclick="startExam(${level.id})">Empezar simulacro ⏱️</button>
+      <button class="btn" style="margin-top:14px;" onclick="startExam(${level.id})">Empezar simulacro</button>
     </div>
     ${history.length ? `<div class="card"><h4>Historial</h4>${history.map(h => `<p>${new Date(h.ts).toLocaleString()} — ${h.score}/${h.total} (${Math.round(h.score/h.total*100)}%)</p>`).join("")}</div>` : ""}
   `;
@@ -1414,9 +1407,9 @@ function renderExamScreen() {
         ${q.options.map((opt, i) => `<button class="option-btn ${answers[index] === i ? "correct" : ""}" data-i="${i}" onclick="answerExamQuestion(${i})">${escapeHtml(opt)}</button>`).join("")}
       </div>
       <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
-        <button class="btn secondary" ${index === 0 ? "disabled" : ""} onclick="goToExamQuestion(${index - 1})">◀ Anterior</button>
-        ${index < questions.length - 1 ? `<button class="btn secondary" onclick="goToExamQuestion(${index + 1})">Siguiente ▶</button>` : ""}
-        <button class="btn" onclick="renderExamReview()">📝 Revisar y finalizar</button>
+        <button class="btn secondary" ${index === 0 ? "disabled" : ""} onclick="goToExamQuestion(${index - 1})">Anterior</button>
+        ${index < questions.length - 1 ? `<button class="btn secondary" onclick="goToExamQuestion(${index + 1})">Siguiente</button>` : ""}
+        <button class="btn" onclick="renderExamReview()">Revisar y finalizar</button>
       </div>
     </div>
   `;
@@ -1439,7 +1432,6 @@ function renderExamReview() {
   const answeredCount = answers.filter(a => a !== null).length;
   el.innerHTML = `
     <div class="level-header">
-      <span class="lh-icon">📝</span>
       <div><h2>Revisión final</h2><p>${answeredCount}/${questions.length} preguntas respondidas</p></div>
     </div>
     <div class="card">
@@ -1447,12 +1439,12 @@ function renderExamReview() {
         <div class="review-row" onclick="goToExamQuestion(${i})">
           <span class="review-num ${answers[i] !== null ? "answered" : "unanswered"}">${i + 1}</span>
           <span class="review-q-text">${escapeHtml(q.q.length > 90 ? q.q.slice(0, 90) + "…" : q.q)}</span>
-          <span class="review-status">${answers[i] !== null ? "✅" : "⚠️ Sin responder"}</span>
+          <span class="review-status">${answers[i] !== null ? "Respondida" : "Sin responder"}</span>
         </div>`).join("")}
     </div>
     <div style="display:flex; gap:10px; margin-top:14px;">
-      <button class="btn secondary" onclick="goToExamQuestion(0)">◀ Seguir respondiendo</button>
-      <button class="btn danger" onclick="submitExam()">Finalizar simulacro ✔</button>
+      <button class="btn secondary" onclick="goToExamQuestion(0)">Seguir respondiendo</button>
+      <button class="btn danger" onclick="submitExam()">Finalizar simulacro</button>
     </div>
   `;
 }
@@ -1514,7 +1506,7 @@ function submitExam() {
 function renderExamResult(level, score, total, elapsedSeconds, report) {
   const el = document.getElementById("view-level");
   const pct = Math.round((score / total) * 100);
-  const statusLabel = pct >= 70 ? "🟢 Preparado para certificación" : pct >= 50 ? "🟡 Necesita repaso" : "🔴 No apto todavía";
+  const statusLabel = pct >= 70 ? "Preparado para certificación" : pct >= 50 ? "Necesita repaso" : "No apto todavía";
   const statusColor = pct >= 70 ? "var(--green)" : pct >= 50 ? "#eab308" : "var(--red)";
 
   const examRuns = STATE.examHistory.filter(h => h.levelId === level.id);
@@ -1527,7 +1519,7 @@ function renderExamResult(level, score, total, elapsedSeconds, report) {
     <div class="card quiz-result">
       <div class="big-score">${score}/${total}</div>
       <p style="font-size:20px; margin-top:6px;">${pct}%</p>
-      <p style="margin-top:6px; color:var(--text-dim);">⏱️ Tiempo empleado: ${formatSeconds(elapsedSeconds)}</p>
+      <p style="margin-top:6px; color:var(--text-dim);">Tiempo empleado: ${formatSeconds(elapsedSeconds)}</p>
       <p style="margin-top:10px; font-weight:700; color:${statusColor};">${statusLabel}</p>
       <p style="margin-top:6px; color:var(--text-faint); font-size:13px;">${rankingLine}</p>
     </div>
@@ -1537,8 +1529,8 @@ function renderExamResult(level, score, total, elapsedSeconds, report) {
       ${report.strengths.length ? `<p><strong style="color:var(--green)">Fortalezas:</strong> ${report.strengths.map(s => escapeHtml(s.cat)).join(", ")}</p>` : ""}
       ${report.weaknesses.length
         ? `<p style="margin-top:8px;"><strong style="color:var(--red)">Necesitas reforzar:</strong> ${report.weaknesses.map(w => `${escapeHtml(w.cat)} (${w.pct}%)`).join(", ")}</p>`
-        : `<p style="color:var(--text-dim);">Sin debilidades claras detectadas en este intento. 🎉</p>`}
-      ${report.levelsToReview.length ? `<p style="margin-top:10px;">📌 Se recomienda revisar los niveles: ${report.levelsToReview.map(id => "N" + id).join(", ")} antes de repetir el simulacro.</p>` : ""}
+        : `<p style="color:var(--text-dim);">Sin debilidades claras detectadas en este intento.</p>`}
+      ${report.levelsToReview.length ? `<p style="margin-top:10px;">Se recomienda revisar los niveles: ${report.levelsToReview.map(id => "N" + id).join(", ")} antes de repetir el simulacro.</p>` : ""}
     </div>
 
     <div style="margin-top:10px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
@@ -1562,21 +1554,26 @@ function resetProgress() {
 
 /* ---------------- Arranque ---------------- */
 
+function on(id, handler) {
+  const el = document.getElementById(id);
+  if (el) el.onclick = handler;
+}
+
 function init() {
   updateStreak();
   checkBadges();
-  document.getElementById("btn-dashboard").onclick = () => navigate("dashboard");
-  document.getElementById("btn-analytics").onclick = () => navigate("analytics");
-  document.getElementById("btn-errors").onclick = () => navigate("errors");
-  document.getElementById("btn-badges").onclick = () => navigate("badges");
-  document.getElementById("btn-certificate").onclick = () => navigate("certificate");
-  document.getElementById("btn-reset").onclick = resetProgress;
-  document.getElementById("btn-go-landing").onclick = () => showLanding();
-  document.getElementById("btn-start-mission").onclick = () => enterApp("level", findNextLevelToStudy().id);
-  document.getElementById("btn-continue-learning").onclick = () => enterApp("dashboard");
-  document.getElementById("btn-take-exam").onclick = () => enterApp("level", 16);
-  document.getElementById("btn-demo").onclick = () => enterDemoMode();
-  document.getElementById("btn-exit-demo").onclick = () => exitDemoMode();
+  on("btn-dashboard", () => navigate("dashboard"));
+  on("btn-analytics", () => navigate("analytics"));
+  on("btn-errors", () => navigate("errors"));
+  on("btn-badges", () => navigate("badges"));
+  on("btn-certificate", () => navigate("certificate"));
+  on("btn-reset", resetProgress);
+  on("btn-go-landing", () => showLanding());
+  on("btn-start-mission", () => enterApp("level", findNextLevelToStudy().id));
+  on("btn-continue-learning", () => enterApp("dashboard"));
+  on("btn-take-exam", () => enterApp("level", 16));
+  on("btn-demo", () => enterDemoMode());
+  on("btn-exit-demo", () => exitDemoMode());
 
   renderSidebar();
   showLanding();

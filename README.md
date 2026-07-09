@@ -1,10 +1,10 @@
-# 🧭 Oracle SQL Quest
+# Oracle SQL Quest
 
 **Una app web gratuita y gamificada para aprender SQL de Oracle desde cero, pensada para preparar la certificación oficial Oracle Database SQL (1Z0-071).**
 
-### 🚀 Pruébala ahora, sin instalar nada
+### Pruébala ahora, sin instalar nada
 
-## 👉 [juego-oracle.vercel.app](https://juego-oracle.vercel.app/)
+## [juego-oracle.vercel.app](https://juego-oracle.vercel.app/)
 
 Ábrelo en el navegador (móvil, tablet u ordenador) y empieza a jugar. No hace falta cuenta, ni instalar nada, ni saber programar.
 
@@ -22,14 +22,14 @@ No necesitas tener Oracle Database instalado ni ninguna cuenta: todo el contenid
 
 ## ¿Qué puedes hacer en la app?
 
-- 📘 **Aprender por niveles**, de "qué es una base de datos" hasta los temas más avanzados del examen oficial (subconsultas, transacciones, vistas, secuencias...).
-- ❓ **Responder quiz** con explicación al momento de por qué una respuesta es correcta o no.
-- ✏️ **Practicar con ejercicios y retos** de dificultad creciente, con pista y solución explicada.
-- ⏱️ **Hacer simulacros cronometrados** con preguntas mezcladas, revisión final antes de entregar, y un informe de fortalezas/debilidades por tema al terminar.
-- 🧠 **Repasar solo lo que has fallado**, con una sección dedicada a tus errores.
-- 🏅 **Ganar insignias y subir de rango** (de "SQL Explorer" a "Certification Ready") según tu progreso real.
-- 📊 **Ver tu dominio por tema** en la sección Analytics (radar de conocimientos, mapa de calor, evolución).
-- 🎓 **Descargar un certificado** en PDF al completar todo el itinerario y aprobar el simulacro principal.
+- **Aprender por niveles**, de "qué es una base de datos" hasta los temas más avanzados del examen oficial (subconsultas, transacciones, vistas, secuencias...).
+- **Responder quiz** con explicación al momento de por qué una respuesta es correcta o no.
+- **Practicar con ejercicios y retos** de dificultad creciente, con pista y solución explicada.
+- **Hacer simulacros cronometrados** con preguntas mezcladas, revisión final antes de entregar, y un informe de fortalezas/debilidades por tema al terminar.
+- **Repasar solo lo que has fallado**, con una sección dedicada a tus errores.
+- **Ganar insignias y subir de rango** (de "SQL Explorer" a "Certification Ready") según tu progreso real.
+- **Ver tu dominio por tema** en la sección Analytics (radar de conocimientos, mapa de calor, evolución).
+- **Descargar un certificado** en PDF al completar todo el itinerario y aprobar el simulacro principal.
 
 Todo tu avance queda guardado en el propio navegador: si cierras la pestaña y vuelves otro día, sigues donde lo dejaste.
 
@@ -55,8 +55,8 @@ La versión pública está desplegada en **Vercel** como sitio estático: [https
 ### Cómo se navega dentro de la app
 
 Al entrar aparece primero una **landing** (portada con logo, hero y tarjetas de acceso). Desde ahí:
-- **🚀 Comenzar misión** te lleva directo al siguiente nivel pendiente.
-- **📚 Continuar aprendizaje** te lleva al dashboard con tu progreso.
+- **Comenzar misión** te lleva directo al siguiente nivel pendiente.
+- **Continuar aprendizaje** te lleva al dashboard con tu progreso.
 - Haciendo clic en el logo de la barra lateral, dentro de la app, vuelves a la landing en cualquier momento.
 
 ### Estructura de archivos
@@ -77,8 +77,8 @@ Este proyecto parte de dos documentos de apuntes básicos de SQL (uno en dialect
 
 Por eso, dentro de cada nivel, cada bloque de teoría lleva una etiqueta:
 
-- 🟦 **De tus apuntes** — contenido adaptado directamente de los documentos originales (traducido a sintaxis Oracle cuando era necesario).
-- 🟧 **Contenido añadido para certificación** — contenido nuevo, necesario para el temario oficial 1Z0-071, que no estaba en los apuntes originales (funciones de una fila, `MERGE`, jerárquicas, `ROLLUP`/`CUBE`, secuencias, control de transacciones, expresiones regulares, etc.).
+- **De tus apuntes** — contenido adaptado directamente de los documentos originales (traducido a sintaxis Oracle cuando era necesario).
+- **Contenido añadido para certificación** — contenido nuevo, necesario para el temario oficial 1Z0-071, que no estaba en los apuntes originales (funciones de una fila, `MERGE`, jerárquicas, `ROLLUP`/`CUBE`, secuencias, control de transacciones, expresiones regulares, etc.).
 
 Así siempre se sabe qué es una adaptación de los apuntes originales y qué es material nuevo añadido específicamente para la certificación.
 
@@ -105,16 +105,16 @@ Así siempre se sabe qué es una adaptación de los apuntes originales y qué es
 
 ### Mecánica de juego (detalle)
 
-- **XP y rangos nominales**: cada quiz acertado, ejercicio resuelto y reto superado da puntos de experiencia. Además, según los niveles base (0-15) que completes, subes de rango: 🧭 SQL Explorer → 🧱 Query Builder → 🔗 Join Master → 📊 Aggregate Expert → 🛡️ Oracle Specialist → 🎓 Certification Ready. El rango se ve en la barra lateral, en la landing y en un stepper visual del dashboard.
+- **XP y rangos nominales**: cada quiz acertado, ejercicio resuelto y reto superado da puntos de experiencia. Además, según los niveles base (0-15) que completes, subes de rango: SQL Explorer -> Query Builder -> Join Master -> Aggregate Expert -> Oracle Specialist -> Certification Ready. El rango se ve en la barra lateral, en la landing y en un stepper visual del dashboard.
 - **Insignias**: dos grupos en la pantalla "Insignias". *Progreso de certificación* — 6 insignias nominales (SQL Explorer, Join Master, Aggregate Expert, Subquery Hunter, Oracle Specialist, Certification Ready) ligadas a completar el nivel del temario correspondiente (N1, N8, N7, N9, N15 y los 16 niveles base respectivamente). *Logros* — hitos adicionales (primer paso, quiz perfecto, primer simulacro superado, nivel experto superado, repasador aplicado, racha de 3 días). Las insignias bloqueadas muestran su condición exacta de desbloqueo.
 - **Progreso por nivel**: barra de avance y estado (bloqueado / en curso / completado) por nivel, guardado en `localStorage`.
 - **Dashboard con KPIs**: rango actual, XP, insignias, quiz completados, % de aciertos, errores pendientes, tiempo de estudio activo y racha de días, con anillos de progreso circulares y un mensaje motivacional que cambia según el avance real.
 - **Confeti y microinteracciones**: al completar un nivel o aprobar un simulacro se lanza una animación de confeti (Canvas, sin librerías externas); botones, tarjetas e insignias tienen hover/press sutiles.
-- **Repaso inteligente de errores**: cada fallo en un quiz o simulacro se guarda con la pregunta, la respuesta dada y la explicación correcta. Los ejercicios y retos donde se marca "🙈 Necesité la solución" también quedan registrados (con el enunciado y la solución) para repasarlos más tarde. La pantalla "Repaso de errores" muestra un anillo de **evolución** (dominados vs. pendientes) y un botón **"Repasar solo estos errores"** que lanza una ronda dirigida solo con lo pendiente: las preguntas se responden de nuevo tipo test, los ejercicios/retos se autoevalúan con "Ahora sí lo tengo" / "Todavía no".
+- **Repaso inteligente de errores**: cada fallo en un quiz o simulacro se guarda con la pregunta, la respuesta dada y la explicación correcta. Los ejercicios y retos donde se marca "Necesité la solución" también quedan registrados (con el enunciado y la solución) para repasarlos más tarde. La pantalla "Repaso de errores" muestra un anillo de **evolución** (dominados vs. pendientes) y un botón **"Repasar solo estos errores"** que lanza una ronda dirigida solo con lo pendiente: las preguntas se responden de nuevo tipo test, los ejercicios/retos se autoevalúan con "Ahora sí lo tengo" / "Todavía no".
 - **Simulacro cronometrado**: en el nivel 16 y el nivel experto se genera un examen de N preguntas aleatorias del banco completo con temporizador. Incluye navegación libre entre preguntas, una pantalla de **revisión final** antes de entregar, tiempo empleado, y un **informe automático** con fortalezas, debilidades por categoría y los niveles recomendados a repasar.
 - **Analytics**: cada pregunta del temario está etiquetada con una de 8 categorías (SELECT, JOINS, Funciones, GROUP BY, Subconsultas, DDL, DML, Restricciones). A partir de tus respuestas reales (quiz, repasos y simulacros) se calcula un **radar de conocimientos**, un **mapa de calor por tema**, la **distribución del XP** por tipo de actividad y un gráfico de **evolución** que registra un punto real cada día que usas la app.
-- **Estado de preparación**: 🔴 Riesgo alto / 🟡 En progreso / 🟢 Preparado para certificación, visible en la landing y en el dashboard según tu % de certificación y tu nota media de simulacro.
-- **Modo demo**: botón "🎬 Ver demostración" en la barra lateral que sustituye tu progreso por datos ficticios realistas (para presentaciones), sin tocar ni sobrescribir tu progreso real guardado; "Salir del modo demo" lo restaura tal cual estaba.
+- **Estado de preparación**: Riesgo alto / En progreso / Preparado para certificación, visible en la landing y en el dashboard según tu % de certificación y tu nota media de simulacro.
+- **Modo demo**: botón "Ver demostración" en la barra lateral que sustituye tu progreso por datos ficticios realistas (para presentaciones), sin tocar ni sobrescribir tu progreso real guardado; "Salir del modo demo" lo restaura tal cual estaba.
 - **Certificado**: se desbloquea al completar los 16 niveles base y aprobar el simulacro del nivel 16. Incluye nombre, fecha, rango alcanzado, nota media y XP; se descarga como PDF usando la función de impresión del navegador (sin librerías externas).
 
 ### Hoja de ruta
