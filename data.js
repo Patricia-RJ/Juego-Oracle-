@@ -12,7 +12,7 @@ levels: [
 // NIVEL 0
 // =====================================================================
 {
-  id: 0, code: "N0", icon: "🏛️", category: "SELECT",
+  id: 0, code: "N0", category: "SELECT",
   title: "Introducción a bases de datos y SQL",
   intro: "Qué es una base de datos relacional, dónde encaja Oracle y cómo se organiza el lenguaje SQL.",
   theory: [
@@ -81,7 +81,7 @@ levels: [
 // NIVEL 1
 // =====================================================================
 {
-  id: 1, code: "N1", icon: "🔍", category: "SELECT",
+  id: 1, code: "N1", category: "SELECT",
   title: "SELECT básico",
   intro: "La instrucción más usada en SQL: elegir columnas y tablas.",
   theory: [
@@ -135,7 +135,7 @@ levels: [
 // NIVEL 2
 // =====================================================================
 {
-  id: 2, code: "N2", icon: "🧭", category: "SELECT",
+  id: 2, code: "N2", category: "SELECT",
   title: "WHERE, operadores, comparaciones y condiciones",
   intro: "Filtrar filas según condiciones numéricas, de texto y de fecha.",
   theory: [
@@ -196,7 +196,7 @@ levels: [
 // NIVEL 3
 // =====================================================================
 {
-  id: 3, code: "N3", icon: "🔤", category: "SELECT",
+  id: 3, code: "N3", category: "SELECT",
   title: "ORDER BY, DISTINCT, alias y concatenación",
   intro: "Ordenar resultados, eliminar duplicados y construir texto combinado.",
   theory: [
@@ -252,7 +252,7 @@ levels: [
 // NIVEL 4
 // =====================================================================
 {
-  id: 4, code: "N4", icon: "🧩", category: "Funciones",
+  id: 4, code: "N4", category: "Funciones",
   title: "Funciones de una sola fila (visión general)",
   intro: "Cómo se clasifican las funciones que Oracle aplica fila a fila, antes de entrar en detalle.",
   theory: [
@@ -296,7 +296,7 @@ levels: [
 // NIVEL 5
 // =====================================================================
 {
-  id: 5, code: "N5", icon: "🛠️", category: "Funciones",
+  id: 5, code: "N5", category: "Funciones",
   title: "Funciones numéricas, texto, fechas y conversión",
   intro: "El bloque de funciones más denso del examen: casi todo es contenido añadido respecto a tus apuntes.",
   theory: [
@@ -369,7 +369,7 @@ levels: [
 // NIVEL 6
 // =====================================================================
 {
-  id: 6, code: "N6", icon: "📊", category: "GROUP BY",
+  id: 6, code: "N6", category: "GROUP BY",
   title: "Funciones de grupo",
   intro: "Resumir muchas filas en un solo valor: COUNT, SUM, AVG, MIN, MAX y algo más.",
   theory: [
@@ -425,7 +425,7 @@ levels: [
 // NIVEL 7
 // =====================================================================
 {
-  id: 7, code: "N7", icon: "🗂️", category: "GROUP BY",
+  id: 7, code: "N7", category: "GROUP BY",
   title: "GROUP BY y HAVING",
   intro: "Agrupar filas para calcular agregados por grupo, y filtrar esos grupos.",
   theory: [
@@ -485,7 +485,7 @@ levels: [
 // NIVEL 8
 // =====================================================================
 {
-  id: 8, code: "N8", icon: "🔗", category: "JOINS",
+  id: 8, code: "N8", category: "JOINS",
   title: "JOINs",
   intro: "Combinar filas de varias tablas relacionadas, con sintaxis ANSI y con la sintaxis clásica de Oracle.",
   theory: [
@@ -550,7 +550,7 @@ levels: [
 // NIVEL 9
 // =====================================================================
 {
-  id: 9, code: "N9", icon: "🪆", category: "Subconsultas",
+  id: 9, code: "N9", category: "Subconsultas",
   title: "Subconsultas",
   intro: "Consultas dentro de consultas: en WHERE, en SELECT, en FROM, correlacionadas y con EXISTS.",
   theory: [
@@ -617,7 +617,7 @@ levels: [
 // NIVEL 10
 // =====================================================================
 {
-  id: 10, code: "N10", icon: "➗", category: "SELECT",
+  id: 10, code: "N10", category: "SELECT",
   title: "Operadores de conjunto",
   intro: "Combinar los resultados de dos o más SELECT compatibles.",
   theory: [
@@ -674,7 +674,7 @@ levels: [
 // NIVEL 11
 // =====================================================================
 {
-  id: 11, code: "N11", icon: "✍️", category: "DML",
+  id: 11, code: "N11", category: "DML",
   title: "INSERT, UPDATE y DELETE",
   intro: "Las tres sentencias DML clásicas, más MERGE e INSERT multitabla, propios de Oracle.",
   theory: [
@@ -740,7 +740,7 @@ levels: [
 // NIVEL 12
 // =====================================================================
 {
-  id: 12, code: "N12", icon: "🏗️", category: "DDL",
+  id: 12, code: "N12", category: "DDL",
   title: "CREATE TABLE, ALTER TABLE y DROP TABLE",
   intro: "Crear y modificar la estructura de las tablas con sintaxis y tipos de dato Oracle.",
   theory: [
@@ -798,7 +798,7 @@ levels: [
 // NIVEL 13
 // =====================================================================
 {
-  id: 13, code: "N13", icon: "🔒", category: "Restricciones",
+  id: 13, code: "N13", category: "Restricciones",
   title: "Constraints",
   intro: "Reglas de integridad: NOT NULL, PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, y su gestión en Oracle.",
   theory: [
@@ -862,7 +862,7 @@ levels: [
 // NIVEL 14
 // =====================================================================
 {
-  id: 14, code: "N14", icon: "🧰", category: "DDL",
+  id: 14, code: "N14", category: "DDL",
   title: "Vistas, secuencias, sinónimos e índices",
   intro: "Objetos de esquema más allá de las tablas: casi todo el detalle de sintaxis Oracle es contenido añadido.",
   theory: [
@@ -926,7 +926,7 @@ levels: [
 // NIVEL 15
 // =====================================================================
 {
-  id: 15, code: "N15", icon: "🔁", category: "DML",
+  id: 15, code: "N15", category: "DML",
   title: "Control de transacciones: COMMIT, ROLLBACK y SAVEPOINT",
   intro: "Bloque completo ausente de tus apuntes originales: cómo Oracle agrupa cambios en transacciones.",
   theory: [
@@ -988,7 +988,7 @@ levels: [
 // NIVEL 16 — SIMULACROS
 // =====================================================================
 {
-  id: 16, code: "N16", icon: "⏱️", category: null,
+  id: 16, code: "N16", category: null,
   title: "Simulacros tipo Oracle 1Z0-071",
   intro: "Exámenes cronometrados con preguntas mezcladas de todos los temas anteriores.",
   isExamLevel: true,
@@ -1015,7 +1015,7 @@ levels: [
 // NIVEL EXPERTO
 // =====================================================================
 {
-  id: 17, code: "EXP", icon: "🏆", category: null,
+  id: 17, code: "EXP", category: null,
   title: "Nivel experto — retos mezclados de dificultad de examen",
   intro: "El desafío final: preguntas de mayor dificultad, mezclando trampas típicas del temario 1Z0-071.",
   isExamLevel: true,

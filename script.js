@@ -255,23 +255,6 @@ function buildDemoState() {
   return demo;
 }
 
-function enterDemoMode() {
-  if (DEMO_ACTIVE) return;
-  REAL_STATE_SNAPSHOT = STATE;
-  STATE = buildDemoState();
-  DEMO_ACTIVE = true;
-  document.getElementById("demo-banner").classList.remove("hidden");
-  document.body.classList.add("demo-mode");
-  toast("⚠️ Modo demostración activado: los datos son ficticios, no representan progreso real");
-  if (!document.getElementById("app").classList.contains("hidden")) {
-    navigate(CURRENT_VIEW === "level" ? "dashboard" : CURRENT_VIEW);
-  } else {
-    renderHeroStats();
-    renderLandingCards();
-  }
-  renderSidebar();
-}
-
 function exitDemoMode() {
   if (!DEMO_ACTIVE) return;
   STATE = REAL_STATE_SNAPSHOT;
