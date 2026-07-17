@@ -1,0 +1,203 @@
+/* Estilos del banco de examen Oracle (Fase 3). Usa las mismas variables de color que styles.css
+   (definidas en :root ahi); este archivo se carga despues y solo anade reglas nuevas. */
+
+.certbank-header h2 { margin: 0 0 6px; }
+.certbank-header p { color: var(--text-dim); margin: 0 0 18px; max-width: 760px; }
+.certbank-header code { background: var(--bg-elevated); padding: 1px 6px; border-radius: 4px; }
+
+.cert-gamify-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 12px 16px; margin-bottom: 16px;
+}
+.cert-gamify-level { display: flex; flex-direction: column; gap: 4px; min-width: 160px; flex: 1; }
+.cert-gamify-level-name { font-size: 13px; font-weight: 600; color: var(--accent-strong); }
+.progress-track.small { height: 5px; }
+
+.certbank-tabs {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
+}
+.certbank-tabs button, .cert-admin-tabs button {
+  background: var(--bg-card); border: 1px solid var(--border); color: var(--text-dim);
+  padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 13px;
+}
+.certbank-tabs button.active, .cert-admin-tabs button.active {
+  background: var(--accent-soft); border-color: var(--accent); color: var(--accent-strong);
+}
+
+.cert-panel {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px; margin-bottom: 18px;
+}
+.cert-hint { color: var(--text-faint); font-size: 12.5px; }
+
+.cert-filters {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;
+  margin: 14px 0;
+}
+.cert-filter-group { display: flex; flex-direction: column; gap: 4px; }
+.cert-filter-label { font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-faint); margin-bottom: 4px; }
+.cert-filter-group select[multiple] {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; color: var(--text);
+  padding: 4px;
+}
+.cert-check { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-dim); }
+
+.cert-empty-state {
+  padding: 16px; text-align: center; color: var(--text-faint); border: 1px dashed var(--border);
+  border-radius: var(--radius); margin-top: 10px;
+}
+.hidden { display: none !important; }
+
+.cert-question-card {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px; margin-top: 14px;
+}
+.cert-question-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.cert-question-meta .pill.accent { background: var(--accent-soft); color: var(--accent-strong); }
+.cert-question-meta .pill.warn { background: rgba(234,179,8,.15); color: #eab308; }
+
+.cert-question-body { margin-bottom: 14px; }
+.cb-block { margin: 0 0 12px; }
+.cb-text { line-height: 1.6; }
+.cb-sql {
+  background: #0d1117; color: #c9d1d9; padding: 12px 14px; border-radius: 8px; overflow-x: auto;
+  font-family: "Cascadia Code", "Consolas", monospace; font-size: 13px; white-space: pre-wrap;
+}
+.cb-image-wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.cb-image { max-width: 100%; max-height: 320px; border-radius: 8px; border: 1px solid var(--border); cursor: zoom-in; }
+.cb-image.zoomed {
+  position: fixed; inset: 0; margin: auto; max-width: 92vw; max-height: 92vh; z-index: 500;
+  cursor: zoom-out; box-shadow: 0 0 0 9999px rgba(0,0,0,.75);
+}
+.cb-image-hint { font-size: 11px; color: var(--text-faint); }
+
+.cert-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.cert-option {
+  display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 8px;
+  border: 1px solid var(--border); cursor: pointer; background: var(--bg-card);
+}
+.cert-option:hover { border-color: var(--accent); }
+.cert-option.disabled { cursor: default; }
+.cert-option.is-correct { border-color: var(--green, #22c55e); background: rgba(34,197,94,.1); }
+.cert-option.is-incorrect { border-color: var(--red, #ef4444); background: rgba(239,68,68,.1); }
+.cert-option-id { font-weight: 700; min-width: 18px; }
+.cert-option-text { white-space: pre-wrap; }
+
+.cert-question-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+
+.cert-feedback {
+  border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 8px; margin-top: 10px;
+}
+.cert-feedback.ok { background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.4); }
+.cert-feedback.bad { background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.4); }
+.cert-feedback button { align-self: flex-start; }
+
+.cert-summary { text-align: center; }
+.cert-exam-score { font-size: 32px; font-weight: 700; margin: 6px 0; }
+.cert-fail-list { text-align: left; max-width: 640px; margin: 10px auto; color: var(--text-dim); font-size: 13px; }
+
+.cert-exam-chrome { margin-bottom: 14px; }
+.cert-exam-timer { font-size: 15px; margin-bottom: 10px; }
+.cert-exam-palette { display: flex; flex-wrap: wrap; gap: 6px; }
+.palette-btn {
+  width: 32px; height: 32px; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--bg-card); color: var(--text-dim); cursor: pointer; font-size: 12px;
+}
+.palette-btn.answered { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-strong); }
+.palette-btn.flagged { box-shadow: 0 0 0 2px #eab308 inset; }
+.palette-btn.current { outline: 2px solid var(--accent); }
+
+.cert-review-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 12px; }
+.cert-review-card {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px; text-align: left; cursor: pointer; color: var(--text);
+  display: flex; justify-content: space-between; align-items: center; font-size: 14px;
+}
+.cert-review-card span { font-size: 20px; font-weight: 700; color: var(--accent-strong); }
+
+.cert-progressive-levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 14px; }
+.cert-progressive-level {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px;
+}
+.cert-progressive-level.locked { opacity: .5; }
+.cert-locked-tag { font-size: 12px; color: var(--text-faint); }
+
+.cert-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 14px 0; }
+.cert-stat-tile {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px; display: flex; flex-direction: column; align-items: center;
+}
+.cert-stat-tile .num { font-size: 24px; font-weight: 700; }
+.cert-stat-tile .lbl { font-size: 11.5px; color: var(--text-faint); margin-top: 2px; }
+.cert-exam-history { color: var(--text-dim); font-size: 13px; }
+
+.cert-admin-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.cert-admin-list { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
+.cert-admin-row {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px;
+}
+.cert-admin-row-head { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.cert-admin-options { margin: 10px 0; padding-left: 18px; font-size: 13px; color: var(--text-dim); }
+.cert-admin-options li.is-correct { color: var(--green, #22c55e); font-weight: 600; }
+.cert-admin-reasons { font-size: 12.5px; color: #eab308; margin: 6px 0; }
+.cert-admin-edit { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin: 10px 0; }
+.cert-admin-edit label { display: flex; flex-direction: column; font-size: 11.5px; color: var(--text-faint); gap: 4px; }
+.cert-admin-edit input, .cert-admin-edit select {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; color: var(--text); padding: 6px 8px;
+}
+.cert-admin-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.cert-admin-pager { display: flex; align-items: center; gap: 12px; justify-content: center; margin-top: 14px; }
+
+.cert-visual-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 12px; }
+.cert-visual-card {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.cert-visual-card img { width: 100%; border-radius: 6px; cursor: zoom-in; }
+.cert-visual-card img.zoomed {
+  position: fixed; inset: 0; margin: auto; max-width: 92vw; max-height: 92vh; width: auto; z-index: 500;
+  cursor: zoom-out; box-shadow: 0 0 0 9999px rgba(0,0,0,.75);
+}
+
+.cert-validation-list { line-height: 1.9; font-size: 13.5px; color: var(--text-dim); }
+
+.cert-level-card {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px; display: flex; flex-direction: column; gap: 8px; margin: 12px 0 20px;
+}
+.cert-level-card > div:first-child { display: flex; justify-content: space-between; align-items: baseline; }
+.cert-level-name { font-size: 17px; font-weight: 700; color: var(--accent-strong); }
+.cert-level-xp { font-size: 13px; color: var(--text-dim); }
+
+.cert-missions { list-style: none; margin: 10px 0 20px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.cert-missions li {
+  display: flex; justify-content: space-between; gap: 10px; padding: 10px 12px;
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; font-size: 13.5px;
+}
+.cert-missions li.done { border-color: var(--green); color: var(--green); }
+.cert-mission-progress { color: var(--text-faint); font-size: 12px; white-space: nowrap; }
+
+.cert-badges-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 10px; }
+.cert-badge {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px; display: flex; flex-direction: column; gap: 4px;
+}
+.cert-badge.earned { border-color: var(--accent); background: var(--accent-soft); }
+.cert-badge.locked { opacity: .55; }
+.cert-badge-name { font-weight: 700; font-size: 14px; }
+.cert-badge-desc { font-size: 12px; color: var(--text-dim); }
+.cert-badge-date { font-size: 11px; color: var(--text-faint); }
+
+.cert-ranking-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.cert-ranking-table th, .cert-ranking-table td {
+  text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 13.5px;
+}
+.cert-ranking-table th { color: var(--text-faint); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em; }
+
+@media (max-width: 720px) {
+  .cert-filters { grid-template-columns: 1fr; }
+  .cert-admin-edit { flex-direction: column; align-items: stretch; }
+  .cert-gamify-bar { flex-direction: column; align-items: stretch; }
+  .cert-ranking-table { display: block; overflow-x: auto; }
+}

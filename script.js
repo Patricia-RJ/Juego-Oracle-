@@ -732,6 +732,7 @@ function navigate(view, levelId) {
   if (view === "badges") renderBadges();
   if (view === "analytics") renderAnalytics();
   if (view === "certificate") renderCertificate();
+  if (view === "certbank" && typeof renderCertBank === "function") renderCertBank();
   window.scrollTo(0, 0);
 }
 
@@ -1567,6 +1568,7 @@ function init() {
   on("btn-errors", () => navigate("errors"));
   on("btn-badges", () => navigate("badges"));
   on("btn-certificate", () => navigate("certificate"));
+  on("btn-certbank", () => navigate("certbank"));
   on("btn-reset", resetProgress);
   on("btn-go-landing", () => showLanding());
   on("btn-start-mission", () => enterApp("level", findNextLevelToStudy().id));

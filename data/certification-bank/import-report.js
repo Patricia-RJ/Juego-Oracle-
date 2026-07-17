@@ -1,0 +1,180 @@
+﻿const CERTIFICATION_IMPORT_REPORT = {
+    "generatedAt":  "2026-07-17T09:20:46Z",
+    "filesFound":  4,
+    "filesProcessedOk":  4,
+    "filesWithErrors":  0,
+    "totalQuestions":  145,
+    "withYellowHighlight":  139,
+    "withBold":  18,
+    "withBothMethods":  18,
+    "multiAnswerQuestions":  80,
+    "duplicateQuestions":  2,
+    "pendingReview":  111,
+    "withoutSolution":  6,
+    "newSinceLastImport":  0,
+    "unchangedSinceLastImport":  145,
+    "changedSinceLastImport":  0,
+    "byDifficulty":  [
+                         {
+                             "level":  "1",
+                             "count":  7
+                         },
+                         {
+                             "level":  "2",
+                             "count":  18
+                         },
+                         {
+                             "level":  "3",
+                             "count":  24
+                         },
+                         {
+                             "level":  "4",
+                             "count":  42
+                         },
+                         {
+                             "level":  "5",
+                             "count":  54
+                         }
+                     ],
+    "byTopic":  [
+                    {
+                        "topic":  "SELECT",
+                        "count":  31
+                    },
+                    {
+                        "topic":  "Constraints",
+                        "count":  21
+                    },
+                    {
+                        "topic":  "WHERE",
+                        "count":  14
+                    },
+                    {
+                        "topic":  "Otros",
+                        "count":  14
+                    },
+                    {
+                        "topic":  "Transactions",
+                        "count":  12
+                    },
+                    {
+                        "topic":  "JOINS",
+                        "count":  11
+                    },
+                    {
+                        "topic":  "Subqueries",
+                        "count":  7
+                    },
+                    {
+                        "topic":  "Set Operators",
+                        "count":  4
+                    },
+                    {
+                        "topic":  "Privileges",
+                        "count":  4
+                    },
+                    {
+                        "topic":  "Date Functions",
+                        "count":  3
+                    },
+                    {
+                        "topic":  "Numeric Functions",
+                        "count":  3
+                    },
+                    {
+                        "topic":  "Aggregate Functions",
+                        "count":  3
+                    },
+                    {
+                        "topic":  "Indexes",
+                        "count":  3
+                    },
+                    {
+                        "topic":  "NULL Handling",
+                        "count":  2
+                    },
+                    {
+                        "topic":  "Data Dictionary",
+                        "count":  2
+                    },
+                    {
+                        "topic":  "DDL",
+                        "count":  2
+                    },
+                    {
+                        "topic":  "DML",
+                        "count":  2
+                    },
+                    {
+                        "topic":  "ORDER BY",
+                        "count":  2
+                    },
+                    {
+                        "topic":  "Synonyms",
+                        "count":  1
+                    },
+                    {
+                        "topic":  "Functions",
+                        "count":  1
+                    },
+                    {
+                        "topic":  "HAVING",
+                        "count":  1
+                    },
+                    {
+                        "topic":  "Sequences",
+                        "count":  1
+                    },
+                    {
+                        "topic":  "Views",
+                        "count":  1
+                    }
+                ],
+    "errors":  [
+
+               ],
+    "validation":  {
+                       "questionsWithoutOptions":  [
+
+                                                   ],
+                       "questionsWithoutContentBlocks":  [
+
+                                                         ],
+                       "missingImages":  [
+
+                                         ],
+                       "answerCountMismatch":  [
+                                                   "examen-1-q1",
+                                                   "examen-1-q3",
+                                                   "examen-1-q4",
+                                                   "examen-1-q5",
+                                                   "examen-1-q6",
+                                                   "examen-1-q16",
+                                                   "examen-1-q19",
+                                                   "examen-1-q21",
+                                                   "examen-1-q26",
+                                                   "examen-1-q33",
+                                                   "examen-1-q39",
+                                                   "examen-1-q42",
+                                                   "examen-1-q43",
+                                                   "examen-1-q44",
+                                                   "examen-2-q4",
+                                                   "examen-2-q8",
+                                                   "examen-2-q9",
+                                                   "examen-2-q10",
+                                                   "examen-2-q13",
+                                                   "examen-2-q14",
+                                                   "examen-2-q16",
+                                                   "examen-2-q28",
+                                                   "examen-2-q29",
+                                                   "examen-2-q35",
+                                                   "examen-3-q2",
+                                                   "examen-3-q12",
+                                                   "examen-3-q27",
+                                                   "examen-3-q34",
+                                                   "examen-3-q36",
+                                                   "examen-3-q40",
+                                                   "examen-3-q41"
+                                               ]
+                   }
+};
