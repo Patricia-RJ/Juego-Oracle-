@@ -259,6 +259,7 @@ function enterDemoMode() {
   REAL_STATE_SNAPSHOT = STATE;
   STATE = buildDemoState();
   DEMO_ACTIVE = true;
+  if (typeof enterCertDemoMode === "function") enterCertDemoMode();
   const banner = document.getElementById("demo-banner");
   if (banner) banner.classList.remove("hidden");
   document.body.classList.add("demo-mode");
@@ -277,6 +278,7 @@ function exitDemoMode() {
   STATE = REAL_STATE_SNAPSHOT;
   REAL_STATE_SNAPSHOT = null;
   DEMO_ACTIVE = false;
+  if (typeof exitCertDemoMode === "function") exitCertDemoMode();
   const banner = document.getElementById("demo-banner");
   if (banner) banner.classList.add("hidden");
   document.body.classList.remove("demo-mode");
@@ -660,6 +662,7 @@ function enterApp(startView, levelId) {
   document.getElementById("landing").classList.add("hidden");
   document.getElementById("app").classList.remove("hidden");
   if (startView === "level") navigate("level", levelId);
+  else if (startView === "certbank") navigate("certbank");
   else navigate("dashboard");
 }
 
@@ -688,8 +691,8 @@ function renderLandingCards() {
   if (!el) return;
   const exTotal = totalExercisesCount(), exDone = totalExercisesDoneCount();
   const chTotal = totalChallengesCount(), chDone = totalChallengesDoneCount();
-  const examLevel16 = STATE.examHistory.filter(e => e.levelId === 16);
-  const bestExam = examLevel16.length ? Math.max(...examLevel16.map(h => Math.round((h.score / h.total) * 100))) : null;
+  const certExamHistory = (typeof CERT_STATE !== "undefined") ? CERT_STATE.examHistory : [];
+  const bestExam = certExamHistory.length ? Math.max(...certExamHistory.map(h => Math.round((h.score / h.total) * 100))) : null;
   const certPct = overallCertificationPercent();
   const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
 
@@ -697,7 +700,7 @@ function renderLandingCards() {
     { title: "Teoría", desc: "18 niveles con contenido Oracle real, marcado por origen.", status: `${totalLevels} niveles disponibles`, action: () => enterApp("level", findNextLevelToStudy().id) },
     { title: "Ejercicios", desc: "Practica cada bloque con ejercicios guiados y solución explicada.", status: `${exDone}/${exTotal} resueltos`, action: () => enterApp("level", findNextLevelToStudy().id) },
     { title: "Retos", desc: "Dificultad progresiva para poner a prueba lo aprendido.", status: `${chDone}/${chTotal} superados`, action: () => enterApp("level", findNextLevelToStudy().id) },
-    { title: "Simuladores", desc: "Exámenes cronometrados con banco de preguntas mezclado.", status: bestExam !== null ? `Mejor resultado: ${bestExam}%` : "Aún no realizado", action: () => enterApp("level", 16) },
+    { title: "Simuladores", desc: "Exámenes cronometrados con las preguntas reales importadas de los exámenes Oracle.", status: bestExam !== null ? `Mejor resultado: ${bestExam}%` : "Aún no realizado", action: () => { if (typeof CERT_TAB !== "undefined") CERT_TAB = "exam"; enterApp("certbank"); } },
     { title: "Certificación", desc: "Sigue tu progreso real hacia el examen Oracle 1Z0-071.", status: `${certPct}% completado`, action: () => enterApp("dashboard") }
   ];
 
@@ -1546,9 +1549,10 @@ function renderExamResult(level, score, total, elapsedSeconds, report) {
 
 function resetProgress() {
   if (DEMO_ACTIVE) { toast("Sal del modo demo antes de reiniciar tu progreso real."); return; }
-  if (!confirm("¿Seguro que quieres borrar todo tu progreso? Esta acción no se puede deshacer.")) return;
+  if (!confirm("¿Seguro que quieres borrar todo tu progreso, incluido el banco de examen Oracle? Esta acción no se puede deshacer.")) return;
   STATE = defaultState();
   saveState();
+  if (typeof resetCertState === "function") resetCertState();
   navigate("dashboard");
   toast("Progreso reiniciado");
 }
@@ -1573,7 +1577,7 @@ function init() {
   on("btn-go-landing", () => showLanding());
   on("btn-start-mission", () => enterApp("level", findNextLevelToStudy().id));
   on("btn-continue-learning", () => enterApp("dashboard"));
-  on("btn-take-exam", () => enterApp("level", 16));
+  on("btn-take-exam", () => { if (typeof CERT_TAB !== "undefined") CERT_TAB = "exam"; enterApp("certbank"); });
   on("btn-demo", () => enterDemoMode());
   on("btn-exit-demo", () => exitDemoMode());
 
