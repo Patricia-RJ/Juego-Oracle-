@@ -927,30 +927,47 @@ function selectTab(tab, level) {
 const ORACLE_OFFICIAL_DOCS_URL = "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/index.html";
 
 function renderTheory(level) {
-  if (!level.theory.length) return `<article class="theory-doc"><p>Sin teoría adicional en este nivel: es un bloque de simulacro.</p></article>`;
-  const sections = level.theory.map(t => `
+  const t = level.theory;
+  if (!t || !t.concepts || !t.concepts.length) return `<article class="theory-doc"><p>Sin teoría adicional en este nivel: es un bloque de simulacro.</p></article>`;
+
+  const concepts = t.concepts.map(c => `
     <section class="theory-section">
-      <h3>${escapeHtml(t.heading)}</h3>
-      <p>${escapeHtml(t.body)}</p>
+      <h3>${escapeHtml(c.heading)}</h3>
+      <p>${escapeHtml(c.explanation)}</p>
+      ${c.syntax ? `<pre class="code-block theory-syntax">${escapeHtml(c.syntax)}</pre>` : ""}
+      ${(c.examples || []).map(ex => `
+        <pre class="code-block theory-example">${escapeHtml(ex.code)}</pre>
+        ${ex.output ? `
+          <div class="theory-output">
+            <span class="theory-output-label">Salida esperada</span>
+            <pre class="code-block theory-output-block">${escapeHtml(ex.output)}</pre>
+          </div>` : ""}
+      `).join("")}
     </section>
   `).join("");
-  const examFocus = (level.examFocus && level.examFocus.length) ? `
+
+  const notes = (t.oracleNotes && t.oracleNotes.length) ? `
     <section class="theory-callout theory-exam-focus">
-      <h4>Lo que suele preguntar el examen</h4>
-      <ul>${level.examFocus.map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+      <h4>Matices y reglas especiales de Oracle</h4>
+      <ul>${t.oracleNotes.map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
     </section>` : "";
+
   const summary = (level.summary && level.summary.length) ? `
     <section class="theory-callout theory-summary">
       <h4>Resumen rápido</h4>
       <ul>${level.summary.map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
     </section>` : "";
+
+  const sources = (level.sourceRefs && level.sourceRefs.length) ? `
+    <p class="theory-sources">Fuentes: ${level.sourceRefs.map(s => escapeHtml(s)).join(" · ")}</p>` : "";
+
   const docsLink = `
     <p class="theory-docs-link">
       <a href="${ORACLE_OFFICIAL_DOCS_URL}" target="_blank" rel="noopener noreferrer">
         Consultar la documentación oficial de Oracle (Database SQL Language Reference)
       </a>
     </p>`;
-  return `<article class="theory-doc">${sections}${examFocus}${summary}${docsLink}</article>`;
+  return `<article class="theory-doc">${concepts}${notes}${summary}${sources}${docsLink}</article>`;
 }
 
 function renderExamples(level) {
@@ -1350,8 +1367,8 @@ function renderExamIntro(level, el) {
       </div>
     </div>
     <div class="card">
-      <h4>${escapeHtml(level.theory[0].heading)}</h4>
-      <p>${escapeHtml(level.theory[0].body)}</p>
+      <h4>${escapeHtml(level.theory.concepts[0].heading)}</h4>
+      <p>${escapeHtml(level.theory.concepts[0].explanation)}</p>
     </div>
     <div class="card">
       <h4>Configuración del simulacro</h4>
