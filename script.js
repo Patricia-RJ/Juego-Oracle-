@@ -924,30 +924,33 @@ function selectTab(tab, level) {
   }
 }
 
-function sourceTag(source) {
-  return source === "apuntes"
-    ? `<span class="source-tag apuntes">De tus apuntes</span>`
-    : `<span class="source-tag added">Contenido añadido para certificación</span>`;
-}
-
 const ORACLE_OFFICIAL_DOCS_URL = "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/index.html";
 
 function renderTheory(level) {
-  if (!level.theory.length) return `<div class="card"><p>Sin teoría adicional en este nivel: es un bloque de simulacro.</p></div>`;
-  const cards = level.theory.map(t => `
-    <div class="card">
-      ${sourceTag(t.source)}
-      <h4>${escapeHtml(t.heading)}</h4>
+  if (!level.theory.length) return `<article class="theory-doc"><p>Sin teoría adicional en este nivel: es un bloque de simulacro.</p></article>`;
+  const sections = level.theory.map(t => `
+    <section class="theory-section">
+      <h3>${escapeHtml(t.heading)}</h3>
       <p>${escapeHtml(t.body)}</p>
-    </div>
+    </section>
   `).join("");
+  const examFocus = (level.examFocus && level.examFocus.length) ? `
+    <section class="theory-callout theory-exam-focus">
+      <h4>Lo que suele preguntar el examen</h4>
+      <ul>${level.examFocus.map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+    </section>` : "";
+  const summary = (level.summary && level.summary.length) ? `
+    <section class="theory-callout theory-summary">
+      <h4>Resumen rápido</h4>
+      <ul>${level.summary.map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+    </section>` : "";
   const docsLink = `
-    <div class="card docs-link-card">
+    <p class="theory-docs-link">
       <a href="${ORACLE_OFFICIAL_DOCS_URL}" target="_blank" rel="noopener noreferrer">
         Consultar la documentación oficial de Oracle (Database SQL Language Reference)
       </a>
-    </div>`;
-  return cards + docsLink;
+    </p>`;
+  return `<article class="theory-doc">${sections}${examFocus}${summary}${docsLink}</article>`;
 }
 
 function renderExamples(level) {
@@ -1347,7 +1350,6 @@ function renderExamIntro(level, el) {
       </div>
     </div>
     <div class="card">
-      ${sourceTag("added")}
       <h4>${escapeHtml(level.theory[0].heading)}</h4>
       <p>${escapeHtml(level.theory[0].body)}</p>
     </div>

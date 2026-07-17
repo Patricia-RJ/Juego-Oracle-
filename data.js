@@ -1,7 +1,8 @@
 /*
   Oracle SQL Quest — contenido educativo
-  Cada bloque de teoría lleva "source": "apuntes" (adaptado de tus documentos)
-  o "added" (contenido añadido para certificación 1Z0-071, no presente en tus apuntes).
+  Cada nivel tiene una guía de estudio unificada: "theory" (secciones en orden narrativo),
+  "examFocus" (puntos que suele preguntar el examen 1Z0-071) y "summary" (resumen rápido de repaso).
+  No hay distinción visible de procedencia del contenido: se presenta como un único material de estudio.
 */
 
 const APP_DATA = {
@@ -16,33 +17,45 @@ levels: [
   title: "Introducción a bases de datos y SQL",
   intro: "Qué es una base de datos relacional, dónde encaja Oracle y cómo se organiza el lenguaje SQL.",
   theory: [
-    { heading: "Bases de datos relacionales", source: "apuntes", body:
+    { heading: "Bases de datos relacionales", body:
       "Una base de datos es un sistema que almacena y organiza información en tablas (filas y columnas). " +
       "Las relacionales usan claves primarias (PRIMARY KEY) para identificar cada fila de forma única y claves " +
       "foráneas (FOREIGN KEY) para relacionar tablas entre sí. Ejemplo clásico: CLIENTES y PEDIDOS, donde " +
       "cada pedido referencia al cliente que lo hizo. Relaciones posibles: 1:1, 1:N y N:N (esta última mediante " +
       "una tabla intermedia)." },
-    { heading: "Oracle Database y sus herramientas", source: "added", body:
+    { heading: "Oracle Database y sus herramientas", body:
       "Oracle Database es un SGBD relacional (y objeto-relacional) propiedad de Oracle Corporation. Para el examen " +
       "1Z0-071 trabajarás sobre el esquema de ejemplo HR (Human Resources) con tablas como EMPLOYEES, DEPARTMENTS, " +
       "JOBS. La herramienta habitual para escribir SQL es Oracle SQL Developer (equivalente a DBeaver, pero " +
       "específico de Oracle), aunque también existe SQL*Plus en línea de comandos." },
-    { heading: "La tabla DUAL", source: "added", body:
+    { heading: "La tabla DUAL", body:
       "Oracle exige que todo SELECT tenga un FROM. Para probar expresiones sin consultar ninguna tabla real, " +
       "Oracle proporciona una tabla ficticia de una sola fila y una columna llamada DUAL. Ejemplo: " +
       "SELECT SYSDATE FROM DUAL; devuelve la fecha y hora actuales del servidor." },
-    { heading: "Categorías del lenguaje SQL", source: "apuntes", body:
+    { heading: "Categorías del lenguaje SQL", body:
       "SQL se divide en sublenguajes: DDL (Data Definition Language: CREATE, ALTER, DROP) define objetos; " +
       "DML (Data Manipulation Language: INSERT, UPDATE, DELETE, MERGE) manipula datos; DQL (Data Query Language: " +
       "SELECT) consulta datos; DCL (Data Control Language: GRANT, REVOKE) controla permisos; y TCL (Transaction " +
-      "Control Language: COMMIT, ROLLBACK, SAVEPOINT) controla transacciones. Esta última categoría (TCL) no " +
-      "aparecía en tus apuntes originales y es un bloque propio del examen (nivel 15)." },
-    { heading: "Tipos de datos principales en Oracle", source: "added", body:
-      "A diferencia de char/varchar genéricos de tus apuntes, Oracle usa: VARCHAR2(n) para texto de longitud " +
+      "Control Language: COMMIT, ROLLBACK, SAVEPOINT) controla transacciones. Esta última categoría, TCL, se " +
+      "estudia en profundidad más adelante (nivel 15)." },
+    { heading: "Tipos de datos principales en Oracle", body:
+      "Oracle usa tipos de datos propios: VARCHAR2(n) para texto de longitud " +
       "variable (hasta 4000 bytes), CHAR(n) longitud fija, NUMBER(p,s) para cualquier número (precisión p, escala " +
       "s), DATE para fecha+hora con precisión de segundos, TIMESTAMP para fecha+hora con fracciones de segundo, " +
       "y CLOB/BLOB para objetos grandes de texto/binarios. No existen 'int' o 'varchar' (sin el 2) como tipos " +
       "nativos de columna en Oracle SQL." }
+  ],
+  examFocus: [
+    "Recuerda usar FROM DUAL para evaluar expresiones que no consultan ninguna tabla real; sin FROM, Oracle da error de sintaxis.",
+    "Oracle usa VARCHAR2 y NUMBER, nunca 'varchar' ni 'int' como en otros motores: es una pregunta clásica de examen.",
+    "Distingue bien DDL (CREATE/ALTER/DROP), DML (INSERT/UPDATE/DELETE/MERGE), DQL (SELECT), DCL (GRANT/REVOKE) y TCL (COMMIT/ROLLBACK/SAVEPOINT): el examen suele pedir clasificar una sentencia en su categoría correcta."
+  ],
+  summary: [
+    "Una base de datos relacional organiza datos en tablas relacionadas mediante PRIMARY KEY y FOREIGN KEY.",
+    "Oracle Database es el SGBD; SQL Developer y SQL*Plus son las herramientas habituales para escribir SQL.",
+    "DUAL es la tabla ficticia de una fila que permite evaluar expresiones sin consultar datos reales.",
+    "SQL se divide en DDL, DML, DQL, DCL y TCL.",
+    "Los tipos de dato Oracle más comunes son VARCHAR2, CHAR, NUMBER, DATE, TIMESTAMP, CLOB y BLOB."
   ],
   examples: [
     { title: "Consultar la fecha del servidor", code: "SELECT SYSDATE FROM DUAL;", note: "DUAL permite evaluar expresiones sin tabla real." },
@@ -85,19 +98,29 @@ levels: [
   title: "SELECT básico",
   intro: "La instrucción más usada en SQL: elegir columnas y tablas.",
   theory: [
-    { heading: "SELECT y FROM", source: "apuntes", body:
+    { heading: "SELECT y FROM", body:
       "SELECT indica qué columnas quieres recuperar; FROM indica de qué tabla. Siempre van juntos: " +
       "SELECT columna1, columna2 FROM tabla;. El orden de las columnas en el SELECT determina el orden en que " +
       "aparecen en el resultado." },
-    { heading: "Buenas prácticas", source: "apuntes", body:
+    { heading: "Buenas prácticas", body:
       "Escribe las palabras clave en MAYÚSCULAS, termina cada sentencia con punto y coma, y evita SELECT * en " +
       "código real: listar columnas explícitas es más legible y evita traer datos innecesarios." },
-    { heading: "Identificadores y comillas en Oracle", source: "added", body:
-      "A diferencia de PostgreSQL (comillas dobles \"col\") tus apuntes originales, en Oracle los nombres de " +
-      "columnas y tablas NO necesitan comillas salvo que contengan espacios, empiecen por número o quieras " +
-      "forzar minúsculas. Por defecto Oracle guarda los nombres en MAYÚSCULAS. Los literales de texto van entre " +
-      "comillas simples: 'Madrid', igual que en tus apuntes." },
-    { heading: "Comentarios", source: "apuntes", body: "-- comentario de una línea, y /* comentario de varias líneas */, igual que en SQL estándar." }
+    { heading: "Identificadores y comillas en Oracle", body:
+      "En Oracle los nombres de columnas y tablas NO necesitan comillas salvo que contengan espacios, empiecen " +
+      "por número o quieras forzar minúsculas. Por defecto Oracle guarda los nombres en MAYÚSCULAS. Los " +
+      "literales de texto van siempre entre comillas simples: 'Madrid'." },
+    { heading: "Comentarios", body: "-- comentario de una línea, y /* comentario de varias líneas */, igual que en SQL estándar." }
+  ],
+  examFocus: [
+    "FROM es obligatorio en toda sentencia SELECT de Oracle, incluso para consultar DUAL.",
+    "Por defecto Oracle guarda los identificadores en MAYÚSCULAS; las comillas dobles fuerzan sensibilidad a mayúsculas/minúsculas y rara vez hacen falta.",
+    "El examen suele penalizar el abuso de SELECT * en consultas pensadas para producción."
+  ],
+  summary: [
+    "SELECT elige columnas, FROM indica la tabla; ambos son obligatorios.",
+    "Palabras clave en mayúsculas, punto y coma al final, columnas explícitas en vez de SELECT *.",
+    "Los identificadores no necesitan comillas salvo casos especiales; los literales de texto sí llevan comillas simples.",
+    "-- para comentarios de una línea, /* ... */ para varias líneas."
   ],
   examples: [
     { title: "Seleccionar columnas concretas", code: "SELECT first_name, last_name, salary\nFROM employees;" },
@@ -139,27 +162,40 @@ levels: [
   title: "WHERE, operadores, comparaciones y condiciones",
   intro: "Filtrar filas según condiciones numéricas, de texto y de fecha.",
   theory: [
-    { heading: "La cláusula WHERE", source: "apuntes", body:
+    { heading: "La cláusula WHERE", body:
       "WHERE filtra las filas que cumplen una condición. Operadores de comparación: =, >, <, >=, <=, <> (distinto, " +
       "también se puede escribir !=). Se combinan condiciones con AND (todas deben cumplirse) y OR (al menos una)." },
-    { heading: "IN, NOT IN y BETWEEN", source: "apuntes", body:
+    { heading: "IN, NOT IN y BETWEEN", body:
       "IN compara contra una lista de valores: WHERE department_id IN (10,20,30). BETWEEN selecciona un rango " +
       "incluyendo los extremos: WHERE salary BETWEEN 3000 AND 6000." },
-    { heading: "LIKE y comodines en Oracle", source: "added", body:
+    { heading: "LIKE y comodines en Oracle", body:
       "Para buscar patrones de texto se usa LIKE con dos comodines: % (cualquier secuencia de caracteres, " +
       "incluida vacía) y _ (exactamente un carácter). Ejemplo: WHERE last_name LIKE 'G%' busca apellidos que " +
       "empiezan por G. Para escapar un carácter comodín literal se usa ESCAPE, p.ej. LIKE '50\\%' ESCAPE '\\'." },
-    { heading: "NULL: IS NULL / IS NOT NULL", source: "added", body:
+    { heading: "NULL: IS NULL / IS NOT NULL", body:
       "NULL representa 'ausencia de valor' y nunca se compara con = o <>. Para comprobar si una columna es nula " +
       "se usa IS NULL o IS NOT NULL. WHERE commission_pct = NULL nunca devuelve filas; lo correcto es " +
       "WHERE commission_pct IS NULL." },
-    { heading: "Fechas en Oracle", source: "added", body:
+    { heading: "Fechas en Oracle", body:
       "El formato de fecha por defecto en Oracle suele ser DD-MON-RR (p.ej. '25-DEC-24'), configurable con " +
       "NLS_DATE_FORMAT. Para evitar ambigüedad en el examen se recomienda usar TO_DATE('2024-12-25','YYYY-MM-DD') " +
       "en las comparaciones, en vez de literales de fecha entre comillas simples sin más." },
-    { heading: "Precedencia de operadores lógicos", source: "added", body:
+    { heading: "Precedencia de operadores lógicos", body:
       "AND tiene mayor precedencia que OR. WHERE dept=10 OR dept=20 AND salary>3000 se evalúa como " +
       "dept=10 OR (dept=20 AND salary>3000). Usa paréntesis siempre que combines AND y OR para evitar errores lógicos: es un clásico del examen." }
+  ],
+  examFocus: [
+    "WHERE columna = NULL nunca funciona: siempre hay que usar IS NULL / IS NOT NULL.",
+    "AND se evalúa antes que OR salvo que uses paréntesis: el examen suele poner condiciones mixtas para comprobar que sabes usarlos.",
+    "_ sustituye exactamente un carácter en LIKE; % sustituye cualquier cantidad, incluida ninguna."
+  ],
+  summary: [
+    "WHERE filtra filas con =, >, <, >=, <=, <>, combinables con AND / OR.",
+    "IN compara contra una lista de valores; BETWEEN selecciona un rango incluyendo los extremos.",
+    "LIKE con % y _ busca patrones de texto.",
+    "NULL solo se comprueba con IS NULL / IS NOT NULL, nunca con = o <>.",
+    "Las fechas se comparan de forma fiable con TO_DATE para evitar ambigüedad de formato.",
+    "AND tiene más precedencia que OR: usa paréntesis para dejar clara la intención lógica."
   ],
   examples: [
     { title: "Comparaciones básicas", code: "SELECT first_name, salary\nFROM employees\nWHERE salary >= 5000;" },
@@ -200,23 +236,35 @@ levels: [
   title: "ORDER BY, DISTINCT, alias y concatenación",
   intro: "Ordenar resultados, eliminar duplicados y construir texto combinado.",
   theory: [
-    { heading: "ORDER BY", source: "apuntes", body:
+    { heading: "ORDER BY", body:
       "Ordena el resultado por una o varias columnas, ASC (por defecto) o DESC. Se puede ordenar por varias " +
       "columnas: ORDER BY department_id ASC, salary DESC. Se ejecuta al final del procesamiento lógico de la " +
       "consulta, por lo que sí puede usar alias definidos en el SELECT." },
-    { heading: "NULLS FIRST / NULLS LAST", source: "added", body:
+    { heading: "NULLS FIRST / NULLS LAST", body:
       "En Oracle, por defecto los NULL se consideran el valor más alto: en ASC aparecen al final, en DESC al " +
       "principio. Se puede forzar con ORDER BY commission_pct NULLS FIRST." },
-    { heading: "DISTINCT", source: "apuntes", body:
+    { heading: "DISTINCT", body:
       "Elimina filas duplicadas del resultado. SELECT DISTINCT department_id FROM employees; devuelve cada " +
       "departamento una sola vez. Si se seleccionan varias columnas, DISTINCT afecta a la combinación de todas ellas." },
-    { heading: "Alias con AS", source: "apuntes", body:
+    { heading: "Alias con AS", body:
       "AS asigna un nombre temporal a una columna o tabla, útil para legibilidad. Es opcional (se puede omitir la " +
       "palabra AS: 'salary sueldo'), pero si el alias tiene espacios necesita comillas dobles: salary AS \"Sueldo Mensual\"." },
-    { heading: "Concatenación con ||", source: "added", body:
-      "A diferencia de la función CONCAT(a,b) de tus apuntes (que en Oracle solo admite dos argumentos), Oracle " +
-      "usa el operador || para concatenar, y admite tantos elementos como se quiera: " +
-      "first_name || ' ' || last_name. CONCAT(first_name, last_name) existe pero solo acepta 2 parámetros." }
+    { heading: "Concatenación con ||", body:
+      "Oracle usa el operador || para concatenar texto, y admite tantos elementos como se quiera: " +
+      "first_name || ' ' || last_name. También existe la función CONCAT(a,b), pero solo acepta dos argumentos, " +
+      "por lo que para unir tres o más elementos conviene usar ||." }
+  ],
+  examFocus: [
+    "CONCAT solo admite exactamente 2 argumentos en Oracle; para más elementos hay que usar || o anidar CONCAT.",
+    "Por defecto, en ORDER BY ascendente los NULL aparecen al final (Oracle los trata como el valor más alto).",
+    "DISTINCT actúa sobre la combinación completa de las columnas seleccionadas, no columna a columna."
+  ],
+  summary: [
+    "ORDER BY ordena el resultado final y admite alias del SELECT.",
+    "NULLS FIRST / NULLS LAST controla dónde aparecen los NULL al ordenar.",
+    "DISTINCT elimina combinaciones de fila duplicadas.",
+    "AS crea un alias temporal de columna o tabla; con espacios necesita comillas dobles.",
+    "|| concatena cualquier número de elementos; CONCAT(a,b) solo admite dos."
   ],
   examples: [
     { title: "Ordenar por varias columnas", code: "SELECT last_name, department_id, salary\nFROM employees\nORDER BY department_id ASC, salary DESC;" },
@@ -256,20 +304,29 @@ levels: [
   title: "Funciones de una sola fila (visión general)",
   intro: "Cómo se clasifican las funciones que Oracle aplica fila a fila, antes de entrar en detalle.",
   theory: [
-    { heading: "Funciones de una fila vs funciones de grupo", source: "added", body:
-      "Este bloque completo es contenido añadido para la certificación: tus apuntes no distinguían explícitamente " +
-      "entre ambos tipos. Una función de una sola fila (single-row function) actúa sobre cada fila de forma " +
+    { heading: "Funciones de una fila vs funciones de grupo", body:
+      "Una función de una sola fila (single-row function) actúa sobre cada fila de forma " +
       "independiente y devuelve un resultado por fila (por ejemplo UPPER, ROUND). Una función de grupo " +
       "(multiple-row / group function, nivel 6) actúa sobre un conjunto de filas y devuelve un único resultado " +
       "(por ejemplo SUM, COUNT)." },
-    { heading: "Categorías de funciones de una fila en el examen", source: "added", body:
+    { heading: "Categorías de funciones de una fila en el examen", body:
       "El temario 1Z0-071 agrupa las funciones de una fila en: caracteres (texto), numéricas, de fecha, de " +
       "conversión y generales/condicionales (NVL, DECODE, CASE...). Se estudian en detalle en el nivel 5." },
-    { heading: "Funciones anidadas", source: "added", body:
+    { heading: "Funciones anidadas", body:
       "Las funciones de una fila se pueden anidar: el resultado de una función se usa como argumento de otra, " +
       "de dentro hacia fuera. Ejemplo: ROUND(AVG(salary),0) — aunque cuidado, AVG es de grupo, no de una fila; " +
       "mezclarlas correctamente se estudia en el nivel 6-7. Ejemplo válido de anidamiento de una sola fila: " +
       "UPPER(SUBSTR(last_name,1,3))." }
+  ],
+  examFocus: [
+    "Distingue siempre si una función es de una fila (un resultado por fila) o de grupo (un resultado por conjunto de filas): es una pregunta de examen recurrente.",
+    "Las funciones anidadas se evalúan de dentro hacia fuera, nunca de fuera hacia dentro.",
+    "No se puede mezclar libremente una función de una fila con una de grupo en el mismo SELECT sin GROUP BY."
+  ],
+  summary: [
+    "Función de una fila = un resultado por fila (UPPER, ROUND...). Función de grupo = un resultado por conjunto (SUM, COUNT...).",
+    "El temario agrupa las funciones de una fila en: texto, numéricas, fecha, conversión y condicionales/generales.",
+    "Las funciones se pueden anidar, evaluándose siempre de dentro hacia fuera."
   ],
   examples: [
     { title: "Función de una fila simple", code: "SELECT UPPER(last_name)\nFROM employees;" },
@@ -298,33 +355,46 @@ levels: [
 {
   id: 5, code: "N5", category: "Funciones",
   title: "Funciones numéricas, texto, fechas y conversión",
-  intro: "El bloque de funciones más denso del examen: casi todo es contenido añadido respecto a tus apuntes.",
+  intro: "El bloque de funciones más denso del examen: texto, números, fechas, conversión y lógica condicional.",
   theory: [
-    { heading: "Funciones de texto (character functions)", source: "added", body:
+    { heading: "Funciones de texto (character functions)", body:
       "UPPER/LOWER/INITCAP cambian mayúsculas; LENGTH devuelve longitud; SUBSTR(cadena, inicio, longitud) extrae " +
       "una subcadena (en Oracle el primer carácter es la posición 1, no 0); INSTR(cadena, busca) devuelve la " +
       "posición donde aparece; LPAD/RPAD rellenan por la izquierda/derecha hasta una longitud; TRIM quita " +
       "espacios (o un carácter indicado) de los extremos; REPLACE sustituye texto." },
-    { heading: "Funciones numéricas", source: "apuntes", body:
-      "ROUND(n, decimales) redondea (ya mencionado en tus apuntes); Oracle añade TRUNC(n, decimales) que trunca " +
-      "sin redondear, y MOD(n, m) que devuelve el resto de la división entera." },
-    { heading: "Funciones de fecha", source: "added", body:
+    { heading: "Funciones numéricas", body:
+      "ROUND(n, decimales) redondea; TRUNC(n, decimales) trunca sin redondear; MOD(n, m) devuelve el resto de la " +
+      "división entera." },
+    { heading: "Funciones de fecha", body:
       "SYSDATE devuelve la fecha y hora actuales del servidor. Se puede sumar/restar números a una fecha (en " +
       "días): SYSDATE + 7. MONTHS_BETWEEN(f1, f2) devuelve meses entre dos fechas; ADD_MONTHS(fecha, n) suma " +
       "meses; NEXT_DAY(fecha, 'FRIDAY') da el próximo día de la semana indicado; LAST_DAY(fecha) da el último " +
       "día del mes; ROUND/TRUNC también funcionan sobre fechas (por ejemplo al mes o al año más cercano)." },
-    { heading: "Funciones de conversión", source: "added", body:
+    { heading: "Funciones de conversión", body:
       "TO_CHAR(fecha o número, 'modelo_de_formato') convierte a texto con un formato concreto: " +
       "TO_CHAR(SYSDATE,'DD/MM/YYYY') o TO_CHAR(salary,'999,999.00'). TO_DATE(texto,'modelo') convierte texto a " +
       "fecha: TO_DATE('25/12/2024','DD/MM/YYYY'). TO_NUMBER(texto) convierte texto a número. Oracle también " +
       "hace conversión implícita en muchos casos, pero el examen exige saber usarlas de forma explícita." },
-    { heading: "Funciones condicionales/generales", source: "added", body:
+    { heading: "Funciones condicionales/generales", body:
       "NVL(expr, valor_si_null) sustituye NULL por un valor por defecto. NVL2(expr, valor_si_no_null, " +
       "valor_si_null) es una versión con dos ramas. NULLIF(expr1, expr2) devuelve NULL si son iguales, si no " +
       "devuelve expr1. COALESCE(e1, e2, ...) devuelve el primer valor no nulo de la lista. DECODE(expr, valor1, " +
       "resultado1, valor2, resultado2, ..., por_defecto) es el 'switch' clásico de Oracle. CASE WHEN ... THEN " +
       "... ELSE ... END es el equivalente estándar ANSI, más flexible que DECODE porque admite condiciones, no " +
       "solo igualdades." }
+  ],
+  examFocus: [
+    "SUBSTR indexa desde la posición 1, no desde 0: un clásico error de examen.",
+    "ROUND redondea y TRUNC corta sin redondear: ROUND(1547.678,2)=1547.68 pero TRUNC(1547.678,2)=1547.67.",
+    "DECODE solo compara igualdad exacta; para rangos (>, <) hace falta CASE.",
+    "NVL sustituye NULL por un valor por defecto; NVL2 tiene dos resultados posibles según sea o no NULL."
+  ],
+  summary: [
+    "Funciones de texto: UPPER/LOWER/INITCAP, LENGTH, SUBSTR, INSTR, LPAD/RPAD, TRIM, REPLACE.",
+    "Funciones numéricas: ROUND, TRUNC, MOD.",
+    "Funciones de fecha: SYSDATE, MONTHS_BETWEEN, ADD_MONTHS, NEXT_DAY, LAST_DAY.",
+    "Funciones de conversión: TO_CHAR, TO_DATE, TO_NUMBER.",
+    "Funciones condicionales: NVL, NVL2, NULLIF, COALESCE, DECODE y CASE WHEN."
   ],
   examples: [
     { title: "Texto", code: "SELECT INITCAP(first_name), SUBSTR(last_name,1,3), INSTR(last_name,'a'), LENGTH(last_name)\nFROM employees;" },
@@ -373,22 +443,33 @@ levels: [
   title: "Funciones de grupo",
   intro: "Resumir muchas filas en un solo valor: COUNT, SUM, AVG, MIN, MAX y algo más.",
   theory: [
-    { heading: "Funciones de agregación básicas", source: "apuntes", body:
+    { heading: "Funciones de agregación básicas", body:
       "COUNT(*) cuenta todas las filas (incluidos NULL); COUNT(columna) cuenta solo los valores no nulos de esa " +
       "columna; COUNT(DISTINCT columna) cuenta valores únicos no nulos. SUM suma valores numéricos ignorando " +
       "NULL. AVG calcula la media ignorando NULL. MIN y MAX funcionan también con texto (orden alfabético) y " +
       "fechas (más antigua/reciente)." },
-    { heading: "STDDEV y VARIANCE", source: "apuntes", body:
+    { heading: "STDDEV y VARIANCE", body:
       "STDDEV calcula la desviación estándar y VARIANCE la varianza de un conjunto de valores numéricos; ambas " +
       "ignoran los NULL, igual que el resto de funciones de grupo." },
-    { heading: "Todas las funciones de grupo ignoran NULL (excepto COUNT(*))", source: "added", body:
+    { heading: "Todas las funciones de grupo ignoran NULL (excepto COUNT(*))", body:
       "Es una regla que el examen pregunta con frecuencia: AVG(commission_pct) NO trata los NULL como 0, los " +
       "excluye del cálculo por completo, por lo que el promedio real puede ser mayor de lo esperado si muchos " +
       "empleados no tienen comisión." },
-    { heading: "Regla de columnas sueltas en el SELECT", source: "apuntes", body:
+    { heading: "Regla de columnas sueltas en el SELECT", body:
       "Si usas una función de grupo en el SELECT, cualquier otra columna 'suelta' (no agregada) debe estar en " +
       "GROUP BY o Oracle lanzará el error ORA-00937: not a single-group group function. Esto se estudia en " +
       "profundidad en el nivel 7." }
+  ],
+  examFocus: [
+    "AVG y el resto de funciones de grupo ignoran los NULL, no los tratan como 0: cambia el resultado real del promedio.",
+    "Mezclar una columna suelta con una función de grupo sin GROUP BY produce el error ORA-00937.",
+    "COUNT(*) cuenta filas; COUNT(columna) cuenta solo valores no nulos de esa columna."
+  ],
+  summary: [
+    "COUNT, SUM, AVG, MIN y MAX resumen un conjunto de filas en un solo valor.",
+    "STDDEV y VARIANCE calculan dispersión estadística.",
+    "Las funciones de grupo excluyen los NULL del cálculo.",
+    "Toda columna no agregada del SELECT debe aparecer en GROUP BY."
   ],
   examples: [
     { title: "Conteos", code: "SELECT COUNT(*) AS total_empleados,\n       COUNT(commission_pct) AS con_comision,\n       COUNT(DISTINCT department_id) AS departamentos_distintos\nFROM employees;" },
@@ -429,23 +510,35 @@ levels: [
   title: "GROUP BY y HAVING",
   intro: "Agrupar filas para calcular agregados por grupo, y filtrar esos grupos.",
   theory: [
-    { heading: "GROUP BY", source: "apuntes", body:
+    { heading: "GROUP BY", body:
       "Agrupa filas que comparten el mismo valor en una o varias columnas, para calcular funciones de grupo por " +
       "cada grupo: SELECT department_id, AVG(salary) FROM employees GROUP BY department_id;. Toda columna del " +
       "SELECT que no esté dentro de una función de grupo debe aparecer en GROUP BY." },
-    { heading: "HAVING vs WHERE", source: "apuntes", body:
+    { heading: "HAVING vs WHERE", body:
       "WHERE filtra filas individuales ANTES de agrupar, y no puede usar funciones de grupo. HAVING filtra " +
       "grupos DESPUÉS de calcular los agregados, y sí puede usar funciones de grupo: " +
       "HAVING AVG(salary) > 6000." },
-    { heading: "Orden lógico de ejecución de una consulta completa", source: "added", body:
+    { heading: "Orden lógico de ejecución de una consulta completa", body:
       "Aunque se escriba SELECT...FROM...WHERE...GROUP BY...HAVING...ORDER BY, Oracle lo evalúa lógicamente en " +
       "este orden: 1) FROM  2) WHERE  3) GROUP BY  4) HAVING  5) SELECT  6) ORDER BY. Por eso los alias del " +
       "SELECT no se pueden usar en WHERE ni en HAVING (se calculan después), pero sí en ORDER BY." },
-    { heading: "ROLLUP, CUBE y GROUPING SETS", source: "added", body:
-      "Extensiones de GROUP BY que no aparecían en tus apuntes: ROLLUP(a,b) genera subtotales jerárquicos " +
+    { heading: "ROLLUP, CUBE y GROUPING SETS", body:
+      "Estas son extensiones de GROUP BY: ROLLUP(a,b) genera subtotales jerárquicos " +
       "(por a, por a+b, y el total general). CUBE(a,b) genera todas las combinaciones posibles de subtotales. " +
       "GROUPING SETS permite especificar manualmente qué combinaciones de agrupación quieres calcular en una " +
       "sola consulta, sin tener que usar UNION de varias consultas GROUP BY." }
+  ],
+  examFocus: [
+    "Toda columna no agregada del SELECT debe estar en GROUP BY, o Oracle lanza ORA-00937.",
+    "Las funciones de grupo se filtran en HAVING, nunca en WHERE.",
+    "El orden lógico FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY explica por qué los alias del SELECT no funcionan en WHERE/HAVING pero sí en ORDER BY.",
+    "ROLLUP añade subtotales jerárquicos automáticamente; es habitual que el examen pida identificar qué filas extra genera."
+  ],
+  summary: [
+    "GROUP BY agrupa filas para calcular agregados por grupo.",
+    "WHERE filtra filas antes de agrupar; HAVING filtra grupos después.",
+    "Orden lógico de ejecución: FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY.",
+    "ROLLUP, CUBE y GROUPING SETS generan subtotales y combinaciones de agrupación."
   ],
   examples: [
     { title: "Agrupar y filtrar filas antes (WHERE) y grupos después (HAVING)", code: "SELECT department_id, COUNT(*) AS num_empleados, ROUND(AVG(salary),2) AS media\nFROM employees\nWHERE job_id <> 'ST_CLERK'\nGROUP BY department_id\nHAVING COUNT(*) > 3\nORDER BY media DESC;" },
@@ -489,25 +582,36 @@ levels: [
   title: "JOINs",
   intro: "Combinar filas de varias tablas relacionadas, con sintaxis ANSI y con la sintaxis clásica de Oracle.",
   theory: [
-    { heading: "Tipos de JOIN (sintaxis ANSI)", source: "apuntes", body:
+    { heading: "Tipos de JOIN (sintaxis ANSI)", body:
       "INNER JOIN devuelve solo las filas que coinciden en ambas tablas. LEFT [OUTER] JOIN devuelve todas las " +
       "filas de la tabla izquierda y las coincidencias de la derecha (NULL si no hay). RIGHT [OUTER] JOIN es lo " +
       "simétrico. FULL [OUTER] JOIN devuelve todo de ambas tablas, con NULL donde no hay coincidencia. " +
       "CROSS JOIN genera el producto cartesiano (todas las combinaciones posibles)." },
-    { heading: "NATURAL JOIN y JOIN USING", source: "added", body:
+    { heading: "NATURAL JOIN y JOIN USING", body:
       "NATURAL JOIN une automáticamente las tablas por todas las columnas que tengan el mismo nombre en ambas " +
       "(hay que usarlo con cuidado, puede unir por columnas no deseadas). JOIN ... USING(columna) permite " +
       "especificar manualmente una única columna común sin repetir el nombre de tabla, evitando ambigüedad " +
       "cuando ambas tablas comparten nombre de columna." },
-    { heading: "Self join", source: "added", body:
+    { heading: "Self join", body:
       "Una tabla se puede unir consigo misma usando dos alias distintos, típico para relaciones jerárquicas " +
       "como 'empleado - su jefe', ambos almacenados en la misma tabla employees (manager_id referencia a " +
       "employee_id de la misma tabla)." },
-    { heading: "Sintaxis antigua de Oracle con (+)", source: "added", body:
+    { heading: "Sintaxis antigua de Oracle con (+)", body:
       "Antes de que Oracle adoptara el estándar ANSI JOIN, los outer join se escribían con el operador (+) en " +
       "la condición del WHERE, colocado en el lado de la tabla que puede tener valores 'que falten'. El examen " +
       "puede preguntar por reconocer esta sintaxis heredada: " +
       "WHERE e.department_id = d.department_id(+) equivale a un LEFT JOIN de e hacia d." }
+  ],
+  examFocus: [
+    "Olvidar la condición ON en un JOIN genera sin querer un producto cartesiano: revisa siempre el número de filas resultante.",
+    "En la sintaxis antigua con (+), el operador se coloca en el lado de la tabla que puede tener valores ausentes.",
+    "Un self join usa dos alias distintos de la misma tabla; es la forma habitual de modelar relaciones jerárquicas como empleado-jefe."
+  ],
+  summary: [
+    "INNER JOIN solo coincidencias; LEFT/RIGHT/FULL OUTER JOIN conservan filas sin coincidencia con NULL; CROSS JOIN es el producto cartesiano.",
+    "NATURAL JOIN une por columnas homónimas automáticamente; USING especifica una columna común manualmente.",
+    "Self join: una tabla unida consigo misma con dos alias.",
+    "La sintaxis antigua (+) en el WHERE es el equivalente heredado a un OUTER JOIN ANSI."
   ],
   examples: [
     { title: "INNER JOIN (ANSI)", code: "SELECT e.last_name, d.department_name\nFROM employees e\nJOIN departments d ON e.department_id = d.department_id;" },
@@ -554,30 +658,42 @@ levels: [
   title: "Subconsultas",
   intro: "Consultas dentro de consultas: en WHERE, en SELECT, en FROM, correlacionadas y con EXISTS.",
   theory: [
-    { heading: "Subconsultas en WHERE", source: "apuntes", body:
+    { heading: "Subconsultas en WHERE", body:
       "Una subconsulta de una sola columna se puede comparar con =, >, <, IN, NOT IN: " +
       "WHERE salary > (SELECT AVG(salary) FROM employees). Es una subconsulta de una sola fila y una sola columna." },
-    { heading: "Subconsultas multicolumna y multifila", source: "added", body:
+    { heading: "Subconsultas multicolumna y multifila", body:
       "Con IN se puede comparar contra varias filas: WHERE department_id IN (SELECT department_id FROM " +
       "departments WHERE location_id=1700). Con ANY y ALL se comparan valores contra un conjunto: > ANY " +
       "significa 'mayor que al menos uno'; > ALL significa 'mayor que todos'. Una subconsulta multicolumna " +
       "compara varias columnas a la vez: WHERE (department_id, job_id) IN (SELECT department_id, job_id FROM ...)." },
-    { heading: "EXISTS y NOT EXISTS", source: "apuntes", body:
+    { heading: "EXISTS y NOT EXISTS", body:
       "EXISTS comprueba si la subconsulta devuelve al menos una fila (no importa el contenido, solo la " +
       "existencia); es habitualmente más eficiente que IN con tablas grandes porque Oracle puede parar en " +
       "cuanto encuentra la primera coincidencia. NOT EXISTS comprueba la ausencia de filas." },
-    { heading: "Subconsultas correlacionadas", source: "added", body:
+    { heading: "Subconsultas correlacionadas", body:
       "Una subconsulta correlacionada referencia una columna de la consulta externa, por lo que se ejecuta una " +
       "vez por cada fila de la consulta externa (no una sola vez de forma independiente). Es la base de EXISTS " +
       "en la práctica: WHERE EXISTS (SELECT 1 FROM departments d WHERE d.department_id = e.department_id)." },
-    { heading: "Subconsultas en SELECT y en FROM", source: "apuntes", body:
+    { heading: "Subconsultas en SELECT y en FROM", body:
       "En el SELECT, una subconsulta escalar debe devolver un único valor por fila. En el FROM, una subconsulta " +
       "se comporta como una tabla temporal (también llamada 'vista en línea'), sobre la que se puede filtrar y " +
       "agrupar en la consulta externa." },
-    { heading: "Subconsultas en UPDATE y DELETE", source: "added", body:
+    { heading: "Subconsultas en UPDATE y DELETE", body:
       "También se pueden usar subconsultas fuera del SELECT: " +
       "UPDATE employees SET salary = salary*1.1 WHERE department_id = (SELECT department_id FROM departments " +
-      "WHERE department_name='IT'); y del mismo modo en DELETE. No aparecía en tus apuntes." }
+      "WHERE department_name='IT'); y del mismo modo en DELETE." }
+  ],
+  examFocus: [
+    "Usar = con una subconsulta que puede devolver varias filas provoca ORA-01427: hay que usar IN, ANY o ALL.",
+    "> ANY significa mayor que el mínimo del conjunto; > ALL significa mayor que el máximo: son casi opuestos y el examen los confunde a propósito.",
+    "Una subconsulta correlacionada se reevalúa una vez por cada fila de la consulta externa."
+  ],
+  summary: [
+    "Subconsulta en WHERE: se compara con =, >, <, IN, NOT IN según devuelva una o varias filas.",
+    "ANY y ALL comparan contra un conjunto de valores.",
+    "EXISTS/NOT EXISTS comprueban solo la existencia de filas, no su contenido.",
+    "Una subconsulta correlacionada depende de la fila externa y se ejecuta repetidamente.",
+    "Las subconsultas también funcionan en SELECT, FROM, UPDATE y DELETE."
   ],
   examples: [
     { title: "Subconsulta simple en WHERE", code: "SELECT last_name, salary\nFROM employees\nWHERE salary > (SELECT AVG(salary) FROM employees);" },
@@ -621,20 +737,31 @@ levels: [
   title: "Operadores de conjunto",
   intro: "Combinar los resultados de dos o más SELECT compatibles.",
   theory: [
-    { heading: "UNION y UNION ALL", source: "apuntes", body:
+    { heading: "UNION y UNION ALL", body:
       "UNION combina los resultados de dos consultas y elimina duplicados (más costoso, porque ordena internamente). " +
       "UNION ALL combina sin eliminar duplicados, por lo que es más rápido. Ambas consultas deben tener el mismo " +
       "número de columnas, con tipos de datos compatibles." },
-    { heading: "INTERSECT", source: "apuntes", body:
+    { heading: "INTERSECT", body:
       "Devuelve solo las filas que aparecen en ambos resultados." },
-    { heading: "MINUS en vez de EXCEPT", source: "added", body:
-      "Aquí está el cambio de sintaxis más importante respecto a tus apuntes: donde el estándar ANSI (y " +
-      "PostgreSQL) usan EXCEPT, Oracle usa la palabra clave MINUS con el mismo significado: devuelve las filas " +
-      "de la primera consulta que NO aparecen en la segunda. EXCEPT no existe en Oracle SQL." },
-    { heading: "Reglas y ORDER BY", source: "added", body:
+    { heading: "MINUS en vez de EXCEPT", body:
+      "Oracle no usa la palabra EXCEPT del estándar ANSI: en su lugar usa MINUS, con el mismo significado — " +
+      "devuelve las filas de la primera consulta que NO aparecen en la segunda. EXCEPT no existe en Oracle SQL, " +
+      "es uno de los cambios de sintaxis que más pregunta el examen." },
+    { heading: "Reglas y ORDER BY", body:
       "Solo se puede usar un ORDER BY al final de toda la combinación (no en cada SELECT individual), y debe " +
       "referirse a las columnas por posición o por el alias de la primera consulta. Los nombres de columna del " +
       "resultado final son los de la primera consulta del bloque." }
+  ],
+  examFocus: [
+    "Oracle no tiene EXCEPT: el equivalente es MINUS. Es una de las preguntas de sintaxis más repetidas del examen.",
+    "UNION ordena y elimina duplicados (más lento); UNION ALL los conserva (más rápido).",
+    "Solo puede haber un ORDER BY, al final de toda la combinación, nunca en cada SELECT por separado."
+  ],
+  summary: [
+    "UNION combina y elimina duplicados; UNION ALL combina conservándolos.",
+    "INTERSECT devuelve las filas comunes a ambas consultas.",
+    "MINUS devuelve las filas de la primera consulta que no están en la segunda (Oracle no tiene EXCEPT).",
+    "Las consultas combinadas deben tener el mismo número de columnas con tipos compatibles."
   ],
   examples: [
     { title: "UNION vs UNION ALL", code: "SELECT department_id FROM employees\nUNION\nSELECT department_id FROM departments;\n\n-- con duplicados permitidos y más rápido:\nSELECT department_id FROM employees\nUNION ALL\nSELECT department_id FROM departments;" },
@@ -678,27 +805,38 @@ levels: [
   title: "INSERT, UPDATE y DELETE",
   intro: "Las tres sentencias DML clásicas, más MERGE e INSERT multitabla, propios de Oracle.",
   theory: [
-    { heading: "INSERT", source: "apuntes", body:
+    { heading: "INSERT", body:
       "INSERT INTO tabla (col1, col2) VALUES (valor1, valor2); Si se listan todas las columnas en el mismo " +
       "orden de la tabla, se puede omitir la lista de columnas (no recomendado en código real, es frágil ante " +
       "cambios de estructura). También se puede insertar el resultado de un SELECT: INSERT INTO tabla SELECT ... FROM otra_tabla." },
-    { heading: "UPDATE", source: "apuntes", body:
+    { heading: "UPDATE", body:
       "UPDATE tabla SET columna = valor WHERE condición;. Si se omite el WHERE, se actualizan TODAS las filas " +
       "de la tabla: uno de los errores más peligrosos y frecuentes." },
-    { heading: "DELETE", source: "apuntes", body:
+    { heading: "DELETE", body:
       "DELETE FROM tabla WHERE condición;. Igual que UPDATE, sin WHERE borra todas las filas (pero mantiene la " +
       "estructura de la tabla, a diferencia de DROP TABLE o TRUNCATE, que se ven en el nivel 12)." },
-    { heading: "INSERT multitabla: INSERT ALL / INSERT FIRST", source: "added", body:
-      "Exclusivo de Oracle, no existe en tus apuntes: permite insertar el resultado de una sola subconsulta en " +
+    { heading: "INSERT multitabla: INSERT ALL / INSERT FIRST", body:
+      "Exclusivo de Oracle: permite insertar el resultado de una sola subconsulta en " +
       "varias tablas a la vez. INSERT ALL inserta en todas las ramas que cumplan su condición WHEN; INSERT " +
       "FIRST inserta solo en la primera rama que cumpla la condición." },
-    { heading: "MERGE", source: "added", body:
+    { heading: "MERGE", body:
       "MERGE combina INSERT y UPDATE en una sola sentencia ('upsert'): compara una tabla origen con una destino " +
       "según una condición, y si coincide actualiza (WHEN MATCHED), si no coincide inserta (WHEN NOT MATCHED). " +
       "Muy usado en cargas de datos y sincronización de tablas." },
-    { heading: "DEFAULT en INSERT/UPDATE", source: "added", body:
+    { heading: "DEFAULT en INSERT/UPDATE", body:
       "La palabra clave DEFAULT permite asignar explícitamente el valor por defecto definido en la columna, " +
       "tanto en INSERT como en UPDATE, sin tener que conocer o repetir ese valor." }
+  ],
+  examFocus: [
+    "UPDATE o DELETE sin WHERE afecta a TODAS las filas de la tabla: es uno de los errores más peligrosos y también una pregunta clásica del examen.",
+    "MERGE decide entre INSERT y UPDATE según coincidencia, en una sola sentencia ('upsert').",
+    "INSERT ALL / INSERT FIRST reparten filas de una subconsulta origen entre varias tablas destino."
+  ],
+  summary: [
+    "INSERT añade filas; UPDATE modifica; DELETE elimina, siempre con WHERE si no quieres afectar a toda la tabla.",
+    "INSERT ALL / INSERT FIRST insertan en varias tablas a la vez según condiciones.",
+    "MERGE combina INSERT y UPDATE en una sola sentencia.",
+    "DEFAULT asigna el valor por defecto de una columna sin tener que conocerlo."
   ],
   examples: [
     { title: "INSERT básico", code: "INSERT INTO departments (department_id, department_name, location_id)\nVALUES (280, 'Innovación', 1700);" },
@@ -744,23 +882,34 @@ levels: [
   title: "CREATE TABLE, ALTER TABLE y DROP TABLE",
   intro: "Crear y modificar la estructura de las tablas con sintaxis y tipos de dato Oracle.",
   theory: [
-    { heading: "CREATE TABLE con tipos Oracle", source: "apuntes", body:
-      "La estructura CREATE TABLE nombre (columna tipo, ...) es igual que en tus apuntes, pero los tipos deben " +
+    { heading: "CREATE TABLE con tipos Oracle", body:
+      "La estructura básica es CREATE TABLE nombre (columna tipo, ...); pero los tipos deben " +
       "ser los de Oracle: VARCHAR2(n), NUMBER(p,s), DATE, TIMESTAMP, CLOB. Ejemplo: " +
       "CREATE TABLE clientes (id NUMBER(6) PRIMARY KEY, nombre VARCHAR2(50) NOT NULL, alta DATE DEFAULT SYSDATE);" },
-    { heading: "ALTER TABLE", source: "apuntes", body:
+    { heading: "ALTER TABLE", body:
       "ALTER TABLE tabla ADD (columna tipo); añade columnas. ALTER TABLE tabla MODIFY (columna nuevo_tipo); " +
       "cambia el tipo o tamaño de una columna existente (con restricciones si ya tiene datos incompatibles). " +
       "ALTER TABLE tabla DROP COLUMN columna; elimina una columna." },
-    { heading: "RENAME y TRUNCATE", source: "added", body:
+    { heading: "RENAME y TRUNCATE", body:
       "RENAME tabla_vieja TO tabla_nueva; cambia el nombre de una tabla. TRUNCATE TABLE tabla; elimina TODAS " +
       "las filas de golpe: es DDL (no DML como DELETE), no se puede deshacer con ROLLBACK, y libera el espacio " +
       "de almacenamiento inmediatamente. Es mucho más rápido que un DELETE sin WHERE en tablas grandes." },
-    { heading: "DROP TABLE y recuperación con Flashback", source: "added", body:
+    { heading: "DROP TABLE y recuperación con Flashback", body:
       "DROP TABLE tabla; elimina la tabla completa (estructura y datos). En Oracle, por defecto la tabla se " +
       "mueve a la 'papelera de reciclaje' (recycle bin) y se puede recuperar con " +
       "FLASHBACK TABLE tabla TO BEFORE DROP;. Para eliminarla de forma definitiva sin pasar por la papelera se " +
       "usa DROP TABLE tabla PURGE;" }
+  ],
+  examFocus: [
+    "TRUNCATE es DDL: hace commit implícito y no se puede deshacer con ROLLBACK, a diferencia de DELETE.",
+    "DROP TABLE mueve la tabla a la papelera de reciclaje por defecto; se recupera con FLASHBACK TABLE ... TO BEFORE DROP.",
+    "PURGE elimina la tabla de forma definitiva, sin pasar por la papelera."
+  ],
+  summary: [
+    "CREATE TABLE define columnas con tipos Oracle: VARCHAR2, NUMBER, DATE, TIMESTAMP, CLOB.",
+    "ALTER TABLE añade, modifica o elimina columnas de una tabla existente.",
+    "RENAME cambia el nombre de una tabla; TRUNCATE vacía todas las filas de golpe (DDL, sin ROLLBACK).",
+    "DROP TABLE elimina la tabla; FLASHBACK TABLE la recupera si no se usó PURGE."
   ],
   examples: [
     { title: "Crear tabla con tipos Oracle", code: "CREATE TABLE clientes (\n  id_cliente   NUMBER(6),\n  nombre       VARCHAR2(50) NOT NULL,\n  email        VARCHAR2(100),\n  fecha_alta   DATE DEFAULT SYSDATE,\n  CONSTRAINT pk_clientes PRIMARY KEY (id_cliente)\n);" },
@@ -802,26 +951,38 @@ levels: [
   title: "Constraints",
   intro: "Reglas de integridad: NOT NULL, PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, y su gestión en Oracle.",
   theory: [
-    { heading: "Tipos de constraint", source: "apuntes", body:
+    { heading: "Tipos de constraint", body:
       "NOT NULL obliga a que una columna tenga valor. PRIMARY KEY identifica de forma única cada fila (implica " +
       "NOT NULL + UNIQUE). UNIQUE permite valores únicos pero sí admite NULL. FOREIGN KEY enlaza con la clave " +
       "primaria de otra tabla. CHECK valida una condición sobre los valores, p.ej. CHECK (salary > 0)." },
-    { heading: "Constraints con nombre explícito", source: "added", body:
+    { heading: "Constraints con nombre explícito", body:
       "Se recomienda nombrar siempre los constraints con CONSTRAINT nombre tipo(...), en vez de dejar que Oracle " +
       "genere un nombre automático tipo SYS_C0012345, ilegible en mensajes de error futuros: " +
       "CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES departments(department_id)." },
-    { heading: "Nivel de columna vs nivel de tabla", source: "apuntes", body:
+    { heading: "Nivel de columna vs nivel de tabla", body:
       "Un constraint a nivel de columna se escribe justo después del tipo de dato. Un constraint a nivel de " +
       "tabla se escribe al final, después de todas las columnas, y es obligatorio cuando afecta a varias " +
       "columnas a la vez (p.ej. una PRIMARY KEY compuesta)." },
-    { heading: "ON DELETE CASCADE / SET NULL", source: "apuntes", body:
+    { heading: "ON DELETE CASCADE / SET NULL", body:
       "En una FOREIGN KEY, ON DELETE CASCADE hace que al borrar la fila padre se borren automáticamente las " +
       "filas hijas relacionadas. ON DELETE SET NULL pone a NULL la clave foránea de las filas hijas en vez de " +
       "borrarlas. Sin ninguna de las dos, Oracle impide borrar la fila padre si tiene hijos (comportamiento por defecto)." },
-    { heading: "Habilitar y deshabilitar constraints", source: "added", body:
-      "No estaba en tus apuntes: se puede desactivar temporalmente un constraint (por ejemplo para cargar datos " +
+    { heading: "Habilitar y deshabilitar constraints", body:
+      "Se puede desactivar temporalmente un constraint (por ejemplo para cargar datos " +
       "masivos sin validación) con ALTER TABLE tabla DISABLE CONSTRAINT nombre; y reactivarlo después con " +
       "ENABLE CONSTRAINT nombre;." }
+  ],
+  examFocus: [
+    "PRIMARY KEY implica NOT NULL + UNIQUE automáticamente; no hace falta repetir NOT NULL.",
+    "UNIQUE sí admite NULL; PRIMARY KEY nunca admite NULL en ninguna de sus columnas.",
+    "Sin ON DELETE CASCADE ni SET NULL, Oracle impide por defecto borrar una fila padre que tiene hijos."
+  ],
+  summary: [
+    "NOT NULL, PRIMARY KEY, UNIQUE, FOREIGN KEY y CHECK son los tipos de constraint.",
+    "Nombrar los constraints explícitamente evita mensajes de error ilegibles como SYS_C0012345.",
+    "Los constraints se declaran a nivel de columna o de tabla (obligatorio para claves compuestas).",
+    "ON DELETE CASCADE / SET NULL controlan qué pasa con los hijos al borrar el padre.",
+    "DISABLE CONSTRAINT / ENABLE CONSTRAINT desactivan y reactivan validaciones sin eliminarlas."
   ],
   examples: [
     { title: "Constraints a nivel de columna y de tabla", code: "CREATE TABLE empleados_dep (\n  id_emp     NUMBER(6),\n  nombre     VARCHAR2(50) NOT NULL,\n  email      VARCHAR2(100) UNIQUE,\n  salario    NUMBER(8,2) CHECK (salario > 0),\n  dept_id    NUMBER(4),\n  CONSTRAINT pk_empleados_dep PRIMARY KEY (id_emp),\n  CONSTRAINT fk_emp_dept FOREIGN KEY (dept_id)\n    REFERENCES departments(department_id) ON DELETE SET NULL\n);" },
@@ -864,28 +1025,40 @@ levels: [
 {
   id: 14, code: "N14", category: "DDL",
   title: "Vistas, secuencias, sinónimos e índices",
-  intro: "Objetos de esquema más allá de las tablas: casi todo el detalle de sintaxis Oracle es contenido añadido.",
+  intro: "Objetos de esquema más allá de las tablas: vistas, secuencias, sinónimos e índices.",
   theory: [
-    { heading: "Vistas (concepto)", source: "apuntes", body:
+    { heading: "Vistas (concepto)", body:
       "Una vista es una consulta guardada que se comporta como una tabla virtual: no almacena datos propios, " +
       "los genera al ejecutarse. Sirve para simplificar consultas repetitivas, ocultar columnas sensibles y " +
       "dar independencia entre el modelo físico y lo que ve cada usuario." },
-    { heading: "Sintaxis Oracle de vistas y opciones", source: "added", body:
+    { heading: "Sintaxis Oracle de vistas y opciones", body:
       "CREATE [OR REPLACE] VIEW nombre AS SELECT ...; La cláusula WITH CHECK OPTION impide que, a través de la " +
       "vista, se inserten o actualicen filas que dejarían de cumplir el WHERE de la vista. WITH READ ONLY " +
       "impide cualquier modificación de datos a través de la vista, aunque técnicamente fuera posible." },
-    { heading: "Secuencias (CREATE SEQUENCE)", source: "added", body:
-      "No aparecían en tus apuntes. Una secuencia genera números únicos, típicamente para claves primarias: " +
+    { heading: "Secuencias (CREATE SEQUENCE)", body:
+      "Una secuencia genera números únicos, típicamente para claves primarias: " +
       "CREATE SEQUENCE seq_clientes START WITH 1 INCREMENT BY 1 NOCACHE;. Se usa con seq_clientes.NEXTVAL para " +
       "obtener el siguiente valor y seq_clientes.CURRVAL para consultar el último valor generado en la sesión " +
       "actual (solo disponible tras usar NEXTVAL al menos una vez)." },
-    { heading: "Sinónimos (CREATE SYNONYM)", source: "added", body:
+    { heading: "Sinónimos (CREATE SYNONYM)", body:
       "Un sinónimo es un alias permanente para un objeto (tabla, vista, secuencia...), útil para simplificar " +
       "nombres largos o para dar independencia de ubicación: CREATE SYNONYM emp FOR hr.employees;" },
-    { heading: "Índices (CREATE INDEX)", source: "added", body:
+    { heading: "Índices (CREATE INDEX)", body:
       "Un índice acelera las búsquedas sobre una columna, a costa de espacio y de ralentizar ligeramente las " +
       "escrituras: CREATE INDEX idx_emp_apellido ON employees(last_name);. Oracle crea automáticamente un " +
       "índice único al definir una PRIMARY KEY o un UNIQUE, por lo que no hace falta crearlo aparte en esos casos." }
+  ],
+  examFocus: [
+    "WITH CHECK OPTION impide insertar/actualizar a través de la vista filas que dejarían de cumplir su WHERE.",
+    "CURRVAL solo está disponible después de haber usado NEXTVAL al menos una vez en la sesión.",
+    "Una vista con JOIN, GROUP BY o funciones de grupo deja de ser actualizable directamente."
+  ],
+  summary: [
+    "Una vista es una consulta guardada que se comporta como tabla virtual.",
+    "WITH CHECK OPTION y WITH READ ONLY controlan qué modificaciones permite una vista.",
+    "Una secuencia genera números únicos con NEXTVAL / CURRVAL.",
+    "Un sinónimo es un alias permanente de otro objeto.",
+    "Un índice acelera búsquedas; PRIMARY KEY y UNIQUE ya crean uno automáticamente."
   ],
   examples: [
     { title: "Vista con WITH CHECK OPTION", code: "CREATE OR REPLACE VIEW v_empleados_it AS\nSELECT employee_id, last_name, salary, department_id\nFROM employees\nWHERE department_id = 60\nWITH CHECK OPTION;" },
@@ -928,26 +1101,37 @@ levels: [
 {
   id: 15, code: "N15", category: "DML",
   title: "Control de transacciones: COMMIT, ROLLBACK y SAVEPOINT",
-  intro: "Bloque completo ausente de tus apuntes originales: cómo Oracle agrupa cambios en transacciones.",
+  intro: "Cómo agrupa Oracle los cambios en transacciones: COMMIT, ROLLBACK y SAVEPOINT.",
   theory: [
-    { heading: "Qué es una transacción", source: "added", body:
+    { heading: "Qué es una transacción", body:
       "Una transacción es un conjunto de una o más sentencias DML (INSERT/UPDATE/DELETE/MERGE) que se tratan " +
       "como una unidad: o se confirman todas, o se deshacen todas. Empieza implícitamente con la primera " +
       "sentencia DML y termina con COMMIT, ROLLBACK, o una sentencia DDL (que hace COMMIT automático)." },
-    { heading: "COMMIT", source: "added", body:
+    { heading: "COMMIT", body:
       "COMMIT; hace permanentes todos los cambios de la transacción actual. Antes del COMMIT, los cambios solo " +
       "son visibles para la sesión que los hizo (otros usuarios ven el estado anterior, gracias a la " +
       "consistencia de lectura de Oracle)." },
-    { heading: "ROLLBACK", source: "added", body:
+    { heading: "ROLLBACK", body:
       "ROLLBACK; deshace todos los cambios no confirmados desde el último COMMIT (o desde el inicio de la " +
       "sesión). Es la 'tecla deshacer' de una transacción." },
-    { heading: "SAVEPOINT", source: "added", body:
+    { heading: "SAVEPOINT", body:
       "SAVEPOINT nombre; marca un punto intermedio dentro de una transacción larga, al que se puede volver con " +
       "ROLLBACK TO nombre; sin deshacer TODA la transacción, solo lo posterior al savepoint." },
-    { heading: "DDL y COMMIT implícito", source: "added", body:
+    { heading: "DDL y COMMIT implícito", body:
       "Cualquier sentencia DDL (CREATE, ALTER, DROP, TRUNCATE) hace un COMMIT automático de cualquier " +
       "transacción DML pendiente, antes y después de ejecutarse. Por eso TRUNCATE no se puede deshacer con " +
       "ROLLBACK: ya ha hecho commit." }
+  ],
+  examFocus: [
+    "Toda sentencia DDL hace COMMIT automático de los cambios DML pendientes: por eso TRUNCATE no admite ROLLBACK.",
+    "ROLLBACK TO SAVEPOINT deshace solo lo posterior al savepoint, no toda la transacción.",
+    "Otros usuarios no ven tus cambios hasta que haces COMMIT, gracias a la consistencia de lectura de Oracle."
+  ],
+  summary: [
+    "Una transacción agrupa sentencias DML como una sola unidad: se confirman o se deshacen todas.",
+    "COMMIT hace permanentes los cambios; ROLLBACK los deshace.",
+    "SAVEPOINT permite deshacer solo una parte de la transacción.",
+    "El DDL siempre hace commit implícito, antes y después de ejecutarse."
   ],
   examples: [
     { title: "Transacción simple", code: "UPDATE employees SET salary = salary * 1.1 WHERE department_id = 60;\nCOMMIT; -- los cambios ya son permanentes" },
@@ -993,7 +1177,7 @@ levels: [
   intro: "Exámenes cronometrados con preguntas mezcladas de todos los temas anteriores.",
   isExamLevel: true,
   theory: [
-    { heading: "Cómo funciona este nivel", source: "added", body:
+    { heading: "Cómo funciona este nivel", body:
       "Aquí no hay teoría nueva: se genera un simulacro de 20 preguntas aleatorias del banco completo, con un " +
       "temporizador (20 minutos), reproduciendo el formato y la duración de un bloque del examen oficial. Al " +
       "terminar verás tu puntuación, el tiempo empleado, y todas tus fallas se añaden automáticamente al repaso " +
@@ -1020,7 +1204,7 @@ levels: [
   intro: "El desafío final: preguntas de mayor dificultad, mezclando trampas típicas del temario 1Z0-071.",
   isExamLevel: true,
   theory: [
-    { heading: "Qué esperar en este nivel", source: "added", body:
+    { heading: "Qué esperar en este nivel", body:
       "Simulacro de 30 preguntas con dificultad alta, mezclando todos los bloques, incluidas las preguntas más " +
       "'trampa' del banco (precedencia de operadores, NULL en funciones de grupo, MINUS vs EXCEPT, ROLLBACK vs " +
       "TRUNCATE, subconsultas de una fila vs varias filas). Pensado para hacerse cuando ya hayas completado " +
