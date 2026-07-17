@@ -892,17 +892,23 @@ function renderLevel(levelId) {
     ${completedBanner}
     <div class="tabs">
       <button class="tab-btn" data-tab="teoria">Teoría</button>
+      <button class="tab-btn" data-tab="casos">Casos reales</button>
       <button class="tab-btn" data-tab="ejemplos">Ejemplos</button>
       <button class="tab-btn" data-tab="errores">Errores típicos</button>
-      <button class="tab-btn" data-tab="quiz">Quiz (${ls.quizDone ? "hecho" : level.quiz.length + " preguntas"})</button>
       <button class="tab-btn" data-tab="ejercicios">Ejercicios</button>
+      <button class="tab-btn" data-tab="resueltos">Resueltos</button>
+      <button class="tab-btn" data-tab="quiz">Quiz (${ls.quizDone ? "hecho" : level.quiz.length + " preguntas"})</button>
+      <button class="tab-btn" data-tab="flashcards">Flashcards</button>
       <button class="tab-btn" data-tab="retos">Retos</button>
     </div>
     <div id="tab-teoria" class="tab-pane">${renderTheory(level)}</div>
+    <div id="tab-casos" class="tab-pane">${renderRealCases(level)}</div>
     <div id="tab-ejemplos" class="tab-pane">${renderExamples(level)}</div>
     <div id="tab-errores" class="tab-pane">${renderMistakes(level)}</div>
-    <div id="tab-quiz" class="tab-pane"><div id="quiz-container"></div></div>
     <div id="tab-ejercicios" class="tab-pane">${renderExercises(level)}</div>
+    <div id="tab-resueltos" class="tab-pane">${renderSolved(level)}</div>
+    <div id="tab-quiz" class="tab-pane"><div id="quiz-container"></div></div>
+    <div id="tab-flashcards" class="tab-pane">${renderFlashcards(level)}</div>
     <div id="tab-retos" class="tab-pane">${renderChallenges(level)}</div>
   `;
 
@@ -926,6 +932,17 @@ function selectTab(tab, level) {
 
 const ORACLE_OFFICIAL_DOCS_URL = "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/index.html";
 
+function renderTheoryExamples(examples) {
+  return (examples || []).map(ex => `
+    <pre class="code-block theory-example">${escapeHtml(ex.code)}</pre>
+    ${ex.output ? `
+      <div class="theory-output">
+        <span class="theory-output-label">Salida esperada</span>
+        <pre class="code-block theory-output-block">${escapeHtml(ex.output)}</pre>
+      </div>` : ""}
+  `).join("");
+}
+
 function renderTheory(level) {
   const t = level.theory;
   if (!t || !t.concepts || !t.concepts.length) return `<article class="theory-doc"><p>Sin teoría adicional en este nivel: es un bloque de simulacro.</p></article>`;
@@ -935,13 +952,19 @@ function renderTheory(level) {
       <h3>${escapeHtml(c.heading)}</h3>
       <p>${escapeHtml(c.explanation)}</p>
       ${c.syntax ? `<pre class="code-block theory-syntax">${escapeHtml(c.syntax)}</pre>` : ""}
-      ${(c.examples || []).map(ex => `
-        <pre class="code-block theory-example">${escapeHtml(ex.code)}</pre>
-        ${ex.output ? `
-          <div class="theory-output">
-            <span class="theory-output-label">Salida esperada</span>
-            <pre class="code-block theory-output-block">${escapeHtml(ex.output)}</pre>
-          </div>` : ""}
+      ${renderTheoryExamples(c.examples)}
+      ${(c.subconcepts || []).map(sc => `
+        <div class="theory-subsection">
+          <h4>${escapeHtml(sc.heading)}</h4>
+          <p>${escapeHtml(sc.explanation)}</p>
+          ${sc.syntax ? `<pre class="code-block theory-syntax">${escapeHtml(sc.syntax)}</pre>` : ""}
+          ${renderTheoryExamples(sc.examples)}
+          ${(sc.commonErrors || []).length ? `
+            <div class="theory-common-errors">
+              <span class="theory-output-label">Errores frecuentes</span>
+              <ul>${sc.commonErrors.map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+            </div>` : ""}
+        </div>
       `).join("")}
     </section>
   `).join("");
@@ -958,6 +981,28 @@ function renderTheory(level) {
       <ul>${level.summary.map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
     </section>` : "";
 
+  const table = level.comparisonTable ? `
+    <section class="theory-callout theory-table">
+      <h4>${escapeHtml(level.comparisonTable.title || "Tabla comparativa")}</h4>
+      <div class="theory-table-wrap">
+        <table class="comparison-table">
+          <thead><tr>${level.comparisonTable.headers.map(h => `<th>${escapeHtml(h)}</th>`).join("")}</tr></thead>
+          <tbody>${level.comparisonTable.rows.map(row => `<tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`).join("")}</tbody>
+        </table>
+      </div>
+    </section>` : "";
+
+  const mindMap = (level.mindMap && level.mindMap.length) ? `
+    <section class="theory-callout theory-mindmap">
+      <h4>Mapa mental</h4>
+      ${level.mindMap.map(node => `
+        <div class="mindmap-node">
+          <div class="mindmap-topic">${escapeHtml(node.topic)}</div>
+          <ul>${(node.children || []).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+        </div>
+      `).join("")}
+    </section>` : "";
+
   const sources = (level.sourceRefs && level.sourceRefs.length) ? `
     <p class="theory-sources">Fuentes: ${level.sourceRefs.map(s => escapeHtml(s)).join(" · ")}</p>` : "";
 
@@ -967,7 +1012,7 @@ function renderTheory(level) {
         Consultar la documentación oficial de Oracle (Database SQL Language Reference)
       </a>
     </p>`;
-  return `<article class="theory-doc">${concepts}${notes}${summary}${sources}${docsLink}</article>`;
+  return `<article class="theory-doc">${concepts}${notes}${summary}${table}${mindMap}${sources}${docsLink}</article>`;
 }
 
 function renderExamples(level) {
@@ -983,7 +1028,16 @@ function renderExamples(level) {
 
 function renderMistakes(level) {
   if (!level.mistakes.length) return `<div class="card"><p>No hay errores típicos registrados para este nivel.</p></div>`;
-  return `<ul class="mistake-list">${level.mistakes.map(m => `<li>${escapeHtml(m)}</li>`).join("")}</ul>`;
+  const isDeep = typeof level.mistakes[0] === "object";
+  if (!isDeep) {
+    return `<ul class="mistake-list">${level.mistakes.map(m => `<li>${escapeHtml(m)}</li>`).join("")}</ul>`;
+  }
+  return level.mistakes.map((m, i) => `
+    <div class="card mistake-card">
+      <h4>Error ${i + 1} · ${escapeHtml(m.mistake)}</h4>
+      <p class="mistake-why"><span class="theory-output-label">Por qué Oracle intenta confundirte</span>${escapeHtml(m.why)}</p>
+    </div>
+  `).join("");
 }
 
 function renderExercises(level) {
@@ -991,9 +1045,11 @@ function renderExercises(level) {
   const ls = getLevelState(level.id);
   return level.exercises.map((ex, idx) => {
     const done = ls.exercisesDone.includes(idx);
+    const diffMap = { "básico": "basico", "intermedio": "intermedio", "avanzado": "avanzado" };
+    const diffClass = ex.difficulty ? "diff-" + (diffMap[ex.difficulty] || "otro") : "";
     return `
     <div class="card exercise-card">
-      <h4>${escapeHtml(ex.title)} ${done ? "(hecho)" : ""}</h4>
+      <h4>${ex.difficulty ? `<span class="difficulty-badge ${diffClass}">${escapeHtml(ex.difficulty)}</span>` : ""}${escapeHtml(ex.title)} ${done ? "(hecho)" : ""}</h4>
       <p>${escapeHtml(ex.prompt)}</p>
       <details><summary>Ver pista</summary><div>${escapeHtml(ex.hint)}</div></details>
       <details><summary>Ver solución</summary><div><pre class="code-block">${escapeHtml(ex.solution)}</pre></div></details>
@@ -1021,6 +1077,61 @@ function markExerciseDone(levelId, idx, neededHelp) {
   maybeCompleteLevel(level);
   renderLevel(levelId);
   selectTab("ejercicios");
+}
+
+/* ---------------- Casos reales, resueltos y flashcards ---------------- */
+
+function renderRealCases(level) {
+  const rc = level.realCases;
+  if (!rc) return `<div class="card"><p>Este nivel todavía no tiene casos reales redactados.</p></div>`;
+  const items = [
+    { label: "Uso empresarial", text: rc.business },
+    { label: "Uso en Data Engineering", text: rc.dataEngineering },
+    { label: "Uso en ETL", text: rc.etl },
+    { label: "Uso en Reporting", text: rc.reporting }
+  ].filter(x => x.text);
+  return items.map(x => `
+    <div class="card real-case-card">
+      <h4>${escapeHtml(x.label)}</h4>
+      <p>${escapeHtml(x.text)}</p>
+    </div>
+  `).join("");
+}
+
+function renderSolved(level) {
+  const solved = level.solved || [];
+  if (!solved.length) return `<div class="card"><p>Este nivel todavía no tiene ejercicios resueltos paso a paso.</p></div>`;
+  return solved.map(s => `
+    <div class="card solved-card">
+      <h4>${escapeHtml(s.title)}</h4>
+      <p class="solved-problem">${escapeHtml(s.problem)}</p>
+      <ol class="solved-steps">${(s.steps || []).map(step => `<li>${escapeHtml(step)}</li>`).join("")}</ol>
+      ${s.query ? `<pre class="code-block">${escapeHtml(s.query)}</pre>` : ""}
+      ${s.result ? `
+        <div class="theory-output">
+          <span class="theory-output-label">Resultado</span>
+          <pre class="code-block theory-output-block">${escapeHtml(s.result)}</pre>
+        </div>` : ""}
+    </div>
+  `).join("");
+}
+
+function renderFlashcards(level) {
+  const cards = level.flashcards || [];
+  if (!cards.length) return `<div class="card"><p>Este nivel todavía no tiene flashcards.</p></div>`;
+  return `
+    <div class="flashcard-grid">
+      ${cards.map((c, i) => `
+        <div class="flashcard" data-i="${i}" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-face flashcard-front">${escapeHtml(c.front)}</div>
+            <div class="flashcard-face flashcard-back">${escapeHtml(c.back)}</div>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+    <p class="flashcard-hint">Haz clic en una tarjeta para ver la respuesta.</p>
+  `;
 }
 
 function renderChallenges(level) {
@@ -1111,7 +1222,21 @@ function answerQuizQuestion(selectedIdx) {
     if (i === q.a) btn.classList.add("correct");
     else if (i === selectedIdx) btn.classList.add("incorrect");
   });
-  document.getElementById("quiz-explain").innerHTML = `<div class="explain-box">${correct ? "¡Correcto! " : "No es correcto. "}${escapeHtml(q.exp)}</div>`;
+  const fallbackExplain = q.exp || (q.why && q.why[q.a]) || "";
+  if (q.why && q.why.length) {
+    document.getElementById("quiz-explain").innerHTML = `
+      <div class="explain-box explain-detailed">
+        <p class="explain-verdict">${correct ? "¡Correcto!" : "No es correcto."}</p>
+        <ul class="option-explain-list">
+          ${q.options.map((opt, i) => `
+            <li class="${i === q.a ? "opt-correct" : (i === selectedIdx ? "opt-selected-wrong" : "")}">
+              <strong>${escapeHtml(opt)}</strong> — ${escapeHtml(q.why[i] || "")}
+            </li>`).join("")}
+        </ul>
+      </div>`;
+  } else {
+    document.getElementById("quiz-explain").innerHTML = `<div class="explain-box">${correct ? "¡Correcto! " : "No es correcto. "}${escapeHtml(fallbackExplain)}</div>`;
+  }
   document.getElementById("quiz-next-btn").style.display = "inline-block";
   document.getElementById("quiz-next-btn").onclick = () => { QUIZ_STATE.index++; renderQuizQuestion(); };
 
@@ -1120,7 +1245,7 @@ function answerQuizQuestion(selectedIdx) {
     QUIZ_STATE.correct++;
     addXP(XP_RULES.quizCorrect);
   } else {
-    logError({ question: q.q, options: q.options, correctIndex: q.a, yourIndex: selectedIdx, explain: q.exp, topic: level.title, category: level.category });
+    logError({ question: q.q, options: q.options, correctIndex: q.a, yourIndex: selectedIdx, explain: fallbackExplain, topic: level.title, category: level.category });
   }
   QUIZ_STATE.results.push(correct);
 }
