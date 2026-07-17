@@ -116,12 +116,22 @@
 }
 .cert-review-card span { font-size: 20px; font-weight: 700; color: var(--accent-strong); }
 
-.cert-progressive-levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 14px; }
-.cert-progressive-level {
-  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px;
+.cert-difficulty-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 14px; }
+.cert-difficulty-card {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px; position: relative; display: flex; flex-direction: column; gap: 6px;
 }
-.cert-progressive-level.locked { opacity: .5; }
-.cert-locked-tag { font-size: 12px; color: var(--text-faint); }
+.cert-difficulty-card:hover { border-color: var(--accent); }
+.cert-difficulty-card-tag {
+  position: absolute; top: 14px; right: 14px; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent-soft); color: var(--accent-strong); font-weight: 700; font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+}
+.cert-difficulty-card h4 { margin: 4px 0 0; font-size: 18px; padding-right: 30px; }
+.cert-difficulty-card-desc { color: var(--text-dim); font-size: 13px; line-height: 1.5; margin: 0 0 4px; flex: 1; }
+.cert-difficulty-card-count { font-size: 12px; color: var(--text-faint); }
+.cert-difficulty-card-progress { font-size: 12px; color: var(--accent-strong); margin-bottom: 6px; }
+.cert-difficulty-card button { align-self: flex-start; }
 
 .cert-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 14px 0; }
 .cert-stat-tile {

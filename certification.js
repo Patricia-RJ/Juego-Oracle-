@@ -425,10 +425,9 @@ function renderCertBank() {
     </div>
     ${renderGamifyBar()}
     <div class="certbank-tabs" id="certbank-tabs">
-      <button data-tab="practice">Práctica libre</button>
+      <button data-tab="practice">Niveles</button>
       <button data-tab="exam">Simulacro Oracle</button>
       <button data-tab="review">Repaso de errores</button>
-      <button data-tab="progressive">Modo progresivo</button>
       <button data-tab="dashboard">Dashboard</button>
       <button data-tab="ranking">Ranking</button>
       <button data-tab="achievements">Logros</button>
@@ -441,100 +440,82 @@ function renderCertBank() {
     btn.onclick = () => { CERT_TAB = btn.dataset.tab; renderCertBank(); };
   });
   const content = document.getElementById("certbank-tab-content");
-  if (CERT_TAB === "practice") renderCertPracticeSetup(content);
+  if (CERT_TAB === "practice") renderCertLevelSelection(content);
   else if (CERT_TAB === "exam") renderCertExamSetup(content);
   else if (CERT_TAB === "review") renderCertReviewSetup(content);
-  else if (CERT_TAB === "progressive") renderCertProgressive(content);
   else if (CERT_TAB === "dashboard") renderCertDashboard(content);
   else if (CERT_TAB === "ranking") renderCertRanking(content);
   else if (CERT_TAB === "achievements") renderCertAchievements(content);
   else if (CERT_TAB === "admin") renderCertAdmin(content);
 }
 
-/* ---------------- Filtros: panel reutilizable ---------------- */
-
-function renderFilterPanel(idPrefix) {
-  return `
-    <div class="cert-filters">
-      <div class="cert-filter-group">
-        <span class="cert-filter-label">Tema</span>
-        <select id="${idPrefix}-topics" multiple size="6">
-          ${CERT_ALL_TOPICS.map(t => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join("")}
-        </select>
-      </div>
-      <div class="cert-filter-group">
-        <span class="cert-filter-label">Dificultad</span>
-        ${[1, 2, 3, 4, 5].map(d => `
-          <label class="cert-check"><input type="checkbox" class="${idPrefix}-diff" value="${d}"> ${d}. ${CERT_DIFFICULTY_LABELS[d]}</label>
-        `).join("")}
-      </div>
-      <div class="cert-filter-group">
-        <span class="cert-filter-label">Tipo de pregunta</span>
-        <label class="cert-check"><input type="checkbox" class="${idPrefix}-type" value="single-choice"> Opción única</label>
-        <label class="cert-check"><input type="checkbox" class="${idPrefix}-type" value="multiple-choice"> Opción múltiple</label>
-        <label class="cert-check"><input type="checkbox" class="${idPrefix}-type" value="true-false"> Verdadero/Falso</label>
-      </div>
-      <div class="cert-filter-group">
-        <span class="cert-filter-label">Estado de aprendizaje</span>
-        <label class="cert-check"><input type="checkbox" class="${idPrefix}-learn" value="new"> New</label>
-        <label class="cert-check"><input type="checkbox" class="${idPrefix}-learn" value="learning"> Learning</label>
-        <label class="cert-check"><input type="checkbox" class="${idPrefix}-learn" value="review"> Review</label>
-        <label class="cert-check"><input type="checkbox" class="${idPrefix}-learn" value="mastered"> Mastered</label>
-      </div>
-      <div class="cert-filter-group">
-        <span class="cert-filter-label">Opcional</span>
-        <label class="cert-check"><input type="checkbox" id="${idPrefix}-only-images"> Solo con imágenes</label>
-        <label class="cert-check"><input type="checkbox" id="${idPrefix}-only-sql"> Solo con SQL</label>
-        <label class="cert-check" title="Esta versión no reconstruye tablas estructuradas: las tablas del examen original se muestran como imagen (usa 'Solo con imágenes')."><input type="checkbox" id="${idPrefix}-only-tables"> Solo con tablas</label>
-      </div>
-    </div>
-  `;
-}
-
-function readFilterPanel(idPrefix) {
-  return {
-    topics: Array.from(document.getElementById(`${idPrefix}-topics`).selectedOptions).map(o => o.value),
-    difficulties: Array.from(document.querySelectorAll(`.${idPrefix}-diff:checked`)).map(i => parseInt(i.value, 10)),
-    types: Array.from(document.querySelectorAll(`.${idPrefix}-type:checked`)).map(i => i.value),
-    learningStates: Array.from(document.querySelectorAll(`.${idPrefix}-learn:checked`)).map(i => i.value),
-    onlyImages: document.getElementById(`${idPrefix}-only-images`).checked,
-    onlySql: document.getElementById(`${idPrefix}-only-sql`).checked,
-    onlyTables: document.getElementById(`${idPrefix}-only-tables`).checked,
-    excludePendingAndDuplicate: true
-  };
-}
-
-/* ================= PRACTICA LIBRE ================= */
+/* ================= NIVELES (pantalla de seleccion de nivel) ================= */
+/* Sustituye al antiguo "Banco de preguntas Oracle" (filtros por tema/dificultad/tipo/estado).
+   Las preguntas se organizan directamente por los 5 niveles de dificultad ya presentes en
+   certification-bank.json (initialDifficulty 1-5 = Easy..Exam Challenge). Sin filtros: se
+   entra directamente a un nivel. */
 
 let CERT_SESSION = null; // { mode, ids, index, startedAt(per-question), config, results:{correct,incorrect}, examMeta }
 
-function renderCertPracticeSetup(container) {
+const CERT_LEVEL_ORDER = [1, 2, 3, 4, 5];
+
+const CERT_LEVEL_DESCRIPTIONS = {
+  1: "Preguntas básicas, sintaxis sencilla, conceptos directos y consultas simples.",
+  2: "Preguntas que requieren aplicar reglas: JOINs, GROUP BY, funciones y subconsultas sencillas.",
+  3: "Consultas más complejas, varios conceptos combinados, varias respuestas correctas y análisis de resultados.",
+  4: "Casos complejos, distractores muy similares y comportamientos específicos de Oracle.",
+  5: "Preguntas de mayor dificultad, con más fallos habituales y escenarios similares al examen real."
+};
+
+function levelQuestionPool(level) {
+  // Se incluyen las "pending_review" para que los niveles no queden casi vacios mientras se
+  // revisan en Administracion; cada una se marca en la propia pregunta con el aviso
+  // "Pendiente de revisión" (ver renderCertSession) para no presentarla como 100% fiable.
+  // Los duplicados si se excluyen: no aportan nada nuevo, solo repiten otra pregunta.
+  return getEffectiveQuestions().filter(q => q.initialDifficulty === level && q.reviewStatus !== "duplicate");
+}
+
+function renderCertLevelSelection(container) {
   container.innerHTML = `
     <div class="cert-panel">
-      <h3>Práctica libre</h3>
-      <p>Filtra por tema, dificultad, tipo o estado de aprendizaje y practica a tu ritmo. Se muestra la corrección inmediatamente después de cada respuesta.</p>
-      ${renderFilterPanel("practice")}
-      <button class="btn" id="practice-start">Comenzar práctica</button>
-      <div id="practice-empty" class="cert-empty-state hidden"></div>
+      <h3>Niveles</h3>
+      <p>Las preguntas reales importadas de los exámenes Oracle, organizadas por dificultad. Elige un nivel para empezar.</p>
+      <div class="cert-difficulty-grid">
+        ${CERT_LEVEL_ORDER.map(level => {
+          const pool = levelQuestionPool(level);
+          const stats = progressiveLevelStats(level);
+          const hasProgress = stats.attempts > 0;
+          return `
+            <div class="cert-difficulty-card">
+              <span class="cert-difficulty-card-tag">${level}</span>
+              <h4>${CERT_DIFFICULTY_LABELS[level]}</h4>
+              <p class="cert-difficulty-card-desc">${escapeHtml(CERT_LEVEL_DESCRIPTIONS[level])}</p>
+              <span class="cert-difficulty-card-count">${pool.length} preguntas disponibles</span>
+              <span class="cert-difficulty-card-progress">${hasProgress ? `${stats.attempts} respondidas · ${Math.round(stats.accuracy * 100)}% acierto` : "Todavía sin empezar"}</span>
+              <button class="btn" data-level="${level}" ${pool.length === 0 ? "disabled" : ""}>${hasProgress ? "Continue" : "Start level"}</button>
+            </div>`;
+        }).join("")}
+      </div>
+      <div id="level-empty" class="cert-empty-state hidden"></div>
     </div>
     <div id="cert-session-area"></div>
   `;
-  document.getElementById("practice-start").onclick = () => {
-    const filters = readFilterPanel("practice");
-    const pool = shuffle(filterQuestions(getEffectiveQuestions(), filters));
-    const emptyEl = document.getElementById("practice-empty");
-    if (pool.length === 0) {
-      emptyEl.classList.remove("hidden");
-      emptyEl.textContent = filters.onlyTables
-        ? "No hay preguntas con tablas estructuradas: el banco solo conserva las tablas del examen como imagen. Prueba 'Solo con imágenes'."
-        : "No hay preguntas que cumplan estos filtros. Prueba a quitar alguno.";
-      document.getElementById("cert-session-area").innerHTML = "";
-      return;
-    }
-    emptyEl.classList.add("hidden");
-    CERT_SESSION = { mode: "practice", ids: pool.map(q => q.id), index: 0, config: {}, results: { correct: 0, incorrect: 0 }, questionShownAt: Date.now() };
-    renderCertSession();
-  };
+  container.querySelectorAll("[data-level]").forEach(btn => {
+    btn.onclick = () => {
+      const level = parseInt(btn.dataset.level, 10);
+      const pool = shuffle(levelQuestionPool(level));
+      const emptyEl = document.getElementById("level-empty");
+      if (pool.length === 0) {
+        emptyEl.classList.remove("hidden");
+        emptyEl.textContent = "Este nivel no tiene preguntas disponibles todavía.";
+        return;
+      }
+      emptyEl.classList.add("hidden");
+      CERT_SESSION = { mode: "practice", ids: pool.map(q => q.id), index: 0, config: { level }, results: { correct: 0, incorrect: 0 }, questionShownAt: Date.now() };
+      renderCertSession();
+      maybeUnlockNextLevel(level);
+    };
+  });
 }
 
 function renderCertSession() {
@@ -559,7 +540,7 @@ function renderCertSession() {
           <span class="pill">${escapeHtml((q.topics || [q.topic]).join(", "))}</span>
           <span class="pill">${CERT_DIFFICULTY_LABELS[getDynamicDifficulty(q)]}</span>
           ${q.expectedAnswerCount > 1 ? `<span class="pill accent">Elige ${q.expectedAnswerCount}</span>` : ""}
-          ${q.reviewStatus === "pending_review" ? `<span class="pill warn">Pendiente de revisión</span>` : ""}
+          ${q.reviewStatus === "pending_review" ? `<span class="pill warn" title="La extracción de esta pregunta todavía no se ha revisado manualmente: la respuesta marcada podría no ser exacta.">Sin revisar todavía — respuesta no garantizada</span>` : ""}
         </div>
         <div class="cert-question-body">${renderContentBlocks(q.contentBlocks)}</div>
         ${renderOptionsForm(q, "s", false)}
@@ -863,7 +844,10 @@ function renderCertReviewSetup(container) {
   });
 }
 
-/* ================= MODO PROGRESIVO ================= */
+/* ================= Estadisticas por nivel (usadas por la pantalla de Niveles) ================= */
+/* CERT_STATE.progressiveLevel ya no bloquea el acceso a ningun nivel (se puede elegir
+   cualquiera directamente desde las tarjetas), pero se sigue actualizando para las
+   insignias "progressive_expert"/"progressive_exam_challenge". */
 
 const CERT_PROGRESSIVE_ORDER = [1, 2, 3, 4, 5];
 
@@ -872,39 +856,6 @@ function progressiveLevelStats(level) {
   let attempts = 0, correct = 0;
   qs.forEach(q => { const p = CERT_STATE.progress[q.id]; if (p) { attempts += p.attempts; correct += p.correct; } });
   return { total: qs.length, attempts, correct, accuracy: attempts > 0 ? correct / attempts : 0 };
-}
-
-function renderCertProgressive(container) {
-  const maxUnlocked = CERT_STATE.progressiveLevel;
-  container.innerHTML = `
-    <div class="cert-panel">
-      <h3>Modo progresivo</h3>
-      <p>Desbloquea cada nivel respondiendo al menos 5 preguntas del nivel actual con un 70% de acierto o más.</p>
-      <div class="cert-progressive-levels">
-        ${CERT_PROGRESSIVE_ORDER.map(level => {
-          const stats = progressiveLevelStats(level);
-          const unlocked = level <= maxUnlocked;
-          return `
-            <div class="cert-progressive-level ${unlocked ? "" : "locked"}">
-              <h4>${level}. ${CERT_DIFFICULTY_LABELS[level]}</h4>
-              <p>${stats.total} preguntas · ${stats.attempts} respondidas · ${Math.round(stats.accuracy * 100)}% acierto</p>
-              ${unlocked ? `<button class="btn" data-level="${level}">Practicar este nivel</button>` : `<span class="cert-locked-tag">Bloqueado</span>`}
-            </div>`;
-        }).join("")}
-      </div>
-    </div>
-    <div id="cert-session-area"></div>
-  `;
-  container.querySelectorAll("[data-level]").forEach(btn => {
-    btn.onclick = () => {
-      const level = parseInt(btn.dataset.level, 10);
-      const pool = shuffle(getEffectiveQuestions().filter(q => q.initialDifficulty === level));
-      if (pool.length === 0) { toast("No hay preguntas en este nivel todavía."); return; }
-      CERT_SESSION = { mode: "practice", ids: pool.map(q => q.id), index: 0, config: { progressiveLevel: level }, results: { correct: 0, incorrect: 0 }, questionShownAt: Date.now() };
-      renderCertSession();
-      maybeUnlockNextLevel(level);
-    };
-  });
 }
 
 function maybeUnlockNextLevel(level) {
