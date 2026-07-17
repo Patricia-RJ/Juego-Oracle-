@@ -4,7 +4,7 @@
         "sourceFile":  "Examen 1.docx",
         "sourcePosition":  1,
         "questionNumber":  1,
-        "questionText":  "View and examine the structure of the ORDER_ITEMS table. Required: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table. Identify the response which would meet the requirement.\n\nRequired: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table.\nIdentity the response which would meet the requirement.\n\nCorrecto porque el requisito es encontrar el orden con el valor total más alto.\nLa consulta se utiliza correctamente para calcular el valor total por orden.SUM(unit_price*quantity)\nLa cláusula garantiza que solo se devuelva el orden con el valor total máximo.HAVING\nEsto se ajusta exactamente a los requisitos.\n\n2. Pregunta\nConsulta y examina las siguientes respuestas disponibles.\n¿Identificar dos sentencias que son ciertas respecto al comando SET VERIFY ON? (Selecciona dos)\nOpción A. Es tanto un comando SQL Developer como SQLPlus nativo*\nOpción E. Muestra valores para variables creadas por el comando DEFINE",
+        "questionText":  "View and examine the structure of the ORDER_ITEMS table. Required: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table. Identify the response which would meet the requirement.\n\nRequired: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table.\nIdentity the response which would meet the requirement.",
         "contentBlocks":  [
                               {
                                   "type":  "text",
@@ -22,42 +22,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity the response which would meet the requirement."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Correcto porque el requisito es encontrar el orden con el valor total más alto."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "La consulta se utiliza correctamente para calcular el valor total por orden.SUM(unit_price*quantity)"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "La cláusula garantiza que solo se devuelva el orden con el valor total máximo.HAVING"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Esto se ajusta exactamente a los requisitos."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "2. Pregunta"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Consulta y examina las siguientes respuestas disponibles."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "¿Identificar dos sentencias que son ciertas respecto al comando SET VERIFY ON? (Selecciona dos)"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Opción A. Es tanto un comando SQL Developer como SQLPlus nativo*"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Opción E. Muestra valores para variables creadas por el comando DEFINE"
                               }
                           ],
         "options":  [
@@ -80,63 +44,16 @@
                             "id":  "D",
                             "text":  "SELECT order_id, MAX(unit_price*quantity) AS \"LARGEST ORDER\" FROM order_items GROUP BY order_id HAVING SUM(unit_price*quantity) = (      SELECT MAX(SUM(unit_price*quantity))      FROM order_items GROUP BY order_id);",
                             "isCorrect":  true
-                        },
-                        {
-                            "id":  "E",
-                            "text":  "Es tanto un comando SQL Developer como SQL*Plus nativo",
-                            "isCorrect":  true
-                        },
-                        {
-                            "id":  "F",
-                            "text":  "Solo puede usarse en SQL*Plus.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "G",
-                            "text":  "Muestra los valores de las variables usadas solo en la cláusula WHERE de una consulta.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "H",
-                            "text":  "Muestra valores para variables creadas por el comando DEFIN.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "I",
-                            "text":  "D. Muestra valores para variables creadas por el comando DEFIN.",
-                            "isCorrect":  true
-                        },
-                        {
-                            "id":  "J",
-                            "text":  "Correcto porque funciona en SQLPlus* y también está soportado en SQL Developer.SET VERIFY ON",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "K",
-                            "text":  "Garantiza que las variables de sustitución se muestren cuando se ejecuta una consulta, ayudando a los usuarios a confirmar la sustitución de variables.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "L",
-                            "text":  "Correcto porque cuando se definen variables de sustitución usando , muestra tanto la sentencia SQL original como los valores sustituidos.DEFINESET VERIFY ON",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "M",
-                            "text":  "Esto ayuda a depurar y verificar que se están usando los valores correctos.",
-                            "isCorrect":  false
                         }
                     ],
         "correctAnswers":  [
-                               "D",
-                               "E",
-                               "I"
+                               "D"
                            ],
         "solutionDetectionMethod":  [
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.43,
+        "extractionConfidence":  0.88,
         "questionType":  "single-choice",
         "topic":  "Aggregate Functions",
         "topics":  [
@@ -148,11 +65,9 @@
                    ],
         "initialDifficulty":  5,
         "dynamicDifficulty":  5,
-        "difficultyRationale":  "enunciado largo; 5+ opciones; contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "difficultyRationale":  "enunciado largo; contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 3",
-                              "numero de opciones inusual (13)",
                               "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
                           ],
         "warnings":  [
@@ -161,16 +76,90 @@
         "exhibitImages":  [
                               "data/certification-bank/media/examen-1/image1.png"
                           ],
-        "contentHash":  "74d322e167fc3476cd7a31a72e20403789f58f4e355203716b0a155742c47b97",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "contentHash":  "6f5e8ed13a5cd9a94a553ff3d9ba88b79ec726f59500da44530c6de810fdc1da",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
         "id":  "examen-1-q2",
         "sourceFile":  "Examen 1.docx",
         "sourcePosition":  2,
+        "questionNumber":  2,
+        "questionText":  "Consulta y examina las siguientes respuestas disponibles.\n¿Identificar dos sentencias que son ciertas respecto al comando SET VERIFY ON? (Selecciona dos)",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Consulta y examina las siguientes respuestas disponibles."
+                              },
+                              {
+                                  "type":  "text",
+                                  "text":  "¿Identificar dos sentencias que son ciertas respecto al comando SET VERIFY ON? (Selecciona dos)"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "Es tanto un comando SQL Developer como SQL*Plus nativo",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Solo puede usarse en SQL*Plus.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Muestra los valores de las variables usadas solo en la cláusula WHERE de una consulta.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "Muestra valores para variables creadas por el comando DEFIN.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "D. Muestra valores para variables creadas por el comando DEFIN.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "E"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "yellow-highlight"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "WHERE",
+        "topics":  [
+                       "WHERE"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "5+ opciones; contiene codigo SQL",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "1a3308c3f5dd44f25e83644cc17f356f5455b0658215a0dec139547de42c2be3",
+        "importedAt":  "2026-07-17T12:33:20Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-1-q3",
+        "sourceFile":  "Examen 1.docx",
+        "sourcePosition":  3,
         "questionNumber":  3,
-        "questionText":  "View the exhibit and examine the data in the PROJ_TASK_DETAILS table.\nTable: PROJ_TASK_DETAILS\n\nGiven: The PROJ_TASK_DETAILS table stores information about project tasks and the relation between them.\nThe BASED_ON column indicates dependencies between tasks.\nSome tasks do not depend on the completion of other tasks.\nRequired: Generate a report listing all task IDs, the task ID of any task upon which it depends and the name of the employee in charge of the task upon which it depends.\nIdentity the SQL query which would give you the required output.\nLa consulta con la UNIÓN EXTERIOR IZQUIERDA se ejecuta correctamente.\nCuando ejecutas: SELECCIONA p.TASK_ID, p.BASED_ON DESDE PROJ_TASK_DETAILS p; los registros que se devuelven son los siguientes:\n• task_id (P01, P02, P03, P04), based_on (NULL, P02, NULL, P03).\nCuando este subconjunto se une (JOIN IZQUIERDA) con SELECT d.TASK_IN_CHARGE FROM PROJ_TASK_DETAILS d, se devuelve un subconjunto de la siguiente manera:\n• task_in_charge (King, Kochar, Green, Scott) ON p.based_on = d.task_id y devolverá el resultado requerido.",
+        "questionText":  "View the exhibit and examine the data in the PROJ_TASK_DETAILS table.\nTable: PROJ_TASK_DETAILS\n\nGiven: The PROJ_TASK_DETAILS table stores information about project tasks and the relation between them.\nThe BASED_ON column indicates dependencies between tasks.\nSome tasks do not depend on the completion of other tasks.\nRequired: Generate a report listing all task IDs, the task ID of any task upon which it depends and the name of the employee in charge of the task upon which it depends.\nIdentity the SQL query which would give you the required output.",
         "contentBlocks":  [
                               {
                                   "type":  "text",
@@ -188,18 +177,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity the SQL query which would give you the required output."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "La consulta con la UNIÓN EXTERIOR IZQUIERDA se ejecuta correctamente."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Cuando ejecutas: SELECCIONA p.TASK_ID, p.BASED_ON DESDE PROJ_TASK_DETAILS p; los registros que se devuelven son los siguientes:\n• task_id (P01, P02, P03, P04), based_on (NULL, P02, NULL, P03)."
-                              },
-                              {
-                                  "type":  "sql",
-                                  "text":  "Cuando este subconjunto se une (JOIN IZQUIERDA) con SELECT d.TASK_IN_CHARGE FROM PROJ_TASK_DETAILS d, se devuelve un subconjunto de la siguiente manera:\n• task_in_charge (King, Kochar, Green, Scott) ON p.based_on = d.task_id y devolverá el resultado requerido."
                               }
                           ],
         "options":  [
@@ -251,16 +228,16 @@
         "exhibitImages":  [
                               "data/certification-bank/media/examen-1/image2.png"
                           ],
-        "contentHash":  "9e1ec73cae165ee4cd8d47c2634b261a1a19e8c85b8745868bedd1ebbf770126",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "contentHash":  "fb04356590418f8c36a72eb79a88aa5c2aed0d84e556396082a7349d4de4588e",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q3",
+        "id":  "examen-1-q4",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  3,
+        "sourcePosition":  4,
         "questionNumber":  4,
-        "questionText":  "View and examine the following available responses.\nIdentity the true statement regarding the default behaviour of the ORDER BY clause.\nLos NULL sí se incluyen (en Oracle suelen ir al final en orden ascendente)\nEjemplo: \n\u0027A\u0027 ≠ \u0027a\u0027\nEn ORDER BY: \nA, B, a, b\n👉 Primero mayúsculas, luego minúsculas\n\nPuedes ordenar por columnas que no están en el SELECT\n\nEl orden por defecto es ASC (ascendente) siempre",
+        "questionText":  "View and examine the following available responses.\nIdentity the true statement regarding the default behaviour of the ORDER BY clause.",
         "contentBlocks":  [
                               {
                                   "type":  "text",
@@ -269,38 +246,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity the true statement regarding the default behaviour of the ORDER BY clause."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Los NULL sí se incluyen (en Oracle suelen ir al final en orden ascendente)"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Ejemplo:"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "\u0027A\u0027 ≠ \u0027a\u0027"
-                              },
-                              {
-                                  "type":  "sql",
-                                  "text":  "En ORDER BY:"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "A, B, a, b"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "👉 Primero mayúsculas, luego minúsculas"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Puedes ordenar por columnas que no están en el SELECT"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "El orden por defecto es ASC (ascendente) siempre"
                               }
                           ],
         "options":  [
@@ -328,31 +273,6 @@
                             "id":  "E",
                             "text":  "Column aliases can be used in the ORDER BY clause.",
                             "isCorrect":  true
-                        },
-                        {
-                            "id":  "F",
-                            "text":  "Opción correcta\nB. En un ordenamiento de caracteres, los valores son sensibles a mayúsculas y mayúsculas.\nOracle ORDER BY realiza por defecto la ordenación con distinción de mayúsculas minúsculas para los datos de caracteres, con letras mayúsculas precediendo a minúsculas.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "G",
-                            "text":  "opción E. Los alias de columna pueden usarse en la cláusula ORDER BY.\nORDER BY se evalúa después de SELECT, permitiendo referenciar alias de columna definidos en SELECT para ordenar.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "H",
-                            "text":  "Opción incorrecta\nA. Los NULLs no se incluyen en la operación de ordenación.\nLos valores NULL se incluyen en los resultados ORDER BY, ordenados al final en ASC (por defecto) o primero en orden DESC.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "I",
-                            "text":  "opción C. Solo las columnas especificadas en la lista SELECT pueden usarse en la cláusula ORDER BY.\nORDER BY puede hacer referencia a cualquier columna de tabla, incluidas aquellas que no estén en la lista SELECT (por posición o nombre).",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "J",
-                            "text":  "opción D. Los valores numéricos se muestran en orden descendente si tienen posiciones decimales.\nLos valores numéricos ordenan ascendentes por defecto independientemente de las posiciones decimales; DESC debe especificarse explícitamente.",
-                            "isCorrect":  false
                         }
                     ],
         "correctAnswers":  [
@@ -363,7 +283,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.53,
+        "extractionConfidence":  0.73,
         "questionType":  "single-choice",
         "topic":  "SELECT",
         "topics":  [
@@ -375,8 +295,7 @@
         "difficultyRationale":  "5+ opciones; contiene codigo SQL",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 2",
-                              "numero de opciones inusual (10)"
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
                           ],
         "warnings":  [
 
@@ -384,16 +303,16 @@
         "exhibitImages":  [
 
                           ],
-        "contentHash":  "2615a462898603621b4b372963ee4cdc5ea33ecfde279041c4594612b6a7b1b5",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "contentHash":  "c03ad65ed6fe516c585f9feced0776d226472cc7003ed50fbdcfea4e1a014820",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q4",
+        "id":  "examen-1-q5",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  4,
+        "sourcePosition":  5,
         "questionNumber":  5,
-        "questionText":  "View and examine the following available responses.\nIdentity two true statements about conditional INSERT ALL.\n📌 ¿Qué es INSERT ALL?\nSirve para: 👉 Insertar datos en una o varias tablas según condiciones (WHEN)\n🔥 CLAVE: INSERT ALL vs INSERT FIRST\n----\n FALSO ❌ \nSí puede tener:\n\nELSE INTO tabla ...\n\n\nPor supuesto, examinemos las afirmaciones sobre el condicional INSERT ALL en Oracle:\nDos afirmaciones verdaderas son:\nExplicación de otras afirmaciones:",
+        "questionText":  "View and examine the following available responses.\nIdentity two true statements about conditional INSERT ALL.",
         "contentBlocks":  [
                               {
                                   "type":  "text",
@@ -402,136 +321,55 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity two true statements about conditional INSERT ALL."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "📌 ¿Qué es INSERT ALL?"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Sirve para: 👉 Insertar datos en una o varias tablas según condiciones (WHEN)"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "🔥 CLAVE: INSERT ALL vs INSERT FIRST"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "----"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "FALSO ❌"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Sí puede tener:"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "ELSE INTO tabla ..."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Por supuesto, examinemos las afirmaciones sobre el condicional INSERT ALL en Oracle:"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Dos afirmaciones verdaderas son:"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Explicación de otras afirmaciones:"
                               }
                           ],
         "options":  [
                         {
                             "id":  "A",
-                            "text":  "INSERT ALL → evalúa TODOS los WHEN ✅",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "B",
-                            "text":  "INSERT FIRST → para en el primero que cumple ❌",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "C",
-                            "text":  "It cannot have an ELSE clause.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "D",
                             "text":  "Each WHEN condition is tested for each row returned by the subquery.",
                             "isCorrect":  true
                         },
                         {
-                            "id":  "E",
+                            "id":  "B",
                             "text":  "Cada fila pasa por TODAS las condiciones",
                             "isCorrect":  false
                         },
                         {
-                            "id":  "F",
+                            "id":  "C",
                             "text":  "The total number of rows inserted is always equal to the number of rows returned by the subquery.",
                             "isCorrect":  false
                         },
                         {
-                            "id":  "G",
+                            "id":  "D",
                             "text":  "A single WHEN condition can be used for multiple INTO clauses.",
                             "isCorrect":  true
                         },
                         {
-                            "id":  "H",
+                            "id":  "E",
                             "text":  "Each row returned by the subquery can be inserted into only a single target table.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "I",
-                            "text":  "Cada condición WHEN se prueba para cada fila devuelta por la subconsulta.: Esta es la funcionalidad principal del condicional INSERT ALL. Por cada fila obtenida de la subconsulta, se evalúa cada cláusula WHEN y la fila se inserta en la tabla objetivo correspondiente si se cumple la condición.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "J",
-                            "text":  "Una sola condición WHEN puede usarse para múltiples cláusulas INTO.: Esto permite insertar la misma fila en varias tablas si se cumple una condición específica.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "K",
-                            "text":  "No puede tener una cláusula ELSE.: Esto es incorrecto. El INSERT ALL condicional puede tener una cláusula ELSE. Esta cláusula especifica la tabla objetivo para filas que no cumplen ninguna de las condiciones WHEN anteriores.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "L",
-                            "text":  "El número total de filas insertadas es siempre igual al número de filas devueltas por la subconsulta.: Esto no siempre es cierto. Si una fila no cumple ninguna de las condiciones WHEN (y no existe ninguna cláusula ELSE), no se insertará en ninguna tabla.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "M",
-                            "text":  "Cada fila devuelta por la subconsulta puede insertarse solo en una tabla objetivo.: Esto es incorrecto. Como se mencionó antes, una sola condición WHEN puede usarse para múltiples cláusulas INTO, permitiendo insertar una fila en varias tablas.",
                             "isCorrect":  false
                         }
                     ],
         "correctAnswers":  [
-                               "D",
-                               "G"
+                               "A",
+                               "D"
                            ],
         "solutionDetectionMethod":  [
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.53,
+        "extractionConfidence":  0.73,
         "questionType":  "single-choice",
         "topic":  "Subqueries",
         "topics":  [
                        "Subqueries"
                    ],
-        "initialDifficulty":  4,
-        "dynamicDifficulty":  4,
-        "difficultyRationale":  "enunciado largo; 5+ opciones; contiene codigo SQL",
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "5+ opciones; contiene codigo SQL",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 2",
-                              "numero de opciones inusual (13)"
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
                           ],
         "warnings":  [
 
@@ -539,44 +377,20 @@
         "exhibitImages":  [
 
                           ],
-        "contentHash":  "ca4959fc1f1ae54704291aa876f91ed92adef7cf98c014ca85a8f482a8429754",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "contentHash":  "c792d65b152c2faf000481d0974198252d4e0cd7136ed73a9452dc91ec7e2c65",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q5",
+        "id":  "examen-1-q6",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  5,
+        "sourcePosition":  6,
         "questionNumber":  6,
-        "questionText":  "Identify the two minimal requirements for a self-join.\nOpción A. La tabla utilizada para la auto-unión debe tener dos nombres de alias diferentes en la consulta.\nOpción B. Debe existir una condición bajo la cual se realice la auto-unión.\nIncorrecto\nOpción C. No se puede especificar ninguna otra condición excepto la auto-unión.\nOpción D. No se deben usar uniones externas en la consulta.\nOpción E. Solo se pueden usar condiciones de equijoin en la consulta.",
+        "questionText":  "Identify the two minimal requirements for a self-join.",
         "contentBlocks":  [
                               {
                                   "type":  "text",
                                   "text":  "Identify the two minimal requirements for a self-join."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Opción A. La tabla utilizada para la auto-unión debe tener dos nombres de alias diferentes en la consulta."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Opción B. Debe existir una condición bajo la cual se realice la auto-unión."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Incorrecto"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Opción C. No se puede especificar ninguna otra condición excepto la auto-unión."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Opción D. No se deben usar uniones externas en la consulta."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Opción E. Solo se pueden usar condiciones de equijoin en la consulta."
                               }
                           ],
         "options":  [
@@ -599,81 +413,6 @@
                             "id":  "D",
                             "text":  "Outer joins must not be used in the query.",
                             "isCorrect":  false
-                        },
-                        {
-                            "id":  "E",
-                            "text":  "Only equijoin conditions may be used in the query.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "F",
-                            "text":  "Explicación:",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "G",
-                            "text":  "Una auto-unión significa unir una mesa a sí misma.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "H",
-                            "text":  "Para distinguir entre las dos instancias de la misma tabla, debes usar alias diferentes.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "I",
-                            "text":  "Sin alias, el motor SQL no puede diferenciar a qué copia de la tabla te refieres.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "J",
-                            "text":  "Explicación:",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "K",
-                            "text":  "Una unión requiere una condición (normalmente una igualdad o relación entre columnas) para emparejar filas de una instancia de la tabla con otra.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "L",
-                            "text":  "Sin una condición, la autounión resultaría en un producto cartesiano, que no tiene sentido en la mayoría de los casos.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "M",
-                            "text":  "Por lo tanto, una condición válida de unión es un requisito mínimo.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "N",
-                            "text":  "Incorrecto porque se pueden aplicar condiciones adicionales (filtros, cláusulas WHERE) junto con la autounión.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "O",
-                            "text":  "No es un requisito limitar solo a la condición de unión.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "P",
-                            "text":  "Incorrecto porque las uniones propias pueden realizarse usando uniones internas o externas dependiendo del requisito.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "Q",
-                            "text":  "No hay restricción contra el uso de uniones exteriores.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "R",
-                            "text":  "Incorrecto porque las uniones propias también pueden usar condiciones no equijoin (por ejemplo, comparar rangos o desigualdades).",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "S",
-                            "text":  "Los equijoins son comunes, pero no la única opción válida.",
-                            "isCorrect":  false
                         }
                     ],
         "correctAnswers":  [
@@ -684,20 +423,18 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.53,
+        "extractionConfidence":  0.73,
         "questionType":  "single-choice",
         "topic":  "JOINS",
         "topics":  [
-                       "JOINS",
-                       "Set Operators"
+                       "JOINS"
                    ],
-        "initialDifficulty":  5,
-        "dynamicDifficulty":  5,
-        "difficultyRationale":  "enunciado largo; 5+ opciones; contiene codigo SQL; distractores muy similares entre si",
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "contiene codigo SQL",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 2",
-                              "numero de opciones inusual (19)"
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
                           ],
         "warnings":  [
 
@@ -705,16 +442,16 @@
         "exhibitImages":  [
 
                           ],
-        "contentHash":  "38a5a5aa87741c68f3de518552a7eedfc3cc24b0912fe4c95f649b5b8d864063",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "contentHash":  "240a540e951c7e0aef96e47e45039ddab244a29fa038b5778887f381b2313af0",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q6",
+        "id":  "examen-1-q7",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  6,
+        "sourcePosition":  7,
         "questionNumber":  7,
-        "questionText":  "View and examine the following available responses.\nIdentify two statements which are true regarding the USING and ON clauses in table joins.\nCreación de uniones con la cláusula\nON • La condición de unión para la unión natural es básicamente un equijoin de nombres de columnas idénticos.\n• La cláusula ON puede usarse para unir columnas con nombres diferentes.\n• Utilizar la cláusula ON para especificar condiciones o columnas para unirse.\n• La condición de unión está separada de otras condiciones de búsqueda.\n• Esta es la forma más sencilla y ampliamente utilizada de las cláusulas de unión.",
+        "questionText":  "View and examine the following available responses.\nIdentify two statements which are true regarding the USING and ON clauses in table joins.",
         "contentBlocks":  [
                               {
                                   "type":  "text",
@@ -723,10 +460,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identify two statements which are true regarding the USING and ON clauses in table joins."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Creación de uniones con la cláusula\nON • La condición de unión para la unión natural es básicamente un equijoin de nombres de columnas idénticos.\n• La cláusula ON puede usarse para unir columnas con nombres diferentes.\n• Utilizar la cláusula ON para especificar condiciones o columnas para unirse.\n• La condición de unión está separada de otras condiciones de búsqueda.\n• Esta es la forma más sencilla y ampliamente utilizada de las cláusulas de unión."
                               }
                           ],
         "options":  [
@@ -761,16 +494,15 @@
         "expectedAnswerCount":  1,
         "extractionConfidence":  0.73,
         "questionType":  "single-choice",
-        "topic":  "WHERE",
+        "topic":  "SELECT",
         "topics":  [
-                       "WHERE",
                        "SELECT",
-                       "JOINS",
-                       "Set Operators"
+                       "WHERE",
+                       "JOINS"
                    ],
-        "initialDifficulty":  4,
-        "dynamicDifficulty":  4,
-        "difficultyRationale":  "enunciado largo; contiene codigo SQL; combina varias clausulas SQL",
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
                               "el enunciado indica 1 respuesta(s) pero se detectaron 2"
@@ -781,14 +513,14 @@
         "exhibitImages":  [
 
                           ],
-        "contentHash":  "159f8d734e04feb0856dd8d80b2625ccaea94a3082a0aeb70dd410ae86fb88d5",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "contentHash":  "53d53545a9b3fa675c487a94f81fa77038d66aea5e876c150997f3f4446bf314",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q7",
+        "id":  "examen-1-q8",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  7,
+        "sourcePosition":  8,
         "questionNumber":  8,
         "questionText":  "View and examine the structure of the ORDERS table.\nTable: ORDERS\n\nGiven: The ORDERS table contains data and all orders have been assigned a customer ID.\nIdentity the statement which would add a NOT NULL constraint to the CUSTOMER_ID column.",
         "contentBlocks":  [
@@ -808,11 +540,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity the statement which would add a NOT NULL constraint to the CUSTOMER_ID column."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image4.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -862,17 +589,16 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image3.png",
-                              "data/certification-bank/media/examen-1/image4.png"
+                              "data/certification-bank/media/examen-1/image3.png"
                           ],
         "contentHash":  "9a0c77f344af4b13e81dcf97312ffec2a9e6f840bae472abe6adf1e14db50c30",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q8",
+        "id":  "examen-1-q9",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  8,
+        "sourcePosition":  9,
         "questionNumber":  9,
         "questionText":  "View and examine the following scenario.\nGiven: The first DROP operation is performed on the PRODUCTS table using this command.\nExhibit: 1\n\nThen a FLASHBACK operation is performed using this command.\nExhibit: 2\n\nIdentity the result of the FLASHBACK command.",
         "contentBlocks":  [
@@ -882,7 +608,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image5.png",
+                                  "path":  "data/certification-bank/media/examen-1/image4.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -891,17 +617,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image6.png",
+                                  "path":  "data/certification-bank/media/examen-1/image5.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Identity the result of the FLASHBACK command."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image7.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -950,18 +671,17 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image5.png",
-                              "data/certification-bank/media/examen-1/image6.png",
-                              "data/certification-bank/media/examen-1/image7.png"
+                              "data/certification-bank/media/examen-1/image4.png",
+                              "data/certification-bank/media/examen-1/image5.png"
                           ],
         "contentHash":  "069e271e99ff9f551795dfc856f83ec1ad25ea692e9ea0594d3ed07228e4534f",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q9",
+        "id":  "examen-1-q10",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  9,
+        "sourcePosition":  10,
         "questionNumber":  10,
         "questionText":  "View the exhibit and examine the structure in ORDERS and ORDER_ITEMS tables. Required: Create a view that displays the ORDER_ID, ORDER_DATE, and the total number of items in each order indicated by appropriately named column. Identify the response which would meet the requirement.\n\nRequired: Create a view that displays the ORDER_ID, ORDER_DATE, and the total number of items in each order indicated by appropriately named column.\nIdentity the response which would meet the requirement.",
         "contentBlocks":  [
@@ -971,7 +691,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image8.png",
+                                  "path":  "data/certification-bank/media/examen-1/image6.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -981,11 +701,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity the response which would meet the requirement."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image9.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -1038,17 +753,16 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image8.png",
-                              "data/certification-bank/media/examen-1/image9.png"
+                              "data/certification-bank/media/examen-1/image6.png"
                           ],
         "contentHash":  "90dd4d351ba7db502b1e0957cd2bbdccc2ffaf03cc0b88f4eaf0dae1f15e6515",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q10",
+        "id":  "examen-1-q11",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  10,
+        "sourcePosition":  11,
         "questionNumber":  11,
         "questionText":  "View and examine the structure of the BOOKS_TRANSACTIONS table and the exhibit.\nTable: BOOKS_TRANSACTIONS\n\nExamine this partial SQL statement.\nExhibit: 1\n\nRequired: Update this table such that BOOK_ID is set to ‘INVALID’ for all rows were no MEMBER_ID has been entered.\nIdentity the condition which must be used in the WHERE clause to perform the required update.",
         "contentBlocks":  [
@@ -1058,7 +772,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image10.png",
+                                  "path":  "data/certification-bank/media/examen-1/image7.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -1067,7 +781,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image11.png",
+                                  "path":  "data/certification-bank/media/examen-1/image8.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -1077,11 +791,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity the condition which must be used in the WHERE clause to perform the required update."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image12.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -1132,18 +841,17 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image10.png",
-                              "data/certification-bank/media/examen-1/image11.png",
-                              "data/certification-bank/media/examen-1/image12.png"
+                              "data/certification-bank/media/examen-1/image7.png",
+                              "data/certification-bank/media/examen-1/image8.png"
                           ],
         "contentHash":  "5c1f18caa447639861cb543360381c96f5948cff0c0397d6196d9d7494cb9b16",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q11",
+        "id":  "examen-1-q12",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  11,
+        "sourcePosition":  12,
         "questionNumber":  12,
         "questionText":  "View and examine the structure of the EMPLOYEES table and the exhibit.\n\nThe following SQL query has been executed.\nExhibit: 1\n\nIndicate two statements which are true regarding the result. (Choose two.)",
         "contentBlocks":  [
@@ -1153,7 +861,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image13.png",
+                                  "path":  "data/certification-bank/media/examen-1/image9.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -1162,17 +870,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image14.png",
+                                  "path":  "data/certification-bank/media/examen-1/image10.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Indicate two statements which are true regarding the result. (Choose two.)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image15.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -1227,18 +930,17 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image13.png",
-                              "data/certification-bank/media/examen-1/image14.png",
-                              "data/certification-bank/media/examen-1/image15.png"
+                              "data/certification-bank/media/examen-1/image9.png",
+                              "data/certification-bank/media/examen-1/image10.png"
                           ],
         "contentHash":  "5fe108caaddf2b0950629d1af22f12bf6d12f6fd784da06eed278e0036d07194",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q12",
+        "id":  "examen-1-q13",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  12,
+        "sourcePosition":  13,
         "questionNumber":  13,
         "questionText":  "View and examine the following available responses.\nIdentify three true statements regarding the SQL WHERE and HAVING clauses. (Choose three)",
         "contentBlocks":  [
@@ -1249,11 +951,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identify three true statements regarding the SQL WHERE and HAVING clauses. (Choose three)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image16.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -1292,7 +989,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  3,
-        "extractionConfidence":  0.88,
+        "extractionConfidence":  0.98,
         "questionType":  "multiple-choice",
         "topic":  "WHERE",
         "topics":  [
@@ -1302,24 +999,24 @@
         "initialDifficulty":  5,
         "dynamicDifficulty":  5,
         "difficultyRationale":  "5+ opciones; requiere 3 respuestas (Choose 3); contiene codigo SQL; distractores muy similares entre si",
-        "reviewStatus":  "pending_review",
+        "reviewStatus":  "validated",
         "reviewReasons":  [
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image16.png"
+
                           ],
         "contentHash":  "70b5db7aa32a63554054a64000029f5c0d54bd88a4b44ee95186192ca1aedd7f",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q13",
+        "id":  "examen-1-q14",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  13,
+        "sourcePosition":  14,
         "questionNumber":  14,
         "questionText":  "View and examine the structure of the SALES and PROMOTIONS tables.\n\nRequired: Delete rows from the SALES table, where the PROMO_NAME column in the PROMOTIONS table has either blowout sale or everyday low price as values.\nIdentify three DELETE statements which are valid. (Choose three.)",
         "contentBlocks":  [
@@ -1329,7 +1026,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image17.png",
+                                  "path":  "data/certification-bank/media/examen-1/image11.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -1339,11 +1036,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identify three DELETE statements which are valid. (Choose three.)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image18.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -1401,17 +1093,16 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image17.png",
-                              "data/certification-bank/media/examen-1/image18.png"
+                              "data/certification-bank/media/examen-1/image11.png"
                           ],
         "contentHash":  "fc45852edf027156c69d06dcf607c6d19e823455bc5cdf8b54e6970d18196734",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q14",
+        "id":  "examen-1-q15",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  14,
+        "sourcePosition":  15,
         "questionNumber":  15,
         "questionText":  "View and examine the following available responses.\nThe following query was successfully executed.\nExhibit: 1\n\nIdentify the result of the query execution.",
         "contentBlocks":  [
@@ -1421,17 +1112,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image19.png",
+                                  "path":  "data/certification-bank/media/examen-1/image12.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Identify the result of the query execution."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image20.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -1490,17 +1176,16 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image19.png",
-                              "data/certification-bank/media/examen-1/image20.png"
+                              "data/certification-bank/media/examen-1/image12.png"
                           ],
         "contentHash":  "18a5710a125f970ab744427876b9535bb073fac4730035e882e0d5c60c64709d",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q15",
+        "id":  "examen-1-q16",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  15,
+        "sourcePosition":  16,
         "questionNumber":  16,
         "questionText":  "View and examine the structure of the PRODUCTS and NEW_PRODUCTS tables.\nTable: PRODUCTS\n\nTable: NEW_PRODUCTS\n\nIdentity two queries which execute successfully? (Choose two.)",
         "contentBlocks":  [
@@ -1510,7 +1195,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image21.png",
+                                  "path":  "data/certification-bank/media/examen-1/image13.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -1519,7 +1204,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image22.png",
+                                  "path":  "data/certification-bank/media/examen-1/image14.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -1528,12 +1213,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image23.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image24.png",
+                                  "path":  "data/certification-bank/media/examen-1/image15.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
@@ -1590,19 +1270,18 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image21.png",
-                              "data/certification-bank/media/examen-1/image22.png",
-                              "data/certification-bank/media/examen-1/image23.png",
-                              "data/certification-bank/media/examen-1/image24.png"
+                              "data/certification-bank/media/examen-1/image13.png",
+                              "data/certification-bank/media/examen-1/image14.png",
+                              "data/certification-bank/media/examen-1/image15.png"
                           ],
         "contentHash":  "666e20828b7afed13d46604bb15a9afc5dd8739ab34ddf00f248d622e261714c",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q16",
+        "id":  "examen-1-q17",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  16,
+        "sourcePosition":  17,
         "questionNumber":  17,
         "questionText":  "View and examine the following SQL query.\nExhibit: 1\n\nRequired:   Prevent prompting for a hire date value when this query is executed\nIdentity the responses which would meet the requirement. (Select two)",
         "contentBlocks":  [
@@ -1612,7 +1291,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image25.png",
+                                  "path":  "data/certification-bank/media/examen-1/image16.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -1622,11 +1301,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity the responses which would meet the requirement. (Select two)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image26.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -1688,17 +1362,16 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image25.png",
-                              "data/certification-bank/media/examen-1/image26.png"
+                              "data/certification-bank/media/examen-1/image16.png"
                           ],
         "contentHash":  "2fadcaaa8d85e9b1a6e99797b58a3d0496b57612ad208179d6a6bc1524db4e23",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q17",
+        "id":  "examen-1-q18",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  17,
+        "sourcePosition":  18,
         "questionNumber":  18,
         "questionText":  "View and examine the following available responses.\nIndicate the true statement about the INTERSECT operator used in compound queries.",
         "contentBlocks":  [
@@ -1709,11 +1382,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Indicate the true statement about the INTERSECT operator used in compound queries."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image27.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -1745,7 +1413,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.88,
+        "extractionConfidence":  0.98,
         "questionType":  "single-choice",
         "topic":  "Set Operators",
         "topics":  [
@@ -1754,24 +1422,24 @@
         "initialDifficulty":  1,
         "dynamicDifficulty":  1,
         "difficultyRationale":  "",
-        "reviewStatus":  "pending_review",
+        "reviewStatus":  "validated",
         "reviewReasons":  [
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image27.png"
+
                           ],
         "contentHash":  "42d65cac1b1c9193aa368403752e15bd942bd6e629c5fc9c39a469378555ca99",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q18",
+        "id":  "examen-1-q19",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  18,
+        "sourcePosition":  19,
         "questionNumber":  19,
         "questionText":  "View and examine the following SQL query which has been executed.\nExhibit: 1\n\nIndicate the status of the foreign key EMP_MGR_FK.",
         "contentBlocks":  [
@@ -1781,17 +1449,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image28.png",
+                                  "path":  "data/certification-bank/media/examen-1/image17.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Indicate the status of the foreign key EMP_MGR_FK."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image29.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -1841,28 +1504,22 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image28.png",
-                              "data/certification-bank/media/examen-1/image29.png"
+                              "data/certification-bank/media/examen-1/image17.png"
                           ],
         "contentHash":  "becffe3ac702204e8b18502b9b72cc0e2a4ca338fab7b1410c4701b99631394e",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q19",
+        "id":  "examen-1-q20",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  19,
+        "sourcePosition":  20,
         "questionNumber":  20,
         "questionText":  "View and examine the following available responses.\nIdentify two true statements about transactions. (Select two)",
         "contentBlocks":  [
                               {
                                   "type":  "text",
                                   "text":  "View and examine the following available responses.\nIdentify two true statements about transactions. (Select two)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image30.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -1900,7 +1557,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.63,
+        "extractionConfidence":  0.73,
         "questionType":  "single-choice",
         "topic":  "Transactions",
         "topics":  [
@@ -1913,23 +1570,22 @@
         "difficultyRationale":  "5+ opciones; contiene codigo SQL; distractores muy similares entre si",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 2",
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image30.png"
+
                           ],
         "contentHash":  "8f84312c25f0f34f7fb9a6a98cb59f3f9f00d6d3debc81f272589801f413bba5",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q20",
+        "id":  "examen-1-q21",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  20,
+        "sourcePosition":  21,
         "questionNumber":  21,
         "questionText":  "View and examine the structure of the PROMOTIONS table.\nTable: PROMOTIONS\n\nRequired: Generate a report that displays the promo name and start date for all promos that started after the last promo in the ‘INTERNET’ category.\nIdentity the SQL query which would give you the required output.",
         "contentBlocks":  [
@@ -1939,7 +1595,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image31.png",
+                                  "path":  "data/certification-bank/media/examen-1/image18.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -1949,11 +1605,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity the SQL query which would give you the required output."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image32.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2003,17 +1654,16 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image31.png",
-                              "data/certification-bank/media/examen-1/image32.png"
+                              "data/certification-bank/media/examen-1/image18.png"
                           ],
         "contentHash":  "046eafad8603601443bba67c410ded6d489039e49b0121df691cd52d22e8edba",
-        "importedAt":  "2026-07-17T09:20:32Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q21",
+        "id":  "examen-1-q22",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  21,
+        "sourcePosition":  22,
         "questionNumber":  22,
         "questionText":  "View and examine the following available responses.\nIdentify two true statements about working with dates. (Select two)",
         "contentBlocks":  [
@@ -2024,11 +1674,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identify two true statements about working with dates. (Select two)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image33.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2066,7 +1711,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.63,
+        "extractionConfidence":  0.73,
         "questionType":  "single-choice",
         "topic":  "SELECT",
         "topics":  [
@@ -2079,23 +1724,22 @@
         "difficultyRationale":  "5+ opciones; contiene codigo SQL; distractores muy similares entre si",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 2",
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image33.png"
+
                           ],
         "contentHash":  "37e4802524bd5c200c20cf594939d3e780ffd7747dd9a36e1b86bc1d72fd37b1",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q22",
+        "id":  "examen-1-q23",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  22,
+        "sourcePosition":  23,
         "questionNumber":  23,
         "questionText":  "View and examine the following available responses.\nIndicate the true statement about aggregate functions.",
         "contentBlocks":  [
@@ -2106,11 +1750,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Indicate the true statement about aggregate functions."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image34.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2142,7 +1781,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.88,
+        "extractionConfidence":  0.98,
         "questionType":  "single-choice",
         "topic":  "SELECT",
         "topics":  [
@@ -2152,24 +1791,24 @@
         "initialDifficulty":  3,
         "dynamicDifficulty":  3,
         "difficultyRationale":  "contiene codigo SQL; distractores muy similares entre si",
-        "reviewStatus":  "pending_review",
+        "reviewStatus":  "validated",
         "reviewReasons":  [
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image34.png"
+
                           ],
         "contentHash":  "385386637013cc34bb713cd921d39e06317240413eb27db8bc7a97bbcafcf538",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q23",
+        "id":  "examen-1-q24",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  23,
+        "sourcePosition":  24,
         "questionNumber":  24,
         "questionText":  "View and examine the structure of the MEMBERS table and the SQL statement. Identify the result of the query. (Choose the best answer).\nTable: MEMBERS\n\nExamine the SQL statement.\nExhibit: 1\n\nIdentity the result of the query. (Choose the best answer)",
         "contentBlocks":  [
@@ -2179,7 +1818,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image35.png",
+                                  "path":  "data/certification-bank/media/examen-1/image19.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -2188,17 +1827,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image36.png",
+                                  "path":  "data/certification-bank/media/examen-1/image20.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Identity the result of the query. (Choose the best answer)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image37.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2247,18 +1881,17 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image35.png",
-                              "data/certification-bank/media/examen-1/image36.png",
-                              "data/certification-bank/media/examen-1/image37.png"
+                              "data/certification-bank/media/examen-1/image19.png",
+                              "data/certification-bank/media/examen-1/image20.png"
                           ],
         "contentHash":  "611645b2e869969d2e62f0338d21b2d449aac41ad3231608cc33a3b36ad68501",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q24",
+        "id":  "examen-1-q25",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  24,
+        "sourcePosition":  25,
         "questionNumber":  25,
         "questionText":  "View and examine the structure of ORDERS and CUSTOMERS tables.\nTable: ORDERS\n\nTable: CUSTOMERS\n\nGiven: Assume there exists only one row with CUST_LAST_NAME as Roberts and CREDIT_LIMIT as 600.\nRequired: Add a row into the ORDERS table for the customer whose CUST_LAST_NAME is Roberts and CREDIT_LIMIT is 600.\nIdentity the SQL query which would give you the required output.",
         "contentBlocks":  [
@@ -2268,7 +1901,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image38.png",
+                                  "path":  "data/certification-bank/media/examen-1/image21.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -2277,7 +1910,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image39.png",
+                                  "path":  "data/certification-bank/media/examen-1/image22.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -2291,11 +1924,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity the SQL query which would give you the required output."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image40.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2346,18 +1974,17 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image38.png",
-                              "data/certification-bank/media/examen-1/image39.png",
-                              "data/certification-bank/media/examen-1/image40.png"
+                              "data/certification-bank/media/examen-1/image21.png",
+                              "data/certification-bank/media/examen-1/image22.png"
                           ],
         "contentHash":  "201d6b9c8557ad06b18c1ce340a7507d9fb53d350c55b69f7d5276ab7171d5b4",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q25",
+        "id":  "examen-1-q26",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  25,
+        "sourcePosition":  26,
         "questionNumber":  26,
         "questionText":  "View and examine the following SQL exhibit and the available responses.\nRequired: Match the relationship examples which follow.\nExhibit: 1\n\nIdentify the response which indicates correctly matched relationships.",
         "contentBlocks":  [
@@ -2375,17 +2002,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image41.png",
+                                  "path":  "data/certification-bank/media/examen-1/image23.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Identify the response which indicates correctly matched relationships."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image42.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2434,17 +2056,16 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image41.png",
-                              "data/certification-bank/media/examen-1/image42.png"
+                              "data/certification-bank/media/examen-1/image23.png"
                           ],
         "contentHash":  "1642528047f4919a8db477d9861396b921fffaa23515737f62de1b9d445c6d49",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q26",
+        "id":  "examen-1-q27",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  26,
+        "sourcePosition":  27,
         "questionNumber":  27,
         "questionText":  "View and examine the following SQL query.\nExhibit: 1\n\nIdentify two true statements about the result of the query.",
         "contentBlocks":  [
@@ -2454,7 +2075,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image43.png",
+                                  "path":  "data/certification-bank/media/examen-1/image24.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -2520,16 +2141,16 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image43.png"
+                              "data/certification-bank/media/examen-1/image24.png"
                           ],
         "contentHash":  "06b1dfaf46a928ce8bcfcf21082362d75e428662905b691e99d3e6a13fffcf59",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q27",
+        "id":  "examen-1-q28",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  27,
+        "sourcePosition":  28,
         "questionNumber":  28,
         "questionText":  "View and examine the following available responses.\nIdentity two true statements about sequences created in a single instance Oracle database. (Choose two)",
         "contentBlocks":  [
@@ -2540,11 +2161,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity two true statements about sequences created in a single instance Oracle database. (Choose two)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image44.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2582,7 +2198,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  2,
-        "extractionConfidence":  0.88,
+        "extractionConfidence":  0.98,
         "questionType":  "multiple-choice",
         "topic":  "Sequences",
         "topics":  [
@@ -2591,35 +2207,30 @@
         "initialDifficulty":  5,
         "dynamicDifficulty":  5,
         "difficultyRationale":  "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL",
-        "reviewStatus":  "pending_review",
+        "reviewStatus":  "validated",
         "reviewReasons":  [
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image44.png"
+
                           ],
         "contentHash":  "38b295d89ceb2cd65f4bdcab3980df785e3bf5adbd1d7171ef353c2b92b7be40",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q28",
+        "id":  "examen-1-q29",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  28,
+        "sourcePosition":  29,
         "questionNumber":  29,
         "questionText":  "Identify two true statements regarding a SAVEPOINT. (Choose two)",
         "contentBlocks":  [
                               {
                                   "type":  "text",
                                   "text":  "Identify two true statements regarding a SAVEPOINT. (Choose two)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image45.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2657,7 +2268,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  2,
-        "extractionConfidence":  0.88,
+        "extractionConfidence":  0.98,
         "questionType":  "multiple-choice",
         "topic":  "Transactions",
         "topics":  [
@@ -2668,24 +2279,24 @@
         "initialDifficulty":  5,
         "dynamicDifficulty":  5,
         "difficultyRationale":  "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL; distractores muy similares entre si",
-        "reviewStatus":  "pending_review",
+        "reviewStatus":  "validated",
         "reviewReasons":  [
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image45.png"
+
                           ],
         "contentHash":  "c39269180ceb8521e4e79aa6d29b082f075999646a73b669b96f5998a2f4776c",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q29",
+        "id":  "examen-1-q30",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  29,
+        "sourcePosition":  30,
         "questionNumber":  30,
         "questionText":  "View and examine the following available responses.\nRequired: Display 5 percent of the rows from the SALES table for products with the lowest AMOUNT_SOLD and include the rows that have the same AMOUNT_SOLD even if this causes the output to exceed 5 percent of the rows. \nIdentity the response which would meet the requirement.",
         "contentBlocks":  [
@@ -2696,11 +2307,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identity the response which would meet the requirement."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image46.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2732,7 +2338,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.88,
+        "extractionConfidence":  0.98,
         "questionType":  "single-choice",
         "topic":  "SELECT",
         "topics":  [
@@ -2742,24 +2348,24 @@
         "initialDifficulty":  4,
         "dynamicDifficulty":  4,
         "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
-        "reviewStatus":  "pending_review",
+        "reviewStatus":  "validated",
         "reviewReasons":  [
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image46.png"
+
                           ],
         "contentHash":  "512463886ed096f27f41eb35ab69fe8275d9d55079193e3347c557d47f4e2c6c",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q30",
+        "id":  "examen-1-q31",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  30,
+        "sourcePosition":  31,
         "questionNumber":  31,
         "questionText":  "View and examine the following available responses.\nIndicate two true statements regarding the UNION and UNION ALL operators. (Choose two)",
         "contentBlocks":  [
@@ -2770,11 +2376,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Indicate two true statements regarding the UNION and UNION ALL operators. (Choose two)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image47.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2812,7 +2413,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  2,
-        "extractionConfidence":  0.88,
+        "extractionConfidence":  0.98,
         "questionType":  "multiple-choice",
         "topic":  "SELECT",
         "topics":  [
@@ -2822,35 +2423,30 @@
         "initialDifficulty":  5,
         "dynamicDifficulty":  5,
         "difficultyRationale":  "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL",
-        "reviewStatus":  "pending_review",
+        "reviewStatus":  "validated",
         "reviewReasons":  [
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image47.png"
+
                           ],
         "contentHash":  "ebfce189acd5f371597421ee97c74f0f6d8ef3ba0e48bea4c0537eb9b74388d0",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q31",
+        "id":  "examen-1-q32",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  31,
+        "sourcePosition":  32,
         "questionNumber":  32,
         "questionText":  "Identify two statements which are true regarding SAVEPOINTS. (Choose two)",
         "contentBlocks":  [
                               {
                                   "type":  "text",
                                   "text":  "Identify two statements which are true regarding SAVEPOINTS. (Choose two)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image48.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2888,7 +2484,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  2,
-        "extractionConfidence":  0.88,
+        "extractionConfidence":  0.98,
         "questionType":  "multiple-choice",
         "topic":  "Transactions",
         "topics":  [
@@ -2897,24 +2493,24 @@
         "initialDifficulty":  5,
         "dynamicDifficulty":  5,
         "difficultyRationale":  "5+ opciones; requiere 2 respuestas (Choose 2); distractores muy similares entre si",
-        "reviewStatus":  "pending_review",
+        "reviewStatus":  "validated",
         "reviewReasons":  [
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image48.png"
+
                           ],
         "contentHash":  "dd47a982aa1985a9d5e057a4452b18ca7b67c931063ac62ec244232d922523a6",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q32",
+        "id":  "examen-1-q33",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  32,
+        "sourcePosition":  33,
         "questionNumber":  33,
         "questionText":  "View and examine the following SQL query.\nExhibit: 1\n\nIdentity the result of the query.",
         "contentBlocks":  [
@@ -2924,17 +2520,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image49.png",
+                                  "path":  "data/certification-bank/media/examen-1/image25.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Identity the result of the query."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image50.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -2984,17 +2575,16 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image49.png",
-                              "data/certification-bank/media/examen-1/image50.png"
+                              "data/certification-bank/media/examen-1/image25.png"
                           ],
         "contentHash":  "4134b8833060db7e2213d52289cc42b456386c70ec41f6ff872a12540dfd33b3",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q33",
+        "id":  "examen-1-q34",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  33,
+        "sourcePosition":  34,
         "questionNumber":  34,
         "questionText":  "View and examine the following available responses.\nIdentity three actions that can be performed using the ALTER TABLE command.",
         "contentBlocks":  [
@@ -3005,11 +2595,6 @@
                               {
                                   "type":  "sql",
                                   "text":  "Identity three actions that can be performed using the ALTER TABLE command."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image51.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -3053,7 +2638,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.63,
+        "extractionConfidence":  0.73,
         "questionType":  "single-choice",
         "topic":  "DDL",
         "topics":  [
@@ -3065,23 +2650,22 @@
         "difficultyRationale":  "5+ opciones; contiene codigo SQL",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 3",
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 3"
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image51.png"
+
                           ],
         "contentHash":  "0145105cef3aa3421a87b56f9dadaaecdf0b226602eae704a8379f6194d95284",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q34",
+        "id":  "examen-1-q35",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  34,
+        "sourcePosition":  35,
         "questionNumber":  35,
         "questionText":  "View and examine the following available responses.\nIdentify the valid CREATE TABLE statement.",
         "contentBlocks":  [
@@ -3092,11 +2676,6 @@
                               {
                                   "type":  "sql",
                                   "text":  "Identify the valid CREATE TABLE statement."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image52.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -3128,7 +2707,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.88,
+        "extractionConfidence":  0.98,
         "questionType":  "single-choice",
         "topic":  "Constraints",
         "topics":  [
@@ -3139,24 +2718,24 @@
         "initialDifficulty":  2,
         "dynamicDifficulty":  2,
         "difficultyRationale":  "distractores muy similares entre si",
-        "reviewStatus":  "pending_review",
+        "reviewStatus":  "validated",
         "reviewReasons":  [
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image52.png"
+
                           ],
         "contentHash":  "7b0a7a9a85f666279547dc292444187ddbf7c0f08292f386ddb1237384a37dcb",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q35",
+        "id":  "examen-1-q36",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  35,
+        "sourcePosition":  36,
         "questionNumber":  36,
         "questionText":  "View and examine the following available responses.\nIndicate two statements which best describe the benefits of using the WITH clause. (Choose two.)",
         "contentBlocks":  [
@@ -3167,11 +2746,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Indicate two statements which best describe the benefits of using the WITH clause. (Choose two.)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image53.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -3204,7 +2778,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  2,
-        "extractionConfidence":  0.88,
+        "extractionConfidence":  0.98,
         "questionType":  "multiple-choice",
         "topic":  "SELECT",
         "topics":  [
@@ -3214,24 +2788,24 @@
         "initialDifficulty":  5,
         "dynamicDifficulty":  5,
         "difficultyRationale":  "requiere 2 respuestas (Choose 2); contiene codigo SQL; distractores muy similares entre si",
-        "reviewStatus":  "pending_review",
+        "reviewStatus":  "validated",
         "reviewReasons":  [
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image53.png"
+
                           ],
         "contentHash":  "7fcaca61b3ccc913aa176fcf936aba9b3cf34abdfe9bbfaa60c6b71a5f0715dc",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q36",
+        "id":  "examen-1-q37",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  36,
+        "sourcePosition":  37,
         "questionNumber":  37,
         "questionText":  "View and examine the structure of the ORDERS table and exhibits.\nTable: ORDERS\n\nRequired: Find the total value of all the orders for each year.\nThis command has been executed.\nExhibit: 1\n\nIdentity the result of the query.",
         "contentBlocks":  [
@@ -3241,7 +2815,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image54.png",
+                                  "path":  "data/certification-bank/media/examen-1/image26.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -3254,17 +2828,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image55.png",
+                                  "path":  "data/certification-bank/media/examen-1/image27.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Identity the result of the query."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image56.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -3314,18 +2883,17 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image54.png",
-                              "data/certification-bank/media/examen-1/image55.png",
-                              "data/certification-bank/media/examen-1/image56.png"
+                              "data/certification-bank/media/examen-1/image26.png",
+                              "data/certification-bank/media/examen-1/image27.png"
                           ],
         "contentHash":  "0ba922884d479db672e43d3e6ce012f5ebb2e3eb018f4d2dfc1799090815a927",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q37",
+        "id":  "examen-1-q38",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  37,
+        "sourcePosition":  38,
         "questionNumber":  38,
         "questionText":  "View and examine the structure of the BOOKS table and exhibits.\nExhibit: 1\n\nExhibit: 2\n\nGiven: The BOOKS table contains details of 100 books.\nExamine the following commands executed and their outcomes.\nExhibit: 3\n\nIndicate statement which is true regarding the result?",
         "contentBlocks":  [
@@ -3335,7 +2903,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image57.png",
+                                  "path":  "data/certification-bank/media/examen-1/image28.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -3344,7 +2912,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image58.png",
+                                  "path":  "data/certification-bank/media/examen-1/image29.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -3361,17 +2929,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image59.png",
+                                  "path":  "data/certification-bank/media/examen-1/image30.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Indicate statement which is true regarding the result?"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image60.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -3420,19 +2983,18 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image57.png",
-                              "data/certification-bank/media/examen-1/image58.png",
-                              "data/certification-bank/media/examen-1/image59.png",
-                              "data/certification-bank/media/examen-1/image60.png"
+                              "data/certification-bank/media/examen-1/image28.png",
+                              "data/certification-bank/media/examen-1/image29.png",
+                              "data/certification-bank/media/examen-1/image30.png"
                           ],
         "contentHash":  "b129f32ea1826033a15e07d0734346713bc21f638e8b2dff5958c8d8a7a6905a",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:20Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q38",
+        "id":  "examen-1-q39",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  38,
+        "sourcePosition":  39,
         "questionNumber":  39,
         "questionText":  "View and examine the structure of the PRODUCTS and SALES tables as well as the exhibit.\nTable: PRODUCTS\n\nTable: SALES\n\nRequired: Display PRODUCT_NAME and the number of times the product has been ordered.\nThe following SQL query has been executed.\nExhibit: 1\n\nIdentity the result of the query.",
         "contentBlocks":  [
@@ -3442,7 +3004,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image61.png",
+                                  "path":  "data/certification-bank/media/examen-1/image31.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -3451,7 +3013,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image62.png",
+                                  "path":  "data/certification-bank/media/examen-1/image32.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -3464,17 +3026,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image63.png",
+                                  "path":  "data/certification-bank/media/examen-1/image33.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Identity the result of the query."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image64.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -3524,19 +3081,18 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image61.png",
-                              "data/certification-bank/media/examen-1/image62.png",
-                              "data/certification-bank/media/examen-1/image63.png",
-                              "data/certification-bank/media/examen-1/image64.png"
+                              "data/certification-bank/media/examen-1/image31.png",
+                              "data/certification-bank/media/examen-1/image32.png",
+                              "data/certification-bank/media/examen-1/image33.png"
                           ],
         "contentHash":  "e21dc7725a934ad73998a8b854948f03437a07df1574ded22e8056bde666c97a",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:21Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q39",
+        "id":  "examen-1-q40",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  39,
+        "sourcePosition":  40,
         "questionNumber":  40,
         "questionText":  "View and examine the following available responses.\nIdentify two true statements about single row functions.",
         "contentBlocks":  [
@@ -3547,11 +3103,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identify two true statements about single row functions."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image65.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -3589,7 +3140,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.63,
+        "extractionConfidence":  0.73,
         "questionType":  "single-choice",
         "topic":  "Subqueries",
         "topics":  [
@@ -3600,23 +3151,22 @@
         "difficultyRationale":  "5+ opciones; contiene codigo SQL",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 2",
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image65.png"
+
                           ],
         "contentHash":  "9f6ccb0b05001da53e0ec7025e82c6aa58c8cc1ef9d96613c64d34f5fb175471",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:21Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q40",
+        "id":  "examen-1-q41",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  40,
+        "sourcePosition":  41,
         "questionNumber":  41,
         "questionText":  "View and examine the structure of the EMPLOYEES  and JOB_HISTORY tables as well as the exhibits.\n\nRequired: Select the employee IDs of all the employees who have held the job SA_MAN at any time during their employment.\nThe following SQL queries have been prepared.\nExhibit: 1\n\nExhibit: 2\n\nIndicate two correct SET operators which would cause the query to return the desired result. (Choose two.)",
         "contentBlocks":  [
@@ -3626,7 +3176,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image13.png",
+                                  "path":  "data/certification-bank/media/examen-1/image9.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -3639,7 +3189,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image66.png",
+                                  "path":  "data/certification-bank/media/examen-1/image34.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -3648,17 +3198,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image67.png",
+                                  "path":  "data/certification-bank/media/examen-1/image35.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Indicate two correct SET operators which would cause the query to return the desired result. (Choose two.)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image68.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -3709,19 +3254,18 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image13.png",
-                              "data/certification-bank/media/examen-1/image66.png",
-                              "data/certification-bank/media/examen-1/image67.png",
-                              "data/certification-bank/media/examen-1/image68.png"
+                              "data/certification-bank/media/examen-1/image9.png",
+                              "data/certification-bank/media/examen-1/image34.png",
+                              "data/certification-bank/media/examen-1/image35.png"
                           ],
         "contentHash":  "801b8e37ec632e46d76cac448e44a432f183ee60a79859eb8664be68da2f47ef",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:21Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q41",
+        "id":  "examen-1-q42",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  41,
+        "sourcePosition":  42,
         "questionNumber":  42,
         "questionText":  "View and examine the structure in the EMPLOYEES tables as well as the exhibit.\n\nEvaluate the following SQL statement.\nExhibit: 1\n\nIdentify the result of the query execution.",
         "contentBlocks":  [
@@ -3731,7 +3275,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image13.png",
+                                  "path":  "data/certification-bank/media/examen-1/image9.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -3740,17 +3284,12 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image69.png",
+                                  "path":  "data/certification-bank/media/examen-1/image36.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
                                   "type":  "text",
                                   "text":  "Identify the result of the query execution."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image70.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -3800,18 +3339,17 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image13.png",
-                              "data/certification-bank/media/examen-1/image69.png",
-                              "data/certification-bank/media/examen-1/image70.png"
+                              "data/certification-bank/media/examen-1/image9.png",
+                              "data/certification-bank/media/examen-1/image36.png"
                           ],
         "contentHash":  "409e0404fd8e27e008a3b77c8caf67fef92641886cf9c107243f0d03d3b0841c",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:21Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q42",
+        "id":  "examen-1-q43",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  42,
+        "sourcePosition":  43,
         "questionNumber":  43,
         "questionText":  "View and examine the following available responses.\nIdentify two true statements about the results of using the INTERSECT operator in compound queries.",
         "contentBlocks":  [
@@ -3822,11 +3360,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identify two true statements about the results of using the INTERSECT operator in compound queries."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image71.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -3859,7 +3392,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.63,
+        "extractionConfidence":  0.73,
         "questionType":  "single-choice",
         "topic":  "SELECT",
         "topics":  [
@@ -3871,23 +3404,22 @@
         "difficultyRationale":  "contiene codigo SQL",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 2",
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image71.png"
+
                           ],
         "contentHash":  "c91e4ccffb06bd6cace80bea23158d45494bd4499b6e8606fd3c1332324bc0f5",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:21Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q43",
+        "id":  "examen-1-q44",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  43,
+        "sourcePosition":  44,
         "questionNumber":  44,
         "questionText":  "View and examine the following available responses.\nIdentify two true statements about a full outer join.",
         "contentBlocks":  [
@@ -3898,11 +3430,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identify two true statements about a full outer join."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image72.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -3940,7 +3467,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.63,
+        "extractionConfidence":  0.73,
         "questionType":  "single-choice",
         "topic":  "JOINS",
         "topics":  [
@@ -3952,23 +3479,22 @@
         "difficultyRationale":  "5+ opciones; contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 2",
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image72.png"
+
                           ],
         "contentHash":  "8e385ddcba76068b9b897022988488d4536fcf7c51793b18bae2137abeebc82a",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:21Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q44",
+        "id":  "examen-1-q45",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  44,
+        "sourcePosition":  45,
         "questionNumber":  45,
         "questionText":  "View and examine the following available responses.\nIdentify two true responses about granting privileges on objects.",
         "contentBlocks":  [
@@ -3979,11 +3505,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identify two true responses about granting privileges on objects."
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image73.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -4016,7 +3537,7 @@
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.63,
+        "extractionConfidence":  0.73,
         "questionType":  "single-choice",
         "topic":  "Constraints",
         "topics":  [
@@ -4029,25 +3550,24 @@
         "difficultyRationale":  "distractores muy similares entre si",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 2",
-                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
                           ],
         "warnings":  [
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image73.png"
+
                           ],
         "contentHash":  "764406069df6852502853760639ebeb8a7aad5d3d5a5e0ac6c9c67081af948e4",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "importedAt":  "2026-07-17T12:33:21Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-1-q45",
+        "id":  "examen-1-q46",
         "sourceFile":  "Examen 1.docx",
-        "sourcePosition":  45,
+        "sourcePosition":  46,
         "questionNumber":  46,
-        "questionText":  "View and examine the structure of the CUSTOMERS table.\nTable: CUSTOMERS\n\nGiven: CUSTNO is the PRIMARY KEY.\nRequired: Determine if any customers’ details have been entered more than once using a different CUSTNO, by listing all duplicate names.\nIdentify two methods which can be used to get the required result. (Choose two)\n\n\tEncontrar registros duplicados usando un SELF JOIN\nUn self join es un join en el que una tabla se une consigo misma.\nUnir una tabla en sí significa que cada fila de la tabla se combina consigo misma y con todas las demás filas de la tabla.\nLa tabla aparece dos veces en la cláusula FROM y va seguida de los alias de tabla que califican los nombres de las columnas en la condición de unión.\nLa autounión puede verse como una unión de dos copias de la misma tabla. La tabla no se copia realmente, pero SQL ejecuta el comando como si lo fuera.\nPara realizar una auto-unión, Oracle Database combina y devuelve filas de la tabla que cumplen la condición\nde unión \nSELECT c1.custno,c1.custname,c1.custaddress\nFROM customers\nDONDE c1.custname = c2.custname\nY c1.custaddress = c2.custaddress\nORDEN POR custno;\nEncontrar registros duplicados usando una subconsulta\nSELECT *\nDE clientes\nDONDE (nombre de cliente, dirección de cliente) IN(\nSELECCIONAR nombre de clientes, dirección\nde clientes\nGRUPO POR nombre de usuario, dirección de cliente\nTENIENDO COUNT(*) \u003e 1)\nORDEN POR custno,nombre de clientes, domicilio;",
+        "questionText":  "View and examine the structure of the CUSTOMERS table.\nTable: CUSTOMERS\n\nGiven: CUSTNO is the PRIMARY KEY.\nRequired: Determine if any customers’ details have been entered more than once using a different CUSTNO, by listing all duplicate names.\nIdentify two methods which can be used to get the required result. (Choose two)",
         "contentBlocks":  [
                               {
                                   "type":  "text",
@@ -4055,7 +3575,7 @@
                               },
                               {
                                   "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image74.png",
+                                  "path":  "data/certification-bank/media/examen-1/image37.png",
                                   "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               },
                               {
@@ -4069,24 +3589,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identify two methods which can be used to get the required result. (Choose two)"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image75.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Encontrar registros duplicados usando un SELF JOIN\nUn self join es un join en el que una tabla se une consigo misma.\nUnir una tabla en sí significa que cada fila de la tabla se combina consigo misma y con todas las demás filas de la tabla.\nLa tabla aparece dos veces en la cláusula FROM y va seguida de los alias de tabla que califican los nombres de las columnas en la condición de unión.\nLa autounión puede verse como una unión de dos copias de la misma tabla. La tabla no se copia realmente, pero SQL ejecuta el comando como si lo fuera.\nPara realizar una auto-unión, Oracle Database combina y devuelve filas de la tabla que cumplen la condición\nde unión \nSELECT c1.custno,c1.custname,c1.custaddress\nFROM customers\nDONDE c1.custname = c2.custname\nY c1.custaddress = c2.custaddress\nORDEN POR custno;"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Encontrar registros duplicados usando una subconsulta\nSELECT *\nDE clientes\nDONDE (nombre de cliente, dirección de cliente) IN(\nSELECCIONAR nombre de clientes, dirección\nde clientes\nGRUPO POR nombre de usuario, dirección de cliente\nTENIENDO COUNT(*) \u003e 1)\nORDEN POR custno,nombre de clientes, domicilio;"
-                              },
-                              {
-                                  "type":  "image",
-                                  "path":  "data/certification-bank/media/examen-1/image76.png",
-                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
                               }
                           ],
         "options":  [
@@ -4126,17 +3628,15 @@
         "expectedAnswerCount":  2,
         "extractionConfidence":  0.88,
         "questionType":  "multiple-choice",
-        "topic":  "JOINS",
+        "topic":  "Constraints",
         "topics":  [
-                       "JOINS",
                        "Constraints",
-                       "SELECT",
                        "Subqueries",
-                       "Aggregate Functions"
+                       "JOINS"
                    ],
         "initialDifficulty":  5,
         "dynamicDifficulty":  5,
-        "difficultyRationale":  "enunciado largo; 5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL; combina varias clausulas SQL",
+        "difficultyRationale":  "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
                               "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
@@ -4145,12 +3645,10 @@
 
                      ],
         "exhibitImages":  [
-                              "data/certification-bank/media/examen-1/image74.png",
-                              "data/certification-bank/media/examen-1/image75.png",
-                              "data/certification-bank/media/examen-1/image76.png"
+                              "data/certification-bank/media/examen-1/image37.png"
                           ],
-        "contentHash":  "cb3781ae319fd5ecede46e55369c5898f35638a8d5fdca8cbc273ad2f5b9847b",
-        "importedAt":  "2026-07-17T09:20:33Z",
+        "contentHash":  "f6032017d89fa17f4176f647637e1f31dbced93ecf4cdd3406fbfa79abfddbbe",
+        "importedAt":  "2026-07-17T12:33:21Z",
         "duplicateOf":  null
     }
 ]

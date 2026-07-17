@@ -75,7 +75,7 @@
 
                           ],
         "contentHash":  "15cf825f80cff4f68c64e56bce669e485aea6a37f7c23b8b34fe55ee178207fb",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:27Z",
         "duplicateOf":  null
     },
     {
@@ -83,7 +83,7 @@
         "sourceFile":  "Examen 3.docx",
         "sourcePosition":  2,
         "questionNumber":  2,
-        "questionText":  "View and examine the structures of the COSTS and PROMOTIONS tables as well as the exhibits.\n\n\nEvaluate the following SQL statement.\nExhibit: 1\n\nIdentify the result of the query execution.\n\n3. Pregunta\nConsulta y examina las siguientes respuestas disponibles.\nIdentifica la afirmación verdadera sobre un INNER JOIN especificada en la cláusula WHERE de una consulta.",
+        "questionText":  "View and examine the structures of the COSTS and PROMOTIONS tables as well as the exhibits.\n\n\nEvaluate the following SQL statement.\nExhibit: 1\n\nIdentify the result of the query execution.",
         "contentBlocks":  [
                               {
                                   "type":  "text",
@@ -111,18 +111,6 @@
                               {
                                   "type":  "text",
                                   "text":  "Identify the result of the query execution."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "3. Pregunta"
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Consulta y examina las siguientes respuestas disponibles."
-                              },
-                              {
-                                  "type":  "text",
-                                  "text":  "Identifica la afirmación verdadera sobre un INNER JOIN especificada en la cláusula WHERE de una consulta."
                               }
                           ],
         "options":  [
@@ -145,49 +133,26 @@
                             "id":  "D",
                             "text":  "It displays prod IDs in the promos with the highest cost in the same time interval",
                             "isCorrect":  false
-                        },
-                        {
-                            "id":  "E",
-                            "text":  "Solo se aplica a condiciones de equijoin.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "F",
-                            "text":  "Se aplica tanto para condiciones de equijoin como de no equijoin.",
-                            "isCorrect":  true
-                        },
-                        {
-                            "id":  "G",
-                            "text":  "Requiere que los nombres de las columnas sean los mismos en todas las tablas que se unen.",
-                            "isCorrect":  false
-                        },
-                        {
-                            "id":  "H",
-                            "text":  "Debe tener restricciones de clave primaria y clave externa definidas en las columnas de unión.",
-                            "isCorrect":  false
                         }
                     ],
         "correctAnswers":  [
-                               "C",
-                               "F"
+                               "C"
                            ],
         "solutionDetectionMethod":  [
                                         "yellow-highlight"
                                     ],
         "expectedAnswerCount":  1,
-        "extractionConfidence":  0.63,
+        "extractionConfidence":  0.88,
         "questionType":  "single-choice",
-        "topic":  "JOINS",
+        "topic":  "Otros",
         "topics":  [
-                       "JOINS",
-                       "WHERE"
+                       "Otros"
                    ],
-        "initialDifficulty":  4,
-        "dynamicDifficulty":  4,
-        "difficultyRationale":  "5+ opciones; contiene codigo SQL; distractores muy similares entre si",
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "distractores muy similares entre si",
         "reviewStatus":  "pending_review",
         "reviewReasons":  [
-                              "el enunciado indica 1 respuesta(s) pero se detectaron 2",
                               "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
                           ],
         "warnings":  [
@@ -198,14 +163,83 @@
                               "data/certification-bank/media/examen-3/image2.png",
                               "data/certification-bank/media/examen-3/image3.png"
                           ],
-        "contentHash":  "3896526053d2b02bcc3ea19acbd61873cf560754a67174ad7b5e1cf2ff00c73f",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "contentHash":  "3cb7cf5d2351a90ec013503d447696cd0ffddb5c72b2eb879b2f8884e26cc200",
+        "importedAt":  "2026-07-17T12:33:27Z",
         "duplicateOf":  null
     },
     {
         "id":  "examen-3-q3",
         "sourceFile":  "Examen 3.docx",
         "sourcePosition":  3,
+        "questionNumber":  3,
+        "questionText":  "Consulta y examina las siguientes respuestas disponibles.\nIdentifica la afirmación verdadera sobre un INNER JOIN especificada en la cláusula WHERE de una consulta.",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Consulta y examina las siguientes respuestas disponibles."
+                              },
+                              {
+                                  "type":  "text",
+                                  "text":  "Identifica la afirmación verdadera sobre un INNER JOIN especificada en la cláusula WHERE de una consulta."
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "Solo se aplica a condiciones de equijoin.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Se aplica tanto para condiciones de equijoin como de no equijoin.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Requiere que los nombres de las columnas sean los mismos en todas las tablas que se unen.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "Debe tener restricciones de clave primaria y clave externa definidas en las columnas de unión.",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "yellow-highlight"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "JOINS",
+        "topics":  [
+                       "JOINS",
+                       "WHERE"
+                   ],
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "contiene codigo SQL",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "5ff58864af5362e2c03ae3757fb6f3cb1058aabe1dd923b72e3775ac08468cb9",
+        "importedAt":  "2026-07-17T12:33:28Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-3-q4",
+        "sourceFile":  "Examen 3.docx",
+        "sourcePosition":  4,
         "questionNumber":  4,
         "questionText":  "View the exhibit and examine the description of the DEPARTMENTS and EMPLOYEES tables.\n\nRequired: Create a SQL statement to retrieve EMPLOYEE_ID, FIRST_NAME, and DEPARTMENT_NAME, for all employees.\nGiven: The desired output is not obtained after executing the following SQL statement.\nExhibit: 1\n\nIdentify the possible reason for this.",
         "contentBlocks":  [
@@ -288,13 +322,13 @@
                               "data/certification-bank/media/examen-3/image5.png"
                           ],
         "contentHash":  "2a90537e03787b0bee02dc0b2512f9e5eec8a31ed7f213b060eac42c30685767",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q4",
+        "id":  "examen-3-q5",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  4,
+        "sourcePosition":  5,
         "questionNumber":  5,
         "questionText":  "View and examine the structure of the MEMBERS table.\nTable: MEMBERS\n\nRequired: Display details of all members who reside in states starting with the letter A followed by exactly one character.\nIdentity the SQL query which would give you the required output.",
         "contentBlocks":  [
@@ -367,13 +401,13 @@
                               "data/certification-bank/media/examen-3/image6.png"
                           ],
         "contentHash":  "2486d592caaef7e32e811e945502dc90a28761ef157fb51746ae334c7ccb6452",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q5",
+        "id":  "examen-3-q6",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  5,
+        "sourcePosition":  6,
         "questionNumber":  6,
         "questionText":  "View and examine the following available responses.\nIdentify three true statements regarding GLOBAL TEMPORARY TABLES. (Choose three)",
         "contentBlocks":  [
@@ -449,13 +483,13 @@
 
                           ],
         "contentHash":  "a47f61c3661087b06c52170910beabb073587ae74afedbe381bb83cf16cad571",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q6",
+        "id":  "examen-3-q7",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  6,
+        "sourcePosition":  7,
         "questionNumber":  7,
         "questionText":  "View and examine the following available responses.\nGiven: The following query has been executed.\nExhibit 1:\n\nIdentify the result of the query execution.\nAnswer Review",
         "contentBlocks":  [
@@ -797,13 +831,13 @@
                               "data/certification-bank/media/examen-3/image7.png"
                           ],
         "contentHash":  "338a579d8f844e5b2a4aa24ef0996c1e519d930bd5f6757b373824c69ed13bc5",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q7",
+        "id":  "examen-3-q8",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  7,
+        "sourcePosition":  8,
         "questionNumber":  8,
         "questionText":  "View and examine the structure of the CUSTOMERS table.\nTable: CUSTOMERS\n\nRequired: Generate a report showing the first names and credit limits of all customers whose first names start with A, B, or C, and credit limit is over 100.\nEvaluate the following two queries.\nExhibit 1:\n\nExhibit 2:\n\nIdentify the true statement regarding the execution of the above queries.",
         "contentBlocks":  [
@@ -894,13 +928,13 @@
                               "data/certification-bank/media/examen-3/image10.png"
                           ],
         "contentHash":  "e3ff548509dfe7812e8624ec5bf28f415a384795ed6e5557be01e73ac68eece6",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q8",
+        "id":  "examen-3-q9",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  8,
+        "sourcePosition":  9,
         "questionNumber":  9,
         "questionText":  "View and examine the following available responses.\nIdentify three situations where a transaction completes. (Choose three)",
         "contentBlocks":  [
@@ -971,13 +1005,13 @@
 
                           ],
         "contentHash":  "272eaf9178e1dc61e2294eae94011452e58771615913030e8794719dacc4f95a",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q9",
+        "id":  "examen-3-q10",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  9,
+        "sourcePosition":  10,
         "questionNumber":  10,
         "questionText":  "View and examine the following available responses.\nIdentify two true statements regarding constraints. (Choose two)",
         "contentBlocks":  [
@@ -1045,13 +1079,13 @@
 
                           ],
         "contentHash":  "a28d53e25aa72ceea4a3c3afe951c26fdcad947ed4abac6ff6fded24a42b60bc",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q10",
+        "id":  "examen-3-q11",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  10,
+        "sourcePosition":  11,
         "questionNumber":  11,
         "questionText":  "View and examine the following SQL exhibit.\nExhibit: 1\n\nGiven: The above command fails when executed.\nIdentify the reason for the failed execution.",
         "contentBlocks":  [
@@ -1124,13 +1158,13 @@
                               "data/certification-bank/media/examen-3/image11.png"
                           ],
         "contentHash":  "2df340d40444adda65384537e828dcc1f997c0122571771faabefdcfd6e0b47d",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q11",
+        "id":  "examen-3-q12",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  11,
+        "sourcePosition":  12,
         "questionNumber":  12,
         "questionText":  "View and examine the structure and data in the INVOICE table.\nTable: INVOICE\n\nExhibit: 1\n\nIdentify two SQL statements which would execute successfully. (Choose two)",
         "contentBlocks":  [
@@ -1210,13 +1244,13 @@
                               "data/certification-bank/media/examen-3/image13.png"
                           ],
         "contentHash":  "89b3953fe1a1c27dbac27933b338d8eb24350e510c336123c609560ac084233b",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q12",
+        "id":  "examen-3-q13",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  12,
+        "sourcePosition":  13,
         "questionNumber":  13,
         "questionText":  "View and examine the following available responses.\nIdentify three true statements regarding dropping and unused columns in an Oracle database.",
         "contentBlocks":  [
@@ -1291,13 +1325,13 @@
 
                           ],
         "contentHash":  "fa46ac941713792d5a781a5edfeb85b2876953cadaad52f168c338707afae4a3",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q13",
+        "id":  "examen-3-q14",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  13,
+        "sourcePosition":  14,
         "questionNumber":  13,
         "questionText":  "View and examine the following available responses.\nIdentify three true statements regarding dropping and unused columns in an Oracle database.",
         "contentBlocks":  [
@@ -1370,13 +1404,13 @@
 
                           ],
         "contentHash":  "fa46ac941713792d5a781a5edfeb85b2876953cadaad52f168c338707afae4a3",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q14",
+        "id":  "examen-3-q15",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  14,
+        "sourcePosition":  15,
         "questionNumber":  14,
         "questionText":  "View and examine the following scenario.\nRequired:\n• Using the CUSTOMERS table, you need to generate a report that shows 50% of each credit amount in each income level.\n• The report should NOT show any repeated credit amounts in each income level.\nIdentify the SQL query which would give you the required output.",
         "contentBlocks":  [
@@ -1442,13 +1476,13 @@
 
                           ],
         "contentHash":  "b78158c9db1968a28f4e22160f11f62ec107a83f240a7dd7381ce3b2ac85112e",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q15",
+        "id":  "examen-3-q16",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  15,
+        "sourcePosition":  16,
         "questionNumber":  15,
         "questionText":  "View and examine the data in the PRODUCTS table.\nTable: PRODUCTS\n\nRequired: Add a column called PRICE which cannot contain NULL.\nIdentify the SQL query which would give you the required output.",
         "contentBlocks":  [
@@ -1520,13 +1554,13 @@
                               "data/certification-bank/media/examen-3/image14.png"
                           ],
         "contentHash":  "c1f1526bd04b90f05b8d1f31e2173fd9d1955bce31ce788b8d6f9fd95a361179",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q16",
+        "id":  "examen-3-q17",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  16,
+        "sourcePosition":  17,
         "questionNumber":  16,
         "questionText":  "View and examine the following SQL exhibits.\nExhibit 1:\n\nExhibit 2:\n\nExhibit 3:\n\nExhibit 4:\n\nGiven: All SQL statements which execute successfully.\nIdentify two true statements regarding the result. (Choose two)",
         "contentBlocks":  [
@@ -1633,13 +1667,13 @@
                               "data/certification-bank/media/examen-3/image18.png"
                           ],
         "contentHash":  "b74660d5bdd8090c1588f18fad2352207f10fb945b267cdee65db5543ae0a3b1",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q17",
+        "id":  "examen-3-q18",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  17,
+        "sourcePosition":  18,
         "questionNumber":  17,
         "questionText":  "View and examine the following available responses.\nIdentify three true statements regarding the DESCRIBE command. (Choose three)",
         "contentBlocks":  [
@@ -1713,13 +1747,13 @@
 
                           ],
         "contentHash":  "c98db8667107886f88b8e3a03de8b6a12ed3f59c3c68fae85a954a8a8de70056",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q18",
+        "id":  "examen-3-q19",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  18,
+        "sourcePosition":  19,
         "questionNumber":  18,
         "questionText":  "View and examine the following SQL exhibit.\nExhibit: 1\n\nGiven: The command has been executed.\nIdentify three true statements regarding the implication of this command. (Choose three)",
         "contentBlocks":  [
@@ -1799,13 +1833,13 @@
                               "data/certification-bank/media/examen-3/image19.png"
                           ],
         "contentHash":  "40d0d81a1a3885c5a04cac46bca7e967d0c1287c6a2883458154f7d333cfbea7",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q19",
+        "id":  "examen-3-q20",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  19,
+        "sourcePosition":  20,
         "questionNumber":  19,
         "questionText":  "View and examine the structure of the CUSTOMERS table.\nExhibit: 1\n\nRequired: Add new columns to the table with the names ADDRESS, CITY, PROVINCE_STATE, COUNTRY, COUNTRY_CODE, and TELEPHONE. Each column is to be text with the ability to hold up to 30 characters, except COUNTRY_CODE and TELEPHONE which is to be a number which should hold up to 3 and 12 respectively. The TELEPHONE field must be the primary key.\nGiven: The CUST_NAME is the only column in this table which has the above data in the table. The below query has been run and failed.\nExhibit: 2\n\nIdentify the reason the SQL query fails.",
         "contentBlocks":  [
@@ -1892,13 +1926,13 @@
                               "data/certification-bank/media/examen-3/image21.png"
                           ],
         "contentHash":  "c73a7833ccad1b516d965fbfd30f5fcb7d1b4662bea631834e5f4bf8575eb905",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q20",
+        "id":  "examen-3-q21",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  20,
+        "sourcePosition":  21,
         "questionNumber":  20,
         "questionText":  "View and examine the following SQL exhibits.\nExhibit 1:\n\nExhibit 2:\n\nGiven: The command to create a table fails.\nIdentify the reason for the SQL statement failure.",
         "contentBlocks":  [
@@ -1981,13 +2015,13 @@
                               "data/certification-bank/media/examen-3/image23.png"
                           ],
         "contentHash":  "12c5596ac3fb7b0697f7bb3077b27869a4dd05119b49c1dce2eb36aca19d7a3d",
-        "importedAt":  "2026-07-17T09:20:43Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q21",
+        "id":  "examen-3-q22",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  21,
+        "sourcePosition":  22,
         "questionNumber":  21,
         "questionText":  "View and examine the following available responses.\nIdentify two true statements regarding the WITH GRANT OPTION clause. (Choose two)",
         "contentBlocks":  [
@@ -2060,13 +2094,13 @@
 
                           ],
         "contentHash":  "d77bd5e8bdf83bb6944751560d1b79c16a15e2ba58dde00a8174e0f45fc9d0fd",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q22",
+        "id":  "examen-3-q23",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  22,
+        "sourcePosition":  23,
         "questionNumber":  22,
         "questionText":  "View and examine the following available responses.\nThe following commands have been executed.\nExhibit 1:\n\nExhibit 2:\n\nIdentify the substitution variable you would be prompted for the input.",
         "contentBlocks":  [
@@ -2143,13 +2177,13 @@
                               "data/certification-bank/media/examen-3/image25.png"
                           ],
         "contentHash":  "da48ab0a2751c887b355c41876c7e0fc870353eef22fd572bbcdb18875759a02",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q23",
+        "id":  "examen-3-q24",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  23,
+        "sourcePosition":  24,
         "questionNumber":  23,
         "questionText":  "View and examine the following SQL exhibit.\nExhibit: 1\n\nIdentify the true statement regarding the evaluation of rows returned by the subquery in the INSERT statement.",
         "contentBlocks":  [
@@ -2216,13 +2250,13 @@
                               "data/certification-bank/media/examen-3/image26.png"
                           ],
         "contentHash":  "0e6e0fd945b138eb04aa89fc1576053c85f025f15cca4a18640affe296a8c60a",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q24",
+        "id":  "examen-3-q25",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  24,
+        "sourcePosition":  25,
         "questionNumber":  24,
         "questionText":  "View and examine the following SQL query and exhibit.\nExhibit: 1\n\nGiven: Below is the output of the above SQL query.\nExhibit: 2\n\nIdentify two true statements are true about the output. (Choose two)",
         "contentBlocks":  [
@@ -2300,13 +2334,13 @@
                               "data/certification-bank/media/examen-3/image28.png"
                           ],
         "contentHash":  "657ebe70a8b4d84fe49c8b8384075adfa845e78a7a74bf4f2e099f0580541905",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q25",
+        "id":  "examen-3-q26",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  25,
+        "sourcePosition":  26,
         "questionNumber":  25,
         "questionText":  "View and examine the structure of the EMP table as well as the exhibit.\nTable: EMP\n\nGiven: EMP is not partitioned and not an index-organized table\nEvaluate this SQL statement.\nExhibit 1:\n\nIdentify the statement which is true regarding the result.",
         "contentBlocks":  [
@@ -2388,13 +2422,13 @@
                               "data/certification-bank/media/examen-3/image30.png"
                           ],
         "contentHash":  "36ecaf35c11afd0cc868bfd1c9f6f5f23191bfb29cd86a28d166d1cf8bab9548",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q26",
+        "id":  "examen-3-q27",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  26,
+        "sourcePosition":  27,
         "questionNumber":  26,
         "questionText":  "View and examine the following available responses.\nIdentify three true statements are true about views in an Oracle Database. (Choose three)",
         "contentBlocks":  [
@@ -2470,13 +2504,13 @@
 
                           ],
         "contentHash":  "37b6493cee8bf2aab04937090aad84cfd66c5eef6d376d23837db6ec7e625f07",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q27",
+        "id":  "examen-3-q28",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  27,
+        "sourcePosition":  28,
         "questionNumber":  27,
         "questionText":  "View and examine the following scenario.\nGiven: There are employees who receive more salary than employee with employee number 6.\nRequired: Create a report which will display the name ( first name and last name ) for those employees who receive more salary than the employee with employee number 6.\nView and examine the following available responses. Identify two SQL queries which would give you the required output.",
         "contentBlocks":  [
@@ -2549,13 +2583,13 @@
 
                           ],
         "contentHash":  "5f6d33ea3e0cf3996e11c98cac6308de8805ba51f73a915db6802d557cc305d3",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q28",
+        "id":  "examen-3-q29",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  28,
+        "sourcePosition":  29,
         "questionNumber":  28,
         "questionText":  "View and examine the commands used to create DEPARTMENT_DETAILS and COURSE_DETAILS tables.\nExhibit 1:\n\nExhibit 2:\n\nRequired: Generate a list of all department IDs along with any course IDs that may have been assigned to them.\nIdentify the SQL query which would give you the required output.",
         "contentBlocks":  [
@@ -2637,13 +2671,13 @@
                               "data/certification-bank/media/examen-3/image32.png"
                           ],
         "contentHash":  "cefa5969bf9a514f2e68065a40ef57baffde762d3e36c772b7c500ea7d019b88",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q29",
+        "id":  "examen-3-q30",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  29,
+        "sourcePosition":  30,
         "questionNumber":  29,
         "questionText":  "View and examine the data in the CUST_NAME column of the CUSTOMERS table.\nExhibit: 1\n\nRequired: Extract only those customer names that have three names and display the * symbol in place of the first name as follows.\nExhibit: 2\n\nIdentify the SQL queries which would give you the required output. (Choose two)",
         "contentBlocks":  [
@@ -2724,13 +2758,13 @@
                               "data/certification-bank/media/examen-3/image34.png"
                           ],
         "contentHash":  "9888722db5106a38c187dd589dadab9aa1b8aaf916638bb151f13c0b36af74ad",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q30",
+        "id":  "examen-3-q31",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  30,
+        "sourcePosition":  31,
         "questionNumber":  30,
         "questionText":  "View and examine the following available responses.\nIdentify three true statements regarding the Oracle COUNT function. (Choose three)",
         "contentBlocks":  [
@@ -2802,13 +2836,13 @@
 
                           ],
         "contentHash":  "eb05ee05046657ea5bd03f89ce234ce742e4395cebca4643cc44508075a6a065",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q31",
+        "id":  "examen-3-q32",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  31,
+        "sourcePosition":  32,
         "questionNumber":  31,
         "questionText":  "View and examine the following scenario.\nGiven:\n• The ORDERS table has a primary key constraint on the ORDER_ID column.\n• The ORDER_ITEMS table has a foreign key constraint on the ORDER_ID column, referencing the primary key of the ORDERS table.\n• The constraint is defined with ON DELETE CASCADE.\n• There are rows in the ORDERS table with an ORDER_TOTAL ranging from 100 to 10,000. \nRequired: Delete all orders where the total amount is less than 2500.\nIdentify two DELETE statements execute successfully and fulfills the requirement. (Choose two)",
         "contentBlocks":  [
@@ -2886,13 +2920,13 @@
 
                           ],
         "contentHash":  "9a6cade9238a5e2b703f2e8577ace9743465089353ea8b28fc27785fb671be4f",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q32",
+        "id":  "examen-3-q33",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  32,
+        "sourcePosition":  33,
         "questionNumber":  32,
         "questionText":  "View and examine the structure of the EMPLOYEES table.\nTable: EMPLOYEES\n\nGiven: There is a parent/child relationship between EMPLOYEE_ID and MANAGER_ID.\nRequired:\n• Display the name, joining date, and manager for all employees.\n• Newly hired employees are yet to be assigned a department or a manager;  ‘No Manager’ should be displayed in the MANAGER column.\nIdentify the SQL query which would give you the required output.",
         "contentBlocks":  [
@@ -2969,13 +3003,13 @@
                               "data/certification-bank/media/examen-3/image35.png"
                           ],
         "contentHash":  "c8ce1a105fbb21f8806211ac533e9b6ddc170e06d6bbbbeaa78979d4a81a73a3",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q33",
+        "id":  "examen-3-q34",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  33,
+        "sourcePosition":  34,
         "questionNumber":  33,
         "questionText":  "View and examine the following available responses.\nGiven: The EMPLOYEES table has 1000 rows and employees are working in the company for more than 10 years.\nEvaluate the following SQL statement.\nExhibit: 1\n\nIdentify the result of the query execution.",
         "contentBlocks":  [
@@ -3055,13 +3089,13 @@
                               "data/certification-bank/media/examen-3/image36.png"
                           ],
         "contentHash":  "81ab90455934de99ee173fcf474099a9c77156fec91242d94a9e2d876a09f0a4",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q34",
+        "id":  "examen-3-q35",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  34,
+        "sourcePosition":  35,
         "questionNumber":  34,
         "questionText":  "View and examine the description of the EMP_DETAILS table.\nTable: EMP_DETAILS\n\nIdentify two true statements regarding SQL statements that can be executed on the EMP_DETAIL TABLE.",
         "contentBlocks":  [
@@ -3132,13 +3166,13 @@
                               "data/certification-bank/media/examen-3/image37.png"
                           ],
         "contentHash":  "e44ebd387c9409c44b8ae1597e89574ffed9ee9d95aa630c77d1445782e4f746",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q35",
+        "id":  "examen-3-q36",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  35,
+        "sourcePosition":  36,
         "questionNumber":  35,
         "questionText":  "View and examine the following available responses.\nIdentify two true statements are true about Oracle synonyms. (Choose two)",
         "contentBlocks":  [
@@ -3207,13 +3241,13 @@
 
                           ],
         "contentHash":  "939516f5a69a732da7c6ffd0a48512e863791072d27fbcd9feebbadc1612cb7f",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:28Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q36",
+        "id":  "examen-3-q37",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  36,
+        "sourcePosition":  37,
         "questionNumber":  36,
         "questionText":  "View and examine the following available responses.\nIdentify two true statements regarding a self join.",
         "contentBlocks":  [
@@ -3282,13 +3316,13 @@
 
                           ],
         "contentHash":  "01e19df3d2500bf1bcea4f5f5ec2d516cf5d76abc0a90ad2d2bc9859ba8f50d6",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q37",
+        "id":  "examen-3-q38",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  37,
+        "sourcePosition":  38,
         "questionNumber":  37,
         "questionText":  "View and examine the data in the PRODUCTS table.\nTable: PRODUCTS\n\nRequired: Display product names from the PRODUCTS table that belong to the ‘Software/other’ category with minimum prices as either $2000 or $4000 and with no unit of measure.\nGiven: The following query has been executed.\nExhibit: 1\n\nIdentify the result of the query execution.",
         "contentBlocks":  [
@@ -3369,13 +3403,13 @@
                               "data/certification-bank/media/examen-3/image39.png"
                           ],
         "contentHash":  "516e362a6723d6f7e675da0b7ad305ca4f26207a0f2ab9433e07079b9aaebe35",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q38",
+        "id":  "examen-3-q39",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  38,
+        "sourcePosition":  39,
         "questionNumber":  38,
         "questionText":  "View and examine the following available responses.\nIdentify three statements which indicate the end of a transaction. (Choose three)",
         "contentBlocks":  [
@@ -3445,13 +3479,13 @@
 
                           ],
         "contentHash":  "0e8f343dea56bdc6fc160a1283da10716f60898e317ff908174719f08fce6122",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q39",
+        "id":  "examen-3-q40",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  39,
+        "sourcePosition":  40,
         "questionNumber":  39,
         "questionText":  "View and examine the following available responses.\nIdentify the true statement about transactions.",
         "contentBlocks":  [
@@ -3514,13 +3548,13 @@
 
                           ],
         "contentHash":  "fe02111902e0c4376cfce8f2cc2f1955418b606fd6028dde4edcb5aff2843815",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q40",
+        "id":  "examen-3-q41",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  40,
+        "sourcePosition":  41,
         "questionNumber":  40,
         "questionText":  "View and examine the following available responses.\nIdentify two true statements regarding dropping columns from a table.",
         "contentBlocks":  [
@@ -3594,13 +3628,13 @@
 
                           ],
         "contentHash":  "9e17067bec2ebd9f03275df5b3c47e3a13f149ac9cb7e32cf5068f6adcde2a62",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q41",
+        "id":  "examen-3-q42",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  41,
+        "sourcePosition":  42,
         "questionNumber":  41,
         "questionText":  "View and examine this description of the PRODUCTS table.\nTable: PRODUCTS\n\nGiven:\n• Rows exist in this table with data in all the columns.\n• The PRODUCTS table in read-only mode.\nIdentify three commands which execute successfully on PRODUCTS.",
         "contentBlocks":  [
@@ -3685,13 +3719,13 @@
                               "data/certification-bank/media/examen-3/image40.png"
                           ],
         "contentHash":  "f9335acf9c47ab972a611c24d33f0bb6ea3353fa1d51de5ef74b1945600ed132",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q42",
+        "id":  "examen-3-q43",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  42,
+        "sourcePosition":  43,
         "questionNumber":  42,
         "questionText":  "View and examine the structure of the PRODUCTS table.\nTable: PRODUCTS\n\nIdentify two valid query expressions. (Choose two)",
         "contentBlocks":  [
@@ -3766,13 +3800,13 @@
                               "data/certification-bank/media/examen-3/image41.png"
                           ],
         "contentHash":  "90524ba1c9ed86bea3cc7ce981f54d21651b6795cc507fff13eae992717ecb6d",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q43",
+        "id":  "examen-3-q44",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  43,
+        "sourcePosition":  44,
         "questionNumber":  43,
         "questionText":  "Required: Display PRODUCT_NAME from the table where the CATEGORY_ID column has values 12 or 13, and the SUPPLIER_ID column has the value 102088. The following SQL statement has been executed. Identify the result of the query execution.\n\nRequired: Display PRODUCT_NAME from the table where the CATEGORY_ID column has values 12 or 13, and the SUPPLIER_ID column has the value 102088.\nThe following SQL statement has been executed.\nExhibit: 1\n\nIdentify the result of the query execution.",
         "contentBlocks":  [
@@ -3853,13 +3887,13 @@
                               "data/certification-bank/media/examen-3/image43.png"
                           ],
         "contentHash":  "08e901914d173ff7cc645a48c02061b0343e7fc676b416a189af69e5dfb40b82",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q44",
+        "id":  "examen-3-q45",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  44,
+        "sourcePosition":  45,
         "questionNumber":  44,
         "questionText":  "View and examine the following available responses.\nIndicate three actions that can be performed using the ORACLE_DATAPUMP access driver. (Choose three)",
         "contentBlocks":  [
@@ -3933,13 +3967,13 @@
 
                           ],
         "contentHash":  "d900c98d7d70a8e072aeed60ab0d47fe76b7a9a3de8f5c9fd1814c06ae585a30",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q45",
+        "id":  "examen-3-q46",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  45,
+        "sourcePosition":  46,
         "questionNumber":  45,
         "questionText":  "View and examine the following SQL exhibit.\nExhibit: 1\n\nIdentify three order by clauses which could complete the query successfully. (Choose three)",
         "contentBlocks":  [
@@ -4013,13 +4047,13 @@
                               "data/certification-bank/media/examen-3/image44.png"
                           ],
         "contentHash":  "5c28adec82adb44b2f92b0a3835f7bb3f48dbda9c1bc8892f5e3a18651f4e08c",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q46",
+        "id":  "examen-3-q47",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  46,
+        "sourcePosition":  47,
         "questionNumber":  46,
         "questionText":  "View and examine the description of the CUSTOMERS table.\nTable: CUSTOMERS\n\nRequired:\n• For customers whose income level has a value, you want to display the first name and due amount as 5% of their credit limit.\n• Customers who have no amount due should not be displayed.\nIdentify the SQL query which would give you the required output.",
         "contentBlocks":  [
@@ -4098,13 +4132,13 @@
                               "data/certification-bank/media/examen-3/image45.png"
                           ],
         "contentHash":  "dc335dab5f6c146098856856c74802cd59dc6412e03cbd20da74459cf0979e5a",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q47",
+        "id":  "examen-3-q48",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  47,
+        "sourcePosition":  48,
         "questionNumber":  47,
         "questionText":  "View and examine the structure of the INVOICE table.\nExhibit: 1\n\nIdentify two SQL statements which would execute successfully. (Choose two)",
         "contentBlocks":  [
@@ -4174,13 +4208,13 @@
                               "data/certification-bank/media/examen-3/image46.png"
                           ],
         "contentHash":  "7e0bd6eb2db39670a51181c4330adcc71082cf227173ac61c71d10bece529054",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q48",
+        "id":  "examen-3-q49",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  48,
+        "sourcePosition":  49,
         "questionNumber":  48,
         "questionText":  "View and examine the following available responses.\nIdentify three true statements regarding group functions. (Choose three)",
         "contentBlocks":  [
@@ -4250,13 +4284,13 @@
 
                           ],
         "contentHash":  "6ea271a9169c0b5cf09acb82abb15a0cbda8a2a37164f3473e5f085bc20cf0b1",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     },
     {
-        "id":  "examen-3-q49",
+        "id":  "examen-3-q50",
         "sourceFile":  "Examen 3.docx",
-        "sourcePosition":  49,
+        "sourcePosition":  50,
         "questionNumber":  49,
         "questionText":  "View and examine the following available responses.\nIdentify two true statements regarding the WHERE and HAVING clauses in a SELECT statement. (Choose two)",
         "contentBlocks":  [
@@ -4326,7 +4360,7 @@
 
                           ],
         "contentHash":  "f9c4f375552e50f7237353648a1478b0420515584a2c6438d03eb327c9b7c1e9",
-        "importedAt":  "2026-07-17T09:20:44Z",
+        "importedAt":  "2026-07-17T12:33:29Z",
         "duplicateOf":  null
     }
 ]

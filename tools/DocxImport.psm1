@@ -221,10 +221,18 @@ function Get-DocumentParagraphs {
 # ---------------------------------------------------------------------------
 
 function Split-IntoQuestionBlocks {
-    <# Agrupa los parrafos en bloques delimitados por "<numero>. Question". #>
+    <#
+      Agrupa los parrafos en bloques delimitados por "<numero>. Question".
+      Tambien reconoce "<numero>. Pregunta": los documentos reales incluyen, tras las
+      preguntas en ingles, un apendice en espanol con explicaciones/rationale numerado asi
+      (ver AUDIT_REPORT.md). Antes de reconocerlo, ese apendice se fusionaba con la ultima
+      pregunta en ingles, contaminando sus opciones. Al reconocerlo como limite, el apendice
+      pasa a ser su propio bloque (que la logica de confianza ya deja en pending_review, nunca
+      se cuela como "validated"), y la pregunta en ingles real queda limpia.
+    #>
     param([Parameter(Mandatory)][object[]]$Paragraphs)
 
-    $markerPattern = '^\s*(\d+)\s*\.\s*Question\s*[:.]?\s*$'
+    $markerPattern = '^\s*(\d+)\s*\.\s*(Question|Pregunta)\s*[:.]?\s*$'
     $blocks = @()
     $current = $null
 

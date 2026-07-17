@@ -1,19 +1,19 @@
 ﻿const CERTIFICATION_IMPORT_REPORT = {
-    "generatedAt":  "2026-07-17T09:20:46Z",
+    "generatedAt":  "2026-07-17T12:33:31Z",
     "filesFound":  4,
     "filesProcessedOk":  4,
     "filesWithErrors":  0,
-    "totalQuestions":  145,
-    "withYellowHighlight":  139,
-    "withBold":  18,
-    "withBothMethods":  18,
+    "totalQuestions":  152,
+    "withYellowHighlight":  145,
+    "withBold":  22,
+    "withBothMethods":  21,
     "multiAnswerQuestions":  80,
     "duplicateQuestions":  2,
-    "pendingReview":  111,
+    "pendingReview":  105,
     "withoutSolution":  6,
-    "newSinceLastImport":  0,
-    "unchangedSinceLastImport":  145,
-    "changedSinceLastImport":  0,
+    "newSinceLastImport":  7,
+    "unchangedSinceLastImport":  20,
+    "changedSinceLastImport":  125,
     "byDifficulty":  [
                          {
                              "level":  "1",
@@ -21,36 +21,36 @@
                          },
                          {
                              "level":  "2",
-                             "count":  18
+                             "count":  25
                          },
                          {
                              "level":  "3",
-                             "count":  24
+                             "count":  29
                          },
                          {
                              "level":  "4",
-                             "count":  42
+                             "count":  39
                          },
                          {
                              "level":  "5",
-                             "count":  54
+                             "count":  52
                          }
                      ],
     "byTopic":  [
                     {
                         "topic":  "SELECT",
-                        "count":  31
+                        "count":  32
                     },
                     {
                         "topic":  "Constraints",
-                        "count":  21
-                    },
-                    {
-                        "topic":  "WHERE",
-                        "count":  14
+                        "count":  23
                     },
                     {
                         "topic":  "Otros",
+                        "count":  18
+                    },
+                    {
+                        "topic":  "WHERE",
                         "count":  14
                     },
                     {
@@ -59,7 +59,7 @@
                     },
                     {
                         "topic":  "JOINS",
-                        "count":  11
+                        "count":  10
                     },
                     {
                         "topic":  "Subqueries",
@@ -74,6 +74,10 @@
                         "count":  4
                     },
                     {
+                        "topic":  "ORDER BY",
+                        "count":  3
+                    },
+                    {
                         "topic":  "Date Functions",
                         "count":  3
                     },
@@ -82,11 +86,11 @@
                         "count":  3
                     },
                     {
-                        "topic":  "Aggregate Functions",
+                        "topic":  "Indexes",
                         "count":  3
                     },
                     {
-                        "topic":  "Indexes",
+                        "topic":  "Aggregate Functions",
                         "count":  3
                     },
                     {
@@ -98,15 +102,11 @@
                         "count":  2
                     },
                     {
-                        "topic":  "DDL",
-                        "count":  2
-                    },
-                    {
                         "topic":  "DML",
                         "count":  2
                     },
                     {
-                        "topic":  "ORDER BY",
+                        "topic":  "DDL",
                         "count":  2
                     },
                     {
@@ -144,37 +144,35 @@
 
                                          ],
                        "answerCountMismatch":  [
-                                                   "examen-1-q1",
-                                                   "examen-1-q3",
+                                                   "examen-1-q2",
                                                    "examen-1-q4",
                                                    "examen-1-q5",
                                                    "examen-1-q6",
-                                                   "examen-1-q16",
-                                                   "examen-1-q19",
-                                                   "examen-1-q21",
-                                                   "examen-1-q26",
-                                                   "examen-1-q33",
-                                                   "examen-1-q39",
-                                                   "examen-1-q42",
+                                                   "examen-1-q7",
+                                                   "examen-1-q17",
+                                                   "examen-1-q20",
+                                                   "examen-1-q22",
+                                                   "examen-1-q27",
+                                                   "examen-1-q34",
+                                                   "examen-1-q40",
                                                    "examen-1-q43",
                                                    "examen-1-q44",
+                                                   "examen-1-q45",
                                                    "examen-2-q4",
-                                                   "examen-2-q8",
                                                    "examen-2-q9",
-                                                   "examen-2-q10",
-                                                   "examen-2-q13",
-                                                   "examen-2-q14",
+                                                   "examen-2-q12",
                                                    "examen-2-q16",
-                                                   "examen-2-q28",
-                                                   "examen-2-q29",
-                                                   "examen-2-q35",
-                                                   "examen-3-q2",
-                                                   "examen-3-q12",
-                                                   "examen-3-q27",
-                                                   "examen-3-q34",
-                                                   "examen-3-q36",
-                                                   "examen-3-q40",
-                                                   "examen-3-q41"
+                                                   "examen-2-q19",
+                                                   "examen-2-q21",
+                                                   "examen-2-q33",
+                                                   "examen-2-q34",
+                                                   "examen-2-q40",
+                                                   "examen-3-q13",
+                                                   "examen-3-q28",
+                                                   "examen-3-q35",
+                                                   "examen-3-q37",
+                                                   "examen-3-q41",
+                                                   "examen-3-q42"
                                                ]
                    }
 };

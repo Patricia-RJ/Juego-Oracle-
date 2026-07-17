@@ -212,6 +212,29 @@ Describe 'Clasificacion tematica multi-etiqueta' {
     }
 }
 
+Describe 'Apendice en espanol ("N. Pregunta") no contamina la pregunta en ingles anterior' {
+    It 'reconoce "N. Pregunta" como limite y separa el apendice de la pregunta real' {
+        $body = (New-Paragraph -Runs @(@{ Text = '1. Question' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Real English stem.' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Right'; Highlight = 'yellow' }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = 'Wrong' }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = '2. Pregunta' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Consulta y examina las siguientes respuestas disponibles.' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Opcion en espanol'; Highlight = 'yellow' }) -NumId '2') +
+                (New-Paragraph -Runs @(@{ Text = '3. Question' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Second real English stem.' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Yes'; Highlight = 'yellow' }) -NumId '3') +
+                (New-Paragraph -Runs @(@{ Text = 'No' }) -NumId '3')
+        $result = Build-And-Import -Body $body -Name 'spanish-appendix'
+        $result.Questions.Count | Should Be 3
+        $result.Questions[0].options.Count | Should Be 2
+        $result.Questions[0].options[0].text | Should Be 'Right'
+        $result.Questions[1].questionText | Should Match 'Consulta y examina'
+        $result.Questions[2].questionText | Should Be 'Second real English stem.'
+        $result.Questions[2].options.Count | Should Be 2
+    }
+}
+
 Describe 'Prueba de integracion sobre un examen real (Examen 4.docx, el mas pequeno)' {
     $projectRoot = Split-Path $moduleRoot -Parent
     $examDir = Get-ChildItem -Path $projectRoot -Directory | Where-Object { $_.Name -like 'Ex?menes' } | Select-Object -First 1
