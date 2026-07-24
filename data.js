@@ -4570,10 +4570,247 @@ levels: [
 },
 
 // =====================================================================
-// NIVEL 16 — SIMULACROS
+// NIVEL 19
 // =====================================================================
 {
-  id: 16, code: "N16", category: null,
+  id: 19, code: "M19", category: "Avanzado",
+  title: "PIVOT/UNPIVOT y datos semiestructurados (JSON)",
+  intro: "Girar filas en columnas (y viceversa) sin escribir CASE manuales, y consultar datos JSON almacenados en Oracle como si fueran columnas relacionales.",
+  theory: {
+    concepts: [
+      { heading: "1. PIVOT: de filas a columnas",
+        explanation: "PIVOT convierte valores distintos de una columna en columnas nuevas del resultado, agregando una métrica para cada combinación. Es el equivalente declarativo a escribir manualmente varias funciones de grupo con CASE WHEN dentro (por ejemplo, SUM(CASE WHEN job_id='SA_REP' THEN salary END)), pero más legible y compacto.",
+        syntax: "SELECT ...\nFROM (subconsulta_o_tabla)\nPIVOT (\n  función_agregada(columna_valor)\n  FOR columna_a_girar IN (valor1 AS alias1, valor2 AS alias2, ...)\n)",
+        examples: [
+          { code: "SELECT *\nFROM   (SELECT department_id, job_id, salary FROM employees)\nPIVOT (\n  SUM(salary)\n  FOR job_id IN ('SA_REP' AS ventas, 'ST_CLERK' AS almacen, 'IT_PROG' AS it)\n);",
+            output: "DEPARTMENT_ID  VENTAS  ALMACEN     IT\n-------------  ------  -------  -----\n           80   50000    (NULL)  (NULL)\n           60  (NULL)    (NULL)  28800" }
+        ] },
+      { heading: "2. UNPIVOT: de columnas a filas",
+        explanation: "UNPIVOT hace lo inverso: convierte varias columnas en filas, generando una columna que identifica de qué columna original venía cada valor, y otra con el valor en sí. Es útil para 'normalizar' una tabla que llegó ya pivotada desde una hoja de cálculo o un sistema externo.",
+        syntax: "SELECT ...\nFROM tabla\nUNPIVOT (\n  columna_valor\n  FOR columna_identificadora IN (columna1 AS 'etiqueta1', columna2 AS 'etiqueta2', ...)\n)",
+        examples: [
+          { code: "SELECT *\nFROM   ventas_trimestrales\nUNPIVOT (\n  importe\n  FOR trimestre IN (q1 AS 'Q1', q2 AS 'Q2', q3 AS 'Q3', q4 AS 'Q4')\n);" }
+        ] },
+      { heading: "3. IS JSON: validar que una columna contiene JSON válido",
+        explanation: "Oracle almacena JSON típicamente en una columna VARCHAR2, CLOB o BLOB como texto, y ofrece funciones específicas para tratarlo como datos estructurados. La condición IS JSON comprueba si el contenido de una columna es JSON sintácticamente válido, y se usa habitualmente como CHECK constraint para garantizar que solo se almacene JSON bien formado.",
+        syntax: "columna IS [NOT] JSON",
+        examples: [
+          { code: "CREATE TABLE pedidos_json (\n  id       NUMBER,\n  detalle  CLOB CHECK (detalle IS JSON)\n);" }
+        ] },
+      { heading: "4. JSON_VALUE: extraer un escalar de un documento JSON",
+        explanation: "JSON_VALUE(columna, ruta) extrae un único valor escalar (texto o número) de un documento JSON, usando una ruta en notación JSON Path (empieza por $, el documento raíz). Si la ruta no existe o el valor no es escalar, devuelve NULL por defecto (comportamiento configurable con ON ERROR/ON EMPTY).",
+        syntax: "JSON_VALUE(columna, 'ruta_json_path' [RETURNING tipo] [ON ERROR valor])",
+        examples: [
+          { code: "SELECT JSON_VALUE(detalle, '$.cliente.nombre') AS nombre_cliente\nFROM   pedidos_json;" }
+        ] },
+      { heading: "5. JSON_TABLE: convertir JSON en filas y columnas relacionales",
+        explanation: "JSON_TABLE proyecta un documento JSON (típicamente un array de objetos) como si fuera una tabla relacional normal, con una fila por elemento del array y una columna por cada campo extraído, permitiendo usarlo en el FROM como cualquier otra fuente de datos, incluso dentro de un JOIN.",
+        syntax: "SELECT ...\nFROM   tabla,\n       JSON_TABLE(columna_json, 'ruta_al_array'\n         COLUMNS (col1 tipo PATH '$.campo1', col2 tipo PATH '$.campo2')\n       ) alias_json",
+        examples: [
+          { code: "SELECT jt.producto, jt.cantidad\nFROM   pedidos_json p,\n       JSON_TABLE(p.detalle, '$.lineas[*]'\n         COLUMNS (producto VARCHAR2(50) PATH '$.producto',\n                   cantidad NUMBER      PATH '$.cantidad')\n       ) jt;" }
+        ] }
+    ],
+    oracleNotes: [
+      "PIVOT necesita conocer de antemano los valores concretos que se convertirán en columnas (se escriben explícitamente en el FOR ... IN); no genera columnas dinámicamente según los datos que haya en cada momento.",
+      "Los valores IN de PIVOT deben coincidir exactamente (incluidas mayúsculas/minúsculas si son texto) con los valores reales de la columna, o esa 'columna nueva' aparecerá siempre con NULL.",
+      "IS JSON no garantiza que el JSON tenga la ESTRUCTURA esperada, solo que es sintácticamente válido: un JSON válido pero con campos distintos a los esperados pasaría igualmente esa comprobación.",
+      "JSON_VALUE solo extrae valores ESCALARES (un texto o número); si la ruta apunta a un objeto o array completo, hay que usar JSON_QUERY en su lugar, no JSON_VALUE.",
+      "El soporte de JSON nativo (tipo JSON como tipo de dato de primera clase, no solo texto validado) varía según la versión concreta de Oracle; las funciones JSON_VALUE/JSON_TABLE funcionan igual sobre una columna de texto validada con IS JSON."
+    ]
+  },
+  summary: [
+    "PIVOT convierte valores de una columna en columnas nuevas, agregando una métrica para cada uno.",
+    "UNPIVOT hace lo inverso: convierte columnas en filas, con una columna identificadora y otra de valor.",
+    "IS JSON valida que el contenido de una columna de texto sea JSON sintácticamente correcto.",
+    "JSON_VALUE extrae un valor escalar de un documento JSON mediante una ruta JSON Path.",
+    "JSON_TABLE proyecta un array JSON como filas y columnas relacionales, usable en FROM."
+  ],
+  comparisonTable: {
+    title: "PIVOT/UNPIVOT y funciones JSON de un vistazo",
+    headers: ["Operación", "Dirección", "Resultado"],
+    rows: [
+      ["PIVOT", "Filas → columnas", "Una columna nueva por cada valor listado en FOR...IN"],
+      ["UNPIVOT", "Columnas → filas", "Una fila por cada columna original, con etiqueta y valor"],
+      ["JSON_VALUE", "JSON → escalar", "Un texto o número extraído de una ruta JSON Path"],
+      ["JSON_TABLE", "JSON → tabla relacional", "Varias filas/columnas, usable en FROM/JOIN"]
+    ]
+  },
+  mindMap: [
+    { topic: "Módulo 19 — PIVOT/UNPIVOT y JSON", children: [
+      "PIVOT → filas a columnas, FOR columna IN (valores)",
+      "UNPIVOT → columnas a filas, columna identificadora + columna valor",
+      "JSON básico → almacenado como texto (VARCHAR2/CLOB), validado con IS JSON",
+      "JSON_VALUE → extrae un escalar por JSON Path",
+      "JSON_TABLE → proyecta un array JSON como tabla, usable en FROM/JOIN"
+    ] }
+  ],
+  sourceRefs: [
+    "Oracle SQL Language Reference 19c — \"PIVOT Clause\", \"UNPIVOT Clause\"",
+    "Oracle SQL Language Reference 19c — \"JSON Conditions and Functions\" (IS JSON, JSON_VALUE, JSON_TABLE)"
+  ],
+  realCases: {
+    business: "Un informe financiero convierte una tabla de gastos con una fila por mes en un cuadro cruzado con un mes por columna (formato típico de hoja de cálculo) usando PIVOT, para presentarlo directamente en un comité.",
+    dataEngineering: "Un ingeniero de datos recibe una tabla de métricas ya pivotada (una columna por trimestre) desde un sistema externo y la normaliza con UNPIVOT antes de cargarla en un modelo de hechos con una fila por periodo.",
+    etl: "Un proceso ETL que integra eventos de una API externa en formato JSON los almacena tal cual en una columna CLOB validada con IS JSON, y usa JSON_TABLE para explotar cada evento en filas normalizadas durante la fase de transformación.",
+    reporting: "Un dashboard que consume una configuración de usuario almacenada como JSON en una tabla de preferencias usa JSON_VALUE para extraer directamente el tema visual o el idioma preferido sin tener que parsear el documento completo en la capa de aplicación."
+  },
+  mistakes: [
+    { mistake: "Esperar que PIVOT genere columnas dinámicamente según los datos existentes.", why: "PIVOT exige listar explícitamente los valores en FOR...IN; si aparece un valor nuevo en los datos que no está en esa lista, simplemente no genera una columna para él, sin ningún aviso." },
+    { mistake: "Escribir mal un valor de texto en el FOR...IN de un PIVOT (mayúsculas/minúsculas distintas a las reales).", why: "Si el valor no coincide exactamente con los datos reales de la columna, esa columna del resultado aparecerá siempre en NULL, sin lanzar ningún error que lo delate." },
+    { mistake: "Usar JSON_VALUE para extraer un array u objeto completo.", why: "JSON_VALUE solo puede devolver un escalar (texto o número); si la ruta apunta a una estructura compleja, devuelve NULL o error según configuración, y hace falta JSON_QUERY para extraer esa estructura completa." },
+    { mistake: "Pensar que IS JSON garantiza que el documento tiene los campos esperados.", why: "IS JSON solo valida la sintaxis general (llaves, comas, comillas bien formadas), no la presencia ni el tipo de ningún campo concreto dentro del documento." }
+  ],
+  exercises: [
+    { title: "PIVOT simple", difficulty: "básico", prompt: "Convierte una tabla employees(department_id, job_id, salary) en un cuadro con una columna por cada uno de los job_id 'SA_REP' y 'IT_PROG', sumando el salario.", hint: "PIVOT (SUM(salary) FOR job_id IN (...))", solution: "SELECT *\nFROM (SELECT department_id, job_id, salary FROM employees)\nPIVOT (\n  SUM(salary)\n  FOR job_id IN ('SA_REP' AS ventas, 'IT_PROG' AS it)\n);" },
+    { title: "Validar JSON con IS JSON", difficulty: "básico", prompt: "Escribe una condición que compruebe si la columna 'detalle' de una tabla contiene JSON válido.", hint: "columna IS JSON", solution: "SELECT * FROM pedidos_json WHERE detalle IS JSON;" },
+    { title: "UNPIVOT de una tabla trimestral", difficulty: "intermedio", prompt: "Dada ventas_trimestrales(anio, q1, q2, q3, q4), conviértela en filas (anio, trimestre, importe).", hint: "UNPIVOT (importe FOR trimestre IN (...))", solution: "SELECT *\nFROM ventas_trimestrales\nUNPIVOT (\n  importe\n  FOR trimestre IN (q1 AS 'Q1', q2 AS 'Q2', q3 AS 'Q3', q4 AS 'Q4')\n);" },
+    { title: "Extraer un campo con JSON_VALUE", difficulty: "intermedio", prompt: "Extrae el nombre del cliente almacenado en la ruta $.cliente.nombre de la columna JSON 'detalle'.", hint: "JSON_VALUE(columna, ruta)", solution: "SELECT JSON_VALUE(detalle, '$.cliente.nombre') AS nombre_cliente FROM pedidos_json;" },
+    { title: "Proyectar un array JSON con JSON_TABLE", difficulty: "avanzado", prompt: "Dado un documento JSON con un array 'lineas' de objetos {producto, cantidad}, proyecta cada línea como una fila con columnas producto y cantidad.", hint: "JSON_TABLE(..., '$.lineas[*]' COLUMNS (...))", solution: "SELECT jt.producto, jt.cantidad\nFROM pedidos_json p,\n     JSON_TABLE(p.detalle, '$.lineas[*]'\n       COLUMNS (producto VARCHAR2(50) PATH '$.producto',\n                 cantidad NUMBER PATH '$.cantidad')\n     ) jt;" },
+    { title: "Elegir entre PIVOT manual con CASE y PIVOT declarativo", difficulty: "avanzado", prompt: "Reescribe con CASE (sin usar PIVOT) la consulta del ejercicio de PIVOT simple, y compara la legibilidad de ambas versiones.", hint: "SUM(CASE WHEN job_id = '...' THEN salary END)", solution: "SELECT department_id,\n  SUM(CASE WHEN job_id = 'SA_REP' THEN salary END) AS ventas,\n  SUM(CASE WHEN job_id = 'IT_PROG' THEN salary END) AS it\nFROM employees\nGROUP BY department_id;\n-- Produce el mismo resultado que PIVOT, pero repite la lógica condicional por cada columna en vez de declarar la lista de valores una sola vez en FOR...IN, lo que se vuelve menos legible cuantos más valores se giren." }
+  ],
+  solved: [
+    { title: "Convertir una tabla de hechos en un cuadro cruzado para un informe",
+      problem: "Tienes ventas(vendedor, mes, importe) con una fila por vendedor y mes, y necesitas un cuadro con un vendedor por fila y un mes por columna.",
+      steps: [
+        "Identificas la columna que se convertirá en filas (vendedor, se mantiene tal cual) y la que se convertirá en columnas (mes).",
+        "Eliges la función de agregación a aplicar en cada celda (SUM(importe), asumiendo un solo registro por vendedor y mes; si hubiera varios, SUM los sumaría todos).",
+        "Listas explícitamente los meses que quieres como columnas en FOR mes IN (...).",
+        "Ejecutas y verificas que cada combinación vendedor-mes aparece en la celda correcta."
+      ],
+      query: "SELECT *\nFROM   (SELECT vendedor, mes, importe FROM ventas)\nPIVOT (\n  SUM(importe)\n  FOR mes IN ('ENE' AS enero, 'FEB' AS febrero, 'MAR' AS marzo)\n);",
+      result: "Un vendedor por fila, con una columna por cada mes listado y el importe correspondiente." },
+    { title: "Extraer y filtrar por un campo anidado en JSON",
+      problem: "Tienes pedidos_json(id, detalle) donde detalle es un documento JSON con un campo anidado cliente.pais, y necesitas los pedidos de clientes de 'España'.",
+      steps: [
+        "Identificas la ruta JSON Path exacta: $.cliente.pais.",
+        "Usas JSON_VALUE para extraer ese campo como texto escalar.",
+        "Filtras en el WHERE comparando el resultado de JSON_VALUE con el texto 'España'.",
+        "Verificas que los documentos que no tienen ese campo devuelven NULL y quedan excluidos del filtro."
+      ],
+      query: "SELECT id\nFROM   pedidos_json\nWHERE  JSON_VALUE(detalle, '$.cliente.pais') = 'España';",
+      result: "Devuelve solo los pedidos cuyo documento JSON tiene cliente.pais = 'España'." }
+  ],
+  flashcards: [
+    { front: "¿Qué hace PIVOT?", back: "Convierte valores de una columna en columnas nuevas, agregando una métrica en cada una." },
+    { front: "¿Qué hace UNPIVOT?", back: "Convierte columnas en filas, generando una columna identificadora y otra de valor." },
+    { front: "¿Qué necesita conocer PIVOT de antemano?", back: "Los valores exactos que se convertirán en columnas, listados en FOR...IN." },
+    { front: "¿Qué valida IS JSON?", back: "Que el contenido de una columna de texto sea JSON sintácticamente válido." },
+    { front: "¿Qué extrae JSON_VALUE?", back: "Un único valor escalar (texto o número) de un documento JSON, según una ruta JSON Path." },
+    { front: "¿Qué función se usa si la ruta JSON apunta a un objeto o array completo?", back: "JSON_QUERY, no JSON_VALUE." },
+    { front: "¿Qué hace JSON_TABLE?", back: "Proyecta un array JSON como filas y columnas relacionales, usable en FROM." },
+    { front: "¿Qué ocurre si un valor real no está en la lista FOR...IN de un PIVOT?", back: "No se genera columna para él; sus datos no aparecen en el resultado pivotado." }
+  ],
+  examples: [
+    { title: "PIVOT", code: "SELECT *\nFROM (SELECT department_id, job_id, salary FROM employees)\nPIVOT (\n  SUM(salary)\n  FOR job_id IN ('SA_REP' AS ventas, 'IT_PROG' AS it)\n);" },
+    { title: "JSON_VALUE", code: "SELECT JSON_VALUE(detalle, '$.cliente.nombre') AS nombre_cliente\nFROM pedidos_json;" },
+    { title: "JSON_TABLE", code: "SELECT jt.producto, jt.cantidad\nFROM pedidos_json p,\n     JSON_TABLE(p.detalle, '$.lineas[*]'\n       COLUMNS (producto VARCHAR2(50) PATH '$.producto',\n                 cantidad NUMBER PATH '$.cantidad')\n     ) jt;" }
+  ],
+  quiz: [
+    { q: "¿Qué hace la cláusula PIVOT?", options: [
+        "Convierte columnas en filas", "Convierte valores de una columna en columnas nuevas, agregando una métrica",
+        "Ordena el resultado de forma descendente", "Elimina filas duplicadas"
+      ], a: 1,
+      why: [
+        "Eso describe UNPIVOT, no PIVOT.",
+        "Correcta: PIVOT gira valores de una columna hacia nuevas columnas del resultado.",
+        "No tiene relación directa con ordenación.",
+        "No elimina duplicados; esa es función de DISTINCT."
+      ] },
+    { q: "¿Qué necesita especificar obligatoriamente un PIVOT para saber qué columnas generar?", options: [
+        "Nada, las genera automáticamente según los datos", "La lista explícita de valores en la cláusula FOR...IN",
+        "Un índice sobre la columna a girar", "Una vista materializada previa"
+      ], a: 1,
+      why: [
+        "No las genera automáticamente: si un valor no está en la lista, no aparece como columna.",
+        "Correcta: FOR...IN debe listar explícitamente los valores que se convertirán en columnas.",
+        "No requiere ningún índice para funcionar.",
+        "No requiere una vista materializada previa; funciona sobre cualquier fuente de filas."
+      ] },
+    { q: "¿Qué genera UNPIVOT a partir de varias columnas?", options: [
+        "Una sola columna con la suma de todas", "Una fila por cada columna original, con una columna identificadora y otra de valor",
+        "Una tabla vacía si hay NULL", "Un índice nuevo sobre esas columnas"
+      ], a: 1,
+      why: [
+        "No suma nada: reestructura, no agrega.",
+        "Correcta: es exactamente el patrón de columnas a filas que produce UNPIVOT.",
+        "Los NULL no vacían la tabla resultante; simplemente aparecen como valores NULL en las filas generadas.",
+        "No crea ningún índice como parte de su función."
+      ] },
+    { q: "¿Qué comprueba la condición IS JSON?", options: [
+        "Que el documento tenga un campo concreto", "Que el contenido de la columna sea JSON sintácticamente válido",
+        "Que el JSON tenga menos de 4000 caracteres", "Que el JSON esté ordenado alfabéticamente por clave"
+      ], a: 1,
+      why: [
+        "No comprueba campos concretos; solo la validez sintáctica general.",
+        "Correcta: valida que el texto tenga una estructura JSON bien formada.",
+        "No impone ningún límite de longitud como parte de su comprobación.",
+        "JSON no tiene un concepto de 'orden alfabético' obligatorio de claves; IS JSON no lo exige."
+      ] },
+    { q: "¿Qué tipo de valor puede devolver JSON_VALUE?", options: [
+        "Un array completo", "Un objeto JSON completo", "Un único valor escalar (texto o número)", "Una tabla de varias filas"
+      ], a: 2,
+      why: [
+        "Un array completo requeriría JSON_QUERY, no JSON_VALUE.",
+        "Un objeto completo también requeriría JSON_QUERY.",
+        "Correcta: JSON_VALUE está limitado a devolver un escalar.",
+        "Una tabla de varias filas es lo que produce JSON_TABLE, no JSON_VALUE."
+      ] },
+    { q: "¿Para qué se usa JSON_TABLE?", options: [
+        "Para validar que un documento es JSON válido", "Para proyectar un documento JSON (típicamente un array) como filas y columnas relacionales",
+        "Para convertir una tabla relacional en JSON", "Para comprimir un documento JSON"
+      ], a: 1,
+      why: [
+        "Esa es la función de IS JSON, no de JSON_TABLE.",
+        "Correcta: JSON_TABLE convierte JSON en un formato tabular usable en FROM.",
+        "El camino inverso (relacional a JSON) usaría otras funciones, como JSON_OBJECT o similares, no JSON_TABLE.",
+        "JSON_TABLE no comprime nada; proyecta estructura, no maneja tamaño de almacenamiento."
+      ] },
+    { q: "¿Qué ocurre si el valor real de una columna no coincide exactamente (mayúsculas incluidas) con el especificado en el FOR...IN de un PIVOT?", options: [
+        "Oracle lo normaliza automáticamente e ignora mayúsculas/minúsculas", "Esa columna del resultado aparece siempre en NULL para esas filas",
+        "Da un error de sintaxis inmediato", "El PIVOT se cancela por completo sin devolver ningún resultado"
+      ], a: 1,
+      why: [
+        "Oracle no normaliza mayúsculas automáticamente en esta comparación.",
+        "Correcta: si no hay coincidencia exacta, esa columna queda en NULL para las filas afectadas, sin ningún aviso.",
+        "No es un error de sintaxis: la sentencia se ejecuta con normalidad, solo con datos incorrectos.",
+        "El PIVOT completo no se cancela; simplemente esa columna concreta no recibe los valores esperados."
+      ] },
+    { q: "¿Qué tipo de columna usa Oracle habitualmente para almacenar un documento JSON como texto?", options: ["NUMBER", "DATE", "VARCHAR2 o CLOB", "ROWID"], a: 2,
+      why: [
+        "NUMBER no puede almacenar texto JSON.",
+        "DATE tampoco es un tipo adecuado para almacenar texto JSON.",
+        "Correcta: VARCHAR2 (para documentos cortos) o CLOB (para documentos largos) son los tipos habituales.",
+        "ROWID no tiene relación con el almacenamiento de contenido JSON."
+      ] },
+    { q: "¿Qué diferencia hay entre PIVOT y escribir manualmente varias funciones de grupo con CASE WHEN?", options: [
+        "Ninguna diferencia de resultado; PIVOT es solo una sintaxis más declarativa para el mismo cálculo", "PIVOT es una operación de solo lectura, mientras que CASE WHEN permite modificar datos",
+        "PIVOT no admite ninguna función de agregación", "CASE WHEN no puede combinarse nunca con GROUP BY"
+      ], a: 0,
+      why: [
+        "Correcta: ambas técnicas logran el mismo resultado; PIVOT simplemente evita repetir la lógica condicional columna por columna.",
+        "Ninguna de las dos técnicas modifica datos: ambas son parte de un SELECT de solo lectura.",
+        "PIVOT sí admite funciones de agregación; de hecho las requiere (SUM, COUNT, AVG...).",
+        "CASE WHEN se combina habitualmente con GROUP BY, precisamente en la técnica manual equivalente a PIVOT."
+      ] },
+    { q: "¿Qué necesita una ruta JSON Path para referirse al documento raíz?", options: ["#", "@", "$", "%"], a: 2,
+      why: [
+        "# no es el símbolo usado para el documento raíz en JSON Path.",
+        "@ no es el símbolo del documento raíz (se usa en otros contextos de algunas implementaciones, no como raíz aquí).",
+        "Correcta: $ representa el documento JSON raíz en la notación JSON Path usada por Oracle.",
+        "% no tiene ningún significado especial en JSON Path."
+      ] }
+  ],
+  challenges: [
+    { level: 1, prompt: "Convierte una tabla ventas(region, trimestre, importe) en un cuadro con una columna por cada trimestre Q1-Q4, sumando el importe por región.", solution: "SELECT *\nFROM (SELECT region, trimestre, importe FROM ventas)\nPIVOT (\n  SUM(importe)\n  FOR trimestre IN ('Q1' AS q1, 'Q2' AS q2, 'Q3' AS q3, 'Q4' AS q4)\n);" },
+    { level: 2, prompt: "Explica por qué JSON_VALUE devuelve NULL (y no un error) cuando la ruta indicada no existe en el documento, y qué ventaja práctica tiene ese comportamiento por defecto.", solution: "Por defecto, JSON_VALUE trata una ruta ausente como 'sin valor' en vez de como un fallo, devolviendo NULL (comportamiento ON ERROR NULL, el predeterminado); esto permite consultar documentos JSON con estructuras ligeramente distintas entre filas (campos opcionales) sin que toda la consulta falle por un documento que simplemente no tiene ese campo concreto, tratándolo igual que una columna NULL en una tabla relacional normal." }
+  ]
+},
+
+// =====================================================================
+// NIVEL 20 — SIMULACROS
+// =====================================================================
+{
+  id: 20, code: "M20", category: null,
   title: "Simulacros tipo Oracle 1Z0-071",
   intro: "Exámenes cronometrados con preguntas mezcladas de todos los temas anteriores.",
   isExamLevel: true,
@@ -4596,10 +4833,10 @@ levels: [
 },
 
 // =====================================================================
-// NIVEL EXPERTO
+// NIVEL 21 — EXPERTO
 // =====================================================================
 {
-  id: 17, code: "EXP", category: null,
+  id: 21, code: "M21", category: null,
   title: "Nivel experto — retos mezclados de dificultad de examen",
   intro: "El desafío final: preguntas de mayor dificultad, mezclando trampas típicas del temario 1Z0-071.",
   isExamLevel: true,
@@ -4621,8 +4858,8 @@ levels: [
 ], // end levels
 
 // =====================================================================
-// BANCO ADICIONAL PARA SIMULACROS (niveles 16 y experto)
-// Se combina con todas las preguntas de quiz de los niveles 0-15.
+// BANCO ADICIONAL PARA SIMULACROS (niveles 20 y 21 — experto)
+// Se combina con todas las preguntas de quiz de los niveles 0-19.
 // =====================================================================
 examBank: [
   { category: "SELECT", q: "¿Qué devuelve 'SELECT 10/0 FROM DUAL;' en Oracle?", options: ["0", "NULL", "Error ORA-01476: divisor is equal to zero", "Infinito"], a: 2, exp: "Oracle lanza un error explícito de división por cero, no devuelve NULL ni infinito." },

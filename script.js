@@ -13,6 +13,7 @@ const PASS_RATIO = 0.7; // % mínimo de aciertos en el quiz de un nivel para dar
 function defaultState() {
   return {
     xp: 0,
+    contentVersion: 2, // ver migrateContentV2(): estructura de módulos 0-21 vigente desde esta versión
     levels: {},        // { [levelId]: { quizScore, quizTotal, quizDone, exercisesDone: [idx], challengesDone: [idx], completed } }
     errorLog: [],       // { id, question, options, correctIndex, yourIndex, explain, topic, category, ts }
     badges: [],         // lista de ids de insignia conseguidas
@@ -33,7 +34,11 @@ function loadState() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return defaultState();
     const parsed = JSON.parse(raw);
-    return Object.assign(defaultState(), parsed);
+    const merged = Object.assign(defaultState(), parsed);
+    // Un guardado antiguo nunca tuvo "contentVersion": si el JSON crudo no lo trae,
+    // no debe heredar el 2 de defaultState() (eso ocultaría la migración pendiente).
+    merged.contentVersion = parsed.contentVersion || 1;
+    return merged;
   } catch (e) {
     return defaultState();
   }
@@ -42,6 +47,29 @@ function loadState() {
 function saveState() {
   if (DEMO_ACTIVE) return; // los datos ficticios del modo demo nunca se persisten
   localStorage.setItem(STORAGE_KEY, JSON.stringify(STATE));
+}
+
+/* ---------------- Migración de contenido (reestructuración de módulos 0-21) ---------------- */
+/* Los módulos 8-14 mantienen su id y su tema (JOINs, Subconsultas, Conjuntos, DML, DDL,
+   Constraints, Vistas/secuencias/sinónimos), así que su progreso se conserva sin cambios.
+   Los módulos 0-7 cambiaron de contenido (nueva división de funciones, fusión de GROUP BY),
+   y los módulos 15+ son nuevos o se reordenaron: se resetea su progreso una sola vez.
+   Los dos niveles de simulacro conservan su historial, migrando su id: 16→20, 17→21. */
+function migrateContentV2() {
+  if (STATE.contentVersion === 2) return;
+  const KEEP_IDS = [8, 9, 10, 11, 12, 13, 14];
+  const kept = {};
+  KEEP_IDS.forEach(id => { if (STATE.levels[id]) kept[id] = STATE.levels[id]; });
+  if (STATE.levels[16]) kept[20] = STATE.levels[16];
+  if (STATE.levels[17]) kept[21] = STATE.levels[17];
+  STATE.levels = kept;
+  STATE.examHistory = (STATE.examHistory || []).map(e => {
+    if (e.levelId === 16) return Object.assign({}, e, { levelId: 20 });
+    if (e.levelId === 17) return Object.assign({}, e, { levelId: 21 });
+    return e;
+  });
+  STATE.contentVersion = 2;
+  saveState();
 }
 
 function getLevelState(levelId) {
@@ -85,11 +113,11 @@ function addXP(amount) {
 
 const RANKS = [
   { id: "r1", name: "SQL Explorer", min: 0 },
-  { id: "r2", name: "Query Builder", min: 3 },
-  { id: "r3", name: "Join Master", min: 6 },
-  { id: "r4", name: "Aggregate Expert", min: 9 },
-  { id: "r5", name: "Oracle Specialist", min: 12 },
-  { id: "r6", name: "Certification Ready", min: 16 }
+  { id: "r2", name: "Query Builder", min: 4 },
+  { id: "r3", name: "Join Master", min: 8 },
+  { id: "r4", name: "Aggregate Expert", min: 12 },
+  { id: "r5", name: "Oracle Specialist", min: 16 },
+  { id: "r6", name: "Certification Ready", min: 20 }
 ];
 
 function getCurrentRank() {
@@ -132,15 +160,15 @@ function renderRankStepper() {
 const BADGE_DEFS = [
   { id: "badge_sql_explorer", name: "SQL Explorer", group: "rango", desc: "Completa el Nivel 1 · SELECT básico.", check: s => !!(s.levels[1] && s.levels[1].completed) },
   { id: "badge_join_master", name: "Join Master", group: "rango", desc: "Completa el Nivel 8 · JOINs.", check: s => !!(s.levels[8] && s.levels[8].completed) },
-  { id: "badge_aggregate_expert", name: "Aggregate Expert", group: "rango", desc: "Completa el Nivel 7 · GROUP BY y HAVING.", check: s => !!(s.levels[7] && s.levels[7].completed) },
+  { id: "badge_aggregate_expert", name: "Aggregate Expert", group: "rango", desc: "Completa el Nivel 7 · Funciones de grupo y agregación.", check: s => !!(s.levels[7] && s.levels[7].completed) },
   { id: "badge_subquery_hunter", name: "Subquery Hunter", group: "rango", desc: "Completa el Nivel 9 · Subconsultas.", check: s => !!(s.levels[9] && s.levels[9].completed) },
-  { id: "badge_oracle_specialist", name: "Oracle Specialist", group: "rango", desc: "Completa el Nivel 15 · Control de transacciones.", check: s => !!(s.levels[15] && s.levels[15].completed) },
-  { id: "badge_certification_ready", name: "Certification Ready", group: "rango", desc: "Completa los 16 niveles base (N0 a N15).", check: s => APP_DATA.levels.filter(l => !l.isExamLevel).every(l => s.levels[l.id] && s.levels[l.id].completed) },
+  { id: "badge_oracle_specialist", name: "Oracle Specialist", group: "rango", desc: "Completa el Nivel 11 · DML y control de transacciones.", check: s => !!(s.levels[11] && s.levels[11].completed) },
+  { id: "badge_certification_ready", name: "Certification Ready", group: "rango", desc: "Completa los 20 niveles base (M0 a M19).", check: s => APP_DATA.levels.filter(l => !l.isExamLevel).every(l => s.levels[l.id] && s.levels[l.id].completed) },
 
   { id: "b_start", name: "Primer paso", group: "logro", desc: "Empieza a trabajar en cualquier nivel.", check: s => Object.values(s.levels).some(l => l.completed || l.quizDone || l.exercisesDone.length > 0 || l.challengesDone.length > 0) },
   { id: "b_perfectquiz", name: "Quiz perfecto", group: "logro", desc: "Acierta el 100% de las preguntas del quiz de un nivel.", check: s => Object.values(s.levels).some(l => l.quizDone && l.quizTotal > 0 && l.quizScore === l.quizTotal) },
   { id: "b_exam1", name: "Primer simulacro superado", group: "logro", desc: "Aprueba (≥70%) cualquier simulacro cronometrado.", check: s => s.examHistory.some(e => e.score / e.total >= 0.7) },
-  { id: "b_expert", name: "Nivel experto superado", group: "logro", desc: "Aprueba (≥70%) el simulacro del Nivel Experto.", check: s => s.examHistory.some(e => e.levelId === 17 && e.score / e.total >= 0.7) },
+  { id: "b_expert", name: "Nivel experto superado", group: "logro", desc: "Aprueba (≥70%) el simulacro del Nivel Experto.", check: s => s.examHistory.some(e => e.levelId === 21 && e.score / e.total >= 0.7) },
   { id: "b_reviewer", name: "Repasador aplicado", group: "logro", desc: "Acumula 10 elementos en tu registro de errores (señal de que practicas de verdad).", check: s => s.errorLog.length >= 10 },
   { id: "b_streak3", name: "Racha de 3 días", group: "logro", desc: "Entra a estudiar 3 días seguidos.", check: s => s.streakDays >= 3 }
 ];
@@ -697,7 +725,7 @@ function renderLandingCards() {
   const totalLevels = APP_DATA.levels.filter(l => !l.isExamLevel).length;
 
   const cards = [
-    { title: "Teoría", desc: "18 niveles con contenido Oracle real, marcado por origen.", status: `${totalLevels} niveles disponibles`, action: () => enterApp("level", findNextLevelToStudy().id) },
+    { title: "Teoría", desc: "Apuntes completos por módulo, basados en la documentación oficial de Oracle.", status: `${totalLevels} niveles disponibles`, action: () => enterApp("level", findNextLevelToStudy().id) },
     { title: "Ejercicios", desc: "Practica cada bloque con ejercicios guiados y solución explicada.", status: `${exDone}/${exTotal} resueltos`, action: () => enterApp("level", findNextLevelToStudy().id) },
     { title: "Retos", desc: "Dificultad progresiva para poner a prueba lo aprendido.", status: `${chDone}/${chTotal} superados`, action: () => enterApp("level", findNextLevelToStudy().id) },
     { title: "Simuladores", desc: "Exámenes cronometrados con las preguntas reales importadas de los exámenes Oracle.", status: bestExam !== null ? `Mejor resultado: ${bestExam}%` : "Aún no realizado", action: () => { if (typeof CERT_TAB !== "undefined") CERT_TAB = "exam"; enterApp("certbank"); } },
@@ -1709,6 +1737,7 @@ function on(id, handler) {
 }
 
 function init() {
+  migrateContentV2();
   updateStreak();
   checkBadges();
   on("btn-dashboard", () => navigate("dashboard"));
