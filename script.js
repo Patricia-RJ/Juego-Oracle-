@@ -163,6 +163,7 @@ const BADGE_DEFS = [
   { id: "badge_aggregate_expert", name: "Aggregate Expert", group: "rango", desc: "Completa el Nivel 7 · Funciones de grupo y agregación.", check: s => !!(s.levels[7] && s.levels[7].completed) },
   { id: "badge_subquery_hunter", name: "Subquery Hunter", group: "rango", desc: "Completa el Nivel 9 · Subconsultas.", check: s => !!(s.levels[9] && s.levels[9].completed) },
   { id: "badge_oracle_specialist", name: "Oracle Specialist", group: "rango", desc: "Completa el Nivel 11 · DML y control de transacciones.", check: s => !!(s.levels[11] && s.levels[11].completed) },
+  { id: "badge_advanced_master", name: "Advanced SQL Master", group: "rango", desc: "Completa los 5 módulos avanzados: Control de acceso, Diccionario de datos, Jerárquicas, Analíticas y JSON (M15 a M19).", check: s => ADVANCED_BLOCK_IDS.every(id => s.levels[id] && s.levels[id].completed) },
   { id: "badge_certification_ready", name: "Certification Ready", group: "rango", desc: "Completa los 20 niveles base (M0 a M19).", check: s => APP_DATA.levels.filter(l => !l.isExamLevel).every(l => s.levels[l.id] && s.levels[l.id].completed) },
 
   { id: "b_start", name: "Primer paso", group: "logro", desc: "Empieza a trabajar en cualquier nivel.", check: s => Object.values(s.levels).some(l => l.completed || l.quizDone || l.exercisesDone.length > 0 || l.challengesDone.length > 0) },
@@ -355,8 +356,23 @@ function toast(msg) {
   toast._t = setTimeout(() => el.classList.remove("show"), 2200);
 }
 
+// Los 5 módulos avanzados (15-19: control de acceso, diccionario, jerárquicas,
+// analíticas, JSON) no dependen entre sí: se desbloquean juntos al completar el
+// bloque base (0-14), en vez de exigir un orden estricto entre ellos.
+const ADVANCED_BLOCK_IDS = [15, 16, 17, 18, 19];
+const ADVANCED_BLOCK_GATE_ID = 14;
+
 function isLevelUnlocked(levelId) {
   if (levelId === 0) return true;
+  if (ADVANCED_BLOCK_IDS.includes(levelId)) {
+    const gate = STATE.levels[ADVANCED_BLOCK_GATE_ID];
+    return !!(gate && gate.completed);
+  }
+  // El simulacro (20) no depende de un único "nivel anterior": como el bloque
+  // avanzado ya no es lineal, se exige tener los 5 módulos avanzados completos.
+  if (levelId === 20) {
+    return ADVANCED_BLOCK_IDS.every(id => STATE.levels[id] && STATE.levels[id].completed);
+  }
   const prev = APP_DATA.levels.find(l => l.id === levelId - 1);
   if (!prev) return true;
   const prevState = STATE.levels[prev.id];

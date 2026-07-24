@@ -74,15 +74,28 @@ html, body {
 
 .brand {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
   padding: 4px 4px 8px;
   cursor: pointer;
   border-radius: var(--radius-sm);
   transition: background .15s ease;
 }
 .brand:hover { background: var(--bg-card-hover); }
-.brand-logo { height: 26px; width: auto; display: block; filter: drop-shadow(0 0 6px rgba(109,100,255,.35)); }
+/* logo.png es un lienzo cuadrado de 400x400 con el wordmark real ocupando solo una
+   franja estrecha en el centro; se recorta con background-position/-size en vez de
+   escalar el <img> completo, o el logo "grande" seguiría viéndose diminuto. */
+.brand-logo {
+  width: 147px;
+  height: 34px;
+  display: block;
+  background-image: url('logo.png');
+  background-repeat: no-repeat;
+  background-size: 174px 174px;
+  background-position: -15px -68px;
+  filter: drop-shadow(0 0 6px rgba(109,100,255,.35));
+}
 .brand h1 {
   font-size: 16px;
   margin: 0;
@@ -858,8 +871,16 @@ pre.code-block {
   gap: 12px;
 }
 .landing-brand { display: flex; align-items: center; gap: 14px; }
-.landing-logo { height: 30px; width: auto; }
-.landing-brand-divider { width: 1px; height: 22px; background: var(--border); }
+.landing-logo {
+  width: 191px;
+  height: 44px;
+  display: block;
+  background-image: url('logo.png');
+  background-repeat: no-repeat;
+  background-size: 226px 226px;
+  background-position: -19px -88px;
+}
+.landing-brand-divider { width: 1px; height: 30px; background: var(--border); }
 .landing-brand-name { font-weight: 700; font-size: 15px; letter-spacing: .01em; }
 .landing-nav-pills { display: flex; gap: 8px; flex-wrap: wrap; }
 
