@@ -1108,13 +1108,6 @@ function renderCertAdmin(container) {
       <p class="cert-hint">Los cambios de este panel (aprobar/rechazar, editar tema/dificultad, fusionar duplicados) se guardan solo en este navegador: no hay backend que los comparta entre equipos (ver AUDIT_REPORT.md).</p>
       <div class="cert-admin-tabs">
         <button data-f="all">Todas</button>
-        <button data-f="pending_review">Pendientes de revisión</button>
-        <button data-f="duplicate">Duplicados</button>
-        <button data-f="validated">Validadas (heurística)</button>
-        <button data-f="approved">Aprobadas</button>
-        <button data-f="rejected">Rechazadas</button>
-        <button data-f="images">Contenido visual</button>
-        <button data-f="validation">Validaciones</button>
       </div>
       <div id="cert-admin-content"></div>
     </div>
