@@ -4089,7 +4089,7 @@ levels: [
 // NIVEL 17
 // =====================================================================
 {
-  id: 17, code: "M17", category: "Avanzado",
+  id: 17, code: "M17", category: "Jerárquicas",
   title: "Consultas jerárquicas y expresiones regulares",
   intro: "Dos herramientas exclusivas del SQL de Oracle para casos que el SQL básico no resuelve bien: recorrer estructuras de árbol (organigramas, categorías anidadas) y buscar patrones de texto complejos.",
   theory: {
@@ -4332,7 +4332,7 @@ levels: [
 // NIVEL 18
 // =====================================================================
 {
-  id: 18, code: "M18", category: "Avanzado",
+  id: 18, code: "M18", category: "Analíticas",
   title: "Funciones analíticas (de ventana)",
   intro: "Cálculos que comparan cada fila con un grupo de filas relacionadas (una 'ventana') sin colapsarlas en una sola, como hace GROUP BY: rankings, comparación con la fila anterior/siguiente, y totales acumulados.",
   theory: {
@@ -4573,7 +4573,7 @@ levels: [
 // NIVEL 19
 // =====================================================================
 {
-  id: 19, code: "M19", category: "Avanzado",
+  id: 19, code: "M19", category: "JSON",
   title: "PIVOT/UNPIVOT y datos semiestructurados (JSON)",
   intro: "Girar filas en columnas (y viceversa) sin escribir CASE manuales, y consultar datos JSON almacenados en Oracle como si fueran columnas relacionales.",
   theory: {

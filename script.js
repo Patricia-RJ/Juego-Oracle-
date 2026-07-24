@@ -190,25 +190,37 @@ function checkBadges() {
 /* ---------------- Categorías del temario (Analytics / informe del simulador) ---------------- */
 
 const CATEGORIES = [
+  { id: "Fundamentos" },
   { id: "SELECT" },
-  { id: "JOINS" },
   { id: "Funciones" },
   { id: "GROUP BY" },
+  { id: "JOINS" },
   { id: "Subconsultas" },
-  { id: "DDL" },
   { id: "DML" },
-  { id: "Restricciones" }
+  { id: "DDL" },
+  { id: "Restricciones" },
+  { id: "DCL" },
+  { id: "Diccionario" },
+  { id: "Jerárquicas" },
+  { id: "Analíticas" },
+  { id: "JSON" }
 ];
 
 const CATEGORY_TO_LEVELS = {
-  "SELECT": [0, 1, 2, 3, 10],
+  "Fundamentos": [0],
+  "SELECT": [1, 2, 3, 10],
+  "Funciones": [4, 5, 6],
+  "GROUP BY": [7],
   "JOINS": [8],
-  "Funciones": [4, 5],
-  "GROUP BY": [6, 7],
   "Subconsultas": [9],
+  "DML": [11],
   "DDL": [12, 14],
-  "DML": [11, 15],
-  "Restricciones": [13]
+  "Restricciones": [13],
+  "DCL": [15],
+  "Diccionario": [16],
+  "Jerárquicas": [17],
+  "Analíticas": [18],
+  "JSON": [19]
 };
 
 function recordCategoryAnswer(category, correct) {
