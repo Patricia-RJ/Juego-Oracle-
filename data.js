@@ -4876,13 +4876,13 @@ examBank: [
     ], a: 1, exp: "CHAR es de longitud fija (rellena con espacios), VARCHAR2 es de longitud variable real." },
   { category: "Funciones", q: "¿Qué hace TRUNC(SYSDATE) sin segundo argumento?", options: ["Da error", "Elimina la parte de hora, dejando la fecha a las 00:00:00", "Redondea al mes más cercano", "Convierte la fecha a texto"], a: 1, exp: "TRUNC sobre una fecha sin formato indicado trunca a día completo." },
   { category: "Funciones", q: "¿Qué devuelve COALESCE(NULL, NULL, 5, 10)?", options: ["NULL", "5", "10", "Error, muchos argumentos NULL"], a: 1, exp: "COALESCE devuelve el primer valor no nulo de la lista, en este caso 5." },
-  { category: "Funciones", q: "¿Qué diferencia hay entre RANK y ROW_NUMBER en un contexto de funciones analíticas (concepto avanzado)?", options: [
+  { category: "Analíticas", q: "¿Qué diferencia hay entre RANK y ROW_NUMBER en un contexto de funciones analíticas?", options: [
       "Son exactamente iguales", "RANK puede dejar huecos en el ranking cuando hay empates; ROW_NUMBER siempre asigna números consecutivos únicos",
       "ROW_NUMBER solo funciona con fechas", "RANK no existe en Oracle"
     ], a: 1, exp: "Con empates, RANK salta números (1,1,3) y ROW_NUMBER no (1,2,3)." },
-  { category: "DDL", q: "¿Qué instrucción crea un usuario/rol y le concede permisos de solo lectura sobre una tabla?", options: ["GRANT SELECT ON tabla TO usuario;", "ALLOW SELECT ON tabla TO usuario;", "PERMIT SELECT tabla usuario;", "GIVE READ tabla TO usuario;"], a: 0, exp: "GRANT privilegio ON objeto TO usuario/rol; es la sintaxis DCL estándar." },
-  { category: "DDL", q: "¿Qué instrucción retira un permiso previamente concedido?", options: ["DENY", "REVOKE", "CANCEL GRANT", "DROP PRIVILEGE"], a: 1, exp: "REVOKE privilegio ON objeto FROM usuario; retira el permiso." },
-  { category: "DDL", q: "¿Qué vista del diccionario de datos muestra las columnas de tus propias tablas?", options: ["ALL_TABLES", "USER_TAB_COLUMNS", "DBA_USERS", "SYSTEM.COLUMNS"], a: 1, exp: "USER_TAB_COLUMNS lista columnas de los objetos propiedad del usuario actual." },
+  { category: "DCL", q: "¿Qué instrucción concede permisos de solo lectura sobre una tabla a un usuario?", options: ["GRANT SELECT ON tabla TO usuario;", "ALLOW SELECT ON tabla TO usuario;", "PERMIT SELECT tabla usuario;", "GIVE READ tabla TO usuario;"], a: 0, exp: "GRANT privilegio ON objeto TO usuario/rol; es la sintaxis DCL estándar." },
+  { category: "DCL", q: "¿Qué instrucción retira un permiso previamente concedido?", options: ["DENY", "REVOKE", "CANCEL GRANT", "DROP PRIVILEGE"], a: 1, exp: "REVOKE privilegio ON objeto FROM usuario; retira el permiso." },
+  { category: "Diccionario", q: "¿Qué vista del diccionario de datos muestra las columnas de tus propias tablas?", options: ["ALL_TABLES", "USER_TAB_COLUMNS", "DBA_USERS", "SYSTEM.COLUMNS"], a: 1, exp: "USER_TAB_COLUMNS lista columnas de los objetos propiedad del usuario actual." },
   { category: "SELECT", q: "¿Qué hace 'SELECT * FROM employees FETCH FIRST 5 ROWS ONLY;'?", options: ["Da error de sintaxis en Oracle", "Devuelve las primeras 5 filas del resultado", "Devuelve todas las filas excepto las 5 primeras", "Cuenta cuántas filas hay"], a: 1, exp: "FETCH FIRST n ROWS ONLY es la sintaxis moderna de Oracle (12c+) para limitar filas, similar a LIMIT en otros motores." },
   { category: "Funciones", q: "¿Qué operador de comparación de patrones usa REGEXP_LIKE frente a LIKE?", options: [
       "Son exactamente iguales", "REGEXP_LIKE admite expresiones regulares completas, LIKE solo admite % y _",
@@ -4926,7 +4926,63 @@ examBank: [
   { category: "SELECT", q: "¿Qué hace 'SELECT last_name, department_id FROM employees ORDER BY 2, 1;'?", options: [
       "Da error, no se pueden usar números en ORDER BY", "Ordena por la segunda columna del SELECT y luego por la primera (por posición)",
       "Ordena por las columnas 2 y 1 de toda la tabla, no del SELECT", "Es idéntico a no usar ORDER BY"
-    ], a: 1, exp: "ORDER BY admite referenciar columnas por su posición en la lista del SELECT." }
+    ], a: 1, exp: "ORDER BY admite referenciar columnas por su posición en la lista del SELECT." },
+
+  { category: "DCL", q: "¿Qué diferencia hay entre WITH GRANT OPTION y WITH ADMIN OPTION?", options: [
+      "Son sinónimos exactos", "WITH GRANT OPTION es para privilegios de objeto; WITH ADMIN OPTION es para privilegios de sistema y roles",
+      "WITH ADMIN OPTION solo lo puede usar el DBA", "WITH GRANT OPTION revoca privilegios en cascada automáticamente"
+    ], a: 1, exp: "Cada opción de reenvío corresponde a una categoría distinta de privilegio: objeto vs sistema/rol." },
+  { category: "DCL", q: "¿A quién concede acceso 'GRANT SELECT ON hr.departments TO PUBLIC;'?", options: [
+      "A un único usuario llamado PUBLIC", "A todos los usuarios de la base de datos, presentes y futuros",
+      "Solo a los usuarios conectados en ese momento", "No es sintaxis válida en Oracle"
+    ], a: 1, exp: "PUBLIC es una palabra clave especial que representa a todos los usuarios, no un usuario concreto." },
+  { category: "DCL", q: "¿Qué privilegios tiene por defecto el propietario de una tabla sobre ella?", options: [
+      "Ninguno hasta que se los conceda a sí mismo con GRANT", "Todos, automáticamente, sin necesidad de GRANT",
+      "Solo SELECT y UPDATE", "Depende de los privilegios que le haya dado el DBA explícitamente"
+    ], a: 1, exp: "El propietario de un objeto tiene automáticamente el control completo sobre él; GRANT solo hace falta para dar acceso a otros usuarios." },
+  { category: "DCL", q: "¿Qué es un rol en el modelo de seguridad de Oracle?", options: [
+      "Un tipo de índice especial", "Un conjunto de privilegios agrupados bajo un nombre, para concederlos/revocarlos en bloque",
+      "Un sinónimo de esquema", "Una vista con privilegios incorporados"
+    ], a: 1, exp: "Un rol agrupa privilegios para gestionarlos en bloque sobre muchos usuarios a la vez, en vez de repetir GRANT uno a uno." },
+
+  { category: "Diccionario", q: "¿Qué diferencia hay entre USER_TABLES y ALL_TABLES?", options: [
+      "Son exactamente iguales", "USER_TABLES muestra solo las tablas propias; ALL_TABLES añade las de otros esquemas donde se tiene privilegio",
+      "ALL_TABLES requiere siempre privilegios de DBA", "USER_TABLES incluye tablas de todos los usuarios"
+    ], a: 1, exp: "USER_ muestra lo que el usuario posee; ALL_ añade lo que puede ver por privilegios concedidos, sin requerir privilegios administrativos." },
+  { category: "Diccionario", q: "¿Qué vista detalla exactamente qué columnas componen cada constraint de una tabla?", options: ["USER_TABLES", "USER_TAB_COLUMNS", "USER_CONS_COLUMNS", "USER_SEQUENCES"], a: 2, exp: "USER_CONS_COLUMNS relaciona cada constraint con sus columnas concretas, imprescindible para claves compuestas." },
+  { category: "Diccionario", q: "¿Qué requiere consultar una vista DBA_ (como DBA_TABLES) que no requiere una vista USER_?", options: [
+      "Nada distinto, cualquier usuario puede consultarlas igual", "Privilegios administrativos, ya que muestran objetos de todos los esquemas",
+      "Solo funciona en SQL*Plus, nunca en SQL Developer", "Requiere reiniciar la sesión"
+    ], a: 1, exp: "Las vistas DBA_ exponen toda la base de datos y exigen privilegios especiales, a diferencia de USER_." },
+
+  { category: "Jerárquicas", q: "¿Qué construye SYS_CONNECT_BY_PATH(last_name, '/') en una consulta jerárquica?", options: [
+      "Solo el apellido de la fila actual", "La ruta completa desde la raíz hasta la fila actual, separada por '/'",
+      "El número de hijos de esa fila", "Un booleano indicando si la fila es una hoja"
+    ], a: 1, exp: "SYS_CONNECT_BY_PATH concatena los valores de la columna a lo largo de todo el camino desde la raíz." },
+  { category: "Jerárquicas", q: "¿Para qué sirve ORDER SIBLINGS BY en una consulta CONNECT BY?", options: [
+      "Para ordenar todo el resultado plano, igual que ORDER BY normal", "Para ordenar los hermanos de cada nivel sin destruir la estructura jerárquica",
+      "Para limitar el número de niveles del árbol", "No es una cláusula válida en Oracle"
+    ], a: 1, exp: "Un ORDER BY normal aplanaría el árbol; ORDER SIBLINGS BY conserva la jerarquía y solo ordena dentro de cada grupo de hermanos." },
+
+  { category: "Analíticas", q: "¿Qué distingue a una función con OVER(...) de una función de grupo con GROUP BY?", options: [
+      "Nada, son intercambiables", "La función analítica conserva todas las filas originales; GROUP BY las colapsa en una por grupo",
+      "OVER solo funciona con COUNT", "GROUP BY siempre es más rápido"
+    ], a: 1, exp: "Una función analítica añade una columna calculada sin reducir el número de filas del resultado." },
+  { category: "Analíticas", q: "¿Qué devuelve LAG(salary) OVER (ORDER BY hire_date) para la primera fila (la más antigua)?", options: ["El propio salario de esa fila", "NULL, salvo que se indique un valor por defecto", "0", "Error de ejecución"], a: 1, exp: "No existe fila anterior para la primera, así que LAG devuelve NULL salvo que se especifique un tercer argumento." },
+  { category: "Analíticas", q: "¿Qué hace PARTITION BY department_id dentro de una cláusula OVER?", options: [
+      "Filtra solo las filas de un departamento", "Reinicia el cálculo de la función analítica en cada departamento, sin colapsar filas",
+      "Ordena el resultado final por departamento", "Elimina departamentos duplicados"
+    ], a: 1, exp: "PARTITION BY funciona como un GROUP BY que no colapsa filas: cada partición se calcula de forma independiente." },
+
+  { category: "JSON", q: "¿Qué hace la cláusula PIVOT en una consulta?", options: [
+      "Convierte columnas en filas", "Convierte valores de una columna en columnas nuevas, agregando una métrica en cada una",
+      "Ordena el resultado de forma descendente", "Elimina filas duplicadas"
+    ], a: 1, exp: "PIVOT gira valores de una columna hacia nuevas columnas del resultado; UNPIVOT hace el camino inverso." },
+  { category: "JSON", q: "¿Qué comprueba la condición IS JSON sobre una columna de texto?", options: [
+      "Que tenga un campo concreto obligatorio", "Que su contenido sea JSON sintácticamente válido",
+      "Que tenga menos de 4000 caracteres", "Que esté ordenado alfabéticamente por clave"
+    ], a: 1, exp: "IS JSON valida solo la sintaxis general del documento, no la presencia de campos concretos." },
+  { category: "JSON", q: "¿Qué tipo de valor puede devolver JSON_VALUE(columna, ruta)?", options: ["Un array completo", "Un objeto JSON completo", "Un único valor escalar (texto o número)", "Una tabla de varias filas"], a: 2, exp: "JSON_VALUE está limitado a extraer un escalar; para estructuras completas hace falta JSON_QUERY, y para tablas, JSON_TABLE." }
 ]
 
 };

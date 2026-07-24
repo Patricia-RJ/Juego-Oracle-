@@ -1055,15 +1055,40 @@ function renderTheory(level) {
   return `<article class="theory-doc">${concepts}${notes}${summary}${table}${mindMap}${sources}${docsLink}</article>`;
 }
 
+function collectSyntaxCheatSheet(level) {
+  const items = [];
+  const concepts = (level.theory && level.theory.concepts) || [];
+  concepts.forEach(c => {
+    if (c.syntax) items.push({ heading: c.heading, syntax: c.syntax });
+    (c.subconcepts || []).forEach(sc => {
+      if (sc.syntax) items.push({ heading: sc.heading, syntax: sc.syntax });
+    });
+  });
+  return items;
+}
+
 function renderExamples(level) {
-  if (!level.examples.length) return `<div class="card"><p>Este nivel no tiene ejemplos de código propios.</p></div>`;
-  return level.examples.map(ex => `
+  const cheatSheet = collectSyntaxCheatSheet(level);
+  const cheatSheetHtml = cheatSheet.length ? `
+    <div class="card cheat-sheet-card">
+      <h4>Chuleta de sintaxis del módulo</h4>
+      ${cheatSheet.map(item => `
+        <div class="cheat-sheet-item">
+          <span class="cheat-sheet-heading">${escapeHtml(item.heading)}</span>
+          <pre class="code-block">${escapeHtml(item.syntax)}</pre>
+        </div>
+      `).join("")}
+    </div>` : "";
+
+  const curatedHtml = level.examples.length ? level.examples.map(ex => `
     <div class="card">
       <p class="example-title">${escapeHtml(ex.title)}</p>
       <pre class="code-block">${escapeHtml(ex.code)}</pre>
       ${ex.note ? `<p style="margin-top:8px;">${escapeHtml(ex.note)}</p>` : ""}
     </div>
-  `).join("");
+  `).join("") : (cheatSheet.length ? "" : `<div class="card"><p>Este nivel no tiene ejemplos de código propios.</p></div>`);
+
+  return cheatSheetHtml + curatedHtml;
 }
 
 function renderMistakes(level) {
@@ -1177,7 +1202,8 @@ function renderFlashcards(level) {
 function renderChallenges(level) {
   if (!level.challenges.length) return `<div class="card"><p>Este nivel no tiene retos adicionales.</p></div>`;
   const ls = getLevelState(level.id);
-  return level.challenges.map((ch, idx) => {
+  const intro = `<p class="challenges-intro">A diferencia de los ejercicios guiados (que incluyen pista y se gradúan de básico a avanzado), estos retos son problemas de síntesis: combinan varios conceptos del módulo a la vez, sin pista previa. Intenta resolverlos sin mirar la solución antes de comprobarla.</p>`;
+  return intro + level.challenges.map((ch, idx) => {
     const done = ls.challengesDone.includes(idx);
     const diffLabel = ch.level === 1 ? "Reto 1" : ch.level === 2 ? "Reto 2 (difícil)" : "Reto " + ch.level;
     return `

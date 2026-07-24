@@ -450,6 +450,34 @@ pre.code-block {
 }
 .example-title { font-size: 13.5px; color: var(--text-dim); margin: 0 0 6px; font-weight: 600; }
 
+/* Chuleta de sintaxis (pestaña Ejemplos) */
+.cheat-sheet-card { border-left: 3px solid var(--purple); }
+.cheat-sheet-card h4 {
+  margin: 0 0 14px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--purple);
+}
+.cheat-sheet-item { margin-bottom: 14px; }
+.cheat-sheet-item:last-child { margin-bottom: 0; }
+.cheat-sheet-heading {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.cheat-sheet-item pre.code-block { margin: 0; }
+
+.challenges-intro {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--text-faint);
+  margin: 0 0 16px;
+  line-height: 1.55;
+}
+
 
 .mistake-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .mistake-list li {
