@@ -23,7 +23,8 @@ function defaultState() {
     studyMinutes: 0,    // minutos activos acumulados (Fase 3: tiempo de estudio)
     categoryStats: {},  // { [categoria]: { correct, total } } — base del radar/heatmap de Analytics
     history: [],        // snapshots diarios: { date, xp, certPct, aciertoPct, studyMinutes }
-    studentName: ""     // nombre para el certificado
+    studentName: "",    // nombre para el certificado
+    flashcardProgress: {} // { "<levelId>-<índice>": "unknown"|"doubt"|"known" } — autoevaluación de flashcards
   };
 }
 
@@ -695,6 +696,7 @@ function navigate(view, levelId) {
   if (view === "errors") renderErrors();
   if (view === "badges") renderBadges();
   if (view === "analytics") renderAnalytics();
+  if (view === "flashcards") renderFlashcardsView();
   if (view === "certificate") renderCertificate();
   if (view === "certbank" && typeof renderCertBank === "function") renderCertBank();
   window.scrollTo(0, 0);
@@ -1105,18 +1107,198 @@ function renderSolved(level) {
 function renderFlashcards(level) {
   const cards = level.flashcards || [];
   if (!cards.length) return `<div class="card"><p>Este nivel todavía no tiene flashcards.</p></div>`;
+  const counts = { unknown: 0, doubt: 0, known: 0 };
+  cards.forEach((c, i) => {
+    const r = STATE.flashcardProgress[level.id + "-" + i];
+    if (r === "unknown" || r === "doubt" || r === "known") counts[r]++;
+  });
+  const unrated = cards.length - counts.unknown - counts.doubt - counts.known;
   return `
-    <div class="flashcard-grid">
-      ${cards.map((c, i) => `
-        <div class="flashcard" data-i="${i}" onclick="this.classList.toggle('flipped')">
-          <div class="flashcard-inner">
-            <div class="flashcard-face flashcard-front">${escapeHtml(c.front)}</div>
-            <div class="flashcard-face flashcard-back">${escapeHtml(c.back)}</div>
+    <div class="card flashcard-cta">
+      <h4>🗂️ ${cards.length} flashcard${cards.length === 1 ? "" : "s"} de este módulo</h4>
+      <p>Repasa una a una con autoevaluación de 3 niveles (🔴 no la sé · 🟡 dudosa · 🟢 la sé) en la vista de Flashcards, donde también puedes mezclar todos los módulos o repasar solo este tema.</p>
+      <div class="flashcard-progress-row">
+        <span class="fc-stat fc-stat-unknown">🔴 ${counts.unknown}</span>
+        <span class="fc-stat fc-stat-doubt">🟡 ${counts.doubt}</span>
+        <span class="fc-stat fc-stat-known">🟢 ${counts.known}</span>
+        <span class="fc-stat fc-stat-new">⚪ ${unrated} sin repasar</span>
+      </div>
+      <button class="btn" onclick="openFlashcards(${level.id})">Abrir flashcards de este módulo →</button>
+    </div>
+  `;
+}
+
+/* ---------------- Flashcards (vista global, Fase 10) ---------------- */
+
+let FLASHCARD_TOPIC = "all";
+let FLASHCARD_DECK = [];
+let FLASHCARD_INDEX = 0;
+let FLASHCARD_POOL = null;
+
+function getFlashcardPool() {
+  if (FLASHCARD_POOL) return FLASHCARD_POOL;
+  const pool = [];
+  APP_DATA.levels.forEach(level => {
+    if (level.isExamLevel || !level.flashcards || !level.flashcards.length) return;
+    level.flashcards.forEach((c, i) => {
+      pool.push({
+        key: level.id + "-" + i,
+        levelId: level.id,
+        levelCode: level.code,
+        levelTitle: level.title,
+        category: level.category,
+        front: c.front,
+        back: c.back
+      });
+    });
+  });
+  FLASHCARD_POOL = pool;
+  return pool;
+}
+
+function flashcardWeight(rating) {
+  if (rating === "unknown") return 4; // se ven antes y más a menudo
+  if (rating === "doubt") return 2;
+  if (rating === "known") return 1;
+  return 3; // todavía sin evaluar: prioridad media-alta para conocerlas pronto
+}
+
+function buildFlashcardDeck(topic) {
+  const pool = getFlashcardPool().filter(c => topic === "all" || String(c.levelId) === String(topic));
+  return pool
+    .map(card => ({ card, sortKey: Math.pow(Math.random(), 1 / flashcardWeight(STATE.flashcardProgress[card.key])) }))
+    .sort((a, b) => b.sortKey - a.sortKey)
+    .map(x => x.card);
+}
+
+function openFlashcards(topic) {
+  FLASHCARD_TOPIC = topic != null ? String(topic) : "all";
+  FLASHCARD_DECK = buildFlashcardDeck(FLASHCARD_TOPIC);
+  FLASHCARD_INDEX = 0;
+  navigate("flashcards");
+}
+
+function changeFlashcardTopic(topic) {
+  FLASHCARD_TOPIC = topic;
+  FLASHCARD_DECK = buildFlashcardDeck(topic);
+  FLASHCARD_INDEX = 0;
+  renderFlashcardsView();
+}
+
+function shuffleFlashcardDeck() {
+  FLASHCARD_DECK = buildFlashcardDeck(FLASHCARD_TOPIC);
+  FLASHCARD_INDEX = 0;
+  renderFlashcardsView();
+  toast("Tarjetas barajadas de nuevo");
+}
+
+function flashcardGoTo(delta) {
+  const next = FLASHCARD_INDEX + delta;
+  if (next < 0 || next >= FLASHCARD_DECK.length) return;
+  FLASHCARD_INDEX = next;
+  renderFlashcardsView();
+}
+
+function rateFlashcard(rating) {
+  const card = FLASHCARD_DECK[FLASHCARD_INDEX];
+  if (!card) return;
+  STATE.flashcardProgress[card.key] = rating;
+  saveState();
+  if (FLASHCARD_INDEX < FLASHCARD_DECK.length - 1) {
+    FLASHCARD_INDEX++;
+  } else {
+    toast("Has repasado todas las tarjetas de este tema. Puedes barajar de nuevo.");
+  }
+  renderFlashcardsView();
+}
+
+function renderFlashcardsView() {
+  const el = document.getElementById("view-flashcards");
+  const pool = getFlashcardPool();
+
+  if (!pool.length) {
+    el.innerHTML = `<div class="dash-header"><h2>🗂️ Flashcards</h2></div><div class="empty-state">Todavía no hay flashcards disponibles.</div>`;
+    return;
+  }
+
+  if (!FLASHCARD_DECK.length) FLASHCARD_DECK = buildFlashcardDeck(FLASHCARD_TOPIC);
+
+  const levelsWithCards = APP_DATA.levels.filter(l => !l.isExamLevel && l.flashcards && l.flashcards.length);
+  let optionsHtml = `<option value="all"${FLASHCARD_TOPIC === "all" ? " selected" : ""}>Todos los temas (${pool.length} tarjetas)</option>`;
+  CATEGORIES.forEach(cat => {
+    const levelsInCat = levelsWithCards.filter(l => l.category === cat.id);
+    if (!levelsInCat.length) return;
+    optionsHtml += `<optgroup label="${escapeHtml(cat.id)}">`;
+    levelsInCat.forEach(l => {
+      optionsHtml += `<option value="${l.id}"${String(FLASHCARD_TOPIC) === String(l.id) ? " selected" : ""}>${l.code} · ${escapeHtml(l.title)}</option>`;
+    });
+    optionsHtml += `</optgroup>`;
+  });
+
+  const deck = FLASHCARD_DECK;
+  const total = deck.length;
+  const idx = Math.min(FLASHCARD_INDEX, Math.max(0, total - 1));
+  const card = deck[idx];
+
+  const counts = { unknown: 0, doubt: 0, known: 0, new: 0 };
+  deck.forEach(c => {
+    const r = STATE.flashcardProgress[c.key];
+    if (r === "unknown" || r === "doubt" || r === "known") counts[r]++;
+    else counts.new++;
+  });
+
+  const statusMap = {
+    unknown: { label: "no la sabes", cls: "fc-dot-unknown" },
+    doubt: { label: "dudosa", cls: "fc-dot-doubt" },
+    known: { label: "la sabes", cls: "fc-dot-known" }
+  };
+  const status = (card && statusMap[STATE.flashcardProgress[card.key]]) || { label: "sin repasar", cls: "fc-dot-new" };
+
+  el.innerHTML = `
+    <div class="dash-header">
+      <h2>🗂️ Flashcards</h2>
+      <p>Repaso activo con autoevaluación de 3 niveles. Las tarjetas que marques como "No la sé" aparecerán antes y con más frecuencia en tus próximos repasos.</p>
+    </div>
+    <div class="flashcard-controls">
+      <label class="flashcard-select-label">Tema
+        <select id="flashcard-topic-select" onchange="changeFlashcardTopic(this.value)">${optionsHtml}</select>
+      </label>
+      <span class="pill">${total} tarjeta${total === 1 ? "" : "s"} en este tema</span>
+    </div>
+    <div class="flashcard-progress-row">
+      <span class="fc-stat fc-stat-unknown">🔴 ${counts.unknown}</span>
+      <span class="fc-stat fc-stat-doubt">🟡 ${counts.doubt}</span>
+      <span class="fc-stat fc-stat-known">🟢 ${counts.known}</span>
+      <span class="fc-stat fc-stat-new">⚪ ${counts.new} sin repasar</span>
+    </div>
+    ${!card ? `<div class="empty-state">Este tema todavía no tiene flashcards.</div>` : `
+    <div class="flashcard-solo-wrap">
+      <div class="flashcard flashcard-solo" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="flashcard-face flashcard-front">
+            <span class="flashcard-tag">${card.levelCode} · ${escapeHtml(card.category || "")}</span>
+            <div class="flashcard-text">${escapeHtml(card.front)}</div>
+          </div>
+          <div class="flashcard-face flashcard-back">
+            <span class="flashcard-tag">${card.levelCode} · ${escapeHtml(card.category || "")}</span>
+            <div class="flashcard-text">${escapeHtml(card.back)}</div>
           </div>
         </div>
-      `).join("")}
+      </div>
+      <p class="flashcard-hint">Haz clic en la tarjeta para ver la respuesta.</p>
+      <p class="flashcard-status">Tarjeta ${idx + 1} de ${total} · estado actual: <span class="fc-dot ${status.cls}"></span> ${status.label}</p>
     </div>
-    <p class="flashcard-hint">Haz clic en una tarjeta para ver la respuesta.</p>
+    <div class="flashcard-rate-row">
+      <button class="btn flashcard-rate-btn fc-rate-unknown" onclick="rateFlashcard('unknown')">🔴 No la sé</button>
+      <button class="btn flashcard-rate-btn fc-rate-doubt" onclick="rateFlashcard('doubt')">🟡 Dudosa</button>
+      <button class="btn flashcard-rate-btn fc-rate-known" onclick="rateFlashcard('known')">🟢 La sé</button>
+    </div>
+    <div class="flashcard-nav-row">
+      <button class="btn secondary" ${idx === 0 ? "disabled" : ""} onclick="flashcardGoTo(-1)">◀ Anterior</button>
+      <button class="btn secondary" ${idx >= total - 1 ? "disabled" : ""} onclick="flashcardGoTo(1)">Siguiente ▶</button>
+      <button class="btn" onclick="shuffleFlashcardDeck()">🔀 Barajar de nuevo</button>
+    </div>
+    `}
   `;
 }
 
@@ -1700,6 +1882,7 @@ function init() {
   checkBadges();
   on("btn-dashboard", () => navigate("dashboard"));
   on("btn-analytics", () => navigate("analytics"));
+  on("btn-flashcards", () => navigate("flashcards"));
   on("btn-errors", () => navigate("errors"));
   on("btn-badges", () => navigate("badges"));
   on("btn-certificate", () => navigate("certificate"));
