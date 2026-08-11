@@ -1115,13 +1115,13 @@ function renderFlashcards(level) {
   const unrated = cards.length - counts.unknown - counts.doubt - counts.known;
   return `
     <div class="card flashcard-cta">
-      <h4>🗂️ ${cards.length} flashcard${cards.length === 1 ? "" : "s"} de este módulo</h4>
-      <p>Repasa una a una con autoevaluación de 3 niveles (🔴 no la sé · 🟡 dudosa · 🟢 la sé) en la vista de Flashcards, donde también puedes mezclar todos los módulos o repasar solo este tema.</p>
+      <h4>${cards.length} flashcard${cards.length === 1 ? "" : "s"} de este módulo</h4>
+      <p>Repasa una a una con autoevaluación de 3 niveles (no la sé · dudosa · la sé) en la vista de Flashcards, donde también puedes mezclar todos los módulos o repasar solo este tema.</p>
       <div class="flashcard-progress-row">
-        <span class="fc-stat fc-stat-unknown">🔴 ${counts.unknown}</span>
-        <span class="fc-stat fc-stat-doubt">🟡 ${counts.doubt}</span>
-        <span class="fc-stat fc-stat-known">🟢 ${counts.known}</span>
-        <span class="fc-stat fc-stat-new">⚪ ${unrated} sin repasar</span>
+        <span class="fc-stat fc-stat-unknown"><span class="fc-dot fc-dot-unknown"></span> ${counts.unknown}</span>
+        <span class="fc-stat fc-stat-doubt"><span class="fc-dot fc-dot-doubt"></span> ${counts.doubt}</span>
+        <span class="fc-stat fc-stat-known"><span class="fc-dot fc-dot-known"></span> ${counts.known}</span>
+        <span class="fc-stat fc-stat-new"><span class="fc-dot fc-dot-new"></span> ${unrated} sin repasar</span>
       </div>
       <button class="btn" onclick="openFlashcards(${level.id})">Abrir flashcards de este módulo →</button>
     </div>
@@ -1139,7 +1139,7 @@ function getFlashcardPool() {
   if (FLASHCARD_POOL) return FLASHCARD_POOL;
   const pool = [];
   APP_DATA.levels.forEach(level => {
-    if (level.isExamLevel || !level.flashcards || !level.flashcards.length) return;
+    if (!level.flashcards || !level.flashcards.length) return;
     level.flashcards.forEach((c, i) => {
       pool.push({
         key: level.id + "-" + i,
@@ -1217,13 +1217,13 @@ function renderFlashcardsView() {
   const pool = getFlashcardPool();
 
   if (!pool.length) {
-    el.innerHTML = `<div class="dash-header"><h2>🗂️ Flashcards</h2></div><div class="empty-state">Todavía no hay flashcards disponibles.</div>`;
+    el.innerHTML = `<div class="dash-header"><h2>Flashcards</h2></div><div class="empty-state">Todavía no hay flashcards disponibles.</div>`;
     return;
   }
 
   if (!FLASHCARD_DECK.length) FLASHCARD_DECK = buildFlashcardDeck(FLASHCARD_TOPIC);
 
-  const levelsWithCards = APP_DATA.levels.filter(l => !l.isExamLevel && l.flashcards && l.flashcards.length);
+  const levelsWithCards = APP_DATA.levels.filter(l => l.flashcards && l.flashcards.length);
   let optionsHtml = `<option value="all"${FLASHCARD_TOPIC === "all" ? " selected" : ""}>Todos los temas (${pool.length} tarjetas)</option>`;
   CATEGORIES.forEach(cat => {
     const levelsInCat = levelsWithCards.filter(l => l.category === cat.id);
@@ -1234,6 +1234,14 @@ function renderFlashcardsView() {
     });
     optionsHtml += `</optgroup>`;
   });
+  const examLevelsWithCards = levelsWithCards.filter(l => !l.category);
+  if (examLevelsWithCards.length) {
+    optionsHtml += `<optgroup label="Simulacros">`;
+    examLevelsWithCards.forEach(l => {
+      optionsHtml += `<option value="${l.id}"${String(FLASHCARD_TOPIC) === String(l.id) ? " selected" : ""}>${l.code} · ${escapeHtml(l.title)}</option>`;
+    });
+    optionsHtml += `</optgroup>`;
+  }
 
   const deck = FLASHCARD_DECK;
   const total = deck.length;
@@ -1256,7 +1264,7 @@ function renderFlashcardsView() {
 
   el.innerHTML = `
     <div class="dash-header">
-      <h2>🗂️ Flashcards</h2>
+      <h2>Flashcards</h2>
       <p>Repaso activo con autoevaluación de 3 niveles. Las tarjetas que marques como "No la sé" aparecerán antes y con más frecuencia en tus próximos repasos.</p>
     </div>
     <div class="flashcard-controls">
@@ -1266,10 +1274,10 @@ function renderFlashcardsView() {
       <span class="pill">${total} tarjeta${total === 1 ? "" : "s"} en este tema</span>
     </div>
     <div class="flashcard-progress-row">
-      <span class="fc-stat fc-stat-unknown">🔴 ${counts.unknown}</span>
-      <span class="fc-stat fc-stat-doubt">🟡 ${counts.doubt}</span>
-      <span class="fc-stat fc-stat-known">🟢 ${counts.known}</span>
-      <span class="fc-stat fc-stat-new">⚪ ${counts.new} sin repasar</span>
+      <span class="fc-stat fc-stat-unknown"><span class="fc-dot fc-dot-unknown"></span> ${counts.unknown}</span>
+      <span class="fc-stat fc-stat-doubt"><span class="fc-dot fc-dot-doubt"></span> ${counts.doubt}</span>
+      <span class="fc-stat fc-stat-known"><span class="fc-dot fc-dot-known"></span> ${counts.known}</span>
+      <span class="fc-stat fc-stat-new"><span class="fc-dot fc-dot-new"></span> ${counts.new} sin repasar</span>
     </div>
     ${!card ? `<div class="empty-state">Este tema todavía no tiene flashcards.</div>` : `
     <div class="flashcard-solo-wrap">
@@ -1289,14 +1297,14 @@ function renderFlashcardsView() {
       <p class="flashcard-status">Tarjeta ${idx + 1} de ${total} · estado actual: <span class="fc-dot ${status.cls}"></span> ${status.label}</p>
     </div>
     <div class="flashcard-rate-row">
-      <button class="btn flashcard-rate-btn fc-rate-unknown" onclick="rateFlashcard('unknown')">🔴 No la sé</button>
-      <button class="btn flashcard-rate-btn fc-rate-doubt" onclick="rateFlashcard('doubt')">🟡 Dudosa</button>
-      <button class="btn flashcard-rate-btn fc-rate-known" onclick="rateFlashcard('known')">🟢 La sé</button>
+      <button class="btn flashcard-rate-btn fc-rate-unknown" onclick="rateFlashcard('unknown')"><span class="fc-dot fc-dot-unknown"></span> No la sé</button>
+      <button class="btn flashcard-rate-btn fc-rate-doubt" onclick="rateFlashcard('doubt')"><span class="fc-dot fc-dot-doubt"></span> Dudosa</button>
+      <button class="btn flashcard-rate-btn fc-rate-known" onclick="rateFlashcard('known')"><span class="fc-dot fc-dot-known"></span> La sé</button>
     </div>
     <div class="flashcard-nav-row">
       <button class="btn secondary" ${idx === 0 ? "disabled" : ""} onclick="flashcardGoTo(-1)">◀ Anterior</button>
       <button class="btn secondary" ${idx >= total - 1 ? "disabled" : ""} onclick="flashcardGoTo(1)">Siguiente ▶</button>
-      <button class="btn" onclick="shuffleFlashcardDeck()">🔀 Barajar de nuevo</button>
+      <button class="btn" onclick="shuffleFlashcardDeck()">Barajar de nuevo</button>
     </div>
     `}
   `;

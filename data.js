@@ -4916,6 +4916,12 @@ levels: [
   quiz: [],
   exercises: [],
   challenges: [],
+  flashcards: [
+    { front: "¿En qué detalles suelen esconderse las preguntas trampa del examen oficial?", back: "En NULL, mayúsculas de funciones, o el orden de columnas: hay que leer con calma, no rápido." },
+    { front: "¿Qué es mejor si te bloqueas en una pregunta del examen: insistir o seguir adelante?", back: "Marcar mentalmente la duda y seguir; volver después es mejor que bloquearse y perder tiempo." },
+    { front: "¿Cuántas preguntas y minutos tiene el simulacro de este módulo?", back: "20 preguntas en 20 minutos, reproduciendo la duración de un bloque del examen oficial." },
+    { front: "¿De dónde salen las preguntas de este simulacro?", back: "Son de elaboración propia inspiradas en la documentación oficial de Oracle; no son preguntas reales filtradas del examen." }
+  ],
   examConfig: { numQuestions: 20, minutes: 20 }
 },
 
@@ -4939,6 +4945,11 @@ levels: [
   quiz: [],
   exercises: [],
   challenges: [],
+  flashcards: [
+    { front: "¿Qué trampas típicas de examen mezcla el Nivel experto?", back: "Precedencia de operadores, NULL en funciones de grupo, MINUS vs EXCEPT, ROLLBACK vs TRUNCATE, y subconsultas de una fila vs varias filas." },
+    { front: "¿Cuántas preguntas y minutos tiene el simulacro de este módulo?", back: "30 preguntas en 35 minutos, con dificultad más alta que el simulacro anterior." },
+    { front: "¿Cuándo conviene hacer este nivel?", back: "Cuando ya hayas completado todos los niveles anteriores: es el desafío final antes del examen real." }
+  ],
   examConfig: { numQuestions: 30, minutes: 35 }
 }
 
