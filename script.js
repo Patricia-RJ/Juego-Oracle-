@@ -45,7 +45,6 @@ function loadState() {
 }
 
 function saveState() {
-  if (DEMO_ACTIVE) return; // los datos ficticios del modo demo nunca se persisten
   localStorage.setItem(STORAGE_KEY, JSON.stringify(STATE));
 }
 
@@ -238,100 +237,6 @@ function categoryMasteryPercent(category) {
   return Math.round((s.correct / s.total) * 100);
 }
 
-/* ---------------- Demo mode (Fase 6) ---------------- */
-
-let DEMO_ACTIVE = false;
-let REAL_STATE_SNAPSHOT = null;
-
-function buildDemoState() {
-  const demo = defaultState();
-  demo.xp = 3200;
-  demo.streakDays = 12;
-  demo.studyMinutes = 640;
-  demo.lastActiveDate = new Date().toISOString().slice(0, 10);
-  demo.studentName = "Alumno/a Demo";
-
-  APP_DATA.levels.forEach(level => {
-    if (level.isExamLevel) return;
-    if (level.id <= 12) {
-      demo.levels[level.id] = {
-        quizScore: level.quiz.length, quizTotal: level.quiz.length, quizDone: true,
-        exercisesDone: level.exercises.map((_, i) => i),
-        challengesDone: level.challenges.map((_, i) => i),
-        completed: true
-      };
-    }
-  });
-
-  demo.examHistory = [
-    { levelId: 16, score: 15, total: 20, minutes: 20, elapsedSeconds: 1080, ts: Date.now() - 86400000 * 5 },
-    { levelId: 16, score: 17, total: 20, minutes: 20, elapsedSeconds: 950, ts: Date.now() - 86400000 * 1 }
-  ];
-
-  demo.categoryStats = {
-    "SELECT": { correct: 27, total: 30 },
-    "JOINS": { correct: 8, total: 10 },
-    "Funciones": { correct: 18, total: 24 },
-    "GROUP BY": { correct: 9, total: 12 },
-    "Subconsultas": { correct: 5, total: 10 },
-    "DDL": { correct: 10, total: 12 },
-    "DML": { correct: 7, total: 8 },
-    "Restricciones": { correct: 4, total: 8 }
-  };
-
-  demo.history = [];
-  for (let i = 5; i >= 0; i--) {
-    demo.history.push({
-      date: new Date(Date.now() - i * 7 * 86400000).toISOString().slice(0, 10),
-      xp: Math.round(3200 * (6 - i) / 6),
-      certPct: Math.round(82 * (6 - i) / 6),
-      aciertoPct: 68 + (5 - i) * 3,
-      studyMinutes: Math.round(640 * (6 - i) / 6)
-    });
-  }
-
-  demo.badges = BADGE_DEFS.filter(b => b.check(demo)).map(b => b.id);
-  demo.errorLog = [];
-  return demo;
-}
-
-function enterDemoMode() {
-  if (DEMO_ACTIVE) return;
-  REAL_STATE_SNAPSHOT = STATE;
-  STATE = buildDemoState();
-  DEMO_ACTIVE = true;
-  if (typeof enterCertDemoMode === "function") enterCertDemoMode();
-  const banner = document.getElementById("demo-banner");
-  if (banner) banner.classList.remove("hidden");
-  document.body.classList.add("demo-mode");
-  toast("Modo demostración activado: los datos son ficticios, no representan progreso real");
-  if (!document.getElementById("app").classList.contains("hidden")) {
-    navigate(CURRENT_VIEW === "level" ? "dashboard" : CURRENT_VIEW);
-  } else {
-    renderHeroStats();
-    renderLandingCards();
-  }
-  renderSidebar();
-}
-
-function exitDemoMode() {
-  if (!DEMO_ACTIVE) return;
-  STATE = REAL_STATE_SNAPSHOT;
-  REAL_STATE_SNAPSHOT = null;
-  DEMO_ACTIVE = false;
-  if (typeof exitCertDemoMode === "function") exitCertDemoMode();
-  const banner = document.getElementById("demo-banner");
-  if (banner) banner.classList.add("hidden");
-  document.body.classList.remove("demo-mode");
-  toast("Modo demo desactivado: has vuelto a tu progreso real");
-  if (!document.getElementById("app").classList.contains("hidden")) {
-    navigate("dashboard");
-  } else {
-    renderHeroStats();
-    renderLandingCards();
-  }
-  renderSidebar();
-}
 
 /* ---------------- Utilidades ---------------- */
 
@@ -606,7 +511,7 @@ function renderXpDistribution() {
 
 function renderEvolutionChart() {
   if (!STATE.history.length) {
-    return `<p style="color:var(--text-faint); font-size:13px;">Todavía no hay historial suficiente: cada día que abras la app se añadirá un punto real a este gráfico. (En modo demo se simulan varias semanas.)</p>`;
+    return `<p style="color:var(--text-faint); font-size:13px;">Todavía no hay historial suficiente: cada día que abras la app se añadirá un punto real a este gráfico.</p>`;
   }
   const maxXp = Math.max(...STATE.history.map(h => h.xp), 1);
   return `<div class="evo-chart">${STATE.history.map(h => `
@@ -1774,7 +1679,6 @@ function renderExamResult(level, score, total, elapsedSeconds, report) {
 /* ---------------- Reinicio de progreso ---------------- */
 
 function resetProgress() {
-  if (DEMO_ACTIVE) { toast("Sal del modo demo antes de reiniciar tu progreso real."); return; }
   if (!confirm("¿Seguro que quieres borrar todo tu progreso, incluido el banco de examen Oracle? Esta acción no se puede deshacer.")) return;
   STATE = defaultState();
   saveState();
@@ -1805,8 +1709,6 @@ function init() {
   on("btn-start-mission", () => enterApp("level", findNextLevelToStudy().id));
   on("btn-continue-learning", () => enterApp("dashboard"));
   on("btn-take-exam", () => { if (typeof CERT_TAB !== "undefined") CERT_TAB = "exam"; enterApp("certbank"); });
-  on("btn-demo", () => enterDemoMode());
-  on("btn-exit-demo", () => exitDemoMode());
 
   renderSidebar();
   showLanding();

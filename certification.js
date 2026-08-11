@@ -45,7 +45,6 @@ function loadCertState() {
 }
 
 function saveCertState() {
-  if (CERT_DEMO_ACTIVE) return; // los datos ficticios del modo demo nunca se persisten
   localStorage.setItem(CERT_STORAGE_KEY, JSON.stringify(CERT_STATE));
 }
 
@@ -56,57 +55,6 @@ function resetCertState() {
   saveCertState();
   CERT_SESSION = null;
   CERT_TAB = "practice";
-}
-
-/* ---------------- Modo demo (coherente con el modo demo del juego original) ---------------- */
-
-let CERT_DEMO_ACTIVE = false;
-let REAL_CERT_STATE_SNAPSHOT = null;
-
-function buildDemoCertState() {
-  const demo = defaultCertState();
-  demo.xp = 1450;
-  demo.streak = { count: 6, lastActiveDate: todayStr() };
-  demo.progressiveLevel = 3;
-
-  const sample = shuffle(CERT_BANK.filter(q => q.reviewStatus !== "duplicate")).slice(0, 60);
-  sample.forEach((q, i) => {
-    const correct = i % 4 !== 0; // ~75% de acierto, ficticio pero verosimil
-    const p = { attempts: 1, correct: correct ? 1 : 0, incorrect: correct ? 0 : 1, lastResult: correct ? "correct" : "incorrect", lastAnsweredAt: new Date().toISOString(), totalTimeMs: 25000, timesSkipped: 0, flagged: false, srs: defaultSrs() };
-    applySrsUpdate(p, correct);
-    demo.progress[q.id] = p;
-  });
-
-  demo.examHistory = [
-    { date: new Date(Date.now() - 4 * 86400000).toISOString(), count: 20, score: 14, total: 20, elapsedSeconds: 1500, weakTopics: ["Subqueries"], strongTopics: ["SELECT", "JOINS"] },
-    { date: new Date(Date.now() - 1 * 86400000).toISOString(), count: 20, score: 17, total: 20, elapsedSeconds: 1400, weakTopics: [], strongTopics: ["SELECT", "JOINS", "GROUP BY"] }
-  ];
-
-  CERT_BADGE_DEFS.forEach(b => { if (b.check(demo)) demo.badges[b.id] = new Date().toISOString(); });
-  demo.dailyMissions = { date: todayStr(), items: [
-    { id: "answer_10", desc: "Responde 10 preguntas hoy", target: 10, xpReward: 30, done: true },
-    { id: "correct_5", desc: "Consigue 5 respuestas correctas hoy", target: 5, xpReward: 30, done: true },
-    { id: "review_failed", desc: "Vuelve a acertar 1 pregunta que antes fallaste", target: 1, xpReward: 20, done: false }
-  ] };
-  return demo;
-}
-
-function enterCertDemoMode() {
-  if (CERT_DEMO_ACTIVE) return;
-  REAL_CERT_STATE_SNAPSHOT = CERT_STATE;
-  CERT_STATE = buildDemoCertState();
-  CERT_DEMO_ACTIVE = true;
-  CERT_SESSION = null;
-  if (document.getElementById("view-certbank") && document.getElementById("view-certbank").classList.contains("active")) renderCertBank();
-}
-
-function exitCertDemoMode() {
-  if (!CERT_DEMO_ACTIVE) return;
-  CERT_STATE = REAL_CERT_STATE_SNAPSHOT;
-  REAL_CERT_STATE_SNAPSHOT = null;
-  CERT_DEMO_ACTIVE = false;
-  CERT_SESSION = null;
-  if (document.getElementById("view-certbank") && document.getElementById("view-certbank").classList.contains("active")) renderCertBank();
 }
 
 function defaultSrs() {

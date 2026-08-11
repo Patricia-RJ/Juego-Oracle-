@@ -1223,34 +1223,6 @@ pre.code-block {
 .review-q-text { flex: 1; font-size: 13px; color: var(--text-dim); }
 .review-status { font-size: 12px; white-space: nowrap; }
 
-/* ============================================================
-   MODO DEMO (Fase 6)
-   ============================================================ */
-
-.demo-banner {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1100;
-  background: repeating-linear-gradient(135deg, #b45309, #b45309 12px, #92400e 12px, #92400e 24px);
-  border-bottom: 2px solid #fbbf24;
-  color: #fff;
-  padding: 10px 18px;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  box-shadow: 0 2px 12px rgba(0,0,0,.4);
-}
-.demo-banner-text { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.demo-banner-text strong { font-size: 13.5px; letter-spacing: .02em; }
-.demo-banner-text span:last-child { font-weight: 500; opacity: .95; }
-.demo-banner .btn { padding: 6px 14px; font-size: 11.5px; background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.5); color: #fff; }
-body.demo-mode .sidebar, body.demo-mode .main { padding-top: 0; }
-body.demo-mode #app, body.demo-mode #landing { margin-top: 54px; }
 
 /* ============================================================
    CERTIFICADO (Fase 8)
