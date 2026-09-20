@@ -263,26 +263,14 @@ function toast(msg) {
 }
 
 // Los 5 módulos avanzados (15-19: control de acceso, diccionario, jerárquicas,
-// analíticas, JSON) no dependen entre sí: se desbloquean juntos al completar el
-// bloque base (0-14), en vez de exigir un orden estricto entre ellos.
+// analíticas, JSON) siguen agrupados para la insignia "Advanced SQL Master".
 const ADVANCED_BLOCK_IDS = [15, 16, 17, 18, 19];
-const ADVANCED_BLOCK_GATE_ID = 14;
 
+// Todos los módulos de teoría son accesibles en cualquier momento, sin exigir
+// haber completado los anteriores: la progresión (XP, insignias, rangos) sigue
+// dependiendo de qué niveles se completen, pero no del orden en que se visiten.
 function isLevelUnlocked(levelId) {
-  if (levelId === 0) return true;
-  if (ADVANCED_BLOCK_IDS.includes(levelId)) {
-    const gate = STATE.levels[ADVANCED_BLOCK_GATE_ID];
-    return !!(gate && gate.completed);
-  }
-  // El simulacro (20) no depende de un único "nivel anterior": como el bloque
-  // avanzado ya no es lineal, se exige tener los 5 módulos avanzados completos.
-  if (levelId === 20) {
-    return ADVANCED_BLOCK_IDS.every(id => STATE.levels[id] && STATE.levels[id].completed);
-  }
-  const prev = APP_DATA.levels.find(l => l.id === levelId - 1);
-  if (!prev) return true;
-  const prevState = STATE.levels[prev.id];
-  return !!(prevState && prevState.completed);
+  return true;
 }
 
 function levelProgressPercent(level) {
