@@ -1,0 +1,3995 @@
+﻿[
+    {
+        "id":  "examen-8-q1",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  1,
+        "questionNumber":  1,
+        "questionText":  "In which Normal Form, all transitive dependencies with redundant data taken into new tables?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "In which Normal Form, all transitive dependencies with redundant data taken into new tables?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "First Normal Form - NF1",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Second Normal Form - NF2",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Third Normal Form - NF3",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "Fourth Normal Form - NF4",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "ea992761b4bc016be4f3acff323a86efea9c2f90993997f33fac3cbb63ed053f",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q2",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  2,
+        "questionNumber":  2,
+        "questionText":  "You must write a query that prompts users for column name and condition_value every time it is executed. The user must be prompted only once for the table name and condition. Which statement achieves those objectives?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "You must write a query that prompts users for column name and condition_value every time it is executed. The user must be prompted only once for the table name and condition. Which statement achieves those objectives?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "SELECT \u0026col1 FROM \u0026table WHERE \u0026\u0026condition = \u0026condition_value;",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "SELECT \u0026col1 FROM \u0026\u0026table WHERE \u0026\u0026condition = \u0026condition_value;",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "SELECT \u0026col1 FROM \u0026\u0026table WHERE \u0026condition = \u0026condition_value;",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "SELECT \u0026col1 FROM \u0026table WHERE \u0026condition = \u0026condition_value;",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT",
+                       "WHERE"
+                   ],
+        "initialDifficulty":  4,
+        "dynamicDifficulty":  4,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "ae4901597195c0d59e974b885e3c3ded4cc4a74f74a0476e5b6f362056943ba9",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q3",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  3,
+        "questionNumber":  3,
+        "questionText":  "Which two statements are true regarding constraints?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which two statements are true regarding constraints?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "A table can have only one primary key and one foreign key",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Only the primary key can be defined at the column and table levels",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "A table can have only one primary key but multiple foreign keys.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "The foreign key and parent table primary key must have the same name",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "Both primary key and foreign key constraints can be defined at both column and table levels.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C",
+                               "E"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "Constraints",
+        "topics":  [
+                       "Constraints"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "5+ opciones; distractores muy similares entre si",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "796de6c90faf7a463c364aa18c38bcc28e3b3db95acf7de49e335bb88165b833",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q4",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  4,
+        "questionNumber":  4,
+        "questionText":  "Which all data types support to store character data?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which all data types support to store character data?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "VARCHAR2",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "CLOB",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "LONG",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "LONG RAW",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "CHAR",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "B",
+                               "C",
+                               "E"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "5+ opciones",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 4"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "685c2511c6a258d0e6cf47da2d866e01b65714f880d671272aa472185ad31b38",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q5",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  5,
+        "questionNumber":  5,
+        "questionText":  "Which three statements are true regarding subqueries?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which three statements are true regarding subqueries?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "Multiple columns or expressions can be compared between the main query and subquery.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Subqueries can contain ORDER BY but not the GROUP BY clause",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Main query and subquery can get data from different tables",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "Subqueries can contain GROUP BY and ORDER BY clauses",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "Main query and subquery must get data from the same tables.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "F",
+                            "text":  "Only one column or expression can be compared between the main query and subquery.",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "C",
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "ORDER BY",
+        "topics":  [
+                       "ORDER BY",
+                       "GROUP BY",
+                       "Subqueries"
+                   ],
+        "initialDifficulty":  5,
+        "dynamicDifficulty":  5,
+        "difficultyRationale":  "5+ opciones; contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 3"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "8fdd7a381d4c5aa6ffb72d79a6483fab5818c0d80d23951be4fbc6861fbcb34c",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q6",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  6,
+        "questionNumber":  6,
+        "questionText":  "Which three SQL statements would display the value 1720.253 as $1,720.25 ?  (Choose three.)",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which three SQL statements would display the value 1720.253 as $1,720.25 ?  (Choose three.)"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "SELECT TO_CHAR (1720.253, ‘$99G999D00‘) FROM DUAL",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "SELECT TO_CHAR (1720.253, ‘$9,999V99‘) FROM DUAL",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "SELECT TO_CHAR (1720.253, ‘$0G000D00‘) FROM DUAL",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "SELECT TO_CHAR (1720.253, ‘$99,999D99‘) FROM DUAL",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "SELECT TO_CHAR (1720.253, ‘$99G999D99‘) FROM DUAL",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "C",
+                               "E"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  3,
+        "extractionConfidence":  0.98,
+        "questionType":  "multiple-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT"
+                   ],
+        "initialDifficulty":  5,
+        "dynamicDifficulty":  5,
+        "difficultyRationale":  "5+ opciones; requiere 3 respuestas (Choose 3); contiene codigo SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "5a4077834f62721d96d1bf535ac8032b0f4f67dd68747581931b2cd129504be7",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q7",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  7,
+        "questionNumber":  7,
+        "questionText":  "You have the requirement to display PRODUCT_ID, PROD_DESC, YEAR_OF_MAN and PRICE from the Product table for those products having PROD_CAT_ID in 1 OR 5 and Year of Manufacture has to be 2019.\nYou executed the below query\nSELECT prod_id, prod_desc, price\nFROM product WHERE (prod_cat_id = 1 AND prod_cat_id = 5) AND year_of_man = 2019\nWhich statement is true regarding the execution of the query?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "image",
+                                  "path":  "data/certification-bank/media/examen-8/image.jpg",
+                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+                              },
+                              {
+                                  "type":  "text",
+                                  "text":  "You have the requirement to display PRODUCT_ID, PROD_DESC, YEAR_OF_MAN and PRICE from the Product table for those products having PROD_CAT_ID in 1 OR 5 and Year of Manufacture has to be 2019."
+                              },
+                              {
+                                  "type":  "text",
+                                  "text":  "You executed the below query"
+                              },
+                              {
+                                  "type":  "sql",
+                                  "text":  "SELECT prod_id, prod_desc, price\nFROM product WHERE (prod_cat_id = 1 AND prod_cat_id = 5) AND year_of_man = 2019\nWhich statement is true regarding the execution of the query?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "It would not execute because the entire WHERE clause is not enclosed within parentheses",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "It would execute but would return no rows.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "It would not execute because the same column has been used twice with the AND logical operator",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "It would execute and return the desired.",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.88,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT",
+                       "WHERE",
+                       "HAVING"
+                   ],
+        "initialDifficulty":  4,
+        "dynamicDifficulty":  4,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+                              "data/certification-bank/media/examen-8/image.jpg"
+                          ],
+        "contentHash":  "007442269bbc0aeda381502c84839f4cd3e36936e50c2d7114ac8cd09024bcf7",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q8",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  8,
+        "questionNumber":  8,
+        "questionText":  "The EMP table contains the current department (deptno) of all currently active employees. The EMP_HISTORY table stores historical details relating to any changes in the department of all current as well as previous employees. You need to find those employees who have never changed their departments. Which SET operator would you use to get the required output?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "image",
+                                  "path":  "data/certification-bank/media/examen-8/image2.jpg",
+                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+                              },
+                              {
+                                  "type":  "text",
+                                  "text":  "The EMP table contains the current department (deptno) of all currently active employees. The EMP_HISTORY table stores historical details relating to any changes in the department of all current as well as previous employees. You need to find those employees who have never changed their departments. Which SET operator would you use to get the required output?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "UNION",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "UNION ALL",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "MINUS",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "INTERSECT",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.88,
+        "questionType":  "single-choice",
+        "topic":  "Set Operators",
+        "topics":  [
+                       "Set Operators"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+                              "data/certification-bank/media/examen-8/image2.jpg"
+                          ],
+        "contentHash":  "32434d1d6b9350aedde2f0b9a3a4af18fb2d13406c5d579424534d8945ad5c09",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q9",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  9,
+        "questionNumber":  9,
+        "questionText":  "View the Exhibit and examine the structure of ORDERS and ORDER_ITEMS tables. ORDER_ID is the primary key in the ORDERS table. It is also the foreign key in the ORDER_ITEMS table wherein it is created with the ON DELETE CASCADE option. Which DELETE statement would execute successfully?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "View the Exhibit and examine the structure of ORDERS and ORDER_ITEMS tables. ORDER_ID is the primary key in the ORDERS table. It is also the foreign key in the ORDER_ITEMS table wherein it is created with the ON DELETE CASCADE option. Which DELETE statement would execute successfully?"
+                              },
+                              {
+                                  "type":  "image",
+                                  "path":  "data/certification-bank/media/examen-8/image.png",
+                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "DELETE orders o, order_items i WHERE o.order_id = i.order_id",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "DELETE FROM orders WHERE (SELECT order_id FROM order_items)",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "DELETE orders WHERE order_total \u003c 1000",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "DELETE order_id FROM orders WHERE order_total \u003c 1000",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.88,
+        "questionType":  "single-choice",
+        "topic":  "Constraints",
+        "topics":  [
+                       "Constraints",
+                       "WHERE",
+                       "SELECT",
+                       "Subqueries",
+                       "DML"
+                   ],
+        "initialDifficulty":  4,
+        "dynamicDifficulty":  4,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+                              "data/certification-bank/media/examen-8/image.png"
+                          ],
+        "contentHash":  "35fc5f486e34126a36896a20c68d081a7fbee5c54505c60ee948878a516a6063",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q10",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  10,
+        "questionNumber":  10,
+        "questionText":  "SELECT customer_id, ‘ ‘ , first_name, ‘ ‘ , last_name “CUSTID FIRSTNAME LASTNAME ”\nFROM customers;\nWhat is the outcome?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "sql",
+                                  "text":  "SELECT customer_id, ‘ ‘ , first_name, ‘ ‘ , last_name “CUSTID FIRSTNAME LASTNAME ”\nFROM customers;\nWhat is the outcome?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "It fails because the alias name specified after the column names is invalid.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "It fails because the space specified in single quotation marks after the first two column names is invalid.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "It executes successfully and displays the column details in a single column with only the alias column heading.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "It executes successfully and displays the column details in three separate columns and replaces only the last column heading with the alias.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "contiene codigo SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "4b04c5945e0d94287622cc6c377fd67994ffa16820e7b7d54c609a67132bf1bf",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q11",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  11,
+        "questionNumber":  11,
+        "questionText":  "Which three statements are true regarding the data types?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which three statements are true regarding the data types?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "The minimum column width that can be specified for a VARCHAR2 data type column is one",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Only one LONG column can be used per table",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "A TIMESTAMP data type column stores only time values with fractional seconds",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "The CLOB data type column is used to store binary data in an operating system file.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "The value for a CHAR data type column is blank-padded to the maximum defined column width",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "B",
+                               "E"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "5+ opciones",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 3"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "a7f912c51731cba2c46cc3e42d06e21c964421fcfe5eba374ccb9d6533072ea1",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q12",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  12,
+        "questionNumber":  12,
+        "questionText":  "Which two statements are true regarding savepoints? (Choose two.)",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which two statements are true regarding savepoints? (Choose two.)"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "Savepoints may be used to ROLLBACK",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Savepoints can be used for only DML statements",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Savepoints are effective only for COMMIT",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "Savepoints are effective for both COMMIT and ROLLBACK.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "Savepoints can be used for both DML and DDL statements.",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  2,
+        "extractionConfidence":  0.98,
+        "questionType":  "multiple-choice",
+        "topic":  "Transactions",
+        "topics":  [
+                       "Transactions"
+                   ],
+        "initialDifficulty":  5,
+        "dynamicDifficulty":  5,
+        "difficultyRationale":  "5+ opciones; requiere 2 respuestas (Choose 2); distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "e5ee31a5819945210a51c4c6c6c1866b48be54ace34d48f79617deb8f6c2b744",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q13",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  13,
+        "questionNumber":  13,
+        "questionText":  "A subquery is called a single-row subquery when",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "A subquery is called a single-row subquery when"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "There is only one subquery in the outer query and the inner query returns one or more values",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "The inner query returns a single value to the outer query",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "The inner query uses an aggregating function and returns one or more values.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "The inner query returns one or more values and the outer query returns a single value.",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Subqueries",
+        "topics":  [
+                       "Subqueries"
+                   ],
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "bb3ec122c96bde45d5019f2f8f6ca3f890be58d581093cdac7e84bf7c66c6447",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q14",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  14,
+        "questionNumber":  14,
+        "questionText":  "Each student can work on multiple projects and each project can have multiple students. You need to design an Entity Relationship Model (ERD) for optimal data storage and allow for generating reports in this format: STUDENT_ID FIRST_NAME LAST_NAME PROJECT_ID PROJECT_NAME PROJECT_TASK Which two statements are true in this scenario?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Each student can work on multiple projects and each project can have multiple students. You need to design an Entity Relationship Model (ERD) for optimal data storage and allow for generating reports in this format: STUDENT_ID FIRST_NAME LAST_NAME PROJECT_ID PROJECT_NAME PROJECT_TASK Which two statements are true in this scenario?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "The ERD must have a 1:M relationship between the STUDENTS and PROJECTS entities",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "The ERD must have a M:M relationship between the STUDENTS and PROJECTS entities that must be resolved into 1:M relationships",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "STUDENT_ID must be the primary key in the STUDENTS entity and foreign key in the PROJECTS entity.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "PROJECT_ID must be the primary key in the PROJECTS entity and foreign key in the STUDENTS entity",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "An associative table must be created with a composite key of STUDENT_ID and PROJECT_ID, which is the foreign key linked to the STUDENTS and PROJECTS entities",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B",
+                               "E"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "Constraints",
+        "topics":  [
+                       "Constraints"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "5+ opciones; distractores muy similares entre si",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "264993479b98ff1811516b1045c7cf31218594042202c781ef21423eeb47656b",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q15",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  15,
+        "questionNumber":  15,
+        "questionText":  "Which two statement are true regarding table joins available in the Oracle Database server? (Choose two.)",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which two statement are true regarding table joins available in the Oracle Database server? (Choose two.)"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "You can use the ON clause to specify multiple conditions while joining table",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "You can explicitly provide the join condition with a NATURAL JOIN.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "You can use the JOIN clause to join only two tables.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "You can use the USING clause to join tables on more than one column.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  2,
+        "extractionConfidence":  0.98,
+        "questionType":  "multiple-choice",
+        "topic":  "JOINS",
+        "topics":  [
+                       "JOINS"
+                   ],
+        "initialDifficulty":  5,
+        "dynamicDifficulty":  5,
+        "difficultyRationale":  "requiere 2 respuestas (Choose 2); contiene codigo SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "ed129e673d2ddf80343d62c0fbafdc4b54b8f686956e5845fadfdf987e9c8aaa",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q16",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  16,
+        "questionNumber":  16,
+        "questionText":  "What is true about DBMS?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is true about DBMS?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "It is Database Management System.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "It contains only Data.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "It has data and an instance to manage the data.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "All of the above.",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "14a851a0a46b0c04d37b516704f4cdc2ee75e0830690336c87d21822ea94d99a",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q17",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  17,
+        "questionNumber":  17,
+        "questionText":  "Name the command after which SQL*Plus displays before and after images of each line that contains a substitution variable.",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Name the command after which SQL*Plus displays before and after images of each line that contains a substitution variable."
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "SET VERIFY ON",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "SET DEFINE ON",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "SET FEEDBACK ON",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "None",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "e3dc3a1f7b296037b31af0e8b01726a72f62859383c03729bcffcf8728ab6a04",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q18",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  18,
+        "questionNumber":  18,
+        "questionText":  "What will be output of the below query?\nSELECT * FROM emp ORDER BY SAL DESC\nOFFSET 2 ROWS\nFETCH NEXT 3 ROW ONLY;",
+        "contentBlocks":  [
+                              {
+                                  "type":  "sql",
+                                  "text":  "What will be output of the below query?\nSELECT * FROM emp ORDER BY SAL DESC\nOFFSET 2 ROWS\nFETCH NEXT 3 ROW ONLY;"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "It will return top 2, 3 and 4th salaried employees",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "It will return top 5, 6 and 7th salaried employees",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "It will return top 3, 4 and 5th salaried employees",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "It will return bottom 3, 4 and 5th salaried employees",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT",
+                       "ORDER BY"
+                   ],
+        "initialDifficulty":  4,
+        "dynamicDifficulty":  4,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "094775fa061f19af0f1950eca20f9367376d905cfb44d54481f57ecff2859be5",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q19",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  19,
+        "questionNumber":  19,
+        "questionText":  "What is the output of below query?\nSELECT SIGN(-125), SIGN(0), SIGN(100)\nFROM dual",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is the output of below query?\nSELECT SIGN(-125), SIGN(0), SIGN(100)\nFROM dual"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "-125, 0, 100",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "-1, 0, 1",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "125, 0, 100",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "125, 0, -100",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT"
+                   ],
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "contiene codigo SQL",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "c460ef36c5025a625c4bb6d763c145ee915c6b023640cbf6c6ae109d09ecb43c",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q20",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  20,
+        "questionNumber":  20,
+        "questionText":  "Which is syntactically correct?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which is syntactically correct?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "SELECT * FROM emp ORDER BY sal DESC FETCH NEXT 2 ROWS WITH TIES ONLY;",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "SELECT * FROM emp ORDER BY sal DESC FETCH NEXT 2 ROWS WITH TIES;",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "SELECT * FROM emp FETCH NEXT 2 ROW WITH TIES ONLY;",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "SELECT * FROM emp FETCH NEXT 2 ROWS WITH TIES ONLY;",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT",
+                       "ORDER BY"
+                   ],
+        "initialDifficulty":  4,
+        "dynamicDifficulty":  4,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "e353591fac80adec6e3a73a74c4a1d2c7ec875b433d2c06ba900124c2db8311c",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q21",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  21,
+        "questionNumber":  21,
+        "questionText":  "A substitution variable declared var_name. Find the appropriate way to use it in a query?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "A substitution variable declared var_name. Find the appropriate way to use it in a query?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "DEFINE var_name = ‘SMITH‘",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "SELECT * FROM emp WHERE ename = ‘$var_name‘",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "SELECT * FROM emp WHERE ename = ‘\u0026var_name‘",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "SELECT * FROM emp WHERE ename = ‘@var_name‘",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "SELECT * FROM emp WHERE ename = ‘#var_name‘",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT",
+                       "WHERE"
+                   ],
+        "initialDifficulty":  5,
+        "dynamicDifficulty":  5,
+        "difficultyRationale":  "5+ opciones; contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "bed8e08395270bd35d02e73dff8b772eb742d9956e83360c73ccee5fb63989fd",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q22",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  22,
+        "questionNumber":  22,
+        "questionText":  "What is the output of the query?\nsql\nSELECT CEIL(-10.5), CEIL(10), CEIL(10.5) \nFROM",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is the output of the query?"
+                              },
+                              {
+                                  "type":  "text",
+                                  "text":  "sql"
+                              },
+                              {
+                                  "type":  "sql",
+                                  "text":  "SELECT CEIL(-10.5), CEIL(10), CEIL(10.5) \nFROM"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "10 ,10, 11",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "10 ,10, 10",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "-10 ,10, 10",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "-10 ,10, 11",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.58,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT",
+                       "Numeric Functions"
+                   ],
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "contiene codigo SQL",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el marcador explicito de respuesta correcta del documento no coincide con el resaltado/negrita detectado; revisar manualmente"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "fec29c87dfa65bf2f027418bb8f95dba8f7a548cb983e7211502062e5669162c",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q23",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  23,
+        "questionNumber":  23,
+        "questionText":  "What is the output of the below query?\nSELECT TRANSLATE(‘I am a World Citizen‘,‘abcABC‘,‘xyzXYZ‘)\nFROM dual",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is the output of the below query?\nSELECT TRANSLATE(‘I am a World Citizen‘,‘abcABC‘,‘xyzXYZ‘)\nFROM dual"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "I Xm X World Zitizen",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "I am a World Citizen",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "I xm x World Zitizen",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "I xm x World xitizen",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "contiene codigo SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "91caf78e32202884a7efc714949d8537a9e6e4065ed17d7cdfa4ad37848b0ef5",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q24",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  24,
+        "questionNumber":  24,
+        "questionText":  "EXTRACT built-in function can extract from a date or expression below values.",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "EXTRACT built-in function can extract from a date or expression below values."
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "Year, Day, Hour, Min and Sec",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Year and Day",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Hour, Min and Sec",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "Year, Month, Day , Hour, Min and Sec",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "contiene codigo SQL",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "68dc9551b09a7204f7addd5ba84eddd1a4093e97e63096469902eb732f821463",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q25",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  25,
+        "questionNumber":  25,
+        "questionText":  "What is the output pf below query?\nSELECT NULLIF (‘apple‘, ‘apple‘) val1 ,\nNULLIF (‘apple‘, ‘orange‘) val2 \nFROM  dual",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is the output pf below query?\nSELECT NULLIF (‘apple‘, ‘apple‘) val1 ,\nNULLIF (‘apple‘, ‘orange‘) val2 \nFROM  dual"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "VAL1 VAL2\n----- -----\napple",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "VAL1 VAL2\n----- -----\napple apple",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "VAL1 VAL2\n----- -----\napple orange",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "VAL1 VAL2\n----- -----\norange orange",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "contiene codigo SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "dc15540817532cc1e3c09eab33021805b391e78df717c9b1c434ed1269b42768",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q26",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  26,
+        "questionNumber":  26,
+        "questionText":  "What is the output of below query?\nSELECT TRUNC(315.451,-3), TRUNC(315.451,-1),\nTRUNC(315.451,0), TRUNC(315.451,1)\nFROM dual",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is the output of below query?\nSELECT TRUNC(315.451,-3), TRUNC(315.451,-1),\nTRUNC(315.451,0), TRUNC(315.451,1)\nFROM dual"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "0, 315, 315, 315.4",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "300, 310, 315, 315.4",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "300, 310, 315, 315",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "0, 310, 315, 315.4",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT",
+                       "Numeric Functions"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "contiene codigo SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "ab3be106c5b03f036258382ccf5765e03de2f0158bb2da482b670c1289cb81c2",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q27",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  27,
+        "questionNumber":  27,
+        "questionText":  "What is the output of below query?\nSELECT LAST_DAY(TO_DATE(‘14-12-2019‘, ‘DD-MM-YYYY‘)) output\nFROM dual",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is the output of below query?\nSELECT LAST_DAY(TO_DATE(‘14-12-2019‘, ‘DD-MM-YYYY‘)) output\nFROM dual"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "1/12/2019",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "31-12-2019",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "14-12-2019",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "1/1/2020",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Date Functions",
+        "topics":  [
+                       "Date Functions",
+                       "SELECT",
+                       "Conversion Functions"
+                   ],
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "contiene codigo SQL",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "22658b47e36a7a95804b4b49b848ddbf0eb3050ca23edf32846a4e4dcda7d8f6",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q28",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  28,
+        "questionNumber":  28,
+        "questionText":  "Implicit conversion is faster than Explicit conversion?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Implicit conversion is faster than Explicit conversion?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "Yes",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "No",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Both take same time",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "None of the above",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "0eb74a37d04e3619e7f47f48fb2bdd0486b918a4712b5f7a6ead6a586677ee7f",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q29",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  29,
+        "questionNumber":  29,
+        "questionText":  "What is syntactically correct?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is syntactically correct?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "SELECT SUM(e.sal)\nFROM emp e GROUP BY deptno WHERE e.deptno IN (10, 20) ORDER BY SUM(e.sal) DESC",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "SELECT SUM(e.sal)\nFROM emp e GROUP BY deptno HAVING e.deptno IN (10, 20) ORDER BY SUM(e.sal) DESC",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "SELECT SUM(e.sal)\nFROM emp e GROUP BY deptno ORDER BY SUM(e.sal) DESC HAVING e.deptno IN (10, 20)",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "SELECT SUM(e.sal)\nFROM emp e WHERE GROUP BY deptno AND  e.deptno IN (10, 20) ORDER BY SUM(e.sal) DESC",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "ORDER BY",
+        "topics":  [
+                       "ORDER BY",
+                       "WHERE",
+                       "SELECT",
+                       "GROUP BY",
+                       "HAVING"
+                   ],
+        "initialDifficulty":  4,
+        "dynamicDifficulty":  4,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "ac9f29c38b3fa295afab1da113304f0f2a61326f227eadda9446366a7807ca5a",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q30",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  30,
+        "questionNumber":  30,
+        "questionText":  "What type of sub-query is used in the below statement?\nSELECT * FROM emp e  WHERE deptno = (SELECT deptno\nFROM dept d\nWHERE e.deptno = d.deptno\n);",
+        "contentBlocks":  [
+                              {
+                                  "type":  "sql",
+                                  "text":  "What type of sub-query is used in the below statement?\nSELECT * FROM emp e  WHERE deptno = (SELECT deptno\nFROM dept d\nWHERE e.deptno = d.deptno\n);"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "Subquery",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Co-related subquery",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Inline view",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "All of the above",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Subqueries",
+        "topics":  [
+                       "Subqueries",
+                       "SELECT",
+                       "WHERE"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "a80357e59687bedbbfd8373dd59ff1563e88d2e9d57a7f6b72a7a774e82bc498",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q31",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  31,
+        "questionNumber":  32,
+        "questionText":  "What is the output of below query?\nSELECT A.VAL A_VAL, B.VAL B_VAL FROM A\nLEFT OUTER JOIN B ON A.ID = B.ID",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is the output of below query?"
+                              },
+                              {
+                                  "type":  "image",
+                                  "path":  "data/certification-bank/media/examen-8/image2.png",
+                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+                              },
+                              {
+                                  "type":  "sql",
+                                  "text":  "SELECT A.VAL A_VAL, B.VAL B_VAL FROM A\nLEFT OUTER JOIN B ON A.ID = B.ID"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "A_VAL B_VAL\n----- -----\n20 20\n30 30\n10",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "A_VAL B_VAL\n----- ------\n20 20\n30 30\n10\n50",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "A_VAL B_VAL\n----- ------\n20 20\n30 30\n50",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "A_VAL B_VAL\n----- -----\n20 20\n30 30",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.88,
+        "questionType":  "single-choice",
+        "topic":  "JOINS",
+        "topics":  [
+                       "JOINS",
+                       "SELECT"
+                   ],
+        "initialDifficulty":  4,
+        "dynamicDifficulty":  4,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+                              "data/certification-bank/media/examen-8/image2.png"
+                          ],
+        "contentHash":  "87d5706c4c676119febe0f65140712614cda2eb0dd7a316f0fbe48ce8c32bb22",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q32",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  32,
+        "questionNumber":  33,
+        "questionText":  "Find the type of join used in the below query.\nSELECT e1.ename , e2.ename manager\nFROM emp e1, emp e2\nWHERE e1.mgr = e2.empno AND e1.ename = ‘FORD‘",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Find the type of join used in the below query.\nSELECT e1.ename , e2.ename manager\nFROM emp e1, emp e2\nWHERE e1.mgr = e2.empno AND e1.ename = ‘FORD‘"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "Cartesian Join",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Equijoin",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Non equijoins",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "Self-joins",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "JOINS",
+        "topics":  [
+                       "JOINS",
+                       "SELECT",
+                       "WHERE"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "45ec164e13a69bf25a1ec6d8085587952abb488bdfad220fd8290c90ba268468",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q33",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  33,
+        "questionNumber":  34,
+        "questionText":  "What type of join is used in the below query?\nSELECT e.empno, e.name, d.deptno\nFROM emp e, dept d",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What type of join is used in the below query?\nSELECT e.empno, e.name, d.deptno\nFROM emp e, dept d"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "Self Join",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Equijoin",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Cartesian Join",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "Non equijoin",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "JOINS",
+        "topics":  [
+                       "JOINS",
+                       "SELECT"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "b68db7e3419eb2b2b2e0f8c8783c9db5b12d0b121ba57e89a2d2731e79967ccb",
+        "importedAt":  "2026-09-20T17:57:29Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q34",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  34,
+        "questionNumber":  35,
+        "questionText":  "What will be the number of records for the below query?\nSELECT e.empno, e.ename, d.deptno\nFROM emp e, dept d",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What will be the number of records for the below query?"
+                              },
+                              {
+                                  "type":  "image",
+                                  "path":  "data/certification-bank/media/examen-8/image3.png",
+                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+                              },
+                              {
+                                  "type":  "sql",
+                                  "text":  "SELECT e.empno, e.ename, d.deptno\nFROM emp e, dept d"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "7",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "4",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "28",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "11",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.88,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT"
+                   ],
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "contiene codigo SQL",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+                              "data/certification-bank/media/examen-8/image3.png"
+                          ],
+        "contentHash":  "a39c4d6262dab1167d6785b22d9b7558326b2271e0c0e133306ac0e1794c9250",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q35",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  35,
+        "questionNumber":  36,
+        "questionText":  "SELECT cust_id, cust_last_name “Last name”\nFROM customers WHERE country_id = 10\nUNION\nSELECT cust_id CUST_NO, cust_last_name\nFROM customers WHERE country_id = 30\nIdentify three ORDER BY clauses either one of which can complete the query. (Choose three)",
+        "contentBlocks":  [
+                              {
+                                  "type":  "sql",
+                                  "text":  "SELECT cust_id, cust_last_name “Last name”\nFROM customers WHERE country_id = 10\nUNION\nSELECT cust_id CUST_NO, cust_last_name\nFROM customers WHERE country_id = 30\nIdentify three ORDER BY clauses either one of which can complete the query. (Choose three)"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "ORDER BY \"Last name\"",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "ORDER BY 2, cust_id",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "ORDER BY CUST_NO",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "ORDER BY 2,1",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "ORDER BY \"CUST_NO\"",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "B",
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  3,
+        "extractionConfidence":  0.98,
+        "questionType":  "multiple-choice",
+        "topic":  "WHERE",
+        "topics":  [
+                       "WHERE",
+                       "SELECT",
+                       "Set Operators",
+                       "ORDER BY"
+                   ],
+        "initialDifficulty":  5,
+        "dynamicDifficulty":  5,
+        "difficultyRationale":  "5+ opciones; requiere 3 respuestas (Choose 3); contiene codigo SQL; combina varias clausulas SQL",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "7230513ac3b1b90578cfbe91bf2502ae7b4e419517c624f1167659f081c37d47",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q36",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  36,
+        "questionNumber":  37,
+        "questionText":  "Which three statements are true regarding the WHERE and HAVING clauses in a SQL statement? (Choose three.)\nWHERE and HAVING clauses cannot be used together in a SQL statement.",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which three statements are true regarding the WHERE and HAVING clauses in a SQL statement? (Choose three.)\nWHERE and HAVING clauses cannot be used together in a SQL statement."
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "The HAVING clause conditions can have aggregate functions.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "The HAVING clause conditions can use aliases for the columns.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "The WHERE clause is used to exclude rows before the grouping of data.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "The HAVING clause is used to exclude one or more aggregated results after grouping data.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "C",
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  3,
+        "extractionConfidence":  0.98,
+        "questionType":  "multiple-choice",
+        "topic":  "WHERE",
+        "topics":  [
+                       "WHERE",
+                       "HAVING"
+                   ],
+        "initialDifficulty":  5,
+        "dynamicDifficulty":  5,
+        "difficultyRationale":  "requiere 3 respuestas (Choose 3); contiene codigo SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "0f425943df38768ba927bcd1d93b931aa8a93e3bb2cca4366b172592e97bb6dc",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q37",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  37,
+        "questionNumber":  38,
+        "questionText":  "Which two statements are true regarding roles? (Choose two.)",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which two statements are true regarding roles? (Choose two.)"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "A role can be granted to itself.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "A role can be granted to PUBLIC.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "A user can be granted only one role at any point of time.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "The REVOKE command can be used to remove privileges but not roles from other users.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "Roles are named groups of related privileges that can be granted to users or other roles.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B",
+                               "E"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  2,
+        "extractionConfidence":  0.98,
+        "questionType":  "multiple-choice",
+        "topic":  "Privileges",
+        "topics":  [
+                       "Privileges",
+                       "Roles"
+                   ],
+        "initialDifficulty":  5,
+        "dynamicDifficulty":  5,
+        "difficultyRationale":  "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "b51a28d8619b2286d558865d968e06afb864c3f83f781b4767506999dbdca33c",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q38",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  38,
+        "questionNumber":  39,
+        "questionText":  "Which two statements are true regarding constraints? (Choose two).",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which two statements are true regarding constraints? (Choose two)."
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "A constraint is enforced only for an INSERT operation on a table.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "A foreign key cannot contain NULL values.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "A column with the UNIQUE constraint can store NULLS.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "You can have more than one column in a table as part of a primary key.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C",
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  2,
+        "extractionConfidence":  0.98,
+        "questionType":  "multiple-choice",
+        "topic":  "Constraints",
+        "topics":  [
+                       "Constraints"
+                   ],
+        "initialDifficulty":  4,
+        "dynamicDifficulty":  4,
+        "difficultyRationale":  "requiere 2 respuestas (Choose 2); contiene codigo SQL",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "8c0fcb7cc5e6f6028c7fc4195e6a2c907e47bfd9ed7e0a38ff2fdd92619b6d5a",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q39",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  39,
+        "questionNumber":  40,
+        "questionText":  "You want to display details of all products whose description (prod_desc) the letter A followed by exactly one character. Which SQL statement must you execute?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "You want to display details of all products whose description (prod_desc) the letter A followed by exactly one character. Which SQL statement must you execute?"
+                              },
+                              {
+                                  "type":  "image",
+                                  "path":  "data/certification-bank/media/examen-8/image4.png",
+                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "SELECT * FROM product WHERE prod_desc LIKE ‘%A_‘;",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "SELECT * FROM product WHERE prod_desc LIKE ‘A_‘;",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "SELECT * FROM product WHERE prod_desc LIKE ‘A_%‘;",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "SELECT * FROM product WHERE prod_desc LIKE ‘A%‘",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.88,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT",
+                       "WHERE"
+                   ],
+        "initialDifficulty":  4,
+        "dynamicDifficulty":  4,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+                              "data/certification-bank/media/examen-8/image4.png"
+                          ],
+        "contentHash":  "9df35231f8f0a4d4ff420adca5f8b292938582cf1d2df533b95031404c7eabc2",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q40",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  40,
+        "questionNumber":  41,
+        "questionText":  "How many LOB columns possible for a Table?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "How many LOB columns possible for a Table?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "1",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "1000",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Unlimited.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "None of the above",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "ddb48bd54cb5efae9095bbe9f2022ea9823c72fb3af537e681300debdbf6cb96",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q41",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  41,
+        "questionNumber":  42,
+        "questionText":  "What is the maximum size of VARCHAR2 data type?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is the maximum size of VARCHAR2 data type?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "1000 Bytes",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "2000 Bytes",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "3000 Bytes",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "4000 Bytes",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.58,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el marcador explicito de respuesta correcta del documento no coincide con el resaltado/negrita detectado; revisar manualmente"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "50e25376bb88b23d186c9cfefdcf0b54daf62d91b62a907ea64f6e8f7c57099f",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q42",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  42,
+        "questionNumber":  43,
+        "questionText":  "What is true about a external table?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is true about a external table?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "The external tables feature is a complement to existing SQL*Loader functionality",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "It enables you to access data in external sources as if it were in a table in the database",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "User do not need a oracle directory to read the file. Direct path can be provided.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "READ and WRITE permission is required for the directory, when external table is created.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "B",
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 3"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "8eeecf4e558faaad6e6000becffeae95192c981ed9a57a964ee4425d42224918",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q43",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  43,
+        "questionNumber":  44,
+        "questionText":  "What is a DCL (Data control Language) statement?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is a DCL (Data control Language) statement?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "MERGE",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "ALTER",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "ROLLBACK",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "GRANT",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Transactions",
+        "topics":  [
+                       "Transactions"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "4b7883378e31144a08cb1f85ab3e3f6655e734b6fdecc64655bca25adf76f315",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q44",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  44,
+        "questionNumber":  45,
+        "questionText":  "What is right about a synonym?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is right about a synonym?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "There are 2 types of synonyms private and public.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Private synonym can only mask the object name",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Public synonym can mask both object name and object owner‘s name",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "All of the above.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Synonyms",
+        "topics":  [
+                       "Synonyms"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "5cdce3722735acfc05c33726be9a35b5306914c27590c55a1854b07e5cd32e22",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q45",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  45,
+        "questionNumber":  46,
+        "questionText":  "What type of privileges are these ? (SELECT, INSERT, UPDATE \u0026 DELETE on emp table).\nGRANT SELECT, INSERT, UPDATE, DELETE ON emp",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What type of privileges are these ? (SELECT, INSERT, UPDATE \u0026 DELETE on emp table)."
+                              },
+                              {
+                                  "type":  "sql",
+                                  "text":  "GRANT SELECT, INSERT, UPDATE, DELETE ON emp"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "SYSTEM privilege",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "OBJECT privilege",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "It is both SYSTEM privilege and OBJECT privilege",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "None of the above",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Privileges",
+        "topics":  [
+                       "Privileges",
+                       "Subqueries",
+                       "DML"
+                   ],
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "contiene codigo SQL",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "18c9da55e50b323ca05aa9ce894a0ebb8323c454fa9628731dec6adde20ab19d",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q46",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  46,
+        "questionNumber":  47,
+        "questionText":  "Which statements are true about data dictionary?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which statements are true about data dictionary?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "Prefix \"USER_\"  is what is there in user schema",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "Prefix \"ALL_\"  is expanded view what user can access",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Prefix \"DBA_\"  is Database Administrator view what is in all users‘ schema",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "None are correct",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "B",
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "Data Dictionary",
+        "topics":  [
+                       "Data Dictionary"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 3"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "8bcb573428b46eefe49a3d9bb80f88ad3d21a71c8b79db2940d59b32b5da16a7",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q47",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  47,
+        "questionNumber":  48,
+        "questionText":  "CREATE OR REPLACE VIEW v_emp AS\nSELECT e.empno , e.ename, d.loc FROM emp e, dept d;\nDELETE FROM v_emp WHERE loc = ‘DALLAS‘;\nHow many records will be deleted from which table?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "image",
+                                  "path":  "data/certification-bank/media/examen-8/image5.png",
+                                  "note":  "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+                              },
+                              {
+                                  "type":  "sql",
+                                  "text":  "CREATE OR REPLACE VIEW v_emp AS\nSELECT e.empno , e.ename, d.loc FROM emp e, dept d;"
+                              },
+                              {
+                                  "type":  "sql",
+                                  "text":  "DELETE FROM v_emp WHERE loc = ‘DALLAS‘;\nHow many records will be deleted from which table?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "2 records from emp",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "1 record from dept",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "2 records from emp and 1 record from dept",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "None of the above",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.88,
+        "questionType":  "single-choice",
+        "topic":  "WHERE",
+        "topics":  [
+                       "WHERE",
+                       "SELECT",
+                       "Views",
+                       "DML"
+                   ],
+        "initialDifficulty":  4,
+        "dynamicDifficulty":  4,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+                              "data/certification-bank/media/examen-8/image5.png"
+                          ],
+        "contentHash":  "1067d9a9f231b0b89296caec7f7085ec2af1f993337cb6a04dfdbb4d2b0d545a",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q48",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  48,
+        "questionNumber":  49,
+        "questionText":  "What are the privileges can be given on a Table? (Choose all applicable)",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What are the privileges can be given on a Table? (Choose all applicable)"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "SELECT",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "INSERT, UPDATE, DELETE",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "DEBUG",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "ALTER",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "EXECUTE",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "B",
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "SELECT",
+        "topics":  [
+                       "SELECT",
+                       "Privileges"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "5+ opciones; contiene codigo SQL",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 3"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "276255e5db0dc282f984f083f0f55ad1d024c0e43950ad6d8ce060c6b978a90a",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q49",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  49,
+        "questionNumber":  50,
+        "questionText":  "What is the data dictionary used to find only the tables inside the user schema.",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What is the data dictionary used to find only the tables inside the user schema."
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "ALL_TABLES",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "USER_TABLES",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "DBA_TABLES",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "All of the Above",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Data Dictionary",
+        "topics":  [
+                       "Data Dictionary"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "0f90d106f08502c85a9724f601eac50a2106775eeb93a567395b27ed6f144ba0",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q50",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  50,
+        "questionNumber":  51,
+        "questionText":  "USER_TAB_PRIVS data dictionary will help to find below.",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "USER_TAB_PRIVS data dictionary will help to find below."
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "privileges granted to a user",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "privileges granted to a role",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "privileges granted to a user and role",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "None of the above",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Roles",
+        "topics":  [
+                       "Roles",
+                       "Privileges",
+                       "Data Dictionary"
+                   ],
+        "initialDifficulty":  2,
+        "dynamicDifficulty":  2,
+        "difficultyRationale":  "distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "ea52301d28eaaf2db97142c19cf1541cc6726dcf16d47fcc29805081bc5de251",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q51",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  51,
+        "questionNumber":  52,
+        "questionText":  "Which built-in function supports local timezone?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which built-in function supports local timezone?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "FROM_TZ",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "NEW_TIME",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Both FROM_TZ and NEW_TIME",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "None of the above",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "a9fdd19b46aef43c0db8f4e8a6555674768d329553b54f0d4f0daa653edb1d43",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q52",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  52,
+        "questionNumber":  53,
+        "questionText":  "What are the different INTERVAL data types?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "What are the different INTERVAL data types?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "INTERVAL YEAR TO MONTH",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "INTERVAL DAY TO SECOND",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "Both INTERVAL YEAR TO MONTH and INTERVAL DAY TO SECOND",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "None of the above",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "48c2b271a5d67b750d1bfdaa4a47c5af3c3453772123744cda3cef585cfac567",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q53",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  53,
+        "questionNumber":  54,
+        "questionText":  "Find the Privileges attached to a Role “ROLE_MANAGER”. Which query or statement you are going to execute?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Find the Privileges attached to a Role “ROLE_MANAGER”. Which query or statement you are going to execute?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "SELECT * FROM user_role_privs WHERE grantee = ‘ROLE_MANAGER‘",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "SELECT * FROM dba_role_privs WHERE grantee = ‘ROLE_MANAGER‘",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "SELECT * FROM user_tab_privs WHERE grantee = ‘ROLE_MANAGER‘",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "None of the above",
+                            "isCorrect":  false
+                        }
+                    ],
+        "correctAnswers":  [
+                               "C"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "WHERE",
+        "topics":  [
+                       "WHERE",
+                       "SELECT",
+                       "Roles",
+                       "Data Dictionary",
+                       "Privileges"
+                   ],
+        "initialDifficulty":  4,
+        "dynamicDifficulty":  4,
+        "difficultyRationale":  "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "420c09ecbbf3ae2bafae1fb81efa5228087e72b03a6f2251041a6213af2b3cf9",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q54",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  54,
+        "questionNumber":  55,
+        "questionText":  "Which privileges are system privileges find all of them?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which privileges are system privileges find all of them?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "CREATE TABLE",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "CREATE VIEW",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "CREATE SEQUENCE",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "CREATE ROLE",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "B",
+                               "C",
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "DDL",
+        "topics":  [
+                       "DDL",
+                       "Privileges",
+                       "Views",
+                       "Sequences"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 4"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "308598550b64d0368bc0399a378933bb0a77cf00a0a42cfb882e10c29e80e8d1",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q55",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  55,
+        "questionNumber":  56,
+        "questionText":  "Which privilege is an object privilege?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which privilege is an object privilege?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "GRANT CREATE TABLE",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "GRANT CREATE VIEW",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "GRANT CREATE SEQUENCE",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "GRANT SELECT ON EMP",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.98,
+        "questionType":  "single-choice",
+        "topic":  "Privileges",
+        "topics":  [
+                       "Privileges",
+                       "SELECT",
+                       "DDL",
+                       "Views",
+                       "Sequences"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "contiene codigo SQL; distractores muy similares entre si",
+        "reviewStatus":  "validated",
+        "reviewReasons":  [
+
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "7f4b0b46cc3edf096e63877a596e7710e905469a3fad8b82ad7938142338faf7",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q56",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  56,
+        "questionNumber":  57,
+        "questionText":  "DROP table EMPLOYEES PURGE;\nWhich three statements are true?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "sql",
+                                  "text":  "DROP table EMPLOYEES PURGE;"
+                              },
+                              {
+                                  "type":  "text",
+                                  "text":  "Which three statements are true?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "All indexes and constraints defined on the table being dropped are also dropped.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "The EMPLOYEES table may be moved to the recycle bin.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "The EMPLOYEES table can be recovered using the ROLLBACK command.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "If there is an uncommitted transaction in the session, it is committed",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "E",
+                            "text":  "The space used by the EMPLOYEES table is always reclaimed immediately.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "A",
+                               "D",
+                               "E"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "Transactions",
+        "topics":  [
+                       "Transactions",
+                       "Constraints",
+                       "DDL",
+                       "Indexes"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "5+ opciones; distractores muy similares entre si",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 3"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "0d3d9eae31835f0239b16576fb4357261b55dd9121c902b3a0de5f96ec410a8e",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q57",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  57,
+        "questionNumber":  58,
+        "questionText":  "Which two statements are true regarding the COUNT function?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which two statements are true regarding the COUNT function?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "The COUNT function can be used only for CHAR, VARCHAR2, and NUMBER data types.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "COUNT (*) returns the number of rows including duplicate rows and rows containing NULL value in any of the columns.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "COUNT (comm) returns the number of rows including rows with duplicate comm and NULL value in the comm",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "DISTINCT function can be inside COUNT function.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B",
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "Otros",
+        "topics":  [
+                       "Otros"
+                   ],
+        "initialDifficulty":  1,
+        "dynamicDifficulty":  1,
+        "difficultyRationale":  "",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "8d321df55205fd04c7025cf06807c1895fa6eb21aa3a0d0e2c2657439dbfe90f",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    },
+    {
+        "id":  "examen-8-q58",
+        "sourceFile":  "EXAMEN 8.docx",
+        "sourcePosition":  58,
+        "questionNumber":  59,
+        "questionText":  "Which two statements are true regarding constraints?",
+        "contentBlocks":  [
+                              {
+                                  "type":  "text",
+                                  "text":  "Which two statements are true regarding constraints?"
+                              }
+                          ],
+        "options":  [
+                        {
+                            "id":  "A",
+                            "text":  "A foreign key column cannot contain null values.",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "B",
+                            "text":  "A column with the UNIQUE constraint can contain null values.",
+                            "isCorrect":  true
+                        },
+                        {
+                            "id":  "C",
+                            "text":  "A constraint is enforced only for INSERT operation on the table",
+                            "isCorrect":  false
+                        },
+                        {
+                            "id":  "D",
+                            "text":  "A constraint can be disabled even if the constraint column contains data.",
+                            "isCorrect":  true
+                        }
+                    ],
+        "correctAnswers":  [
+                               "B",
+                               "D"
+                           ],
+        "solutionDetectionMethod":  [
+                                        "explicit-marker",
+                                        "bold"
+                                    ],
+        "expectedAnswerCount":  1,
+        "extractionConfidence":  0.73,
+        "questionType":  "single-choice",
+        "topic":  "Constraints",
+        "topics":  [
+                       "Constraints"
+                   ],
+        "initialDifficulty":  3,
+        "dynamicDifficulty":  3,
+        "difficultyRationale":  "contiene codigo SQL; distractores muy similares entre si",
+        "reviewStatus":  "pending_review",
+        "reviewReasons":  [
+                              "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+                          ],
+        "warnings":  [
+
+                     ],
+        "exhibitImages":  [
+
+                          ],
+        "contentHash":  "12f8645577e70813f939df7e45efce001670bc8526febe0349664e55326ad493",
+        "importedAt":  "2026-09-20T17:57:30Z",
+        "duplicateOf":  null
+    }
+]

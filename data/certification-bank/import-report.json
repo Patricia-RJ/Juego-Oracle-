@@ -1,84 +1,120 @@
 ﻿{
-    "generatedAt":  "2026-07-17T12:33:31Z",
-    "filesFound":  4,
-    "filesProcessedOk":  4,
+    "generatedAt":  "2026-09-20T17:57:31Z",
+    "filesFound":  9,
+    "filesProcessedOk":  9,
     "filesWithErrors":  0,
-    "totalQuestions":  152,
+    "totalQuestions":  424,
     "withYellowHighlight":  145,
-    "withBold":  22,
+    "withBold":  294,
     "withBothMethods":  21,
-    "multiAnswerQuestions":  80,
-    "duplicateQuestions":  2,
-    "pendingReview":  105,
+    "multiAnswerQuestions":  170,
+    "duplicateQuestions":  3,
+    "pendingReview":  248,
     "withoutSolution":  6,
-    "newSinceLastImport":  7,
-    "unchangedSinceLastImport":  20,
-    "changedSinceLastImport":  125,
+    "newSinceLastImport":  0,
+    "unchangedSinceLastImport":  422,
+    "changedSinceLastImport":  2,
     "byDifficulty":  [
                          {
                              "level":  "1",
-                             "count":  7
+                             "count":  45
                          },
                          {
                              "level":  "2",
-                             "count":  25
+                             "count":  88
                          },
                          {
                              "level":  "3",
-                             "count":  29
+                             "count":  105
                          },
                          {
                              "level":  "4",
-                             "count":  39
+                             "count":  91
                          },
                          {
                              "level":  "5",
-                             "count":  52
+                             "count":  95
                          }
                      ],
     "byTopic":  [
                     {
                         "topic":  "SELECT",
-                        "count":  32
-                    },
-                    {
-                        "topic":  "Constraints",
-                        "count":  23
+                        "count":  94
                     },
                     {
                         "topic":  "Otros",
-                        "count":  18
+                        "count":  79
+                    },
+                    {
+                        "topic":  "Constraints",
+                        "count":  41
                     },
                     {
                         "topic":  "WHERE",
-                        "count":  14
-                    },
-                    {
-                        "topic":  "Transactions",
-                        "count":  12
+                        "count":  35
                     },
                     {
                         "topic":  "JOINS",
-                        "count":  10
+                        "count":  31
+                    },
+                    {
+                        "topic":  "Transactions",
+                        "count":  22
                     },
                     {
                         "topic":  "Subqueries",
-                        "count":  7
-                    },
-                    {
-                        "topic":  "Set Operators",
-                        "count":  4
+                        "count":  19
                     },
                     {
                         "topic":  "Privileges",
-                        "count":  4
+                        "count":  16
                     },
                     {
                         "topic":  "ORDER BY",
-                        "count":  3
+                        "count":  12
+                    },
+                    {
+                        "topic":  "Data Dictionary",
+                        "count":  12
+                    },
+                    {
+                        "topic":  "DDL",
+                        "count":  8
                     },
                     {
                         "topic":  "Date Functions",
+                        "count":  8
+                    },
+                    {
+                        "topic":  "Set Operators",
+                        "count":  8
+                    },
+                    {
+                        "topic":  "Aggregate Functions",
+                        "count":  6
+                    },
+                    {
+                        "topic":  "DML",
+                        "count":  5
+                    },
+                    {
+                        "topic":  "NULL Handling",
+                        "count":  4
+                    },
+                    {
+                        "topic":  "Indexes",
+                        "count":  4
+                    },
+                    {
+                        "topic":  "HAVING",
+                        "count":  4
+                    },
+                    {
+                        "topic":  "Synonyms",
+                        "count":  3
+                    },
+                    {
+                        "topic":  "Conversion Functions",
                         "count":  3
                     },
                     {
@@ -86,43 +122,19 @@
                         "count":  3
                     },
                     {
-                        "topic":  "Indexes",
-                        "count":  3
-                    },
-                    {
-                        "topic":  "Aggregate Functions",
-                        "count":  3
-                    },
-                    {
-                        "topic":  "NULL Handling",
-                        "count":  2
-                    },
-                    {
-                        "topic":  "Data Dictionary",
-                        "count":  2
-                    },
-                    {
-                        "topic":  "DML",
-                        "count":  2
-                    },
-                    {
-                        "topic":  "DDL",
-                        "count":  2
-                    },
-                    {
-                        "topic":  "Synonyms",
-                        "count":  1
-                    },
-                    {
                         "topic":  "Functions",
-                        "count":  1
-                    },
-                    {
-                        "topic":  "HAVING",
-                        "count":  1
+                        "count":  2
                     },
                     {
                         "topic":  "Sequences",
+                        "count":  2
+                    },
+                    {
+                        "topic":  "Roles",
+                        "count":  1
+                    },
+                    {
+                        "topic":  "GROUP BY",
                         "count":  1
                     },
                     {
@@ -158,6 +170,20 @@
                                                    "examen-1-q43",
                                                    "examen-1-q44",
                                                    "examen-1-q45",
+                                                   "examen-14-oracle-1-q5",
+                                                   "examen-14-oracle-1-q7",
+                                                   "examen-14-oracle-1-q9",
+                                                   "examen-14-oracle-1-q10",
+                                                   "examen-14-oracle-1-q13",
+                                                   "examen-14-oracle-1-q14",
+                                                   "examen-14-oracle-1-q16",
+                                                   "examen-14-oracle-1-q18",
+                                                   "examen-14-oracle-1-q19",
+                                                   "examen-14-oracle-1-q24",
+                                                   "examen-14-oracle-1-q26",
+                                                   "examen-14-oracle-1-q32",
+                                                   "examen-14-oracle-1-q39",
+                                                   "examen-14-oracle-1-q46",
                                                    "examen-2-q4",
                                                    "examen-2-q9",
                                                    "examen-2-q12",
@@ -172,7 +198,46 @@
                                                    "examen-3-q35",
                                                    "examen-3-q37",
                                                    "examen-3-q41",
-                                                   "examen-3-q42"
+                                                   "examen-3-q42",
+                                                   "examen-5-q7",
+                                                   "examen-5-q20",
+                                                   "examen-5-q27",
+                                                   "examen-5-q34",
+                                                   "examen-5-q49",
+                                                   "examen-5-q52",
+                                                   "examen-5-q59",
+                                                   "examen-6-q1",
+                                                   "examen-6-q2",
+                                                   "examen-6-q9",
+                                                   "examen-6-q13",
+                                                   "examen-6-q14",
+                                                   "examen-6-q15",
+                                                   "examen-6-q18",
+                                                   "examen-6-q20",
+                                                   "examen-6-q24",
+                                                   "examen-6-q27",
+                                                   "examen-6-q36",
+                                                   "examen-6-q43",
+                                                   "examen-7-q1",
+                                                   "examen-7-q34",
+                                                   "examen-7-q39",
+                                                   "examen-7-q56",
+                                                   "examen-7-q57",
+                                                   "examen-7-q58",
+                                                   "examen-7-q59",
+                                                   "examen-8-q3",
+                                                   "examen-8-q4",
+                                                   "examen-8-q5",
+                                                   "examen-8-q11",
+                                                   "examen-8-q14",
+                                                   "examen-8-q16",
+                                                   "examen-8-q42",
+                                                   "examen-8-q46",
+                                                   "examen-8-q48",
+                                                   "examen-8-q54",
+                                                   "examen-8-q56",
+                                                   "examen-8-q57",
+                                                   "examen-8-q58"
                                                ]
                    }
 }

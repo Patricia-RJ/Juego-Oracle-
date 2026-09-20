@@ -13,6 +13,14 @@ Reglas de negocio (ver AUDIT_REPORT.md, seccion 4, para la evidencia real que la
   - Las opciones se identifican por tener numeracion/lista real de Word (w:numPr). Los "Given:" o listas
     de hechos dentro del enunciado usan saltos de linea manuales con un caracter "•" literal, no w:numPr
     (verificado en Examen 4), asi que no se confunden con opciones.
+  - Algunos documentos (EXAMEN 5/6/7/8, Examen 14) no usan resaltado amarillo en absoluto: en su lugar
+    incluyen, como parrafo aparte tras las opciones, una linea explicita del autor del tipo "Respuesta
+    correcta = E" / "Respuestas correctas: A,B" / "Correcta: C,E" / "CORRECTA: A". Esta linea es una
+    senal MAS fiable que el resaltado/negrita (es una afirmacion textual, no una inferencia visual) y
+    tiene prioridad sobre ambas -- pero nunca debe llegar al enunciado que ve el alumno, asi que se
+    extrae y se retira del texto antes de construir questionText/contentBlocks. Si discrepa de lo que
+    indica el resaltado/negrita, se marca pending_review para revision manual en vez de asumir cual de
+    las dos senales es la correcta.
 #>
 
 Set-StrictMode -Version Latest
@@ -91,6 +99,30 @@ function Open-DocxPackage {
     }
 }
 
+function Resolve-OpcTarget {
+    <# Resuelve el Target de una relacion OPC (word/_rels/document.xml.rels) a una ruta de
+       entrada del zip. Normalmente es relativo a la carpeta del part de origen (word/), p.ej.
+       "media/image1.png" -> "word/media/image1.png". Pero algunos generadores de .docx (no
+       Word/Microsoft) escriben rutas absolutas desde la raiz del paquete ("/media/image1.png")
+       o relativas que suben de carpeta ("../media/image1.png") -- ambas apuntan en realidad a
+       "media/image1.png" en la raiz del zip, no bajo word/. Se resuelve el caso general en vez
+       de asumir siempre el prefijo "word/". #>
+    param(
+        [Parameter(Mandatory)][string]$BaseDir,
+        [Parameter(Mandatory)][string]$Target
+    )
+    if ($Target -match '^/') {
+        return $Target.TrimStart('/')
+    }
+    $parts = @($BaseDir -split '/' | Where-Object { $_ -ne '' })
+    foreach ($segment in ($Target -split '/')) {
+        if ($segment -eq '' -or $segment -eq '.') { continue }
+        elseif ($segment -eq '..') { if ($parts.Count -gt 0) { $parts = @($parts[0..($parts.Count - 2)]) } }
+        else { $parts += $segment }
+    }
+    $parts -join '/'
+}
+
 function Export-DocxMedia {
     <# Copia a $OutDir las imagenes de word/media/* referenciadas por los rIds indicados. Devuelve rId -> ruta relativa exportada. #>
     param(
@@ -109,7 +141,7 @@ function Export-DocxMedia {
         foreach ($rid in ($RIds | Select-Object -Unique)) {
             $target = $RelMap[$rid]
             if (-not $target) { continue }
-            $entryName = "word/" + ($target -replace '^\.?/*', '')
+            $entryName = Resolve-OpcTarget -BaseDir 'word' -Target $target
             $entry = $zip.Entries | Where-Object { ($_.FullName -replace '\\', '/') -eq $entryName } | Select-Object -First 1
             if (-not $entry) { continue }
             $destName = Split-Path $entryName -Leaf
@@ -431,6 +463,40 @@ function Resolve-CorrectAnswers {
     [PSCustomObject]@{ CorrectIndexes = @(); Method = @(); BoldOnly = $false }
 }
 
+function Get-ExplicitAnswerMarker {
+    <#
+      Algunos documentos (confirmado en EXAMEN 5/6/7/8 y Examen 14) no dependen solo del
+      resaltado/negrita: incluyen ademas una linea de texto explicita del propio autor
+      indicando la respuesta, como parrafo aparte fuera de la lista de opciones, p.ej.:
+        "Respuesta correcta = E"      "Respuestas correctas =  B, D, E"
+        "Respuestas correctas: A,B"   "Correcta: C,E"   "CORRECTA: A"
+      Es una senal MAS fiable que el formato (bold/highlight) porque es una afirmacion
+      textual, no una inferencia visual -- pero solo si el propio parrafo se reconoce como
+      tal marcador, para no confundirlo con una frase normal del enunciado que use la
+      palabra "correcto" de pasada (el patron exige que sea el propio inicio del parrafo).
+      Devuelve $null si el parrafo no es un marcador; si lo es, devuelve el array de letras
+      encontradas (puede ser un array vacio si el marcador existe pero no se pudo leer
+      ninguna letra valida).
+    #>
+    param([string]$Text)
+    $t = $Text.Trim()
+    $m = [regex]::Match($t, '(?i)^(?:[o•\-]\s*)?respuestas?\s+correctas?\s*[:=]\s*(.+)$')
+    if (-not $m.Success) { $m = [regex]::Match($t, '(?i)^(?:[o•\-]\s*)?correctas?\s*[:=]\s*(.+)$') }
+    if (-not $m.Success) { return $null }
+    $rawValue = $m.Groups[1].Value
+    $letters = @(
+        ($rawValue -split '[,;/]+|\s+y\s+|\s+and\s+') |
+        ForEach-Object { ($_ -replace '[^A-Za-z]', '') } |
+        Where-Object { $_.Length -eq 1 } |
+        ForEach-Object { $_.ToUpperInvariant() } |
+        Select-Object -Unique
+    )
+    # -NoEnumerate: sin esto, un array de 1 elemento se "desenrolla" a un string suelto y un
+    # array vacio se convierte en $null al salir de la funcion, perdiendo la distincion entre
+    # "no es un marcador" ($null) y "es un marcador, pero sin letras validas" (array vacio).
+    Write-Output -NoEnumerate $letters
+}
+
 # ---------------------------------------------------------------------------
 # Hash de contenido (duplicados exactos / normalizados)
 # ---------------------------------------------------------------------------
@@ -512,6 +578,59 @@ function Get-StemContentBlocks {
     @($blocks)
 }
 
+function Get-FallbackLetterOptions {
+    <#
+      Algunos documentos (confirmado en Examen 14 y un caso suelto en EXAMEN 5) no usan una
+      lista real de Word (w:numPr) para las opciones: las escriben como parrafos de texto
+      normal con el propio literal "A. ", "B. "... al principio. Sin esto, esas opciones se
+      perderian por completo (quedarian sueltas como texto del enunciado, sin poder marcarse
+      como correctas ni mostrarse como opciones seleccionables en la app).
+      Se exige que la RACHA FINAL de parrafos del enunciado sea exactamente A, B, C... en orden
+      y sin huecos (al menos 2), para no confundir un parrafo normal que por casualidad empiece
+      con una letra mayuscula seguida de punto. Devuelve los parrafos de opcion sinteticos (con
+      los mismos Runs originales, para que el resaltado/negrita se seguya evaluando igual) y el
+      resto de parrafos del enunciado sin las opciones ya extraidas.
+    #>
+    param([object[]]$Paragraphs)
+
+    # Los parrafos en blanco (frecuentes como simple espaciado, p.ej. entre el marcador de
+    # respuesta y el final del documento) se ignoran para encontrar la racha final de opciones
+    # -- de lo contrario, un parrafo vacio justo despues de "D. ..." rompe la racha antes de
+    # llegar a las opciones reales. Nunca cuentan como opcion ni se pierden: como no tienen
+    # texto, Get-StemContentBlocks ya los descarta igualmente al construir el enunciado.
+    $nonBlank = @($Paragraphs | Where-Object { $_.Text.Trim().Length -gt 0 })
+
+    $matched = @($nonBlank | ForEach-Object {
+        $t = $_.Text.Trim()
+        # \s* (no \s+): algunos documentos no dejan espacio tras el punto ("A.USER_TABLES").
+        $m = [regex]::Match($t, '(?s)^([A-Za-z])[\.\)]\s*(.+)$')
+        if ($m.Success) {
+            [PSCustomObject]@{ Paragraph = $_; Letter = $m.Groups[1].Value.ToUpperInvariant(); Rest = $m.Groups[2].Value.Trim() }
+        }
+        else {
+            [PSCustomObject]@{ Paragraph = $_; Letter = $null; Rest = $null }
+        }
+    })
+
+    $tailCount = 0
+    for ($i = $matched.Count - 1; $i -ge 0; $i--) {
+        if ($matched[$i].Letter) { $tailCount++ } else { break }
+    }
+    if ($tailCount -lt 2) { return [PSCustomObject]@{ Options = @(); Remaining = $Paragraphs } }
+
+    $tail = @($matched[($matched.Count - $tailCount)..($matched.Count - 1)])
+    for ($i = 0; $i -lt $tail.Count; $i++) {
+        if ($tail[$i].Letter -ne [string][char](65 + $i)) { return [PSCustomObject]@{ Options = @(); Remaining = $Paragraphs } }
+    }
+
+    $usedParagraphs = @($tail | ForEach-Object { $_.Paragraph })
+    $remaining = @($Paragraphs | Where-Object { $usedParagraphs -notcontains $_ })
+    $options = @($tail | ForEach-Object {
+        [PSCustomObject]@{ Text = $_.Rest; Runs = $_.Paragraph.Runs; NumId = 'fallback-letter'; ImageRIds = $_.Paragraph.ImageRIds }
+    })
+    [PSCustomObject]@{ Options = $options; Remaining = $remaining }
+}
+
 # ---------------------------------------------------------------------------
 # Pipeline principal: construccion de objetos "Question" a partir de un bloque
 # ---------------------------------------------------------------------------
@@ -526,21 +645,74 @@ function ConvertTo-QuestionObject {
         [string]$MediaOutDir
     )
 
-    $stemParagraphs = @($Block.Paragraphs | Where-Object { -not $_.NumId })
+    $stemParagraphsRaw = @($Block.Paragraphs | Where-Object { -not $_.NumId })
     $optionParagraphs = @($Block.Paragraphs | Where-Object { $_.NumId -and $_.Text.Trim().Length -gt 0 })
+
+    # Separa cualquier parrafo que sea un marcador explicito de respuesta ("Respuesta correcta
+    # = E", "Correcta: C,E"...) del resto del enunciado: nunca debe mostrarse al alumno, y se
+    # usa como senal aparte en vez de como texto del enunciado.
+    # Nota: se usan arrays normales (+=) en vez de System.Collections.Generic.List[object] --
+    # en esta build de PowerShell 5.1, envolver un List[object] con @() lanza "Los tipos de
+    # argumentos no coinciden" (reproducido y confirmado; List[string] no tiene el problema).
+    $explicitLetters = @()
+    $foundExplicitMarker = $false
+    $stemParagraphs = @()
+    foreach ($p in $stemParagraphsRaw) {
+        $marker = Get-ExplicitAnswerMarker -Text $p.Text
+        if ($null -ne $marker) {
+            $foundExplicitMarker = $true
+            $explicitLetters += $marker
+        }
+        else { $stemParagraphs += $p }
+    }
+
+    # Algunos documentos (Examen 14, un caso suelto en EXAMEN 5) no marcan las opciones como
+    # lista real de Word: van como texto plano "A. ...", "B. ..." dentro del enunciado. Sin este
+    # respaldo se perderian como opciones (quedarian como texto suelto, sin poder marcarse como
+    # correctas). Solo se activa cuando no hay ninguna opcion real detectada, para no interferir
+    # con documentos bien formados.
+    $usedFallbackOptions = $false
+    if ($optionParagraphs.Count -eq 0) {
+        $fallback = Get-FallbackLetterOptions -Paragraphs $stemParagraphs
+        if ($fallback.Options.Count -gt 0) {
+            $optionParagraphs = $fallback.Options
+            $stemParagraphs = $fallback.Remaining
+            $usedFallbackOptions = $true
+        }
+    }
 
     $stemText = (($stemParagraphs | ForEach-Object { $_.Text }) -join "`n").Trim()
     $optionTexts = @($optionParagraphs | ForEach-Object { $_.Text.Trim() })
 
     $warnings = New-Object System.Collections.Generic.List[string]
 
+    $letters = @()
+    for ($i = 0; $i -lt $optionTexts.Count; $i++) { $letters += [string][char](65 + $i) }
+
     $optionSignals = @($optionParagraphs | ForEach-Object { Get-OptionSignal $_ })
-    $resolution = Resolve-CorrectAnswers -OptionSignals $optionSignals
+    $formatResolution = Resolve-CorrectAnswers -OptionSignals $optionSignals
 
     $expectedCount = Get-ExpectedAnswerCount -StemText $stemText
 
-    $letters = @()
-    for ($i = 0; $i -lt $optionTexts.Count; $i++) { $letters += [char](65 + $i) }
+    # El marcador explicito, cuando existe, manda sobre el resaltado/negrita: es una
+    # afirmacion textual del autor, no una inferencia de formato. Si ademas discrepa de lo que
+    # detecta el resaltado/negrita, se deja constancia para revision manual en vez de elegir
+    # una de las dos senales en silencio.
+    $explicitIndexes = @($explicitLetters | Select-Object -Unique | ForEach-Object { [array]::IndexOf($letters, $_) } | Where-Object { $_ -ge 0 } | Sort-Object -Unique)
+    $explicitMismatch = $false
+    if ($foundExplicitMarker -and $explicitIndexes.Count -gt 0) {
+        $formatIndexesSorted = @($formatResolution.CorrectIndexes | Sort-Object -Unique)
+        if ($formatIndexesSorted.Count -gt 0 -and @(Compare-Object $formatIndexesSorted $explicitIndexes)) { $explicitMismatch = $true }
+        $resolution = [PSCustomObject]@{
+            CorrectIndexes = $explicitIndexes
+            Method         = @(@('explicit-marker') + $formatResolution.Method | Select-Object -Unique)
+            BoldOnly       = $false
+        }
+    }
+    else {
+        $resolution = $formatResolution
+    }
+    $explicitMarkerUnparsed = ($foundExplicitMarker -and $explicitIndexes.Count -eq 0)
 
     $correctLetters = @($resolution.CorrectIndexes | Sort-Object | ForEach-Object { $letters[$_] })
 
@@ -565,7 +737,17 @@ function ConvertTo-QuestionObject {
         $reviewReasons.Add('no se detecto ninguna marca de solucion (ni resaltado amarillo ni negrita)')
     }
     else {
-        if ($resolution.BoldOnly) {
+        if ($usedFallbackOptions) {
+            $confidence -= 0.15
+            $reviewReasons.Add('las opciones no estaban en formato de lista de Word: se reconstruyeron a partir de texto plano "A. "/"B. "...; verificar que la deteccion fue correcta')
+        }
+        if ($resolution.Method -contains 'explicit-marker') {
+            if ($explicitMismatch) {
+                $confidence -= 0.4
+                $reviewReasons.Add('el marcador explicito de respuesta correcta del documento no coincide con el resaltado/negrita detectado; revisar manualmente')
+            }
+        }
+        elseif ($resolution.BoldOnly) {
             $confidence -= 0.35
             $reviewReasons.Add('la unica senal de solucion es negrita, sin resaltado amarillo (confianza reducida)')
         }
@@ -576,6 +758,10 @@ function ConvertTo-QuestionObject {
         if ($optionTexts.Count -lt 2 -or $optionTexts.Count -gt 8) {
             $confidence -= 0.2
             $reviewReasons.Add("numero de opciones inusual ($($optionTexts.Count))")
+        }
+        if ($explicitMarkerUnparsed) {
+            $confidence -= 0.1
+            $reviewReasons.Add('el documento tiene una linea de marcador de respuesta pero no se pudo leer ninguna letra valida de ella')
         }
     }
 

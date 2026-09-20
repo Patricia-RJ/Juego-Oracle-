@@ -319,3 +319,85 @@ Describe 'contentBlocks: representacion ordenada del enunciado' {
         $result.Questions[0].questionText | Should Be "Line one.`nLine two."
     }
 }
+
+Describe 'Marcador explicito de respuesta correcta (EXAMEN 5/6/7/8, Examen 14)' {
+    It 'usa "Respuesta correcta = X" como senal fiable aunque no haya resaltado amarillo' {
+        $body = (New-Paragraph -Runs @(@{ Text = '1. Question' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Pick one.' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Wrong option' }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = 'Right option'; Bold = $true }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = 'Respuesta correcta = B' }))
+        $result = Build-And-Import -Body $body -Name 'explicit-marker-basic'
+        $q = $result.Questions[0]
+        $q.correctAnswers | Should Be @('B')
+        ($q.solutionDetectionMethod -contains 'explicit-marker') | Should Be $true
+        $q.reviewStatus | Should Be 'validated'
+    }
+
+    It 'nunca deja la linea del marcador dentro del enunciado que ve el alumno' {
+        $body = (New-Paragraph -Runs @(@{ Text = '1. Question' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Pick one.' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Wrong option' }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = 'Right option'; Bold = $true }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = 'Respuesta correcta = B' }))
+        $result = Build-And-Import -Body $body -Name 'explicit-marker-hidden'
+        $q = $result.Questions[0]
+        $q.questionText | Should Not Match 'correcta'
+        ($q.contentBlocks | Where-Object { $_.text -match 'correcta' }).Count | Should Be 0
+    }
+
+    It 'reconoce variantes: "Respuestas correctas: A,B" y "Correcta: C" sin espacios' {
+        $body = (New-Paragraph -Runs @(@{ Text = '1. Question' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Identify two. (Choose two)' })) +
+                (New-Paragraph -Runs @(@{ Text = 'First' }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = 'Second' }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = 'Third' }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = 'Respuestas correctas:A,C' }))
+        $result = Build-And-Import -Body $body -Name 'explicit-marker-variant'
+        $q = $result.Questions[0]
+        $q.correctAnswers | Should Be @('A', 'C')
+        $q.reviewStatus | Should Be 'validated'
+    }
+
+    It 'si el marcador explicito discrepa del resaltado, lo marca pending_review para revision manual' {
+        $body = (New-Paragraph -Runs @(@{ Text = '1. Question' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Pick one.' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Highlighted but marker says otherwise'; Highlight = 'yellow' }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = 'Marker says this one' }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = 'Correcta: B' }))
+        $result = Build-And-Import -Body $body -Name 'explicit-marker-mismatch'
+        $q = $result.Questions[0]
+        $q.correctAnswers | Should Be @('B')
+        $q.reviewStatus | Should Be 'pending_review'
+        ($q.reviewReasons -join ' ') | Should Match 'marcador explicito'
+    }
+}
+
+Describe 'Opciones escritas como texto plano ("A. ", "B. "...) sin lista real de Word' {
+    It 'reconstruye las opciones cuando no hay w:numPr, a partir de la letra literal' {
+        $body = (New-Paragraph -Runs @(@{ Text = '1. Question' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Identify the valid statement.' })) +
+                (New-Paragraph -Runs @(@{ Text = 'A. Wrong one' })) +
+                (New-Paragraph -Runs @(@{ Text = 'B. Right one'; Highlight = 'yellow' })) +
+                (New-Paragraph -Runs @(@{ Text = 'C. Also wrong' }))
+        $result = Build-And-Import -Body $body -Name 'fallback-letters'
+        $q = $result.Questions[0]
+        $q.options.Count | Should Be 3
+        $q.options[0].id | Should Be 'A'
+        $q.options[0].text | Should Be 'Wrong one'
+        $q.correctAnswers | Should Be @('B')
+        $q.questionText | Should Be 'Identify the valid statement.'
+        ($q.reviewReasons -join ' ') | Should Match 'formato de lista de Word'
+    }
+
+    It 'no activa el respaldo si ya hay opciones reales en lista de Word' {
+        $body = (New-Paragraph -Runs @(@{ Text = '1. Question' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Pick one.' })) +
+                (New-Paragraph -Runs @(@{ Text = 'Real option'; Highlight = 'yellow' }) -NumId '1') +
+                (New-Paragraph -Runs @(@{ Text = 'Other real option' }) -NumId '1')
+        $result = Build-And-Import -Body $body -Name 'no-fallback-needed'
+        $q = $result.Questions[0]
+        $q.options.Count | Should Be 2
+        ($q.reviewReasons -join ' ') | Should Not Match 'formato de lista de Word'
+    }
+}
