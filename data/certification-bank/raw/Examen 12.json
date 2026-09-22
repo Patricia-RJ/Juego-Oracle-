@@ -1,0 +1,3981 @@
+[
+  {
+    "id": "examen-12-q1",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 1,
+    "questionNumber": 1,
+    "questionText": "View and examine the following CREATE TABLE commands.\nExhibit 1:\n\nExhibit 2:\n\nGiven: The sequence was executed but the ORD_ITEMS table was not get created.\nIndicate the statement which is true regarding the result.",
+    "contentBlocks": [
+      {
+        "type": "sql",
+        "text": "View and examine the following CREATE TABLE commands."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit 1:"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit 2:"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image2.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Given: The sequence was executed but the ORD_ITEMS table was not get created."
+      },
+      {
+        "type": "text",
+        "text": "Indicate the statement which is true regarding the result."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "ORD_NO and ITEM_NO cannot be used as a composite primary key because ORD_NO is also the FOREIGN KEY.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "The CHECK constraint cannot be placed on columns having the DATE data type.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "The BETWEEN clause cannot be used twice for the same table.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "SYSDATE cannot be used with the CHECK constraint.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "Constraints",
+    "topics": [
+      "Constraints",
+      "Date Functions",
+      "DDL",
+      "Sequences",
+      "HAVING"
+    ],
+    "initialDifficulty": 1,
+    "dynamicDifficulty": 1,
+    "difficultyRationale": "",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/image.png",
+      "data/certification-bank/media/examen-12/image2.png"
+    ],
+    "contentHash": "9caacab91ee0c6c032b8ec97c80e561ae535786ca0f35166d484155d033192b8",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q2",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 2,
+    "questionNumber": 2,
+    "questionText": "View and examine the following SQL exhibit.\nExhibit: 1\n\nIdentity the result of the query.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following SQL exhibit."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit: 1"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image3.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Identity the result of the query."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "1 row",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "6 rows",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "0 rows",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "3 rows",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "An error",
+        "isCorrect": false
+      },
+      {
+        "id": "F",
+        "text": "2 rows",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "5+ opciones",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/image3.png"
+    ],
+    "contentHash": "4545a4e7db495a44130efbd601398228a16917d40b738b6185cdfd2c0e7b41eb",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q3",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 3,
+    "questionNumber": 3,
+    "questionText": "View and examine the following available responses.\nIdentify the true statement about Enterprise Manager (EM) express in Oracle Database 12c.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify the true statement about Enterprise Manager (EM) express in Oracle Database 12c."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "You cannot start up or shut down a database Instance by using EM express.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "You can create and configure pluggable databases by using EM express.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "You can use EM express to manage multiple databases running on the same server.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "By default, EM express is available for a database after database creation.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "You can perform basic administrative tasks for pluggable databases by using the EM express interface.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "5+ opciones",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "056ac44b5aaf04a4b58b54b8b39ad5965172d13b9e453500ebd95d143dc294ba",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q4",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 4,
+    "questionNumber": 4,
+    "questionText": "View and examine the following available responses.\nIdentify three true statements regarding single-row functions. (Choose three)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify three true statements regarding single-row functions. (Choose three)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Single row functions can be character functions, numeric functions, date functions, conversion and audit functions.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Single row character input and returns number or character value. Functions under the category are CONCAT, LENGTH, SUBSTR, INSTR, LPAD, RPAD, TRIM and REPLACE.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Single row functions can be character functions, numeric functions, date functions, and conversion functions.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "Single row date arithmetic operations return date, character or numeric values. Functions under the category are MONTHS_BETWEEN, ADD_MONTHS, NEXT_DAY, LAST_DAY, ROUND, REPLACE and TRUNC.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "Single row case conversion functions accept character input and returns a character value. Functions under the category are UPPER, LOWER and INITCAP.",
+        "isCorrect": true
+      },
+      {
+        "id": "F",
+        "text": "Single row numeric operations return numeric values. Functions under the category are SUM, SUBTRACT, ROUND, TRUNC, and MOD.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "C",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 3,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Date Functions",
+    "topics": [
+      "Date Functions"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 3 respuestas (Choose 3); distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "97cd762873b742ec3f60eb9797647dcef3a9645c31032651f6d1d5c832483876",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q5",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 5,
+    "questionNumber": 5,
+    "questionText": "Identify two true statements regarding the removal of columns from a table.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Identify two true statements regarding the removal of columns from a table."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Droping a column from a table will cause all unused columns in that table to be dropped at the same time.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "A logical delete physical delete are the same thing.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Once a column is marked as unused, it will still show in a query but will no longer be visible to other users.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "It is possible to mark a column as unused or delete. Both actions will remove the column from queries.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "To physically drop a column you can use the following syntax.",
+        "isCorrect": false
+      },
+      {
+        "id": "F",
+        "text": "DROP COLUMN column_name FROM table_name;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.73,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+    ],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "f4739c9d66fb976e6958e49d9004c34c66654654193fa6cee647f2490999c2f7",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q6",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 6,
+    "questionNumber": 6,
+    "questionText": "View and examine the following available responses.\nIdentify the true statements about transactions. (Select two)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify the true statements about transactions. (Select two)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "The database issues an implicit COMMIT statement before and after every DDL statement.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "A set of DDL statements executed in a sequence ending with a COMMIT forms a single transaction.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "A set of Data Manipulation Language (DML) statements executed in a sequence ending with a SAVEPOINT forms a single transaction.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Each Data Definition Language (DDL) statement executed forms a single transaction.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "A combination of DDL and DML statements executed in a sequence ending with a COMMIT forms a single transaction.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.73,
+    "questionType": "single-choice",
+    "topic": "Transactions",
+    "topics": [
+      "Transactions",
+      "SELECT",
+      "Sequences",
+      "Subqueries"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+    ],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "53e08c5844251a636e6eb90fa322bcc4bec66e7ba91acd25f7484cc2708704d3",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q7",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 7,
+    "questionNumber": 7,
+    "questionText": "View and examine the following scenario.\nRequired: Calculate the number of days from 15th March 2020 until today.\nGiven: Dates are stored in the default format of DD-MON-RR.\nIdentify the SQL queries which would give you the required output. (Select two)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following scenario."
+      },
+      {
+        "type": "text",
+        "text": "Required: Calculate the number of days from 15th March 2020 until today."
+      },
+      {
+        "type": "text",
+        "text": "Given: Dates are stored in the default format of DD-MON-RR."
+      },
+      {
+        "type": "text",
+        "text": "Identify the SQL queries which would give you the required output. (Select two)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "SELECT ROUND(SYSDATE - ‘15-MAR-2020‘) FROM DUAL;",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "SELECT TO_CHAR(SYSDATE, ‘DD-MON-YYYY‘) - ‘15-MAR-2020‘ FROM DUAL;",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "SELECT ROUND(SYSDATE - TO_DATE(‘15/MARCH/2020‘)) FROM DUAL;",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "SELECT TO_DATE(SYSDATE, ‘DD/MONTH/YYYY‘) - ‘15/MARCH/2020‘ FROM DUAL;",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "SELECT SYSDATE - TO_DATE(‘15-MARCH-2020‘) FROM DUAL;",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.73,
+    "questionType": "single-choice",
+    "topic": "Conversion Functions",
+    "topics": [
+      "Conversion Functions",
+      "Date Functions",
+      "SELECT",
+      "Numeric Functions",
+      "Subqueries"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+    ],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "c1b1b407904d7e15442350c8ed877d29a9ecde85f44a0377e61c4095da0042d1",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q8",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 8,
+    "questionNumber": 8,
+    "questionText": "View and examine the following available responses.\nIdentify three true statements regarding the Oracle COUNT function. (Choose three)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify three true statements regarding the Oracle COUNT function. (Choose three)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "You cannot combine the COUNT() function with the a HAVING and GROUP BY clauses as they will create a conflict and produce an error.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "COUNT(DISTINCT expression) function returns the number of unique excluding null items in a group.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "The Oracle COUNT() function is classified as an aggregate function.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "The Oracle COUNT(*) function does not ignore NULL values.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "The Oracle COUNT(ALL expression) evaluates the expression and excludes the number of non-null items in a group, but returns non-null duplicate values.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "C",
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 3,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Constraints",
+    "topics": [
+      "Constraints",
+      "Aggregate Functions",
+      "HAVING",
+      "GROUP BY"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 3 respuestas (Choose 3); contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "882c7dc0e183a731ce6e2fa4414da43475144f341a970d378cb8c6b0ed2df4e8",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q9",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 9,
+    "questionNumber": 9,
+    "questionText": "View and examine the following available responses.\nIdentify three true statements regarding group functions. (Choose four)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify three true statements regarding group functions. (Choose four)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "They can be used with a SQL statement that has the GROUP BY clause.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "They can be passed as an argument to another group function.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "They can be used on only one column in the SELECT clause of a SQL statement.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "They can be used on columns or expressions.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "They can be used along with the single-row function in the SELECT clause of a SQL statement.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B",
+      "D",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 4,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "GROUP BY"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 4 respuestas (Choose 4); contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "1ad23fa84e9b6f0bcebe91071498ae8e30bdf59ad0a60dacfd4419bf956eacc3",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q10",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 10,
+    "questionNumber": 10,
+    "questionText": "View and examine the following available responses.\nIdentify three true statements regarding the DESCRIBE command. (Choose three)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify three true statements regarding the DESCRIBE command. (Choose three)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "It can be used from SQL*Plus and SQL Developer",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "It can be used to display the structure of an existing view",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "It can be used only from SQL*Plus",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "It displays all constraints that are defined for each column",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "It displays the PRIMARY KEY constraint for any column or columns that have that constraint",
+        "isCorrect": false
+      },
+      {
+        "id": "F",
+        "text": "It displays the NOT NULL constraint for any columns that have that constraint",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B",
+      "F"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 3,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Constraints",
+    "topics": [
+      "Constraints"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 3 respuestas (Choose 3); contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "484b62bd4458649c3e13119bd82da5a7ee455302c746b73d8bc0c1bb274acf2e",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q11",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 11,
+    "questionNumber": 11,
+    "questionText": "View and examine the following available responses.\nIdentify three true statements regarding dropping and unused columns in an Oracle database.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify three true statements regarding dropping and unused columns in an Oracle database."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "An unused column‘s tablespace is reclaimed automatically when the column is marked as UNUSED.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "An unused column counts towards the column per table limit.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "An unused column does not counts towards the column per table limit.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "There no limit of columns per table in Oracle Logical Databases.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "There is a maximum of 1000 columns per table in Oracle Logical Databases.",
+        "isCorrect": true
+      },
+      {
+        "id": "F",
+        "text": "Dropping a partition key columns is not allowed.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "E",
+      "F"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.73,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "5+ opciones; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "el enunciado indica 1 respuesta(s) pero se detectaron 3"
+    ],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "cc440e64bd28d662229eedb21a372d09e30831877d92e88da58d40bcaddb240f",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q12",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 12,
+    "questionNumber": 12,
+    "questionText": "View and examine the following available responses.\nIdentify true statements are true about Oracle synonyms. (Choose three)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify true statements are true about Oracle synonyms. (Choose three)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "A synonym cannot have a synonym.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Private synonym names do not need to be unique in the database.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Any user can create a PUBLIC synonym.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "A synonym can be created on an object in a package.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "A synonym has an object number.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 3,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Synonyms",
+    "topics": [
+      "Synonyms",
+      "Constraints"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 3 respuestas (Choose 3); distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "5ad183d097e3fd9a11a7bb9fe2aa8400bdec8139a8867fd2d18c8d89fd9de40c",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q13",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 13,
+    "questionNumber": 13,
+    "questionText": "View and examine the following scenario.\nGiven:\n• The ORDERS table has a primary key constraint on the ORDER_ID column.\n• The ORDER_ITEMS table has a foreign key constraint on the ORDER_ID column, referencing the primary key of the ORDERS table.\n• The constraint is defined with ON DELETE CASCADE.\n• There are rows in the ORDERS table with an ORDER_TOTAL ranging from 100 to 10,000. \nRequired: Delete all orders where the total amount is less than 2500.\nIdentify two DELETE statements execute successfully and fulfills the requirement. (Choose two)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following scenario."
+      },
+      {
+        "type": "text",
+        "text": "Given:"
+      },
+      {
+        "type": "text",
+        "text": "• The ORDERS table has a primary key constraint on the ORDER_ID column."
+      },
+      {
+        "type": "text",
+        "text": "• The ORDER_ITEMS table has a foreign key constraint on the ORDER_ID column, referencing the primary key of the ORDERS table."
+      },
+      {
+        "type": "text",
+        "text": "• The constraint is defined with ON DELETE CASCADE."
+      },
+      {
+        "type": "text",
+        "text": "• There are rows in the ORDERS table with an ORDER_TOTAL ranging from 100 to 10,000."
+      },
+      {
+        "type": "text",
+        "text": "Required: Delete all orders where the total amount is less than 2500."
+      },
+      {
+        "type": "text",
+        "text": "Identify two DELETE statements execute successfully and fulfills the requirement. (Choose two)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "DELETE FROM orders;",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "DELETE orders WHERE order_total < 2500;",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "DELETE * FROM orders WHERE order_total < 2500;",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "DELETE FROM orders WHERE order_total < 2500;",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "DELETE * FROM orders WHERE order_total < 2500;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Constraints",
+    "topics": [
+      "Constraints",
+      "WHERE",
+      "DML"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "enunciado largo; 5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "f057dc901820f9984a1ce09af31872d77c0a482c7780bd9d3056c9c547bee57d",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q14",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 14,
+    "questionNumber": 14,
+    "questionText": "View and examine the following available responses.\nIndicate three actions that can be performed using the ORACLE_DATAPUMP access driver. (Choose three)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Indicate three actions that can be performed using the ORACLE_DATAPUMP access driver. (Choose three)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Character set conversions are supported under the Data Pump is when using transportable tablespaces.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Data Pump Export and Import utilities cannot be attached to a job in interactive-command mode.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Read data from a table in the database and insert it into an external table.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "A log file cannot be written during the execution of a job.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "Job status can be displayed on request in interactive-command mode or by creating a query on DBA_DATAPUMP_JOBS.",
+        "isCorrect": true
+      },
+      {
+        "id": "F",
+        "text": "Data Pump processing is done on the system selected by the specified database connect string.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E",
+      "F"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 3,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Data Dictionary",
+    "topics": [
+      "Data Dictionary"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 3 respuestas (Choose 3); contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "fc3f6d2cca2369c9582322e4c7abed2b89e022272d69a9e7a1dc1173bf8a96db",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q15",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 15,
+    "questionNumber": 15,
+    "questionText": "View and examine the following scenario.\nGiven: There are employees who receive more salary than employee with employee number 6.\nRequired: Create a report which will display the name ( first name and last name ) for those employees who receive more salary than the employee with employee number 6.\nView and examine the following available responses. Identify two SQL queries which would give you the required output.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following scenario."
+      },
+      {
+        "type": "text",
+        "text": "Given: There are employees who receive more salary than employee with employee number 6."
+      },
+      {
+        "type": "text",
+        "text": "Required: Create a report which will display the name ( first name and last name ) for those employees who receive more salary than the employee with employee number 6."
+      },
+      {
+        "type": "text",
+        "text": "View and examine the following available responses. Identify two SQL queries which would give you the required output."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "SELECT first_name, last_name\nFROM employees\nWHERE salary >\n( SELECT salary \nFROM employees\nWHERE employee_id = 6\n);",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "SELECT first_name, last_name\nFROM employees\nWHERE salary > (\n    SELECT salary\n    FROM employees\n    WHERE employee_id = IN (6)\n);",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "SELECT first_name, last_name\nFROM employees\nWHERE salary > (\n     SELECT salary \n     WHERE employee_id = (6)\n);",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "SELECT first_name, last_name\nFROM employees\nWHERE salary > (\n     SELECT salary \n     WHERE employee_id = 6\n);",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "SELECT first_name, last_name\nFROM employees\nWHERE salary > (\n    SELECT salary\n    FROM employees\n    WHERE employee_id IN (6)\n);",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.73,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "enunciado largo; 5+ opciones; contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+    ],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "18ccc949eb9e783ac8f8d54fd1a766a1ae3c1c92fc92c229bd65cade3e95e8d8",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q16",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 16,
+    "questionNumber": 16,
+    "questionText": "View and examine the following scenario.\nRequired:\n• Using the CUSTOMERS table, you need to generate a report that shows 50% of each credit amount in each income level.\n• The report should NOT show any repeated credit amounts in each income level.\nIdentify the SQL query which would give you the required output.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following scenario."
+      },
+      {
+        "type": "text",
+        "text": "Required:"
+      },
+      {
+        "type": "text",
+        "text": "• Using the CUSTOMERS table, you need to generate a report that shows 50% of each credit amount in each income level."
+      },
+      {
+        "type": "text",
+        "text": "• The report should NOT show any repeated credit amounts in each income level."
+      },
+      {
+        "type": "text",
+        "text": "Identify the SQL query which would give you the required output."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "SELECT cust_income_level || ‘ ‘ || cust_credit_limit * 0.50 AS \"50% Credit Limit\"  FROM customers;",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "SELECT DISTINCT cust_income_level || ‘ ‘ || cust_credit_limit * 0.50 AS \"50% Credit Limit\" FROM customers;",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "SELECT DISTINCT cust_income_level, DISTINCT cust_credit_limit * 0.50 AS \"50% Credit Limit\" FROM customers;",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "SELECT cust_income_level, DISTINCT cust_credit_limit * 0.50 AS \"50% Credit Limit\" FROM customers;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "8a09a40e1ed849d9398a6f9b319896769aca047d480b27669bdf140e27be3893",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q17",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 17,
+    "questionNumber": 17,
+    "questionText": "View and examine the following available responses.\nIdentify three situations where a transaction completes. (Choose three)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify three situations where a transaction completes. (Choose three)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "When a TRUNCATE statement is executed after the pending transaction",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "When a PL/SQL anonymous block is executed",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "When a ROLLBACK command is executed",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "When a DELETE statement is executed",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "When a data definition language (DDL) statement is executed",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "C",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 3,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "WHERE",
+    "topics": [
+      "WHERE",
+      "Transactions",
+      "DDL"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 3 respuestas (Choose 3); contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "c971c2e2799372fd7762fcb24907f75bd529e73f667143c672a2ad522460d221",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q18",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 18,
+    "questionNumber": 18,
+    "questionText": "View and examine the following available responses.\nIdentify two true statements regarding constraints. (Choose two)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify two true statements regarding constraints. (Choose two)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "All constraints can be defined at the column level and at the table level.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "A foreign key column cannot contain NULLs.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "A constraint can be disabled even if the constraint column contains data.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "A constraint is enforced only for INSERT operations.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "A column with the UNIQUE constraint can contain NULLs.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Constraints",
+    "topics": [
+      "Constraints"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "2920df1c461ea0fec91a80cfcbb53f8349b79d62df167956049e23063a6bdfe6",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q19",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 19,
+    "questionNumber": 19,
+    "questionText": "Scenario: Pym Tech is a U.S.-based Technology manufacturer headed by Hank Pym. Their headquarters is located at Treasure Island, San Francisco California and business is booming.\nThe expansion plans are underway which have presented several IT challenges which Hank has contracted you to advise his IT staff on.\nAt the moment, the topic is a discussion the team is having to determine when to use DELETE and TRUNCATE statements. During the discussion several opinions were written down and Hank has asked you to clarify which is correct, and which is not.\nWhich of the following statements is true about the Oracle SQL, DELETE and TRUNCATE statements?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Scenario: Pym Tech is a U.S.-based Technology manufacturer headed by Hank Pym. Their headquarters is located at Treasure Island, San Francisco California and business is booming."
+      },
+      {
+        "type": "text",
+        "text": "The expansion plans are underway which have presented several IT challenges which Hank has contracted you to advise his IT staff on."
+      },
+      {
+        "type": "text",
+        "text": "At the moment, the topic is a discussion the team is having to determine when to use DELETE and TRUNCATE statements. During the discussion several opinions were written down and Hank has asked you to clarify which is correct, and which is not."
+      },
+      {
+        "type": "text",
+        "text": "Which of the following statements is true about the Oracle SQL, DELETE and TRUNCATE statements?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "DELETE and TRUNCATE statements remove all indexes for the tables on which they are performed.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "DELETE but not TRUNCATE statement can be used to remove data from selective columns and rows of a table.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "DELETE but not TRUNCATE statement can be used to selectively remove rows from a table.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "DELETE and TRUNCATE statements can have a rollback done to restore data into a table.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Transactions",
+    "topics": [
+      "Transactions",
+      "DDL",
+      "Indexes",
+      "HAVING"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "enunciado largo; contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "65661a9f99a6e75e76955d5278348817c71e42150e8387b9276e86aafe1a1a98",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q20",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 20,
+    "questionNumber": 20,
+    "questionText": "View and examine the following available responses.\nIdentify the true statements regarding the WITH GRANT OPTION clause. (Choose three)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify the true statements regarding the WITH GRANT OPTION clause. (Choose three)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "It can be used to pass on privileges to other users by the grantee.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "The grantee must have the GRANT ANY OBJECT PRIVILEGE system privilege to use this option.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "The grantee can grant the object privilege to any user in the database, with or without including this option.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "If you revoke from user the privilege that you granted using the WITH GRANT OPTION keyword, you sever the chain of privileges.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "It cannot be used to pass on privileges to PUBLIC by the grantee.",
+        "isCorrect": false
+      },
+      {
+        "id": "F",
+        "text": "It can be used when granting privileges to roles.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "C",
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 3,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Privileges",
+    "topics": [
+      "Privileges"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 3 respuestas (Choose 3); contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "e68f6dabf89451dafa10a476af0bafcf46e4e20648ce010daadeedfe31c25084",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q21",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 21,
+    "questionNumber": 21,
+    "questionText": "Scenario: Pym Tech is a U.S.-based Technology manufacturer headed by Hank Pym. Their headquarters is located at Treasure Island, San Francisco California and business is booming.\nThe expansion plans are underway which have presented several IT challenges which Hank has contracted you to advise his IT staff on.\nAt the moment, one of the developers is creating a query in an Oracle SQL:\nSELECT particle_id, particle_category\nFROM sourcesd\nWHERE particle_category = ‘Bee‘ ORDER BY 2 DESC\nUNION\nSELECT particle_id, particle_category\nFROM sources\nWHERE particle_category = ‘Wasp‘\nUNION\nSELECT particle_id, promo_category\nFROM sources\nWHERE particle_category = ‘Ant‘;\nAs the Oracle SME, the developer asks for your assistance in troubleshooting the code.\nWhich of the following will be the result of the query if the developer attempts to execute it?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Scenario: Pym Tech is a U.S.-based Technology manufacturer headed by Hank Pym. Their headquarters is located at Treasure Island, San Francisco California and business is booming."
+      },
+      {
+        "type": "text",
+        "text": "The expansion plans are underway which have presented several IT challenges which Hank has contracted you to advise his IT staff on."
+      },
+      {
+        "type": "text",
+        "text": "At the moment, one of the developers is creating a query in an Oracle SQL:"
+      },
+      {
+        "type": "sql",
+        "text": "SELECT particle_id, particle_category\nFROM sourcesd\nWHERE particle_category = ‘Bee‘ ORDER BY 2 DESC\nUNION\nSELECT particle_id, particle_category\nFROM sources\nWHERE particle_category = ‘Wasp‘\nUNION\nSELECT particle_id, promo_category\nFROM sources\nWHERE particle_category = ‘Ant‘;\nAs the Oracle SME, the developer asks for your assistance in troubleshooting the code."
+      },
+      {
+        "type": "text",
+        "text": "Which of the following will be the result of the query if the developer attempts to execute it?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "It produces an error because the ORDER BY clause should appear only at the end of a compound query-that is, with the last SELECT statement.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "It executes successfully and displays rows in the descending order of PARTICLE_CATEGORY.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "It executes successfully but ignores the ORDER BY clause because it is not located at the end of the compound statement.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "It produces an error because positional notation cannot be used in the ORDER BY clause with SET operators.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE",
+      "ORDER BY",
+      "Set Operators"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "enunciado largo; contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "70c07930bbe076b1534ed42ffb97e3a2fdf2336ab960014aef2e5b2d3fe50758",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q22",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 22,
+    "questionNumber": 22,
+    "questionText": "View and examine the details of the ORDER_ITEMS table.\nTable: ORDER_ITEMS\n\nEvaluate the following SQL statements.\nExhibit 1:\n\nExhibit 2:\n\nIdentify the true statements regarding the output of these SQL statements. (Choose all that apply.)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the details of the ORDER_ITEMS table."
+      },
+      {
+        "type": "text",
+        "text": "Table: ORDER_ITEMS"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image4.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Evaluate the following SQL statements."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit 1:"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image5.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit 2:"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image6.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Identify the true statements regarding the output of these SQL statements. (Choose all that apply.)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Exhibit 1 would return any output.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Exhibit 2 would return multiple rows of output.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Exhibit 1 would return only one row of output.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "Both the statements would give the same output.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "Both statements would ignore NULL values for the UNIT_PRICE and QUANTITY columns.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "C",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.63,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "5+ opciones; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "el enunciado indica 1 respuesta(s) pero se detectaron 3",
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/image4.png",
+      "data/certification-bank/media/examen-12/image5.png",
+      "data/certification-bank/media/examen-12/image6.png"
+    ],
+    "contentHash": "8b0c3f4d49d962626b3af680c585e0089ec898ea51a22ce83769caf06f918ffb",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q23",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 23,
+    "questionNumber": 23,
+    "questionText": "An Oracle database server session has an uncommitted transaction in progress which updated 5000 rows in a table. Identify the situations where the transactions complete thereby committing the updates. (Choose two)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "An Oracle database server session has an uncommitted transaction in progress which updated 5000 rows in a table. Identify the situations where the transactions complete thereby committing the updates. (Choose two)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "When a COMMIT statement is issued by the same user from another session in the same database instance.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "The DBA who made the mentioned changes uses the ALTER TABLE statement to change the name of a column.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "When a CREATE TABLE AS SELECT statement is executed unsuccessfully due to a syntax error in the same session.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "When a DBA issues a successful SHUTDOWN IMMEDIATE statement and the user then issues a COMMIT.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "When a CREATE INDEX statement is executed successfully in the same session.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "DDL",
+    "topics": [
+      "DDL",
+      "Indexes",
+      "SELECT",
+      "WHERE",
+      "Transactions"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "5dde1fde81e07da0d71e2902fe574ea4cd62f76323ba6baea96d7686ddd916c6",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q24",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 24,
+    "questionNumber": 24,
+    "questionText": "View and examine the following available responses.\nIdentify the false selection about Oracle ALIASES.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify the false selection about Oracle ALIASES."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Oracle ALIASES negatively impact system performance.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "If the alias name contains spaces, you must enclose the alias name in quotes.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Oracle ALIASES can be used to create a temporary name for columns or tables.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "An alias is mandatory in schema bound views.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "It is acceptable to use spaces when you are aliasing a column name.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "5+ opciones; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "4ed2906af2bc5df866709952716d62f4f280d8cb294668668f1a2968b1170c62",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q25",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 25,
+    "questionNumber": 25,
+    "questionText": "View and examine the following available responses.\nIdentify the true statement about SQL query processing in an Oracle database instance. (Select best answer)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify the true statement about SQL query processing in an Oracle database instance. (Select best answer)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "During optimization, execution plans are formulated based on the statistics gathered by the database instance, and the lowest cost plan is selected for execution.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "During execution, the Oracle server may read data from storage if the required data is not already in memory.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "During row source generation, rows that satisfy the query are retrieved from the database and stored in memory.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "During parsing, a SQL statement containing literals in the WHERE clause that has been executed by any session and which is cached in memory, is always reused for the current execution.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE",
+      "Subqueries"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "a4711ed1269072902d817759d6f28a1e17bb07beff2388e93d1c5b5762020fbd",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q26",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 26,
+    "questionNumber": 26,
+    "questionText": "View and examine the following available responses.\nIdentify the task which cannot be performed by using a Data Manipulation Language (DML) statement.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify the task which cannot be performed by using a Data Manipulation Language (DML) statement."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "INSERT into [table_name] values (val1, val2, val3, …)",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "SELECT [column_name(s)] from [table_name] where [condition]",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "DROP TABLE [table_name]",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "DELETE from [table_name]",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "MERGE INTO [table_name1] USING [table_name2] ON (col1 = val1)",
+        "isCorrect": false
+      },
+      {
+        "id": "F",
+        "text": "UPDATE [table_name] SET [col1 = val1, col2 = val2,...] where [condition to be specified]",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "DML",
+    "topics": [
+      "DML",
+      "SELECT",
+      "WHERE",
+      "DDL"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL; combina varias clausulas SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "353f0e873020ca81e0ba55c168a71a19fbd611954a456239fb12d34a7de889e6",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q27",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 27,
+    "questionNumber": 27,
+    "questionText": "View and examine the following available responses.\nIdentify three true statements regarding the WHERE and HAVING clauses in a SQL statement. (Choose three)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify three true statements regarding the WHERE and HAVING clauses in a SQL statement. (Choose three)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "The HAVING clause allows for referencing more than one table in the FROM clause.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "The HAVING clause conditions can make use of the SUM function.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "WHERE and HAVING clauses cannot be used together in a SQL statement.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "The WHERE may be used in conjunction with the GROUP BY clause.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "The HAVING clause conditions can use aliases for the columns.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 3,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "WHERE",
+    "topics": [
+      "WHERE",
+      "HAVING",
+      "GROUP BY"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 3 respuestas (Choose 3); contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "3f9c634842f861eb79c2a3cfd047415d3acff02197e936d801915c73581e6ad0",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q28",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 28,
+    "questionNumber": 28,
+    "questionText": "View and examine the following image.\nExhibit: 1\n\nIndicate the JOIN type best represented by the available choices.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following image."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit: 1"
+      },
+      {
+        "type": "text",
+        "text": "Indicate the JOIN type best represented by the available choices."
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image7.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "INNER JOIN",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "RIGHT JOIN",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "RIGHT LEFT JOIN",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "FULL OUTER JOIN",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "COMPLETE JOIN",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "JOINS",
+    "topics": [
+      "JOINS"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/image7.png"
+    ],
+    "contentHash": "aa6faeb3a63d916957ad8d60b246c0f30c30b7908bf1aba3803486daeecd641b",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q29",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 29,
+    "questionNumber": 29,
+    "questionText": "View and examine the following SQL query structure.\nExhibit: 1\n\nGiven: The above query generates and error when executed.\nIndicate two syntax errors in the code from the available choices.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following SQL query structure."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit: 1"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image8.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Given: The above query generates and error when executed."
+      },
+      {
+        "type": "text",
+        "text": "Indicate two syntax errors in the code from the available choices."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "The HAVING operator should be filtering based on sales_price and not count of records.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "The ORDER BY clause should be filtering based on sales_price and not count of records.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "All of the options are correct.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "The product_location is not listed in the GROUP BY clause.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "In the WHERE clause, an IN operator should be used to check within a list of elements rather than an equal sign.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "D",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.63,
+    "questionType": "single-choice",
+    "topic": "WHERE",
+    "topics": [
+      "WHERE",
+      "ORDER BY",
+      "HAVING",
+      "GROUP BY"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL; combina varias clausulas SQL",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "el enunciado indica 1 respuesta(s) pero se detectaron 2",
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/image8.png"
+    ],
+    "contentHash": "90aeb4148e0be55372ec861b1dfe979be7fd198613b8fac07624d0dcc27b1af3",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q30",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 30,
+    "questionNumber": 30,
+    "questionText": "View and examine the following available responses.\nIdentify three true statements regarding the usage of the WITH clause in complex correlated subqueries. (Choose three.)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify three true statements regarding the usage of the WITH clause in complex correlated subqueries. (Choose three.)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "The WITH clause can hold more than one query.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "It can be used only with the SELECT clause.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "The query name in the WITH clause is visible to other query blocks in the WITH clause as well as to the main query block",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "If the query block name and the table name are the same, then the table name takes precedence.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 3,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "Subqueries"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "requiere 3 respuestas (Choose 3); contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "1356fa1909f3a1ec754a2f48a870275ef3a2fb3942126f286135a4460d8304f1",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q31",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 31,
+    "questionNumber": 31,
+    "questionText": "View and examine the following available responses.\nIdentify the true statement regarding external tables.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify the true statement regarding external tables."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "The data and metadata for an external table are stored outside the database.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "The default REJECT LIMIT for external tables is UNLIMITED.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "ORACLE_LOADER and ORACLE_DATAPUMP have exactly the same functionality when used with an external table.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "The CREATE TABLE AS SELECT statement can be used to upload data into a normal table in the database from an external table.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "DDL"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "4cc689d3e092c5cd6abb11a82ae48e6b574af1e1098404d8a3b3b875ad05a3b4",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q32",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 32,
+    "questionNumber": 32,
+    "questionText": "View and examine the following CUSTOMERS and ORDERS table along with the SQL query exhibit structure.\nTable: CUSTOMERS\n\nTable: ORDERS\n\nExhibit: 1\n\nIndicate the result of executing the DELETE statement.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following CUSTOMERS and ORDERS table along with the SQL query exhibit structure."
+      },
+      {
+        "type": "text",
+        "text": "Table: CUSTOMERS"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image9.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Table: ORDERS"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/imagea.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit: 1"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/imageb.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Indicate the result of executing the DELETE statement."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "All customers who have placed an order will be deleted only.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Customers with IDs 1 and 7 will be deleted only.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "All customers who have not placed an order will be deleted only.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "Customers with IDs 1,6 and 7 will be deleted only.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "Customers with IDs 2, 4 and 5 will be deleted only.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/image9.png",
+      "data/certification-bank/media/examen-12/imagea.png",
+      "data/certification-bank/media/examen-12/imageb.png"
+    ],
+    "contentHash": "0a1e951e20a503cf16f417d254602014b03226f10aa15232a495f8ce4c257d4e",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q33",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 33,
+    "questionNumber": 33,
+    "questionText": "View and examine the description of the CUSTOMERS table:\nTable: CUSTOMERS\n\nRequired: Display details of all customers who reside in cities starting with the letter D followed by at least two characters.\nIdentity the SQL query which would give you the required output.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the description of the CUSTOMERS table:"
+      },
+      {
+        "type": "text",
+        "text": "Table: CUSTOMERS"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/imagec.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Required: Display details of all customers who reside in cities starting with the letter D followed by at least two characters."
+      },
+      {
+        "type": "text",
+        "text": "Identity the SQL query which would give you the required output."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "SELECT * FROM customers WHERE city = ‘D_%‘;",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "SELECT * FROM customers WHERE city LIKE ‘D_%‘;",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "SELECT * FROM customers WHERE city LIKE ‘D__%‘;",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "SELECT * FROM customers WHERE city = ‘%D__‘;",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "SELECT * FROM customers WHERE city LIKE ‘D_‘;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/imagec.png"
+    ],
+    "contentHash": "6524ccf3217273f48b8bec90076ab4039fe25219e7f4fbc96ea8e12bbe440e3e",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q34",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 34,
+    "questionNumber": 34,
+    "questionText": "View and examine the following available responses.\nIdentify the actions you can perform on an existing table containing data. (Choose three.)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify the actions you can perform on an existing table containing data. (Choose three.)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Change the default value of a column",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Add a new column as the table‘s first column",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Define a default value that is automatically inserted into a column containing nulls",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Change a DATE column containing data to a NUMBER data type",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "Add a new NOT NULL column with a DEFAULT value",
+        "isCorrect": true
+      },
+      {
+        "id": "F",
+        "text": "Increase the width of a numeric column",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E",
+      "F"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 3,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Constraints",
+    "topics": [
+      "Constraints"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "5+ opciones; requiere 3 respuestas (Choose 3)",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "cde7207c060cd081b2e894873a268807b4e4d110849057f8f2cb8013887fb256",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q35",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 35,
+    "questionNumber": 35,
+    "questionText": "View and examine the following available responses.\nIndicate the responses which are equivalent to one another.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Indicate the responses which are equivalent to one another."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "WHERE sales_price BETWEEN 99 AND 106;",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "WHERE sales_price > 100 AND  sales_price < 106;",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "WHERE sales_price >= 100 AND  sales_price <= 106;",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "WHERE sales_price IN (100, 101, 102, 103, 104, 105, 106);",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "WHERE sales_price BETWEEN 100 AND 106;",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.73,
+    "questionType": "single-choice",
+    "topic": "WHERE",
+    "topics": [
+      "WHERE"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+    ],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "5b125bc116bc487bfe5a499b6cebee4516d5afb0d8c344394335f0f304f4b310",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q36",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 36,
+    "questionNumber": 36,
+    "questionText": "View and examine the structure of the EMPLOYEES table.\nTable: EMPLOYEES\n\nRequired: Display the maximum and minimum salaries of employees hired 1 year ago.\nIdentify two statements which would provide the correct output. (Choose two.)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the structure of the EMPLOYEES table."
+      },
+      {
+        "type": "text",
+        "text": "Table: EMPLOYEES"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/imaged.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Required: Display the maximum and minimum salaries of employees hired 1 year ago."
+      },
+      {
+        "type": "text",
+        "text": "Identify two statements which would provide the correct output. (Choose two.)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "SELECT MIN(Salary), MAX(salary)\nFROM (\n     SELECT salary\n     FROM employees\n     WHERE hire_date < SYSDATE-365);",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "SELECT minsal, maxsal\nFROM (\n     SELECT MIN(salary) minsal, MAX(salary) maxsal\n     FROM employees\n     WHERE hire_date < SYSDATE-365\n     GROUP BY MIN(salary), MAX(salary));",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "SELECT minsal, maxsal\nFROM (\n     SELECT MIN(salary) minsal, MAX(salary) maxsal\n     FROM employees\n     WHERE hire_date < SYSDATE-365)\nGROUP BY maxsal, minsal;",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "SELECT MIN(Salary) minsal, MAX(salary) maxsal\nFROM employees\nWHERE hire_date < SYSDATE-365\nGROUP BY MIN(salary), MAX(salary);",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.88,
+    "questionType": "multiple-choice",
+    "topic": "Aggregate Functions",
+    "topics": [
+      "Aggregate Functions",
+      "SELECT",
+      "WHERE",
+      "Date Functions",
+      "GROUP BY"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "requiere 2 respuestas (Choose 2); contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/imaged.png"
+    ],
+    "contentHash": "84d568a1855226ecf70143891e37f10362e716dbe68857a3af81311ff316a59f",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q37",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 37,
+    "questionNumber": 37,
+    "questionText": "View and examine the following SQL query structure.\nExhibit: 1\n\nGiven: The SQL query results in a error.\nIdentify the line of the code which causes the error.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following SQL query structure."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit: 1"
+      },
+      {
+        "type": "text",
+        "text": "Given: The SQL query results in a error."
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/imagee.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Identify the line of the code which causes the error."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Line 8",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Line 6",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Line 2",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Line 5",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "Line 7",
+        "isCorrect": false
+      },
+      {
+        "id": "F",
+        "text": "Line 4",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "F"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "5+ opciones",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/imagee.png"
+    ],
+    "contentHash": "d96ce4a5ff7102c07de1489785b321c71a3cc57d08f9fccf93669d7ee3c43d2a",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q38",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 38,
+    "questionNumber": 38,
+    "questionText": "View and examine the following available responses.\nGiven:\nThe CUSTOMERS table has a CUST_LAST_NAME column of data type VARCHAR2.\nThe table has two rows whose CUST_LAST_NAME values are Anderson and Ausson.\nIdentify the query which produces output for CUST_LAST_NAME containing Oder for the first row and Aus for the second.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Given:"
+      },
+      {
+        "type": "text",
+        "text": "The CUSTOMERS table has a CUST_LAST_NAME column of data type VARCHAR2."
+      },
+      {
+        "type": "text",
+        "text": "The table has two rows whose CUST_LAST_NAME values are Anderson and Ausson."
+      },
+      {
+        "type": "text",
+        "text": "Identify the query which produces output for CUST_LAST_NAME containing Oder for the first row and Aus for the second."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "SELECT REPLACE (SUBSTR(cust_last_name, -3), ‘An‘, ‘O‘)\nFROM customers;",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "None of the listed responses.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "SELECT REPLACE (TRIM(TRAILING ‘son‘ FROM cust_last_name), ‘An‘, ‘o‘)\nFROM customers;",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "SELECT INITCAP (REPLACE(TRIM(‘son‘ FROM cust_last_name), ‘An‘, ‘O‘))\nFROM customers;",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "SELECT REPLACE (REPLACE(cust_last_name, ‘son‘, ‘‘), ‘An‘, ‘O‘)\nFROM customers;",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Character Functions",
+    "topics": [
+      "Character Functions",
+      "SELECT"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "834c301cc7663166cea7d5f152b10af1bf334b1b8df495c71ff2e3109238e909",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q39",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 39,
+    "questionNumber": 39,
+    "questionText": "View and examine the following SQL exhibit.\nExhibit: 1\n\nIdentify the true statement regarding the above two queries.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following SQL exhibit."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit: 1"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/imagef.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Identify the true statement regarding the above two queries."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Performance would improve in query 2.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Performance would improve in query 2 only if there are null values in the CUST_CREDIT_LIMIT column.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Performance would degrade in query 2.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "There would be no change in performance.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/imagef.png"
+    ],
+    "contentHash": "fe5d31b34f4f4d4105d705c20345db3e39899f7cac18dd05c0d9e990599ee044",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q40",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 40,
+    "questionNumber": 40,
+    "questionText": "View the Exhibit and examine the structure of the CUSTOMERS table.\nTable: CUSTOMERS\n\nRequired:\n• Using the CUSTOMERS table, generate a report that displays a credit limit increase of 15% for all customers.\n• Customers with no credit limit should have “Not Available” displayed.\nIdentify the response which would meet the requirement.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View the Exhibit and examine the structure of the CUSTOMERS table."
+      },
+      {
+        "type": "text",
+        "text": "Table: CUSTOMERS"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image10.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Required:"
+      },
+      {
+        "type": "text",
+        "text": "• Using the CUSTOMERS table, generate a report that displays a credit limit increase of 15% for all customers."
+      },
+      {
+        "type": "text",
+        "text": "• Customers with no credit limit should have “Not Available” displayed."
+      },
+      {
+        "type": "text",
+        "text": "Identify the response which would meet the requirement."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "SELECT NVL(TO_CHAR(cust_credit_limit*.15),‘Not Available‘) \"NEW CREDIT\"\nFROM customers;",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "SELECT NVL(cust_credit_limit,‘Not Available‘)*.15 \"NEW CREDIT\"\nFROM customers;",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "SELECT NVL(cust_credit_limit*.15,‘Not Available‘) \"NEW CREDIT\"\nFROM customers;",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "SELECT TO_CHAR(NVL(cust_credit_limit*.15,‘Not Available‘)) \"NEW CREDIT\"\nFROM customers;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "NULL Handling",
+      "Conversion Functions"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/image10.png"
+    ],
+    "contentHash": "3e4857bddb34f78ddaaca19c4bb9f3fc0d3413261b42be981481e43c772a2bd5",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q41",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 41,
+    "questionNumber": 41,
+    "questionText": "View and examine the following available responses.\nIdentify the primary difference between the relational database (RDB) and object-oriented database (OODB) models.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify the primary difference between the relational database (RDB) and object-oriented database (OODB) models."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "OODB incorporates methods with data structure definition, whereas RDB does not allow this.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "RDB supports only E.F. Codd‘s rules, whereas OODB does not support them.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "OODB supports multiple objects in the same database, whereas RDB supports only tables.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "RDB allows the definition of relationships between different tables, whereas OODB does not allow this.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 1,
+    "dynamicDifficulty": 1,
+    "difficultyRationale": "",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "0ef321882825d0b96c8263e1f4f0f7b9e91ba91942320883a323d35922678e19",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q42",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 42,
+    "questionNumber": 42,
+    "questionText": "View and examine the following available responses.\nIndicate the statements which are true regarding subqueries.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Indicate the statements which are true regarding subqueries."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "A correlated subquery is a type of subquery that is linked on a common column of the outer query in which it is contained.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "A scalar comparison operator such as ‘ > ‘ or ‘ <= ‘ can be used to compare the result of the subquery only if the result is a single value.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "A subquery must retrieve at least one row otherwise an error will be generated upon execution.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Subqueries cannot have nested subqueries within them.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.73,
+    "questionType": "single-choice",
+    "topic": "Subqueries",
+    "topics": [
+      "Subqueries"
+    ],
+    "initialDifficulty": 1,
+    "dynamicDifficulty": 1,
+    "difficultyRationale": "",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+    ],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "3675fc2b7380197c80bde3f670f9d641d7f93aa6bb2bf8ffa6fd0829926002fd",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q43",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 43,
+    "questionNumber": 43,
+    "questionText": "View and examine the following image.\nExhibit: 1\n\nIndicate the JOIN type best represented by the available choices.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following image."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit: 1"
+      },
+      {
+        "type": "text",
+        "text": "Indicate the JOIN type best represented by the available choices."
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image11.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "LEFT RIGHT JOIN",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "PARTIAL OUTER JOIN",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "COMPLETE JOIN",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "INNER JOIN",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "LEFT JOIN",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "JOINS",
+    "topics": [
+      "JOINS"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/image11.png"
+    ],
+    "contentHash": "c748266b231c73d504df2da226ef28fc4948da07b8720f6e652e8bcb8c7bf136",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q44",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 44,
+    "questionNumber": 44,
+    "questionText": "View and examine the structure of the ORDERS table.\n\nIdentify the valid UPDATE statement.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the structure of the ORDERS table.\n\nIdentify the valid UPDATE statement."
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image12.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "UPDATE orders SET order_date = ‘12-mar-2019‘, AND order_total = TO_NUMBER(NULL)\nWHERE order_id = 2455;",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "UPDATE orders SET order_date = TO_DATE(‘12-mar-2019‘,‘dd-mon-yyyy‘), SET order_total = TO_NUMBER (NULL)\nWHERE order_id = 2455;",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "UPDATE orders SET order_date = ‘12-mar-2019‘,order_total = NULL\nWHERE order_id = 2455;",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "UPDATE orders SET order_date = ‘12-mar-2019‘,order_total IS NULL\nWHERE order_id = 2455;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "Conversion Functions",
+    "topics": [
+      "Conversion Functions",
+      "WHERE",
+      "NULL Handling",
+      "Date Functions",
+      "DML"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/image12.png"
+    ],
+    "contentHash": "a6aea5bcb328add4b688135b5ab0f53253438d7d2c3e96555e520860ca624652",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q45",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 45,
+    "questionNumber": 45,
+    "questionText": "View and examine the following available responses.\nIdentify four true statements about multitable INSERT statements.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify four true statements about multitable INSERT statements."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "They can insert each computed row into more than one table.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "They can be performed on external tables using SQL* Loader.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "They can be performed on views.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "They can be performed on relational tables.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "They can be performed only by using a subquery.",
+        "isCorrect": false
+      },
+      {
+        "id": "F",
+        "text": "They can be performed on remote tables.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B",
+      "D",
+      "F"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.73,
+    "questionType": "single-choice",
+    "topic": "Subqueries",
+    "topics": [
+      "Subqueries"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "el enunciado indica 1 respuesta(s) pero se detectaron 4"
+    ],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "74b3e83ff2574a392f4dac83b0bd613cd43451d161b5485c0e05d954624f1f5e",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q46",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 46,
+    "questionNumber": 46,
+    "questionText": "View and examine the structure of the SHIPMENTS table:\nTable: SHIPMENTS\n\nRequired: Generate a report that displays the PO_ID and the penalty amount to be paid if the SHIPMENT_DATE is later than one month from the PO_DATE. The penalty is $20 per day.\nEvaluate the following two queries.\nExhibit: 1\n\nExhibit: 2\n\nIdentify the true statement regarding the above commands.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the structure of the SHIPMENTS table:"
+      },
+      {
+        "type": "text",
+        "text": "Table: SHIPMENTS"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image13.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Required: Generate a report that displays the PO_ID and the penalty amount to be paid if the SHIPMENT_DATE is later than one month from the PO_DATE. The penalty is $20 per day."
+      },
+      {
+        "type": "text",
+        "text": "Evaluate the following two queries."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit: 1"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image14.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit: 2"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image15.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Identify the true statement regarding the above commands."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Both execute successfully and give correct results.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Neither executes successfully.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Only the first query executes successfully but gives a wrong result.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Only the first query executes successfully and gives the correct result.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "Only the second query executes successfully and gives the correct result.",
+        "isCorrect": false
+      },
+      {
+        "id": "F",
+        "text": "Only the second query executes successfully but gives a wrong result.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/image13.png",
+      "data/certification-bank/media/examen-12/image14.png",
+      "data/certification-bank/media/examen-12/image15.png"
+    ],
+    "contentHash": "c4faaebd9bbfff169c245c753aef2bd193f6af16bf74ceb004e4d4b14a6d7692",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q47",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 47,
+    "questionNumber": 47,
+    "questionText": "View and examine the following available responses.\nIdentify two true statements about external tables.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify two true statements about external tables."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "DML statements cannot be used on them.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Indexes can be created on them.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Their data can be retrieved by using only SQL or PL/SQL.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "You can populate them from existing data in the database by using the CREATE TABLE AS SELECT command.",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "Their metadata and actual data are both stored outside the database.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.73,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "DDL",
+      "Indexes"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "5+ opciones; contiene codigo SQL",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+    ],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "a10dfc40d42f27115edc3640e77ada04e2c96c37efbc8a5c1f477ef9a2181e0e",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q48",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 48,
+    "questionNumber": 48,
+    "questionText": "View and examine the following SQL query structure.\nExhibit: 1\n\nRequired: Delete data from the suppliers table where the supplier_name is not ‘Microsoft‘.\nIdentify the correct result of the query.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following SQL query structure."
+      },
+      {
+        "type": "text",
+        "text": "Exhibit: 1"
+      },
+      {
+        "type": "image",
+        "path": "data/certification-bank/media/examen-12/image16.png",
+        "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
+      },
+      {
+        "type": "text",
+        "text": "Required: Delete data from the suppliers table where the supplier_name is not ‘Microsoft‘."
+      },
+      {
+        "type": "text",
+        "text": "Identify the correct result of the query."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "The query is correct and will delete all suppliers that are not named Microsoft.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "None of the responses are correct.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "The supplier ‘Microsoft‘ will be not deleted from the suppliers table.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "The query is incorrect because the operator ‘ != ‘ should have been used in place of ‘ <> ‘ to filter for all companies not named Microsoft.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.88,
+    "questionType": "single-choice",
+    "topic": "WHERE",
+    "topics": [
+      "WHERE"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+    ],
+    "warnings": [],
+    "exhibitImages": [
+      "data/certification-bank/media/examen-12/image16.png"
+    ],
+    "contentHash": "edc498d8fb3f7e1bd4428269cf0f700e233fffcf93861269138af81b34f925a3",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q49",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 49,
+    "questionNumber": 49,
+    "questionText": "View and examine the following available responses.\nIdentity three true statements about the CREATE TABLE command. (Choose three)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "sql",
+        "text": "Identity three true statements about the CREATE TABLE command. (Choose three)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "To create a table in another user's schema, you must have the CREATE ANY TABLE system privilege.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "The owner of the table must have space quota available on the tablespace where the table is defined",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "It can include the CREATE..INDEX statement for creating an index to enforce the primary key constraint",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "The owner of the table must have the UNLIMITED TABLESPACE system privilege",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "It implicitly executes a commit",
+        "isCorrect": true
+      },
+      {
+        "id": "F",
+        "text": "It implicitly rolls back any pending transactions",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 3,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Constraints",
+    "topics": [
+      "Constraints",
+      "WHERE",
+      "Privileges",
+      "Transactions",
+      "DDL"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 3 respuestas (Choose 3); contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "26174bb411defe31e44fa5b446b54f02aa1d13241a4077feffd29d27d328ec5c",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q50",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 50,
+    "questionNumber": 50,
+    "questionText": "View and examine the following scenario.\nRequired:  Create a table for a banking application with the following attributes.\n1. A column is to store the duration of a short term loan.\n2. The data should be stored in a format supporting DATE arithmetic with DATE datatypes without using conversion.\n3. The maximum loan period is 30 days.\n4. Interest must be calculated based on the number of day the loan is outstanding.\nIdentity the data type that should be used.",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following scenario."
+      },
+      {
+        "type": "text",
+        "text": "Required:  Create a table for a banking application with the following attributes.\n1. A column is to store the duration of a short term loan.\n2. The data should be stored in a format supporting DATE arithmetic with DATE datatypes without using conversion.\n3. The maximum loan period is 30 days.\n4. Interest must be calculated based on the number of day the loan is outstanding."
+      },
+      {
+        "type": "text",
+        "text": "Identity the data type that should be used."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "TIMESTAMP",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "DATE",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "NUMBER",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "INTERVAL DAY TO SECOND",
+        "isCorrect": true
+      },
+      {
+        "id": "E",
+        "text": "INTERVAL YEAR TO MONTH",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "enunciado largo; 5+ opciones",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "72a9bf96006b7499c87a1a385fd1f5c7ea2c881205d3532350cec841740acdb5",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-12-q51",
+    "sourceFile": "Examen 12.docx",
+    "sourcePosition": 51,
+    "questionNumber": 51,
+    "questionText": "View and examine the following available responses.\nIdentify two statements which are true about Data Manipulation Language (DML) statements. (Choose two.)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following available responses."
+      },
+      {
+        "type": "text",
+        "text": "Identify two statements which are true about Data Manipulation Language (DML) statements. (Choose two.)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "An UPDATE... SET... statement can modify multiple rows based on multiple conditions on a table.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "An INSERT INTO... VALUES..... statement can add a single row based on multiple conditions on a table.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "A DELETE FROM..... statement removes a row based on each condition on a table.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "An INSERT INTO...VALUES.. statement can add multiple rows per execution to a table.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "A DELETE FROM..... statement can remove multiple rows based on multiple conditions on a table.",
+        "isCorrect": true
+      },
+      {
+        "id": "F",
+        "text": "An UPDATE....SET.... statement can only modify multiple rows based on a single condition on a table.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "DML",
+    "topics": [
+      "DML"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "7e70ebbcded3fe60df2877eaa2a78174053adac5dce6a658d7b37aa56c8618e0",
+    "importedAt": "2026-09-22T19:47:23Z",
+    "duplicateOf": null
+  }
+]
