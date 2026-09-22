@@ -9,12 +9,21 @@ de la app (`index.html`, `script.js`, `data.js`, `styles.css` no se modifican en
 powershell -File tools/Import-Exams.ps1
 ```
 
-Se puede volver a ejecutar en cualquier momento (por ejemplo al anadir un `Examen 5.docx` a
+En entornos sin PowerShell (Linux/Mac sin `pwsh`) hay un puerto en Python con la misma logica,
+verificado para producir exactamente el mismo `contentHash` en el 100% de las preguntas ya
+importadas antes de crearlo (ver nota en `tools/import_exams.py`):
+
+```bash
+python3 tools/import_exams.py .
+```
+
+Se puede volver a ejecutar en cualquier momento (por ejemplo al anadir un `Examen 15.docx` a
 `Exámenes/`): vuelve a procesar todos los `.docx` presentes y regenera la salida al completo. El
 informe indica cuantas preguntas son nuevas, cuantas no han cambiado y cuantas han cambiado de
 contenido desde la ultima ejecucion (comparando `contentHash` por `id`).
 
-No requiere Node ni ninguna dependencia externa: usa PowerShell 5.1 + .NET (incluido en Windows).
+No requiere Node ni ninguna dependencia externa: usa PowerShell 5.1 + .NET (incluido en Windows),
+o Python 3 + su libreria estandar para el puerto equivalente.
 
 ## Salida
 
@@ -42,17 +51,22 @@ Todo bajo `data/certification-bank/`:
   incluyendo saltos de linea manuales (`<w:br/>`) dentro de una misma opcion (código SQL en varias
   líneas).
 
-## Resultado de la ultima ejecucion sobre los 4 documentos reales
+## Resultado de la ultima ejecucion sobre los 14 documentos reales
+
+Ampliado varias veces desde los 4 documentos originales: primero con EXAMEN 5-8 y Examen 14, y
+despues con Examen 9-13 (estos ultimos sin resaltado amarillo — cada pregunta trae en su lugar una
+linea explicita "Correcta: X" del propio autor, ademas de negrita sobre la opcion correcta; ver
+`solutionDetectionMethod: ["explicit-marker", ...]` en el banco).
 
 | Métrica | Valor |
 |---|---|
-| Preguntas importadas | 145 |
-| Con resaltado amarillo | 139 |
-| Con negrita | 18 (siempre junto a resaltado o marcadas de baja confianza) |
-| Con varias respuestas correctas | 80 |
-| Duplicadas exactas detectadas | 2 |
+| Preguntas importadas | 714 |
+| Con resaltado amarillo | 145 |
+| Con negrita | 584 (junto a resaltado, junto a marcador explicito, o marcadas de baja confianza) |
+| Con varias respuestas correctas | 323 |
+| Duplicadas exactas detectadas | 8 |
 | Sin solucion detectable (no inventada) | 6 |
-| Pendientes de revision manual | 111 (la mayoría por incluir una imagen/tabla no verificable automáticamente) |
+| Pendientes de revision manual | 410 (la mayoría por incluir una imagen/tabla no verificable automáticamente) |
 
 Todas las cifras se pueden reproducir ejecutando el script; están también en
 `data/certification-bank/import-report.md`.
