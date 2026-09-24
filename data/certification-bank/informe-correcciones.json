@@ -1,0 +1,52 @@
+{
+  "duplicatesFixed": 6,
+  "duplicateOptionsRemoved": 6,
+  "expectedAnswerCountFixed": 139,
+  "questionTypeFixed": 137,
+  "activeContradictions": [
+    {
+      "id": "examen-5-q7",
+      "sourceFile": "EXAMEN 5.docx",
+      "enunciadoDice": 3,
+      "respuestasCorrectasReales": 2
+    },
+    {
+      "id": "examen-5-q27",
+      "sourceFile": "EXAMEN 5.docx",
+      "enunciadoDice": 2,
+      "respuestasCorrectasReales": 1
+    },
+    {
+      "id": "examen-6-q2",
+      "sourceFile": "EXAMEN 6.docx",
+      "enunciadoDice": 2,
+      "respuestasCorrectasReales": 1
+    },
+    {
+      "id": "examen-11-q30",
+      "sourceFile": "Examen 11.docx",
+      "enunciadoDice": 2,
+      "respuestasCorrectasReales": 1
+    },
+    {
+      "id": "examen-11-q32",
+      "sourceFile": "Examen 11.docx",
+      "enunciadoDice": 4,
+      "respuestasCorrectasReales": 3
+    }
+  ],
+  "missingExhibit": [
+    "examen-6-q40",
+    "examen-10-q54",
+    "examen-11-q4",
+    "examen-13-q53"
+  ],
+  "noKnownAnswer": [
+    "examen-2-q38",
+    "examen-3-q14",
+    "examen-4-q8",
+    "examen-4-q9",
+    "examen-4-q10",
+    "examen-4-q11"
+  ]
+}
