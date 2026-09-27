@@ -15391,7 +15391,7 @@
     "sourceFile": "Examen 1.docx",
     "sourcePosition": 1,
     "questionNumber": 1,
-    "questionText": "View and examine the structure of the ORDER_ITEMS table. Required: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table. Identify the response which would meet the requirement.\n\nRequired: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table.\nIdentity the response which would meet the requirement.",
+    "questionText": "View and examine the structure of the ORDER_ITEMS table.\nRequired: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table.\nIdentity the response which would meet the requirement.",
     "contentBlocks": [
       {
         "type": "text",
@@ -15522,7 +15522,8 @@
     "difficultyRationale": "5+ opciones; contiene codigo SQL",
     "reviewStatus": "pending_review",
     "reviewReasons": [
-      "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+      "el enunciado indica 1 respuesta(s) pero se detectaron 2",
+      "NO se pudo usar en export/ (excluida) durante la auditoria del 2026-09-27: Enunciado y las 4 opciones enteramente en español (apendice de traduccion contaminado, ya documentado en AUDIT_REPORT.md). No existe una version en ingles recuperable de esta pregunta en el banco."
     ],
     "warnings": [],
     "exhibitImages": [],
@@ -15701,28 +15702,23 @@
       },
       {
         "id": "B",
-        "text": "Cada fila pasa por TODAS las condiciones",
-        "isCorrect": false
-      },
-      {
-        "id": "C",
         "text": "The total number of rows inserted is always equal to the number of rows returned by the subquery.",
         "isCorrect": false
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "A single WHEN condition can be used for multiple INTO clauses.",
         "isCorrect": true
       },
       {
-        "id": "E",
+        "id": "D",
         "text": "Each row returned by the subquery can be inserted into only a single target table.",
         "isCorrect": false
       }
     ],
     "correctAnswers": [
       "A",
-      "D"
+      "C"
     ],
     "solutionDetectionMethod": [
       "yellow-highlight"
@@ -40595,24 +40591,16 @@
     "sourceFile": "Examen 2.docx",
     "sourcePosition": 1,
     "questionNumber": 1,
-    "questionText": "These are the steps for a correlated subquery, listed in random order: \n1.  The WHERE clause of the outer query is evaluated.\n2.  A candidate row is fetched from the table specified in the outer query.\n3. This is repeated for the subsequent rows of the table, until all the rows are processed.\n4. Rows are returned by the inner query, after being evaluated with the value from the candidate row in the outer query. \nEjemplo : \n\n🟢 Iteración 1 → fila: Ana (1000)",
+    "questionText": "These are the steps for a correlated subquery, listed in random order: \n1.  The WHERE clause of the outer query is evaluated.\n2.  A candidate row is fetched from the table specified in the outer query.\n3. This is repeated for the subsequent rows of the table, until all the rows are processed.\n4. Rows are returned by the inner query, after being evaluated with the value from the candidate row in the outer query.",
     "contentBlocks": [
       {
         "type": "text",
         "text": "These are the steps for a correlated subquery, listed in random order: \n1.  The WHERE clause of the outer query is evaluated.\n2.  A candidate row is fetched from the table specified in the outer query.\n3. This is repeated for the subsequent rows of the table, until all the rows are processed.\n4. Rows are returned by the inner query, after being evaluated with the value from the candidate row in the outer query."
       },
       {
-        "type": "text",
-        "text": "Ejemplo :"
-      },
-      {
         "type": "image",
         "path": "data/certification-bank/media/examen-2/image1.png",
         "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
-      },
-      {
-        "type": "text",
-        "text": "🟢 Iteración 1 → fila: Ana (1000)"
       }
     ],
     "options": [
@@ -41288,7 +41276,8 @@
     "difficultyRationale": "5+ opciones; contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
     "reviewStatus": "pending_review",
     "reviewReasons": [
-      "el enunciado indica 1 respuesta(s) pero se detectaron 3"
+      "el enunciado indica 1 respuesta(s) pero se detectaron 3",
+      "NO se pudo usar en export/ (excluida) durante la auditoria del 2026-09-27: Enunciado y las 5 opciones enteramente en español. Mismo bug de contaminacion documentado desde el origen del proyecto."
     ],
     "warnings": [],
     "exhibitImages": [],
@@ -41461,7 +41450,8 @@
     "difficultyRationale": "distractores muy similares entre si",
     "reviewStatus": "pending_review",
     "reviewReasons": [
-      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto",
+      "NO se pudo usar en export/ (excluida) durante la auditoria del 2026-09-27: Enunciado y las 4 opciones enteramente en español."
     ],
     "warnings": [],
     "exhibitImages": [
@@ -41844,7 +41834,8 @@
     "difficultyRationale": "5+ opciones",
     "reviewStatus": "pending_review",
     "reviewReasons": [
-      "el enunciado indica 1 respuesta(s) pero se detectaron 3"
+      "el enunciado indica 1 respuesta(s) pero se detectaron 3",
+      "NO se pudo usar en export/ (excluida) durante la auditoria del 2026-09-27: Enunciado y las 5 opciones enteramente en español."
     ],
     "warnings": [],
     "exhibitImages": [],
@@ -41993,7 +41984,8 @@
     "reviewStatus": "pending_review",
     "reviewReasons": [
       "la unica senal de solucion es negrita, sin resaltado amarillo (confianza reducida)",
-      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto",
+      "NO se pudo usar en export/ (excluida) durante la auditoria del 2026-09-27: Enunciado y las 4 opciones enteramente en español, con la sintaxis SQL mal traducida palabra por palabra (SELECCIONA/DE/DONDE/DENTRO DEL GRUPO ORDEN POR en vez de SELECT/FROM/WHERE/WITHIN GROUP ORDER BY) -- SQL invalido si se usara tal cual."
     ],
     "warnings": [],
     "exhibitImages": [
@@ -42070,7 +42062,8 @@
     "difficultyRationale": "5+ opciones",
     "reviewStatus": "pending_review",
     "reviewReasons": [
-      "el enunciado indica 1 respuesta(s) pero se detectaron 2"
+      "el enunciado indica 1 respuesta(s) pero se detectaron 2",
+      "NO se pudo usar en export/ (excluida) durante la auditoria del 2026-09-27: Enunciado y las 5 opciones enteramente en español."
     ],
     "warnings": [],
     "exhibitImages": [],
@@ -42333,7 +42326,7 @@
     "sourceFile": "Examen 2.docx",
     "sourcePosition": 23,
     "questionNumber": 23,
-    "questionText": "View the exhibit and examine the description for the SALES and CHANNELS tables.\n\nGiven: The following SQL statement has been executed.\nExhibit: 1\n\nIdentity the result of the query.\n🔹 🔥 Clave de examen\nOracle asume:\nEsa subconsulta es una single-row subquery (devuelve una sola fila)",
+    "questionText": "View the exhibit and examine the description for the SALES and CHANNELS tables.\n\nGiven: The following SQL statement has been executed.\nExhibit: 1\n\nIdentity the result of the query.",
     "contentBlocks": [
       {
         "type": "text",
@@ -42356,18 +42349,6 @@
       {
         "type": "text",
         "text": "Identity the result of the query."
-      },
-      {
-        "type": "text",
-        "text": "🔹 🔥 Clave de examen"
-      },
-      {
-        "type": "text",
-        "text": "Oracle asume:"
-      },
-      {
-        "type": "text",
-        "text": "Esa subconsulta es una single-row subquery (devuelve una sola fila)"
       },
       {
         "type": "image",
@@ -44235,8 +44216,10 @@
     "initialDifficulty": 2,
     "dynamicDifficulty": 2,
     "difficultyRationale": "contiene codigo SQL",
-    "reviewStatus": "validated",
-    "reviewReasons": [],
+    "reviewStatus": "pending_review",
+    "reviewReasons": [
+      "NO se pudo usar en export/ (excluida) durante la auditoria del 2026-09-27: Enunciado y las 4 opciones enteramente en español. Existe la misma pregunta correctamente en ingles en examen-6-q21/examen-11-q11/examen-14-oracle-1-q42, verificada durante la auditoria anterior -- esta copia en español es redundante, no se pierde contenido unico al excluirla."
+    ],
     "warnings": [],
     "exhibitImages": [],
     "contentHash": "5ff58864af5362e2c03ae3757fb6f3cb1058aabe1dd923b72e3775ac08468cb9",
