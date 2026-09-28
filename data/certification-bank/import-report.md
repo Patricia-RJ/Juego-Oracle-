@@ -1,6 +1,6 @@
 # Informe de importacion de examenes Oracle
 
-Generado: 2026-09-22T19:47:23Z
+Generado: 2026-09-28T17:07:07Z
 
 | Metrica | Valor |
 |---|---|
@@ -8,32 +8,29 @@ Generado: 2026-09-22T19:47:23Z
 | Archivos procesados sin error | 14 |
 | Archivos con error | 0 |
 | Total de preguntas | 714 |
-| Con resaltado amarillo | 145 |
-| Con negrita | 584 |
+| Con resaltado amarillo | 100 |
+| Con negrita | 629 |
 | Con ambos metodos | 21 |
-| Con varias respuestas correctas | 323 |
-| Duplicadas | 8 |
-| Pendientes de revision | 410 |
-| Sin solucion detectada | 6 |
-| Nuevas desde la ultima importacion | 290 |
-| Sin cambios desde la ultima importacion | 424 |
-| Cambiadas desde la ultima importacion | 0 |
+| Con varias respuestas correctas | 327 |
+| Duplicadas | 10 |
+| Pendientes de revision | 415 |
+| Sin solucion detectada | 0 |
 
 ## Distribucion por dificultad
 
 - Nivel 1: 57 preguntas
-- Nivel 2: 135 preguntas
-- Nivel 3: 175 preguntas
+- Nivel 2: 134 preguntas
+- Nivel 3: 176 preguntas
 - Nivel 4: 158 preguntas
 - Nivel 5: 189 preguntas
 
 ## Distribucion por tema
 
-- SELECT: 164 preguntas
+- SELECT: 166 preguntas
 - Otros: 128 preguntas
 - Constraints: 78 preguntas
 - JOINS: 51 preguntas
-- WHERE: 46 preguntas
+- WHERE: 45 preguntas
 - Transactions: 38 preguntas
 - Subqueries: 35 preguntas
 - Privileges: 22 preguntas
@@ -55,11 +52,10 @@ Generado: 2026-09-22T19:47:23Z
 - Functions: 3 preguntas
 - Character Functions: 2 preguntas
 - Roles: 1 preguntas
-- Views: 1 preguntas
 
 ## Validaciones
 
 - Preguntas sin opciones: 0
 - Preguntas sin contentBlocks: 0
 - Imagenes referenciadas que no existen en disco: 0
-- Preguntas donde el numero de respuestas detectadas no coincide con 'Choose N': 139
+- Preguntas donde el numero de respuestas detectadas no coincide con 'Choose N': 14
