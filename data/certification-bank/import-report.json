@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-28T17:07:07Z",
+  "generatedAt": "2026-09-28T17:31:30Z",
   "filesFound": 14,
   "filesProcessedOk": 14,
   "filesWithErrors": 0,
   "totalQuestions": 714,
-  "withYellowHighlight": 100,
-  "withBold": 629,
-  "withBothMethods": 21,
-  "multiAnswerQuestions": 327,
-  "duplicateQuestions": 10,
-  "pendingReview": 415,
+  "withYellowHighlight": 88,
+  "withBold": 656,
+  "withBothMethods": 35,
+  "multiAnswerQuestions": 328,
+  "duplicateQuestions": 9,
+  "pendingReview": 412,
   "withoutSolution": 0,
-  "newSinceLastImport": 46,
-  "unchangedSinceLastImport": 668,
+  "newSinceLastImport": 45,
+  "unchangedSinceLastImport": 669,
   "changedSinceLastImport": 0,
   "byDifficulty": [
     {
@@ -21,7 +21,7 @@
     },
     {
       "level": 2,
-      "count": 134
+      "count": 133
     },
     {
       "level": 3,
@@ -29,21 +29,21 @@
     },
     {
       "level": 4,
-      "count": 158
+      "count": 157
     },
     {
       "level": 5,
-      "count": 189
+      "count": 191
     }
   ],
   "byTopic": [
     {
       "topic": "SELECT",
-      "count": 166
+      "count": 169
     },
     {
       "topic": "Otros",
-      "count": 128
+      "count": 129
     },
     {
       "topic": "Constraints",
@@ -55,7 +55,7 @@
     },
     {
       "topic": "WHERE",
-      "count": 45
+      "count": 42
     },
     {
       "topic": "Transactions",
@@ -126,11 +126,11 @@
       "count": 4
     },
     {
-      "topic": "Numeric Functions",
-      "count": 4
+      "topic": "Functions",
+      "count": 3
     },
     {
-      "topic": "Functions",
+      "topic": "Numeric Functions",
       "count": 3
     },
     {
@@ -161,7 +161,16 @@
       "examen-1-q40",
       "examen-1-q43",
       "examen-1-q44",
-      "examen-1-q45"
+      "examen-1-q45",
+      "examen-2-q4",
+      "examen-2-q9",
+      "examen-2-q10",
+      "examen-2-q12",
+      "examen-2-q21",
+      "examen-2-q33",
+      "examen-2-q34",
+      "examen-2-q36",
+      "examen-2-q40"
     ]
   }
 }
