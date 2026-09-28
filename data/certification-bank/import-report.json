@@ -1,80 +1,84 @@
 {
-  "generatedAt": "2026-09-28T17:56:32Z",
+  "generatedAt": "2026-09-28T18:36:48Z",
   "filesFound": 14,
   "filesProcessedOk": 14,
   "filesWithErrors": 0,
-  "totalQuestions": 714,
+  "totalQuestions": 754,
   "withYellowHighlight": 88,
-  "withBold": 701,
-  "withBothMethods": 79,
-  "multiAnswerQuestions": 328,
+  "withBold": 751,
+  "withBothMethods": 85,
+  "multiAnswerQuestions": 348,
   "duplicateQuestions": 9,
-  "pendingReview": 411,
+  "pendingReview": 436,
   "withoutSolution": 0,
-  "newSinceLastImport": 50,
-  "unchangedSinceLastImport": 664,
+  "newSinceLastImport": 51,
+  "unchangedSinceLastImport": 703,
   "changedSinceLastImport": 0,
   "byDifficulty": [
     {
       "level": 1,
-      "count": 57
+      "count": 58
     },
     {
       "level": 2,
-      "count": 134
+      "count": 138
     },
     {
       "level": 3,
-      "count": 175
+      "count": 188
     },
     {
       "level": 4,
-      "count": 157
+      "count": 167
     },
     {
       "level": 5,
-      "count": 191
+      "count": 203
     }
   ],
   "byTopic": [
     {
       "topic": "SELECT",
-      "count": 170
+      "count": 179
     },
     {
       "topic": "Otros",
-      "count": 129
+      "count": 133
     },
     {
       "topic": "Constraints",
-      "count": 79
+      "count": 82
     },
     {
       "topic": "JOINS",
-      "count": 51
+      "count": 53
     },
     {
       "topic": "WHERE",
-      "count": 41
-    },
-    {
-      "topic": "Transactions",
-      "count": 38
+      "count": 43
     },
     {
       "topic": "Subqueries",
-      "count": 35
+      "count": 40
+    },
+    {
+      "topic": "Transactions",
+      "count": 39
     },
     {
       "topic": "Privileges",
-      "count": 22
+      "count": 23
     },
     {
       "topic": "ORDER BY",
-      "count": 18
+      "count": 20
     },
     {
       "topic": "Date Functions",
+      "count": 18
+    },
+    {
+      "topic": "DDL",
       "count": 16
     },
     {
@@ -86,19 +90,19 @@
       "count": 13
     },
     {
-      "topic": "DDL",
-      "count": 13
-    },
-    {
       "topic": "Set Operators",
       "count": 13
     },
     {
       "topic": "NULL Handling",
-      "count": 9
+      "count": 10
     },
     {
       "topic": "Aggregate Functions",
+      "count": 8
+    },
+    {
+      "topic": "Conversion Functions",
       "count": 8
     },
     {
@@ -110,16 +114,12 @@
       "count": 7
     },
     {
-      "topic": "Conversion Functions",
-      "count": 6
-    },
-    {
       "topic": "Sequences",
-      "count": 6
+      "count": 7
     },
     {
       "topic": "GROUP BY",
-      "count": 4
+      "count": 5
     },
     {
       "topic": "Synonyms",
@@ -127,7 +127,7 @@
     },
     {
       "topic": "Functions",
-      "count": 3
+      "count": 4
     },
     {
       "topic": "Numeric Functions",
@@ -177,7 +177,15 @@
       "examen-3-q35",
       "examen-3-q37",
       "examen-3-q41",
-      "examen-3-q42"
+      "examen-3-q42",
+      "examen-4-q22",
+      "examen-4-q25",
+      "examen-4-q30",
+      "examen-4-q32",
+      "examen-4-q34",
+      "examen-4-q45",
+      "examen-4-q48",
+      "examen-4-q51"
     ]
   }
 }
