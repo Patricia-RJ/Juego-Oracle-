@@ -2624,16 +2624,21 @@
       {
         "id": "C",
         "text": "Howard NE",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "id": "D",
         "text": "An error message",
         "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "Howard Ne",
+        "isCorrect": true
       }
     ],
     "correctAnswers": [
-      "C"
+      "E"
     ],
     "solutionDetectionMethod": [
       "explicit-marker",
@@ -2651,7 +2656,8 @@
     "difficultyRationale": "5+ opciones",
     "reviewStatus": "pending_review",
     "reviewReasons": [
-      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto"
+      "la pregunta incluye una imagen (tabla/exhibit); verificar manualmente que el contenido visual es correcto",
+      "corregida el 2026-09-28: una fusion anterior de opciones \"duplicadas\" (comparacion insensible a mayusculas) habia eliminado por error la opcion correcta real y dejado marcada una opcion incorrecta que solo coincidia en texto al pasar a minusculas. Restauradas las opciones y la respuesta correcta tal como estan en la extraccion raw original del .docx."
     ],
     "warnings": [],
     "exhibitImages": [
@@ -13131,7 +13137,7 @@
       {
         "id": "A",
         "text": "I Xm X World Zitizen",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "id": "B",
@@ -13140,12 +13146,17 @@
       },
       {
         "id": "C",
+        "text": "I xm x World Zitizen",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
         "text": "I xm x World xitizen",
         "isCorrect": false
       }
     ],
     "correctAnswers": [
-      "A"
+      "C"
     ],
     "solutionDetectionMethod": [
       "explicit-marker",
@@ -13162,7 +13173,9 @@
     "dynamicDifficulty": 3,
     "difficultyRationale": "contiene codigo SQL; distractores muy similares entre si",
     "reviewStatus": "validated",
-    "reviewReasons": [],
+    "reviewReasons": [
+      "corregida el 2026-09-28: una fusion anterior de opciones \"duplicadas\" (comparacion insensible a mayusculas) habia eliminado por error la opcion correcta real y dejado marcada una opcion incorrecta que solo coincidia en texto al pasar a minusculas. Restauradas las opciones y la respuesta correcta tal como estan en la extraccion raw original del .docx."
+    ],
     "warnings": [],
     "exhibitImages": [],
     "contentHash": "91caf78e32202884a7efc714949d8537a9e6e4065ed17d7cdfa4ad37848b0ef5",
@@ -33548,16 +33561,21 @@
       {
         "id": "B",
         "text": "WHERE first_name LIKE ‘%EAN%\nAND salary BETWEEN 4000 AND  8000;",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "id": "C",
+        "text": "WHERE first_name LIKE ‘%ean%\nAND salary between 4000 AND 8000;",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
         "text": "WHERE first_name LIKE ‘%ean%\nAND salary > 4000 AND < 8000;",
         "isCorrect": false
       }
     ],
     "correctAnswers": [
-      "B"
+      "C"
     ],
     "solutionDetectionMethod": [
       "explicit-marker",
@@ -33576,7 +33594,8 @@
     "difficultyRationale": "contiene codigo SQL; distractores muy similares entre si",
     "reviewStatus": "pending_review",
     "reviewReasons": [
-      "las opciones no estaban en formato de lista de Word: se reconstruyeron a partir de texto plano \"A. \"/\"B. \"...; verificar que la deteccion fue correcta"
+      "las opciones no estaban en formato de lista de Word: se reconstruyeron a partir de texto plano \"A. \"/\"B. \"...; verificar que la deteccion fue correcta",
+      "corregida el 2026-09-28: una fusion anterior de opciones \"duplicadas\" (comparacion insensible a mayusculas) habia eliminado por error la opcion correcta real y dejado marcada una opcion incorrecta que solo coincidia en texto al pasar a minusculas. Restauradas las opciones y la respuesta correcta tal como estan en la extraccion raw original del .docx."
     ],
     "warnings": [],
     "exhibitImages": [],
@@ -41617,7 +41636,7 @@
     "sourceFile": "Examen 1.docx",
     "sourcePosition": 1,
     "questionNumber": 1,
-    "questionText": "View and examine the structure of the ORDER_ITEMS table. Required: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table. Identify the response which would meet the requirement.\n\nRequired: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table.\nIdentity the response which would meet the requirement.",
+    "questionText": "View and examine the structure of the ORDER_ITEMS table. Required: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table. Identify the response which would meet the requirement.",
     "contentBlocks": [
       {
         "type": "text",
@@ -41627,14 +41646,6 @@
         "type": "image",
         "path": "data/certification-bank/media/examen-1/image1.png",
         "note": "Captura original del documento (posible tabla/exhibit). No se ha reconstruido como tabla estructurada; ver AUDIT_REPORT.md."
-      },
-      {
-        "type": "text",
-        "text": "Required: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table."
-      },
-      {
-        "type": "text",
-        "text": "Identity the response which would meet the requirement."
       }
     ],
     "options": [
@@ -41738,9 +41749,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.58,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "SELECT",
     "topics": [
       "SELECT",
@@ -41889,9 +41900,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "SELECT",
     "topics": [
       "SELECT",
@@ -41961,9 +41972,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Subqueries",
     "topics": [
       "Subqueries"
@@ -42028,9 +42039,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "JOINS",
     "topics": [
       "JOINS"
@@ -42094,9 +42105,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "SELECT",
     "topics": [
       "SELECT",
@@ -42927,9 +42938,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.63,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "SELECT",
     "topics": [
       "SELECT",
@@ -43136,9 +43147,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Transactions",
     "topics": [
       "Transactions",
@@ -43286,9 +43297,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "SELECT",
     "topics": [
       "SELECT",
@@ -43687,9 +43698,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.63,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "DML",
     "topics": [
       "DML"
@@ -44175,9 +44186,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 3,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "DDL",
     "topics": [
       "DDL",
@@ -44662,9 +44673,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Subqueries",
     "topics": [
       "Subqueries"
@@ -44909,9 +44920,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "SELECT",
     "topics": [
       "SELECT",
@@ -44981,9 +44992,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "JOINS",
     "topics": [
       "JOINS",
@@ -45048,9 +45059,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Constraints",
     "topics": [
       "Constraints",
@@ -45435,9 +45446,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 3,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "SELECT",
     "topics": [
       "SELECT",
@@ -45828,9 +45839,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 3,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "WHERE",
     "topics": [
       "WHERE",
@@ -45915,9 +45926,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.23,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "WHERE",
     "topics": [
       "WHERE"
@@ -46090,9 +46101,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 5,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Numeric Functions",
     "topics": [
       "Numeric Functions",
@@ -46773,9 +46784,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 3,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Transactions",
     "topics": [
       "Transactions",
@@ -47626,7 +47637,7 @@
     ],
     "expectedAnswerCount": 1,
     "extractionConfidence": 0.98,
-    "questionType": "true-false",
+    "questionType": "single-choice",
     "topic": "Otros",
     "topics": [
       "Otros"
@@ -47699,9 +47710,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Date Functions",
     "topics": [
       "Date Functions"
@@ -47776,9 +47787,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.63,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Otros",
     "topics": [
       "Otros"
@@ -47937,7 +47948,8 @@
     "reviewStatus": "pending_review",
     "reviewReasons": [
       "el marcador explicito de respuesta correcta del documento no coincide con el resaltado/negrita detectado; revisar manualmente",
-      "el enunciado indica 4 respuesta(s) pero se detectaron 2"
+      "el enunciado indica 4 respuesta(s) pero se detectaron 2",
+      "NO se pudo usar en export/ (excluida) durante el resync del 2026-09-28: opciones B/C y D/E son pares de texto identico (posible duplicacion de extraccion), quedando solo 4 opciones distintas quando el enunciado pide elegir 4 -- solo 2 marcadas como correctas por el extractor (baja confianza, 0.33). No existe forma de verificar con seguridad las 2 respuestas correctas restantes sin inventar contenido."
     ],
     "warnings": [],
     "exhibitImages": [],
@@ -48219,9 +48231,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Otros",
     "topics": [
       "Otros"
@@ -49615,9 +49627,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 3,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "WHERE",
     "topics": [
       "WHERE",
@@ -49693,9 +49705,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 3,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "WHERE",
     "topics": [
       "WHERE",
@@ -50856,9 +50868,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "SELECT",
     "topics": [
       "SELECT",
@@ -51108,7 +51120,7 @@
     "expectedAnswerCount": 3,
     "extractionConfidence": 0.98,
     "questionType": "multiple-choice",
-    "topic": "Constraints",
+    "topic": "Aggregate Functions",
     "topics": [
       "Constraints",
       "Aggregate Functions",
@@ -51169,11 +51181,6 @@
       {
         "id": "D",
         "text": "DELETE FROM orders;",
-        "isCorrect": false
-      },
-      {
-        "id": "E",
-        "text": "DELETE * FROM orders WHERE order_total < 2500;",
         "isCorrect": false
       }
     ],
@@ -51427,9 +51434,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.63,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Constraints",
     "topics": [
       "Constraints",
@@ -51575,9 +51582,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "JOINS",
     "topics": [
       "JOINS",
@@ -51879,9 +51886,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Transactions",
     "topics": [
       "Transactions",
@@ -51967,9 +51974,9 @@
       "yellow-highlight",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 3,
     "extractionConfidence": 0.63,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "DDL",
     "topics": [
       "DDL",
@@ -54302,9 +54309,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "SELECT",
     "topics": [
       "SELECT",
@@ -54518,9 +54525,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Conversion Functions",
     "topics": [
       "Conversion Functions",
@@ -54908,9 +54915,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.63,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "JOINS",
     "topics": [
       "JOINS",
@@ -55065,9 +55072,9 @@
     "solutionDetectionMethod": [
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 3,
     "extractionConfidence": 0.28,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Otros",
     "topics": [
       "Otros"
@@ -55233,9 +55240,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "SELECT",
     "topics": [
       "SELECT",
@@ -56081,9 +56088,9 @@
     "solutionDetectionMethod": [
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.18,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Conversion Functions",
     "topics": [
       "Conversion Functions",
@@ -56307,9 +56314,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 3,
     "extractionConfidence": 0.63,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "Otros",
     "topics": [
       "Otros"
@@ -56533,9 +56540,9 @@
       "explicit-marker",
       "bold"
     ],
-    "expectedAnswerCount": 1,
+    "expectedAnswerCount": 2,
     "extractionConfidence": 0.73,
-    "questionType": "single-choice",
+    "questionType": "multiple-choice",
     "topic": "NULL Handling",
     "topics": [
       "NULL Handling",
