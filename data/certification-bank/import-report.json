@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-28T17:31:30Z",
+  "generatedAt": "2026-09-28T17:56:32Z",
   "filesFound": 14,
   "filesProcessedOk": 14,
   "filesWithErrors": 0,
   "totalQuestions": 714,
   "withYellowHighlight": 88,
-  "withBold": 656,
-  "withBothMethods": 35,
+  "withBold": 701,
+  "withBothMethods": 79,
   "multiAnswerQuestions": 328,
   "duplicateQuestions": 9,
-  "pendingReview": 412,
+  "pendingReview": 411,
   "withoutSolution": 0,
-  "newSinceLastImport": 45,
-  "unchangedSinceLastImport": 669,
+  "newSinceLastImport": 50,
+  "unchangedSinceLastImport": 664,
   "changedSinceLastImport": 0,
   "byDifficulty": [
     {
@@ -21,11 +21,11 @@
     },
     {
       "level": 2,
-      "count": 133
+      "count": 134
     },
     {
       "level": 3,
-      "count": 176
+      "count": 175
     },
     {
       "level": 4,
@@ -39,7 +39,7 @@
   "byTopic": [
     {
       "topic": "SELECT",
-      "count": 169
+      "count": 170
     },
     {
       "topic": "Otros",
@@ -47,7 +47,7 @@
     },
     {
       "topic": "Constraints",
-      "count": 78
+      "count": 79
     },
     {
       "topic": "JOINS",
@@ -55,7 +55,7 @@
     },
     {
       "topic": "WHERE",
-      "count": 42
+      "count": 41
     },
     {
       "topic": "Transactions",
@@ -99,7 +99,7 @@
     },
     {
       "topic": "Aggregate Functions",
-      "count": 9
+      "count": 8
     },
     {
       "topic": "Indexes",
@@ -170,7 +170,14 @@
       "examen-2-q33",
       "examen-2-q34",
       "examen-2-q36",
-      "examen-2-q40"
+      "examen-2-q40",
+      "examen-3-q13",
+      "examen-3-q14",
+      "examen-3-q28",
+      "examen-3-q35",
+      "examen-3-q37",
+      "examen-3-q41",
+      "examen-3-q42"
     ]
   }
 }

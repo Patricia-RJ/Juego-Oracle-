@@ -1,6 +1,6 @@
 # Informe de importacion de examenes Oracle
 
-Generado: 2026-09-28T17:31:30Z
+Generado: 2026-09-28T17:56:32Z
 
 | Metrica | Valor |
 |---|---|
@@ -9,28 +9,28 @@ Generado: 2026-09-28T17:31:30Z
 | Archivos con error | 0 |
 | Total de preguntas | 714 |
 | Con resaltado amarillo | 88 |
-| Con negrita | 656 |
-| Con ambos metodos | 35 |
+| Con negrita | 701 |
+| Con ambos metodos | 79 |
 | Con varias respuestas correctas | 328 |
 | Duplicadas | 9 |
-| Pendientes de revision | 412 |
+| Pendientes de revision | 411 |
 | Sin solucion detectada | 0 |
 
 ## Distribucion por dificultad
 
 - Nivel 1: 57 preguntas
-- Nivel 2: 133 preguntas
-- Nivel 3: 176 preguntas
+- Nivel 2: 134 preguntas
+- Nivel 3: 175 preguntas
 - Nivel 4: 157 preguntas
 - Nivel 5: 191 preguntas
 
 ## Distribucion por tema
 
-- SELECT: 169 preguntas
+- SELECT: 170 preguntas
 - Otros: 129 preguntas
-- Constraints: 78 preguntas
+- Constraints: 79 preguntas
 - JOINS: 51 preguntas
-- WHERE: 42 preguntas
+- WHERE: 41 preguntas
 - Transactions: 38 preguntas
 - Subqueries: 35 preguntas
 - Privileges: 22 preguntas
@@ -41,7 +41,7 @@ Generado: 2026-09-28T17:31:30Z
 - DDL: 13 preguntas
 - Set Operators: 13 preguntas
 - NULL Handling: 9 preguntas
-- Aggregate Functions: 9 preguntas
+- Aggregate Functions: 8 preguntas
 - Indexes: 8 preguntas
 - HAVING: 7 preguntas
 - Conversion Functions: 6 preguntas
@@ -58,4 +58,4 @@ Generado: 2026-09-28T17:31:30Z
 - Preguntas sin opciones: 0
 - Preguntas sin contentBlocks: 0
 - Imagenes referenciadas que no existen en disco: 0
-- Preguntas donde el numero de respuestas detectadas no coincide con 'Choose N': 23
+- Preguntas donde el numero de respuestas detectadas no coincide con 'Choose N': 30
