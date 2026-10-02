@@ -1,0 +1,3404 @@
+[
+  {
+    "id": "examen-15-q1",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 1,
+    "questionNumber": 1,
+    "questionText": "The EMPLOYEES table has a column COMMISSION_PCT that is NULL for employees who do not earn commission.\nWhich function call correctly returns 0 for employees whose COMMISSION_PCT is NULL, and returns COMMISSION_PCT unchanged otherwise?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "The EMPLOYEES table has a column COMMISSION_PCT that is NULL for employees who do not earn commission."
+      },
+      {
+        "type": "text",
+        "text": "Which function call correctly returns 0 for employees whose COMMISSION_PCT is NULL, and returns COMMISSION_PCT unchanged otherwise?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "NVL2(commission_pct, 0, commission_pct)",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "NVL(commission_pct, 0)",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "NULLIF(commission_pct, 0)",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "COALESCE(0, commission_pct)",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "NULL Handling",
+    "topics": [
+      "NULL Handling"
+    ],
+    "initialDifficulty": 1,
+    "dynamicDifficulty": 1,
+    "difficultyRationale": "",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "1e6d1d03d43aa303861ca1f972d2af92db5e3a4edc886529dc9682f67b1e31fd",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q2",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 2,
+    "questionNumber": 2,
+    "questionText": "Which two statements are true about the COALESCE function in Oracle SQL? (Choose TWO)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which two statements are true about the COALESCE function in Oracle SQL? (Choose TWO)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "It returns the first non-NULL expression from its argument list.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "It can accept only exactly two arguments, like NVL.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "COALESCE(NULL, NULL, 5) returns 5.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "It evaluates every argument in the list before returning a result, even after finding a non-NULL value.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "COALESCE always requires at least three arguments, unlike NVL which requires exactly two.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "NULL Handling",
+    "topics": [
+      "NULL Handling"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "940e11f56f93dbfc0bb2ff4e0953b3dee373453e5cdc8a0ec3f6ee3e47a25d0b",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q3",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 3,
+    "questionNumber": 3,
+    "questionText": "View and examine the following statement.\nSELECT SUBSTR('ORACLE DATABASE', -8, 4) FROM dual;\nWhat is the result of this query?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT SUBSTR('ORACLE DATABASE', -8, 4) FROM dual;"
+      },
+      {
+        "type": "text",
+        "text": "What is the result of this query?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "DATA",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "ABAS",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "TABA",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "An error, because the start position cannot be negative.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "Character Functions"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "cff9779cceb5f3a94ea887f062eab54fbafb59ec0a9ca8e53c4360bb9bf29a2e",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q4",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 4,
+    "questionNumber": 4,
+    "questionText": "View and examine the following statement.\nSELECT INSTR('ORACLE DATABASE ADMINISTRATOR', 'A', 1, 3) FROM dual;\nWhich value does this query return?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT INSTR('ORACLE DATABASE ADMINISTRATOR', 'A', 1, 3) FROM dual;"
+      },
+      {
+        "type": "text",
+        "text": "Which value does this query return?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "It returns the position of the third occurrence of the letter 'A' in the string.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "It returns the number of times the letter 'A' appears in the string.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "It returns the position of the first occurrence of 'A' starting the search from position 3.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "It raises an error, because INSTR only accepts two arguments.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "Functions"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "dd5ea6c19b8196067f760ba49d137b9e7e7614e9f71715aed6460d6aaeefe330",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q5",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 5,
+    "questionNumber": 5,
+    "questionText": "Which statement correctly pads the EMPLOYEE_ID column on the left with zeros so the result is always 6 characters wide?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement correctly pads the EMPLOYEE_ID column on the left with zeros so the result is always 6 characters wide?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "SELECT LPAD(employee_id, 6, '0') FROM employees;",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "SELECT RPAD(employee_id, 6, '0') FROM employees;",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "SELECT LPAD(6, employee_id, '0') FROM employees;",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "SELECT PAD(employee_id, 6, '0') FROM employees;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Character Functions",
+    "topics": [
+      "Character Functions",
+      "SELECT"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "978765ea90184bc57e8bbd2a72f8296c76b077d58dfccfa108dadd68cb328984",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q6",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 6,
+    "questionNumber": 6,
+    "questionText": "View and examine the following statement.\nSELECT TRIM(LEADING '0' FROM '000456') FROM dual;\nWhat is the result?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT TRIM(LEADING '0' FROM '000456') FROM dual;"
+      },
+      {
+        "type": "text",
+        "text": "What is the result?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "456",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "000456",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "456000",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "An error, because TRIM cannot remove multiple characters at once.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "Character Functions"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "85e2d9357bce32711651ed382becfad69773f7baaa3e2f5f472cd8bfb7e08c76",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q7",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 7,
+    "questionNumber": 7,
+    "questionText": "Which two statements are true about the ROUND and TRUNC functions when applied to the number 125.783? (Choose TWO)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which two statements are true about the ROUND and TRUNC functions when applied to the number 125.783? (Choose TWO)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "ROUND(125.783, 1) returns 125.8.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "TRUNC(125.783, 1) returns 125.8.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "TRUNC(125.783, 1) returns 125.7.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "ROUND(125.783, -2) returns 200.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "TRUNC(125.783) returns 126.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Numeric Functions",
+    "topics": [
+      "Numeric Functions"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2); distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "231f9a059c4173ac1b54f9b8f86332bd9796d7d7108e80d25210d2e94968f5a9",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q8",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 8,
+    "questionNumber": 8,
+    "questionText": "View and examine the following statement.\nSELECT MOD(17, 5), MOD(17, 0) FROM dual;\nWhat does this query return?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT MOD(17, 5), MOD(17, 0) FROM dual;"
+      },
+      {
+        "type": "text",
+        "text": "What does this query return?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "2 and 17",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "2 and 0",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "3 and 17",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "An error, because MOD cannot be used with a divisor of 0.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "Numeric Functions"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "8eea5647eb351457121a0ce3efe14037682b4bb2b4a5e304fa023de425da867b",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q9",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 9,
+    "questionNumber": 9,
+    "questionText": "Which statement is true about the CEIL and FLOOR functions in Oracle SQL?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement is true about the CEIL and FLOOR functions in Oracle SQL?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "CEIL(-10.5) returns -10, and FLOOR(-10.5) returns -11.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "CEIL(-10.5) returns -11, and FLOOR(-10.5) returns -10.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "CEIL and FLOOR both round to the nearest integer, choosing whichever is closer.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "CEIL can only be used with positive numbers.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Numeric Functions",
+    "topics": [
+      "Numeric Functions"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "a63ec8fb69241488fa789dbea910d42803498cc427faf45de8a85425762dfe62",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q10",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 10,
+    "questionNumber": 10,
+    "questionText": "View and examine the following statement.\nSELECT TO_CHAR(hire_date, 'fmMonth DD, YYYY') AS hired\nFROM employees\nWHERE employee_id = 100;\nIf HIRE_DATE for this employee is June 17, 2003, what does this query display?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT TO_CHAR(hire_date, 'fmMonth DD, YYYY') AS hired"
+      },
+      {
+        "type": "text",
+        "text": "FROM employees"
+      },
+      {
+        "type": "text",
+        "text": "WHERE employee_id = 100;"
+      },
+      {
+        "type": "text",
+        "text": "If HIRE_DATE for this employee is June 17, 2003, what does this query display?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "June 17, 2003",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "JUNE 17, 2003",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "06/17/2003",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "An error, because TO_CHAR cannot combine a month name with a day and year in one format model.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE",
+      "Conversion Functions"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "e2bfd00075fbec157212e83213eac078b02e89eca6381646e5976f75cf732c9e",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q11",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 11,
+    "questionNumber": 11,
+    "questionText": "View and examine the following statement.\nSELECT salary + TO_NUMBER('1,000', '9,999') AS new_salary\nFROM employees\nWHERE employee_id = 100;\nWhich statement is true?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT salary + TO_NUMBER('1,000', '9,999') AS new_salary"
+      },
+      {
+        "type": "text",
+        "text": "FROM employees"
+      },
+      {
+        "type": "text",
+        "text": "WHERE employee_id = 100;"
+      },
+      {
+        "type": "text",
+        "text": "Which statement is true?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "The statement executes successfully because the format model '9,999' matches the comma in the string.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "The statement raises an error because TO_NUMBER does not accept a format model as a second argument.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "The statement raises an error because commas are never allowed inside string literals passed to TO_NUMBER.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "The statement silently ignores the comma and returns NULL.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE",
+      "Conversion Functions"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "bddbf9269262e80cffa03275a702885b46508fffafca7c47bed84e3ccc5d68fe",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q12",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 12,
+    "questionNumber": 12,
+    "questionText": "View and examine the following statement.\nSELECT TO_DATE('2024-02-30', 'YYYY-MM-DD') FROM dual;\nWhat happens when this statement is executed?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT TO_DATE('2024-02-30', 'YYYY-MM-DD') FROM dual;"
+      },
+      {
+        "type": "text",
+        "text": "What happens when this statement is executed?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "It raises an error, because February never has 30 days in any year.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "It returns March 1, 2024, because Oracle automatically rolls the date forward.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "It returns February 28, 2024, ignoring the invalid day.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "It returns NULL, because the day value is out of range.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "Conversion Functions",
+      "Date Functions"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "37e0f3a1cbf62c910e3aad84ff8b21f2d568e8bd079e4f71a29b43739931b0f7",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q13",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 13,
+    "questionNumber": 13,
+    "questionText": "View and examine the following statement.\nSELECT MONTHS_BETWEEN(DATE '2024-07-15', DATE '2024-01-15') FROM dual;\nWhat is the result?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT MONTHS_BETWEEN(DATE '2024-07-15', DATE '2024-01-15') FROM dual;"
+      },
+      {
+        "type": "text",
+        "text": "What is the result?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "6",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "5",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "180",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "0.5",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "Date Functions"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "6be6ab780056fdfae5dda9e54794b2ebb6984bc834035abd14fe20e2a4bd8312",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q14",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 14,
+    "questionNumber": 14,
+    "questionText": "View and examine the following statement.\nSELECT ADD_MONTHS(DATE '2024-01-31', 1) FROM dual;\nWhat is the result?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT ADD_MONTHS(DATE '2024-01-31', 1) FROM dual;"
+      },
+      {
+        "type": "text",
+        "text": "What is the result?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "February 29, 2024",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "March 2, 2024",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "February 31, 2024",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "An error, because January 31 has no equivalent day in February.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "Date Functions"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "ee0ebbfb31dce60a1006078de4e14b078464af75a60fa520be4b56930fcc46ac",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q15",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 15,
+    "questionNumber": 15,
+    "questionText": "Which two statements are true about the LAST_DAY and NEXT_DAY functions? (Choose TWO)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which two statements are true about the LAST_DAY and NEXT_DAY functions? (Choose TWO)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "LAST_DAY(SYSDATE) returns the date of the final day of the current month.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "NEXT_DAY(SYSDATE, 'MONDAY') can return the same date as SYSDATE if today is already Monday.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "NEXT_DAY(SYSDATE, 'MONDAY') returns the date of the next Monday strictly after SYSDATE.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "LAST_DAY requires a second argument specifying the month.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "NEXT_DAY always returns a date in the same month as its input.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Date Functions",
+    "topics": [
+      "Date Functions"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2); distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "360b139ab42bdf0e84baf95025afd2d31bcfba518ebc6aa8b11c914fb8f6f4df",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q16",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 16,
+    "questionNumber": 16,
+    "questionText": "View and examine the following statement.\nSELECT hire_date + 7 FROM employees WHERE employee_id = 100;\nWhat does adding 7 to a DATE column return in Oracle SQL?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT hire_date + 7 FROM employees WHERE employee_id = 100;"
+      },
+      {
+        "type": "text",
+        "text": "What does adding 7 to a DATE column return in Oracle SQL?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "A DATE value that is 7 days after HIRE_DATE.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "A NUMBER representing 7 days in hours.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "An error, because arithmetic cannot be performed directly on DATE columns.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "A DATE value that is 7 months after HIRE_DATE.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "48511314c7f35f8e03cd26f547a74c979556f54a82b135ae6736a136b95c28fa",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q17",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 17,
+    "questionNumber": 17,
+    "questionText": "View and examine the following statement.\nSELECT department_id, job_id, SUM(salary)\nFROM employees\nGROUP BY ROLLUP(department_id, job_id);\nWhich statement is true about the result of this query?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT department_id, job_id, SUM(salary)"
+      },
+      {
+        "type": "text",
+        "text": "FROM employees"
+      },
+      {
+        "type": "sql",
+        "text": "GROUP BY ROLLUP(department_id, job_id);"
+      },
+      {
+        "type": "text",
+        "text": "Which statement is true about the result of this query?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "It produces subtotal rows for each DEPARTMENT_ID and a grand total row, in addition to the detail rows for each DEPARTMENT_ID/JOB_ID combination.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "It produces only the detail rows for each DEPARTMENT_ID/JOB_ID combination, identical to a plain GROUP BY.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "It raises an error, because ROLLUP cannot be used with two columns.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "It produces one row per JOB_ID only, ignoring DEPARTMENT_ID.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "GROUP BY",
+    "topics": [
+      "GROUP BY",
+      "SELECT",
+      "Aggregate Functions"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "4596fba2948a5d9db0c64068c000610ce04e1aa37f60e3c24fa96b6e5202749f",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q18",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 18,
+    "questionNumber": 18,
+    "questionText": "Which statement correctly lists only the departments that have an average salary greater than 8000?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement correctly lists only the departments that have an average salary greater than 8000?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "SELECT department_id, AVG(salary) FROM employees GROUP BY department_id HAVING AVG(salary) > 8000;",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "SELECT department_id, AVG(salary) FROM employees WHERE AVG(salary) > 8000 GROUP BY department_id;",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "SELECT department_id, AVG(salary) FROM employees HAVING AVG(salary) > 8000 GROUP BY department_id;",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "SELECT department_id, AVG(salary) FROM employees GROUP BY department_id WHERE AVG(salary) > 8000;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE",
+      "Aggregate Functions",
+      "HAVING",
+      "GROUP BY"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "6da5497ab08e8a0eb89edd6a9a85313b222dca049ea8e1ca1b4b2e38dd316aaf",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q19",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 19,
+    "questionNumber": 19,
+    "questionText": "Which statement is true about the HAVING clause in Oracle SQL?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement is true about the HAVING clause in Oracle SQL?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "HAVING can be used in a SELECT statement that contains only aggregate functions and no GROUP BY clause, treating the whole table as a single group.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "HAVING must always be preceded by a GROUP BY clause in the same statement.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "HAVING cannot reference a column that is not listed in the SELECT clause.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "HAVING is evaluated before the WHERE clause.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE",
+      "HAVING",
+      "GROUP BY"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "68fa55c6ae5138e1c10ab2d8bb08254f76746b9baa5712779434bbca6c9df721",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q20",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 20,
+    "questionNumber": 20,
+    "questionText": "View and examine the following statement.\nCREATE VIEW emp_dept_90 AS\nSELECT employee_id, last_name, salary\nFROM employees\nWHERE department_id = 90\nWITH CHECK OPTION;\nWhat happens if a user tries to UPDATE a row through EMP_DEPT_90, changing a value so that the row's DEPARTMENT_ID would effectively become 50?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "CREATE VIEW emp_dept_90 AS"
+      },
+      {
+        "type": "sql",
+        "text": "SELECT employee_id, last_name, salary"
+      },
+      {
+        "type": "text",
+        "text": "FROM employees"
+      },
+      {
+        "type": "text",
+        "text": "WHERE department_id = 90"
+      },
+      {
+        "type": "text",
+        "text": "WITH CHECK OPTION;"
+      },
+      {
+        "type": "text",
+        "text": "What happens if a user tries to UPDATE a row through EMP_DEPT_90, changing a value so that the row's DEPARTMENT_ID would effectively become 50?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Oracle rejects the update, because WITH CHECK OPTION prevents changes that would make the row disappear from the view's result set.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Oracle allows the update, and the row disappears from the view afterward.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Oracle allows the update, but automatically keeps DEPARTMENT_ID as 90 regardless of the new value.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "WITH CHECK OPTION has no effect on UPDATE statements, only on INSERT statements.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE",
+      "DML",
+      "Views"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "1b7a38745a44229e7acb834cb3a1ce1d59749388bb7ea6a431276d08d4371a57",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q21",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 21,
+    "questionNumber": 21,
+    "questionText": "Which two statements are true about views that are created WITH READ ONLY? (Choose TWO)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which two statements are true about views that are created WITH READ ONLY? (Choose TWO)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "INSERT, UPDATE, and DELETE statements against the view are rejected by Oracle.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "SELECT statements against the view still work normally.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "WITH READ ONLY prevents the view from being queried by any user other than its owner.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "WITH READ ONLY automatically makes the underlying base table read only as well.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "A view created WITH READ ONLY cannot later be dropped.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "41a149465afe6202eecc0341d75c26d205764f152f41366d8224b6c576f0ecb2",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q22",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 22,
+    "questionNumber": 22,
+    "questionText": "Which view definition is NOT updatable through simple INSERT, UPDATE, or DELETE statements?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which view definition is NOT updatable through simple INSERT, UPDATE, or DELETE statements?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "CREATE VIEW v1 AS SELECT department_id, SUM(salary) AS total FROM employees GROUP BY department_id;",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "CREATE VIEW v2 AS SELECT employee_id, last_name, salary FROM employees WHERE department_id = 60;",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "CREATE VIEW v3 AS SELECT * FROM employees;",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "CREATE VIEW v4 AS SELECT employee_id, last_name FROM employees WHERE salary > 5000;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE",
+      "Views",
+      "Aggregate Functions",
+      "GROUP BY"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "3d355a0d5e3d43e7eaaf41ec143ea0e86b732a91d3c14e6c924a0cf34809776a",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q23",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 23,
+    "questionNumber": 23,
+    "questionText": "Which statement about views in Oracle SQL is true?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement about views in Oracle SQL is true?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "A view does not store data itself; it stores a query definition that is executed whenever the view is referenced.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Creating a view always duplicates the data from the underlying table into a new physical segment.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "A view can only be based on a single table, never on a join of multiple tables.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Dropping a view also drops the underlying base table.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "JOINS",
+    "topics": [
+      "JOINS"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "628301bd3b5c50b0330855e98c510d3493e339602f9acafe7dddbf72fe85e3d3",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q24",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 24,
+    "questionNumber": 24,
+    "questionText": "View and examine the following statement.\nCREATE SEQUENCE order_seq\nSTART WITH 100\nINCREMENT BY 10\nMAXVALUE 500\nNOCYCLE;\nWhat happens when ORDER_SEQ.NEXTVAL is selected for the first time, and then a second time, in the same session?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "CREATE SEQUENCE order_seq"
+      },
+      {
+        "type": "text",
+        "text": "START WITH 100"
+      },
+      {
+        "type": "text",
+        "text": "INCREMENT BY 10"
+      },
+      {
+        "type": "text",
+        "text": "MAXVALUE 500"
+      },
+      {
+        "type": "text",
+        "text": "NOCYCLE;"
+      },
+      {
+        "type": "text",
+        "text": "What happens when ORDER_SEQ.NEXTVAL is selected for the first time, and then a second time, in the same session?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "The first call returns 100, and the second call returns 110.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Both calls return 100, because NEXTVAL always returns the starting value until CURRVAL is used.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "The first call returns 110, because the sequence skips the starting value.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "The first call returns 100, and the second call raises an error unless CURRVAL is called in between.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Sequences",
+    "topics": [
+      "Sequences"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "15c7f8ede1392ebd0fbfa9c13f6e446517fe42a6484fcfabc2b8372a0ae73a61",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q25",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 25,
+    "questionNumber": 25,
+    "questionText": "A new session connects to the database and has not yet referenced ORDER_SEQ.NEXTVAL. What happens if this session immediately queries ORDER_SEQ.CURRVAL?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "A new session connects to the database and has not yet referenced ORDER_SEQ.NEXTVAL. What happens if this session immediately queries ORDER_SEQ.CURRVAL?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Oracle raises an error, because CURRVAL is not defined for a session until NEXTVAL has been called at least once in that session.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Oracle returns the sequence's START WITH value.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Oracle returns NULL.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Oracle returns 0.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Sequences",
+    "topics": [
+      "Sequences"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "0d209f45d94d5ee6a3436c1604316df2ba2aaf44f2dfce74e7eae3daea107f3b",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q26",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 26,
+    "questionNumber": 26,
+    "questionText": "Which two statements are true about sequences in Oracle SQL? (Choose TWO)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which two statements are true about sequences in Oracle SQL? (Choose TWO)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "A sequence must be defined with the same column list as the single table it will supply values for.",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "CYCLE allows the sequence to restart from its MINVALUE (or MAXVALUE, for descending sequences) after reaching a limit.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "A sequence automatically fills in gaps left by a ROLLBACK, guaranteeing no number is ever skipped.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "DROP TABLE on the table that uses a sequence automatically drops the sequence as well.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "CACHE 20 means Oracle pre-allocates and keeps 20 sequence values in memory for faster access.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Transactions",
+    "topics": [
+      "Transactions",
+      "DDL",
+      "Sequences"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "519014ac66eddf1d0560d75247b84d34a51826ea1ef912a671a265ef68ccd280",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q27",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 27,
+    "questionNumber": 27,
+    "questionText": "Which statement correctly creates a public alias named EMP for the table HR.EMPLOYEES, so that any user in the database can refer to it simply as EMP?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement correctly creates a public alias named EMP for the table HR.EMPLOYEES, so that any user in the database can refer to it simply as EMP?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "CREATE PUBLIC SYNONYM emp FOR hr.employees;",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "CREATE SYNONYM PUBLIC emp FOR hr.employees;",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "CREATE ALIAS emp FOR hr.employees;",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "CREATE PUBLIC VIEW emp FOR hr.employees;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Synonyms",
+    "topics": [
+      "Synonyms"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "d27ed664c0f4066b4b93998ff818fff33003c49d3efe55453277de6e09d97b98",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q28",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 28,
+    "questionNumber": 28,
+    "questionText": "Which statement is true about synonyms in Oracle SQL?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement is true about synonyms in Oracle SQL?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "A synonym is simply an alternative name for a table, view, sequence, or other schema object; it does not store any data of its own.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Creating a synonym for a table automatically copies that table's data into the synonym.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "A private synonym can be used by every user in the database, just like a public synonym.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "A synonym can only be created for a table, never for a view or a sequence.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Synonyms",
+    "topics": [
+      "Synonyms",
+      "Sequences"
+    ],
+    "initialDifficulty": 1,
+    "dynamicDifficulty": 1,
+    "difficultyRationale": "",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "a43c30be458649e7c90768d13c9a014fadce641106b3d5e9c91030174ff3c65e",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q29",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 29,
+    "questionNumber": 29,
+    "questionText": "Which statement correctly removes the public synonym EMP?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement correctly removes the public synonym EMP?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "DROP PUBLIC SYNONYM emp;",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "DROP SYNONYM PUBLIC emp;",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "DELETE PUBLIC SYNONYM emp;",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "DROP TABLE emp;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "DDL",
+    "topics": [
+      "DDL",
+      "Synonyms"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "947b682aa1cad6e3321b479665d5237d1994607a2e422b942525b44917e7a189",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q30",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 30,
+    "questionNumber": 30,
+    "questionText": "View and examine the following statements, executed in order by a DBA.\nCREATE ROLE hr_clerk;\nGRANT SELECT, INSERT ON hr.employees TO hr_clerk;\nGRANT hr_clerk TO scott;\nWhat is the effect of these statements?",
+    "contentBlocks": [
+      {
+        "type": "sql",
+        "text": "View and examine the following statements, executed in order by a DBA."
+      },
+      {
+        "type": "sql",
+        "text": "CREATE ROLE hr_clerk;"
+      },
+      {
+        "type": "sql",
+        "text": "GRANT SELECT, INSERT ON hr.employees TO hr_clerk;"
+      },
+      {
+        "type": "sql",
+        "text": "GRANT hr_clerk TO scott;"
+      },
+      {
+        "type": "text",
+        "text": "What is the effect of these statements?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "SCOTT gains the SELECT and INSERT privileges on HR.EMPLOYEES through the HR_CLERK role.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "SCOTT becomes the owner of a new role called HR_CLERK.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "The statements fail, because privileges cannot be granted to a role before the role has any members.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "SCOTT can now grant the HR_CLERK role to other users, because granting a role always includes the ADMIN OPTION.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Privileges",
+    "topics": [
+      "Privileges",
+      "SELECT",
+      "ORDER BY",
+      "Roles"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "8a699f063c6a106b481e03f3509f67dd5d71cfedfab5398fcb5819663f0981c2",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q31",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 31,
+    "questionNumber": 31,
+    "questionText": "Which statement is true about the difference between a role and a system privilege in Oracle?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement is true about the difference between a role and a system privilege in Oracle?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "A role is a named collection of privileges that can be granted to users as a single unit, which simplifies managing many privileges at once.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "A role can only ever contain exactly one privilege.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "System privileges must always be granted individually and can never be grouped together.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "A role and a system privilege are simply two different names for the exact same concept in Oracle.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Roles",
+    "topics": [
+      "Roles",
+      "Privileges"
+    ],
+    "initialDifficulty": 1,
+    "dynamicDifficulty": 1,
+    "difficultyRationale": "",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "c02e79323be219698f25ba7b02c8b012d7ec3168c7b1235d87ee234723f1544a",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q32",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 32,
+    "questionNumber": 32,
+    "questionText": "Which statement is true about indexes in Oracle SQL?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement is true about indexes in Oracle SQL?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "When a column is defined with a PRIMARY KEY constraint, Oracle automatically creates a unique index on that column.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Indexes make every DML statement (INSERT, UPDATE, DELETE) execute faster, with no additional overhead.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "A table can have at most one index at any given time.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Creating an index copies and duplicates all the data from the indexed column into a new table.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Constraints",
+    "topics": [
+      "Constraints",
+      "Indexes"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "a96a71c030b28e571d560717a244dde5f5be9effcb1ce7b0dc01307f9a91cf19",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q33",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 33,
+    "questionNumber": 33,
+    "questionText": "Which two statements are true about indexes? (Choose TWO)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which two statements are true about indexes? (Choose TWO)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "An index can speed up SELECT statements that filter or sort on the indexed column.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Dropping the table that an index is based on also drops the index automatically.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "An index guarantees that the indexed column cannot contain duplicate values.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Indexes are required before a table can contain any rows.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "Creating an index on a column prevents that column from ever being updated.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "Indexes"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "7b491c56e2543bc92b406f960cdd1362e7fd875bbf7cd66a8dbe9ad33650de34",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q34",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 34,
+    "questionNumber": 34,
+    "questionText": "Which data dictionary view would a regular (non-DBA) user query to see the names and data types of the columns in a table that the user owns?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which data dictionary view would a regular (non-DBA) user query to see the names and data types of the columns in a table that the user owns?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "USER_TAB_COLUMNS",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "USER_CONSTRAINTS",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "ALL_USERS",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "USER_SEQUENCES",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Data Dictionary",
+    "topics": [
+      "Data Dictionary",
+      "Sequences",
+      "Constraints"
+    ],
+    "initialDifficulty": 1,
+    "dynamicDifficulty": 1,
+    "difficultyRationale": "",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "ddcdd9d596464584e648756f20bce2c80533b5d3fcd01beae67f974ef9be3ed6",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q35",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 35,
+    "questionNumber": 35,
+    "questionText": "Which statement is true about the ALL_, USER_, and DBA_ prefixes used in Oracle data dictionary views?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement is true about the ALL_, USER_, and DBA_ prefixes used in Oracle data dictionary views?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "USER_ views show only objects owned by the current user; ALL_ views show objects the current user can access regardless of owner; DBA_ views show every object in the database and require elevated privileges.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "DBA_ views show only objects owned by the current session, while USER_ views show every object in the database.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "ALL_ views and USER_ views always return exactly the same rows for every user.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "The three prefixes differ only in column names, never in which rows are returned.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Data Dictionary",
+    "topics": [
+      "Data Dictionary",
+      "Privileges"
+    ],
+    "initialDifficulty": 1,
+    "dynamicDifficulty": 1,
+    "difficultyRationale": "",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "287d2875ad10a371f48c8012e5b5aa0b236b6ff2eeaf14aebda8d1fbef36ab60",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q36",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 36,
+    "questionNumber": 36,
+    "questionText": "Which data dictionary view would show the names of the constraints defined on a table owned by the current user, including their constraint type (for example, 'P' for primary key)?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which data dictionary view would show the names of the constraints defined on a table owned by the current user, including their constraint type (for example, 'P' for primary key)?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "USER_CONSTRAINTS",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "USER_TABLES",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "USER_INDEXES",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "USER_TRIGGERS",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Data Dictionary",
+    "topics": [
+      "Data Dictionary",
+      "Constraints",
+      "Indexes"
+    ],
+    "initialDifficulty": 1,
+    "dynamicDifficulty": 1,
+    "difficultyRationale": "",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "40f1663cb8e9c13ffe7b1667546a6993b49f02e872e2ce741944c2e0b5404dfe",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q37",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 37,
+    "questionNumber": 37,
+    "questionText": "View and examine the following statement.\nSELECT department_id FROM employees\nMINUS\nSELECT department_id FROM departments\nWHERE location_id = 1700;\nWhich rows does this statement return?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT department_id FROM employees"
+      },
+      {
+        "type": "text",
+        "text": "MINUS"
+      },
+      {
+        "type": "sql",
+        "text": "SELECT department_id FROM departments"
+      },
+      {
+        "type": "text",
+        "text": "WHERE location_id = 1700;"
+      },
+      {
+        "type": "text",
+        "text": "Which rows does this statement return?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "The DEPARTMENT_ID values that appear in EMPLOYEES but do not appear among the departments located at LOCATION_ID 1700.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "The DEPARTMENT_ID values that appear in both EMPLOYEES and the filtered DEPARTMENTS result.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "The DEPARTMENT_ID values that appear in the filtered DEPARTMENTS result but not in EMPLOYEES.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "An error, because MINUS cannot be combined with a WHERE clause in the second query.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "WHERE",
+      "Set Operators"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "b310f398aac3e24338b125c9a991b066af57a8ed130197316b5ec2aa64bf06b0",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q38",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 38,
+    "questionNumber": 38,
+    "questionText": "View and examine the following statements, executed in order within the same session.\nUPDATE employees SET salary = salary * 1.1 WHERE department_id = 60;\nSAVEPOINT after_raise;\nDELETE FROM employees WHERE department_id = 60 AND salary > 20000;\nROLLBACK TO after_raise;\nWhat is the state of the transaction after the ROLLBACK statement executes?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statements, executed in order within the same session."
+      },
+      {
+        "type": "sql",
+        "text": "UPDATE employees SET salary = salary * 1.1 WHERE department_id = 60;"
+      },
+      {
+        "type": "text",
+        "text": "SAVEPOINT after_raise;"
+      },
+      {
+        "type": "sql",
+        "text": "DELETE FROM employees WHERE department_id = 60 AND salary > 20000;"
+      },
+      {
+        "type": "text",
+        "text": "ROLLBACK TO after_raise;"
+      },
+      {
+        "type": "text",
+        "text": "What is the state of the transaction after the ROLLBACK statement executes?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "The salary increase from the UPDATE is still in place, but the DELETE has been undone.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Both the UPDATE and the DELETE have been completely undone.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Both the UPDATE and the DELETE remain in effect, because ROLLBACK TO a savepoint has no effect on DML already executed.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "The DELETE remains in effect, but the UPDATE has been undone.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Transactions",
+    "topics": [
+      "Transactions",
+      "DML",
+      "WHERE"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "82cd87e90a264f76c7acb3152ccfc1ac6fe50fc1680c21bf8f8607b95746f84d",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q39",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 39,
+    "questionNumber": 39,
+    "questionText": "Which two statements are true about transactions in Oracle SQL? (Choose TWO)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which two statements are true about transactions in Oracle SQL? (Choose TWO)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Executing a DDL statement such as CREATE TABLE implicitly commits any pending transaction.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "A COMMIT statement makes all changes made during the current transaction permanent and visible to other sessions.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "ROLLBACK can undo changes that another session has already committed.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "A transaction can only ever contain exactly one DML statement.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "SAVEPOINT permanently commits the changes made up to that point in the transaction.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Transactions",
+    "topics": [
+      "Transactions",
+      "DDL"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2)",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "caf4a10542e69112ccb8786e9d87b39125244d3c3d17aa663a35401ce79c17ae",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q40",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 40,
+    "questionNumber": 40,
+    "questionText": "Which statement correctly describes the difference between a system privilege and an object privilege in Oracle?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement correctly describes the difference between a system privilege and an object privilege in Oracle?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "A system privilege (such as CREATE TABLE) allows a user to perform an action in the database generally, while an object privilege (such as SELECT on a specific table) controls access to one particular object.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "An object privilege allows a user to create new users, while a system privilege only allows querying data.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "System privileges can only be granted by the object's owner, never by a DBA.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Object privileges and system privileges are granted using different SQL statements that cannot both be called GRANT.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "Privileges",
+      "DDL"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "d6977e752010bd3de96ef7f2dc602354a15117d94a3e5c959892ef4741be9b33",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q41",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 41,
+    "questionNumber": 41,
+    "questionText": "View and examine the following statement, executed by SCOTT, the owner of the ORDERS table.\nGRANT SELECT ON orders TO hr WITH GRANT OPTION;\nWhat does WITH GRANT OPTION allow HR to do?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement, executed by SCOTT, the owner of the ORDERS table."
+      },
+      {
+        "type": "sql",
+        "text": "GRANT SELECT ON orders TO hr WITH GRANT OPTION;"
+      },
+      {
+        "type": "text",
+        "text": "What does WITH GRANT OPTION allow HR to do?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "HR can grant the SELECT privilege on ORDERS to other users.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "HR automatically becomes the new owner of the ORDERS table.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "HR can modify the structure of the ORDERS table using ALTER TABLE.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "WITH GRANT OPTION has no practical effect on object privileges, only on system privileges.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Privileges",
+    "topics": [
+      "Privileges",
+      "SELECT",
+      "DDL"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "contiene codigo SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "e8853e3cdec2c302ee21a18aac331872c125f1b41fa14a65ed9d2c1d5bd6b9ef",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q42",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 42,
+    "questionNumber": 42,
+    "questionText": "View and examine the following statement.\nMERGE INTO employees_bonus b\nUSING employees e\nON (b.employee_id = e.employee_id)\nWHEN MATCHED THEN\n  UPDATE SET b.bonus = e.salary * 0.1\nWHEN NOT MATCHED THEN\n  INSERT (employee_id, bonus) VALUES (e.employee_id, e.salary * 0.1);\nWhat is the purpose of this statement?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "MERGE INTO employees_bonus b"
+      },
+      {
+        "type": "text",
+        "text": "USING employees e"
+      },
+      {
+        "type": "text",
+        "text": "ON (b.employee_id = e.employee_id)"
+      },
+      {
+        "type": "text",
+        "text": "WHEN MATCHED THEN"
+      },
+      {
+        "type": "sql",
+        "text": "UPDATE SET b.bonus = e.salary * 0.1"
+      },
+      {
+        "type": "text",
+        "text": "WHEN NOT MATCHED THEN"
+      },
+      {
+        "type": "sql",
+        "text": "INSERT (employee_id, bonus) VALUES (e.employee_id, e.salary * 0.1);"
+      },
+      {
+        "type": "text",
+        "text": "What is the purpose of this statement?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "It updates the bonus for employees who already exist in EMPLOYEES_BONUS, and inserts a new bonus row for employees who do not yet exist there.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "It deletes rows from EMPLOYEES_BONUS that do not match any row in EMPLOYEES.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "It only inserts new rows, ignoring the WHEN MATCHED clause entirely.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "It raises an error, because MERGE cannot combine an UPDATE and an INSERT in the same statement.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "DML",
+    "topics": [
+      "DML"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "5ba83756f2e7a2abb5643082b0d6ccaf6a1121ae2da0c299702d2e1499b313b8",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q43",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 43,
+    "questionNumber": 43,
+    "questionText": "Which statement correctly copies every row from DEPARTMENTS into DEPARTMENTS_BACKUP, assuming both tables already exist with compatible columns, without using a loop?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement correctly copies every row from DEPARTMENTS into DEPARTMENTS_BACKUP, assuming both tables already exist with compatible columns, without using a loop?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "INSERT INTO departments_backup SELECT * FROM departments;",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "INSERT INTO departments_backup VALUES (SELECT * FROM departments);",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "INSERT departments_backup FROM departments;",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "COPY INTO departments_backup FROM departments;",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "SELECT",
+    "topics": [
+      "SELECT",
+      "DML",
+      "Subqueries"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "770b0bdb20005c52b0d3a11df25c3f5443743fc09dde88287a31b10b67c71662",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q44",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 44,
+    "questionNumber": 44,
+    "questionText": "Which two statements are true about the ALTER TABLE command in Oracle SQL? (Choose TWO)",
+    "contentBlocks": [
+      {
+        "type": "sql",
+        "text": "Which two statements are true about the ALTER TABLE command in Oracle SQL? (Choose TWO)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "ALTER TABLE ... ADD can be used to add one or more new columns to an existing table.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "ALTER TABLE ... MODIFY can be used to change the data type or size of an existing column, subject to the existing data being compatible with the change.",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "ALTER TABLE can never be used to remove a column once the table contains data.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "ALTER TABLE automatically commits any uncommitted DML from other sessions.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "ALTER TABLE ... DROP COLUMN can remove the last remaining column of a table.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Transactions",
+    "topics": [
+      "Transactions",
+      "DDL"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2); contiene codigo SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "afc288158a9c2fb48db45f3bbc9f9631420cebd2657ede2bc7e17395ec39edc0",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q45",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 45,
+    "questionNumber": 45,
+    "questionText": "View and examine the following statement.\nCREATE TABLE emp_summary AS\nSELECT employee_id, last_name, salary\nFROM employees\nWHERE department_id = 80;\nWhich statement is true about the EMP_SUMMARY table after this statement executes?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "CREATE TABLE emp_summary AS"
+      },
+      {
+        "type": "sql",
+        "text": "SELECT employee_id, last_name, salary"
+      },
+      {
+        "type": "text",
+        "text": "FROM employees"
+      },
+      {
+        "type": "text",
+        "text": "WHERE department_id = 80;"
+      },
+      {
+        "type": "text",
+        "text": "Which statement is true about the EMP_SUMMARY table after this statement executes?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "EMP_SUMMARY is a new table containing a copy of the selected rows and columns, but it does not inherit the PRIMARY KEY or FOREIGN KEY constraints of EMPLOYEES.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "EMP_SUMMARY is a view, not a real table, and always reflects the current data in EMPLOYEES.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "EMP_SUMMARY automatically has the same constraints and indexes as the EMPLOYEES table.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "The statement fails, because CREATE TABLE cannot be combined with a SELECT statement.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Constraints",
+    "topics": [
+      "Constraints",
+      "SELECT",
+      "WHERE",
+      "DDL",
+      "Indexes"
+    ],
+    "initialDifficulty": 4,
+    "dynamicDifficulty": 4,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL; distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "83631c7a7cb6d0b724a29c073e47ac55336ed3ecbdc59d473c6b813132faa08f",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q46",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 46,
+    "questionNumber": 46,
+    "questionText": "Which statement is true about CHECK constraints in Oracle SQL?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement is true about CHECK constraints in Oracle SQL?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "A CHECK constraint can reference only the columns of the row being inserted or updated; it cannot reference SYSDATE, USER, or another row's values.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "A CHECK constraint can be used to guarantee that a column's value matches a value in another table.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "A CHECK constraint can reference the pseudocolumn ROWNUM to limit how many rows satisfy the condition.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "A table can have at most one CHECK constraint in total.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Date Functions",
+    "topics": [
+      "Date Functions",
+      "Constraints"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "3aa77bb4628e1cc2d5e92e2be829121f4f91a6686cd6b8a88ff3dbace0bc5445",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q47",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 47,
+    "questionNumber": 47,
+    "questionText": "Which statement correctly defines a composite primary key on the columns ORDER_ID and PRODUCT_ID in a new table?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which statement correctly defines a composite primary key on the columns ORDER_ID and PRODUCT_ID in a new table?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "CREATE TABLE order_items (order_id NUMBER, product_id NUMBER, quantity NUMBER, CONSTRAINT order_items_pk PRIMARY KEY (order_id, product_id));",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "CREATE TABLE order_items (order_id NUMBER PRIMARY KEY, product_id NUMBER PRIMARY KEY, quantity NUMBER);",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "CREATE TABLE order_items (order_id NUMBER, product_id NUMBER, quantity NUMBER, PRIMARY KEY order_id, product_id);",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "CREATE TABLE order_items (order_id NUMBER, product_id NUMBER, quantity NUMBER, CONSTRAINT order_items_pk COMPOSITE KEY (order_id, product_id));",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Constraints",
+    "topics": [
+      "Constraints",
+      "DDL"
+    ],
+    "initialDifficulty": 2,
+    "dynamicDifficulty": 2,
+    "difficultyRationale": "distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "31f6ee4ae242a32d32a270460b018d7e48d204aa01f90fdb602cf69fd53e2514",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q48",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 48,
+    "questionNumber": 48,
+    "questionText": "View and examine the following statement.\nSELECT last_name, salary, department_id\nFROM employees e\nWHERE salary > (\n  SELECT AVG(salary)\n  FROM employees\n  WHERE department_id = e.department_id\n);\nWhich statement is true about this query?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT last_name, salary, department_id"
+      },
+      {
+        "type": "text",
+        "text": "FROM employees e"
+      },
+      {
+        "type": "text",
+        "text": "WHERE salary > ("
+      },
+      {
+        "type": "sql",
+        "text": "SELECT AVG(salary)"
+      },
+      {
+        "type": "text",
+        "text": "FROM employees"
+      },
+      {
+        "type": "text",
+        "text": "WHERE department_id = e.department_id"
+      },
+      {
+        "type": "text",
+        "text": ");"
+      },
+      {
+        "type": "text",
+        "text": "Which statement is true about this query?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "It is a correlated subquery, because the inner query references DEPARTMENT_ID from the outer query and is re-evaluated for each row processed by the outer query.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "It is a non-correlated subquery that is evaluated exactly once before the outer query runs.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "It raises an error, because a subquery in the WHERE clause cannot reference a column from the outer query.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "It returns every employee, because AVG(salary) is always greater than any individual SALARY value.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "Subqueries",
+    "topics": [
+      "Subqueries",
+      "SELECT",
+      "WHERE",
+      "Constraints",
+      "Aggregate Functions"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "6279c944cf81a824e7838845349ead38b02f29edd8bca0a6454109fa340be0fc",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q49",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 49,
+    "questionNumber": 49,
+    "questionText": "View and examine the following statement.\nSELECT e.last_name AS employee, m.last_name AS manager\nFROM employees e\nJOIN employees m ON e.manager_id = m.employee_id;\nWhat does this statement illustrate?",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "View and examine the following statement."
+      },
+      {
+        "type": "sql",
+        "text": "SELECT e.last_name AS employee, m.last_name AS manager"
+      },
+      {
+        "type": "text",
+        "text": "FROM employees e"
+      },
+      {
+        "type": "text",
+        "text": "JOIN employees m ON e.manager_id = m.employee_id;"
+      },
+      {
+        "type": "text",
+        "text": "What does this statement illustrate?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "A self join, where the EMPLOYEES table is joined to itself to match each employee with the last name of their manager.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "A cross join that produces the Cartesian product of EMPLOYEES with itself.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "An outer join that returns employees even when MANAGER_ID is NULL, showing NULL for the manager's name.",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "A syntax error, because a table cannot be joined to itself in Oracle SQL.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 1,
+    "extractionConfidence": 0.98,
+    "questionType": "single-choice",
+    "topic": "JOINS",
+    "topics": [
+      "JOINS",
+      "SELECT",
+      "WHERE",
+      "NULL Handling"
+    ],
+    "initialDifficulty": 3,
+    "dynamicDifficulty": 3,
+    "difficultyRationale": "contiene codigo SQL; combina varias clausulas SQL",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "e2948768da175a70dc40d0c45e83eb7dc08f9014ff37f55fea9f24121d3c5265",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  },
+  {
+    "id": "examen-15-q50",
+    "sourceFile": "Examen 15.docx",
+    "sourcePosition": 50,
+    "questionNumber": 50,
+    "questionText": "Which two statements are true about implicit data type conversion in Oracle SQL? (Choose TWO)",
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "Which two statements are true about implicit data type conversion in Oracle SQL? (Choose TWO)"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "text": "Oracle can implicitly convert a VARCHAR2 value such as '100' to a NUMBER when it is used in an arithmetic expression.",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Oracle can implicitly convert a VARCHAR2 value such as 'ABC' to a NUMBER without raising an error.",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Oracle can implicitly convert a DATE value to a VARCHAR2 using the session's default date format when necessary.",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "Implicit conversion never occurs in Oracle; every conversion must use an explicit function such as TO_NUMBER.",
+        "isCorrect": false
+      },
+      {
+        "id": "E",
+        "text": "Oracle always prefers implicit conversion over raising an error, even when the string clearly cannot represent a number.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "solutionDetectionMethod": [
+      "explicit-marker",
+      "bold"
+    ],
+    "expectedAnswerCount": 2,
+    "extractionConfidence": 0.98,
+    "questionType": "multiple-choice",
+    "topic": "Otros",
+    "topics": [
+      "Otros"
+    ],
+    "initialDifficulty": 5,
+    "dynamicDifficulty": 5,
+    "difficultyRationale": "5+ opciones; requiere 2 respuestas (Choose 2); distractores muy similares entre si",
+    "reviewStatus": "validated",
+    "reviewReasons": [],
+    "warnings": [],
+    "exhibitImages": [],
+    "contentHash": "e2c515ecb251b859e374d54d40790d913e4d402fa4c5d328e9d9e545e6b0c68d",
+    "importedAt": "2026-10-01T16:51:28Z",
+    "duplicateOf": null
+  }
+]
