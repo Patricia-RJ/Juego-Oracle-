@@ -1046,10 +1046,20 @@ function renderCertAchievements(container) {
 /* ================= PANEL DE ADMINISTRACION ================= */
 
 let CERT_ADMIN_FILTER = "all";
+let CERT_ADMIN_EXAM = "all";
 let CERT_ADMIN_PAGE = 0;
 const CERT_ADMIN_PAGE_SIZE = 20;
 
+function getAdminExamList() {
+  const examNum = (sourceFile) => {
+    const m = sourceFile.match(/(\d+)/);
+    return m ? parseInt(m[1], 10) : 999;
+  };
+  return Array.from(new Set(CERT_BANK.map(q => q.sourceFile))).sort((a, b) => examNum(a) - examNum(b));
+}
+
 function renderCertAdmin(container) {
+  const exams = getAdminExamList();
   container.innerHTML = `
     <div class="cert-panel">
       <h3>Administración del banco de examen</h3>
@@ -1057,6 +1067,12 @@ function renderCertAdmin(container) {
       <div class="cert-admin-tabs">
         <button data-f="all">Todas</button>
       </div>
+      <label class="cert-admin-exam-filter">Examen
+        <select id="cert-admin-exam-select">
+          <option value="all">Todos los exámenes</option>
+          ${exams.map(e => `<option value="${escapeHtml(e)}">${escapeHtml(e)}</option>`).join("")}
+        </select>
+      </label>
       <div id="cert-admin-content"></div>
     </div>
   `;
@@ -1064,6 +1080,9 @@ function renderCertAdmin(container) {
     btn.classList.toggle("active", btn.dataset.f === CERT_ADMIN_FILTER);
     btn.onclick = () => { CERT_ADMIN_FILTER = btn.dataset.f; CERT_ADMIN_PAGE = 0; renderCertAdminContent(); };
   });
+  const examSelect = document.getElementById("cert-admin-exam-select");
+  examSelect.value = CERT_ADMIN_EXAM;
+  examSelect.onchange = () => { CERT_ADMIN_EXAM = examSelect.value; CERT_ADMIN_PAGE = 0; renderCertAdminContent(); };
   renderCertAdminContent();
 }
 
@@ -1074,6 +1093,7 @@ function renderCertAdminContent() {
 
   let list = getEffectiveQuestions();
   if (CERT_ADMIN_FILTER !== "all") list = list.filter(q => q.reviewStatus === CERT_ADMIN_FILTER);
+  if (CERT_ADMIN_EXAM !== "all") list = list.filter(q => q.sourceFile === CERT_ADMIN_EXAM);
 
   const totalPages = Math.max(1, Math.ceil(list.length / CERT_ADMIN_PAGE_SIZE));
   CERT_ADMIN_PAGE = Math.min(CERT_ADMIN_PAGE, totalPages - 1);
@@ -1162,7 +1182,8 @@ function wireAdminRowActions(container) {
 }
 
 function renderCertAdminVisual(el) {
-  const withImages = getEffectiveQuestions().filter(q => q.exhibitImages && q.exhibitImages.length > 0);
+  let withImages = getEffectiveQuestions().filter(q => q.exhibitImages && q.exhibitImages.length > 0);
+  if (CERT_ADMIN_EXAM !== "all") withImages = withImages.filter(q => q.sourceFile === CERT_ADMIN_EXAM);
   el.innerHTML = `
     <p class="cert-hint">${withImages.length} preguntas incluyen al menos una imagen del examen original (tabla o exhibit). Clic para ampliar.</p>
     <div class="cert-visual-grid">
