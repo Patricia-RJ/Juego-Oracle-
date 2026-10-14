@@ -5,6 +5,7 @@
     "sourcePosition": 1,
     "questionNumber": 1,
     "questionText": "View and examine the structure of the ORDER_ITEMS table. Required: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table. Identify the response which would meet the requirement.",
+    "explanation": "D is correct because it groups the rows by ORDER_ID and uses SUM(unit_price*quantity) to calculate each order's total value, then uses HAVING to compare that total against the highest total from a subquery that also groups by ORDER_ID. HAVING is required here because aggregate functions like SUM cannot appear directly in a WHERE clause. Option C fails for that exact reason, option B's subquery returns multiple rows and cannot be compared with a single '=', and option A compares a single line item's value instead of the order's total.",
     "contentBlocks": [
       {
         "type": "text",
@@ -77,6 +78,7 @@
     "sourcePosition": 2,
     "questionNumber": 2,
     "questionText": "View and examine the following available responses.\nIdentity two statements which are true about the SET VERIFY ON command? (Select two)",
+    "explanation": "SET VERIFY is a native SQL*Plus command that is also available in SQL Developer, so option A is correct and option B is false. It shows the old and new value of a substitution variable, including ones created implicitly or with the DEFINE command, which makes option D correct. It is not limited to variables in the WHERE clause, so option C is false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -146,6 +148,7 @@
     "sourcePosition": 3,
     "questionNumber": 3,
     "questionText": "View the exhibit and examine the data in the PROJ_TASK_DETAILS table.\nTable: PROJ_TASK_DETAILS\n\nGiven: The PROJ_TASK_DETAILS table stores information about project tasks and the relation between them.\nThe BASED_ON column indicates dependencies between tasks.\nSome tasks do not depend on the completion of other tasks.\nRequired: Generate a report listing all task IDs, the task ID of any task upon which it depends and the name of the employee in charge of the task upon which it depends.\nIdentity the SQL query which would give you the required output.",
+    "explanation": "A LEFT OUTER JOIN keeps every row from the left table (p), even when there is no matching row in the right table (d). This is necessary here because some tasks are not based on another task, so BASED_ON has no matching TASK_ID for those rows. An INNER JOIN (option C) would drop those independent tasks, a FULL OUTER JOIN (option A) would add unmatched rows from the right side that are not needed, and option D joins on the wrong columns (TASK_ID to TASK_ID instead of BASED_ON to TASK_ID).",
     "contentBlocks": [
       {
         "type": "text",
@@ -223,6 +226,7 @@
     "sourcePosition": 4,
     "questionNumber": 4,
     "questionText": "View and examine the following available responses.\nIdentity the true statement regarding the default behaviour of the ORDER BY clause.",
+    "explanation": "Oracle's default character sort is case-sensitive, so uppercase and lowercase letters are not treated as equal, which makes option B correct. ORDER BY is evaluated after the SELECT list, so it is allowed to reference a column alias defined there, which makes option E correct. NULLs are included in the sort rather than excluded, a column position number can be used instead of a SELECT-list name, and numeric sort order does not depend on whether a value has decimal positions, so A, C, and D are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -295,6 +299,7 @@
     "sourcePosition": 5,
     "questionNumber": 5,
     "questionText": "View and examine the following available responses.\nIdentity two true statements about conditional INSERT ALL.",
+    "explanation": "In a conditional INSERT ALL, each WHEN condition is evaluated separately for every row returned by the subquery, which makes option B correct. The same WHEN condition can be followed by more than one INTO clause, so a single condition can insert into several target tables, which makes option D correct. Conditional INSERT ALL can include an ELSE clause, a single subquery row can be inserted into more than one table if it satisfies more than one WHEN condition, and the total rows inserted depends on how many conditions match rather than simply the number of subquery rows, so A, C, and E are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -366,6 +371,7 @@
     "sourcePosition": 6,
     "questionNumber": 6,
     "questionText": "Identify the two minimal requirements for a self-join.",
+    "explanation": "A self-join joins a table to itself, so the same table must be given two different aliases in the FROM clause to tell the two copies apart, which makes option A correct. A join condition is also required, or the result would be an unintended Cartesian product, which makes option B correct. A self-join can include additional conditions, can be combined with an outer join, and is not limited to equijoin conditions, so C, D, and E are not requirements.",
     "contentBlocks": [
       {
         "type": "text",
@@ -433,6 +439,7 @@
     "sourcePosition": 7,
     "questionNumber": 7,
     "questionText": "View and examine the following available responses.\nIdentify two statements which are true regarding the USING and ON clauses in table joins.",
+    "explanation": "The WHERE clause can still be added to apply extra conditions to a query that already uses ON or USING, which makes option C correct. The ON clause can join columns that have different names, as long as their data types are compatible, which makes option D correct. The ON clause can actually join on more than one pair of columns, and both ON and USING can be used for equijoins and nonequijoins alike, so A and B are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -501,6 +508,7 @@
     "sourcePosition": 8,
     "questionNumber": 8,
     "questionText": "View and examine the structure of the ORDERS table.\nTable: ORDERS\n\nGiven: The ORDERS table contains data and all orders have been assigned a customer ID.\nIdentity the statement which would add a NOT NULL constraint to the CUSTOMER_ID column.\nCorrecto: B",
+    "explanation": "ALTER TABLE ... MODIFY is used to change the definition of a column that already exists, including adding a NOT NULL constraint to it. Because every existing row already has a value in CUSTOMER_ID, this MODIFY succeeds immediately. ADD is used to create a new column rather than change an existing one, so options A and D use the wrong clause, and a NOT NULL constraint is always added with MODIFY rather than with an ADD CONSTRAINT statement, so option C is invalid syntax.",
     "contentBlocks": [
       {
         "type": "text",
@@ -582,6 +590,7 @@
     "sourcePosition": 9,
     "questionNumber": 9,
     "questionText": "View and examine the following scenario.\nGiven: The first DROP operation is performed on the PRODUCTS table using this command.\nExhibit: 1\n\nThen a FLASHBACK operation is performed using this command.\nExhibit: 2\n\nIdentity the result of the FLASHBACK command.",
+    "explanation": "The table was dropped using DROP TABLE products PURGE, and PURGE permanently removes the object instead of sending it to the recycle bin. Because FLASHBACK TABLE ... TO BEFORE DROP works by restoring an object from the recycle bin, there is nothing left to restore once PURGE has been used, so the table structure, data, and related indexes cannot be recovered.",
     "contentBlocks": [
       {
         "type": "text",
@@ -664,6 +673,7 @@
     "sourcePosition": 10,
     "questionNumber": 10,
     "questionText": "View the exhibit and examine the structure in ORDERS and ORDER_ITEMS tables. Required: Create a view that displays the ORDER_ID, ORDER_DATE, and the total number of items in each order indicated by appropriately named column. Identify the response which would meet the requirement.\n\nRequired: Create a view that displays the ORDER_ID, ORDER_DATE, and the total number of items in each order indicated by appropriately named column.\nIdentity the response which would meet the requirement.",
+    "explanation": "Option B correctly creates the view without an explicit column list, letting the inline alias \"NO OF ITEMS\" name the COUNT column while ORDER_ID and ORDER_DATE keep their original names. Option A fails because it supplies a column alias list with only two names for a query that returns three columns. Option C never names the count column and groups only by ORDER_DATE while still selecting the ungrouped ORDER_ID, and option D uses the || operator on the count instead of giving it a real alias, which changes the value instead of naming it.",
     "contentBlocks": [
       {
         "type": "text",
@@ -744,6 +754,7 @@
     "sourcePosition": 11,
     "questionNumber": 11,
     "questionText": "View and examine the structure of the BOOKS_TRANSACTIONS table and the exhibit.\nTable: BOOKS_TRANSACTIONS\n\nExamine this partial SQL statement.\nExhibit: 1\n\nRequired: Update this table such that BOOK_ID is set to ‘INVALID’ for all rows were no MEMBER_ID has been entered.\nIdentity the condition which must be used in the WHERE clause to perform the required update.",
+    "explanation": "NULL represents an unknown or missing value, so it cannot be tested with the equality operator. Expressions like = '' or = NULL do not find NULL values; the only way to test for NULL is with IS NULL, which makes option C correct.",
     "contentBlocks": [
       {
         "type": "text",
@@ -832,6 +843,7 @@
     "sourcePosition": 12,
     "questionNumber": 12,
     "questionText": "View and examine the structure of the EMPLOYEES table and the exhibit.\n\nThe following SQL query has been executed.\nExhibit: 1\n\nIndicate two statements which are true regarding the result. (Choose two.)",
+    "explanation": "The query sorts by DEPARTMENT_ID, then FIRST_NAME, then SALARY DESC. Because SALARY DESC is the third sort key, it only decides the order between rows that already share the same DEPARTMENT_ID and the same FIRST_NAME, which makes option A correct. FIRST_NAME is the second sort key and uses the default ascending order, applying to rows that share the same DEPARTMENT_ID, which makes option B correct.",
     "contentBlocks": [
       {
         "type": "text",
@@ -920,6 +932,7 @@
     "sourcePosition": 13,
     "questionNumber": 13,
     "questionText": "View and examine the following available responses.\nIdentify three true statements regarding the SQL WHERE and HAVING clauses. (Choose three)",
+    "explanation": "WHERE filters individual rows before any grouping takes place, which makes option A correct. HAVING is evaluated after GROUP BY and is specifically meant to filter on the result of aggregate functions such as SUM or COUNT, which makes options C and D correct. WHERE and HAVING can be used together in the same statement, and HAVING conditions reference the actual grouped expressions rather than SELECT-list aliases, so E and B are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -991,6 +1004,7 @@
     "sourcePosition": 14,
     "questionNumber": 14,
     "questionText": "View and examine the structure of the SALES and PROMOTIONS tables.\n\nRequired: Delete rows from the SALES table, where the PROMO_NAME column in the PROMOTIONS table has either blowout sale or everyday low price as values.\nIdentify three DELETE statements which are valid. (Choose three.)",
+    "explanation": "All three statements build a valid condition for identifying which PROMO_ID values belong to the two named promotions. Option B uses IN with a subquery that returns both promo IDs. Option C uses two separate equality subqueries combined with OR. Option E uses IN with a list made of two single-value subqueries, which is valid because each subquery returns exactly one row. Option A is invalid because it combines IN and = together, and option D is invalid because OR cannot be used inside a value being compared with =.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1076,6 +1090,7 @@
     "sourcePosition": 15,
     "questionNumber": 15,
     "questionText": "View and examine the following available responses.\nThe following query was successfully executed.\nExhibit: 1\n\nIdentify the result of the query execution.",
+    "explanation": "The query is SELECT ROUND(150.23, -2) FROM dual. A negative second argument to ROUND rounds to the left of the decimal point, in this case to the nearest hundred. Since 150.23 is past the midpoint between 100 and 200, it rounds up to 200.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1158,6 +1173,7 @@
     "sourcePosition": 16,
     "questionNumber": 16,
     "questionText": "View and examine the structure of the PRODUCTS and NEW_PRODUCTS tables.\nTable: PRODUCTS\n\nTable: NEW_PRODUCTS\n\nIdentity two queries which execute successfully? (Choose two.)",
+    "explanation": "Option B is valid because both SELECT lists return two columns, and NULL can stand in for EXP_DATE since Oracle gives it a compatible type automatically. Option D is valid because SELECT * returns three columns from both PRODUCTS and NEW_PRODUCTS, and the corresponding columns use compatible data types (character types for PROD_ID and PROD_NAME, and TIMESTAMP/DATE for EXP_DATE, which Oracle can reconcile). Option A fails because SELECT * returns three columns from PRODUCTS, while the second query returns only PROD_ID, so the column counts do not match.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1247,6 +1263,7 @@
     "sourcePosition": 17,
     "questionNumber": 17,
     "questionText": "View and examine the following SQL query.\nExhibit: 1\n\nRequired:   Prevent prompting for a hire date value when this query is executed\nIdentity the responses which would meet the requirement. (Select two)",
+    "explanation": "Storing the query in a script and supplying the substitution value as a parameter when running it avoids the prompt entirely, which makes option C correct. Using the DEFINE command to set the variable's value before running the query means Oracle already has a value and does not need to ask for one, which makes option D correct. SET VERIFY only controls whether the old and new values are echoed to the screen and does not stop the prompt, so B and E are false, UNDEFINE removes a value instead of supplying one, and changing '&1' to '&&1' only avoids re-prompting on later uses within the same session rather than the first prompt, so A and F are also false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1336,6 +1353,7 @@
     "sourcePosition": 18,
     "questionNumber": 18,
     "questionText": "View and examine the following available responses.\nIndicate the true statement about the INTERSECT operator used in compound queries.",
+    "explanation": "Unlike a simple WHERE comparison, the INTERSECT operator treats two NULL values in the same column position as matching when it determines which rows are common to both queries, so NULLs are processed rather than ignored, which makes option A correct.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1401,6 +1419,7 @@
     "sourcePosition": 19,
     "questionNumber": 19,
     "questionText": "View and examine the following SQL query which has been executed.\nExhibit: 1\n\nIndicate the status of the foreign key EMP_MGR_FK.",
+    "explanation": "MGR_NO's foreign key, EMP_MGR_FK, references the primary key EMP_EMP_NO_PK. When EMP_EMP_NO_PK is disabled with the CASCADE option, Oracle automatically disables EMP_MGR_FK as well, since a foreign key cannot stay enabled once the key it depends on is disabled. The next statement only re-enables EMP_EMP_NO_PK; enabling a constraint does not automatically re-enable any constraint that was disabled by cascade, so EMP_MGR_FK stays disabled until it is enabled on its own with a separate ALTER TABLE statement.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1474,6 +1493,7 @@
     "sourcePosition": 20,
     "questionNumber": 20,
     "questionText": "View and examine the following available responses.\nIdentify two true statements about transactions. (Select two)",
+    "explanation": "A COMMIT makes the changes made during a transaction permanent, which makes option B correct. A ROLLBACK can undo part or all of an uncommitted transaction, which makes option C correct. A transaction is defined by its DML statements followed by a COMMIT or ROLLBACK, not by DCL or DDL statements, so A, D, and E describe transactions incorrectly.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1543,6 +1563,7 @@
     "sourcePosition": 21,
     "questionNumber": 21,
     "questionText": "View and examine the structure of the PROMOTIONS table.\nTable: PROMOTIONS\n\nRequired: Generate a report that displays the promo name and start date for all promos that started after the last promo in the ‘INTERNET’ category.\nIdentity the SQL query which would give you the required output.",
+    "explanation": "The subquery WHERE promo_category = 'INTERNET' first narrows the comparison set to only the INTERNET promotions, and > ALL means the outer PROMO_BEGIN_DATE must be later than every one of those dates, which is the same as being later than the latest INTERNET promotion. Option A compares against the single overall maximum date without restricting the subquery to INTERNET first, so no row could ever satisfy it. Option B uses > ANY, which only requires being later than the earliest INTERNET promotion rather than the last one. Option D uses IN, which tests for an exact match rather than a date that comes after.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1620,6 +1641,7 @@
     "sourcePosition": 22,
     "questionNumber": 22,
     "questionText": "View and examine the following available responses.\nIdentify two true statements about working with dates. (Select two)",
+    "explanation": "Oracle stores DATE values internally as numbers (representing century, year, month, day, and time), not as text, which makes option A correct. The RRRR format lets the century be entered explicitly if needed, while still calculating it automatically from SYSDATE when it is not, which makes option E correct. RR is not simply interchangeable with YY, since RR adjusts the century based on the current date while YY does not, and RR itself does not let the user type the century at all, so C and D are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1693,6 +1715,7 @@
     "sourcePosition": 23,
     "questionNumber": 23,
     "questionText": "View and examine the following available responses.\nIndicate the true statement about aggregate functions.",
+    "explanation": "MIN and MAX are not limited to numeric or date columns; they can also be applied to character columns, comparing the values alphabetically, which makes option C correct. AVG ignores NULLs instead of converting them to zero, and aggregate functions cannot be nested without limit or used in every clause of a SELECT statement, so A, B, and D are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1757,6 +1780,7 @@
     "sourcePosition": 24,
     "questionNumber": 24,
     "questionText": "View and examine the structure of the MEMBERS table and the SQL statement. Identify the result of the query. (Choose the best answer).\nTable: MEMBERS\n\nExamine the SQL statement.\nExhibit: 1\n\nIdentity the result of the query. (Choose the best answer)",
+    "explanation": "The query is ORDER BY 1, LNAME DESC, which mixes a column position (1, referring to CITY) with a column alias (LNAME). Position 1 sorts CITY in the default ascending order, and LNAME DESC then sorts the last names in descending order among rows that share the same city, which matches option A. Oracle does allow combining a position number and an alias in the same ORDER BY clause, so the statements claiming it would fail (B and D) are incorrect.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1839,6 +1863,7 @@
     "sourcePosition": 25,
     "questionNumber": 25,
     "questionText": "View and examine the structure of ORDERS and CUSTOMERS tables.\nTable: ORDERS\n\nTable: CUSTOMERS\n\nGiven: Assume there exists only one row with CUST_LAST_NAME as Roberts and CREDIT_LIMIT as 600.\nRequired: Add a row into the ORDERS table for the customer whose CUST_LAST_NAME is Roberts and CREDIT_LIMIT is 600.\nIdentity the SQL query which would give you the required output.",
+    "explanation": "A scalar subquery that is guaranteed to return a single row, like the one filtering on CUST_LAST_NAME = 'Roberts' AND CREDIT_LIMIT = 600, can be used directly as one of the values in a VALUES clause. Option D does exactly that. Options A, B, and C instead try to place a subquery inside the column list of the INSERT, which is not valid; a subquery can supply a value, but it cannot stand in for a column name.",
     "contentBlocks": [
       {
         "type": "text",
@@ -1931,6 +1956,7 @@
     "sourcePosition": 26,
     "questionNumber": 26,
     "questionText": "View and examine the following SQL exhibit and the available responses.\nRequired: Match the relationship examples which follow.\nExhibit: 1\n\nIdentify the response which indicates correctly matched relationships.",
+    "explanation": "A one-to-one relationship matches a person to their SSN, since each belongs to exactly one of the other. A one-to-many relationship matches a teacher to their students, since one teacher can have many students. A many-to-one relationship matches employees to a manager, since many employees can report to the same manager. A many-to-many relationship matches customers to products, since a customer can buy many products and a product can be bought by many customers. This pairing is 1-c, 2-a, 3-b, 4-d, which is option A.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2011,6 +2037,7 @@
     "sourcePosition": 27,
     "questionNumber": 27,
     "questionText": "View and examine the following SQL query.\nExhibit: 1\n\nIdentify two true statements about the result of the query.",
+    "explanation": "RATE is defined as NUMBER(6,2), which allows up to 2 digits after the decimal point. Inserting 0.551 rounds to the nearest hundredth, giving .55, which makes option D correct. Inserting -.9 already fits within the allowed precision and scale without any rounding or error, giving -.9, which makes option F correct.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2095,6 +2122,7 @@
     "sourcePosition": 28,
     "questionNumber": 28,
     "questionText": "View and examine the following available responses.\nIdentity two true statements about sequences created in a single instance Oracle database. (Choose two)",
+    "explanation": "CURRVAL returns the most recently generated value of a sequence in the current session, which makes option B correct. If a sequence reaches its MAXVALUE, that limit can be raised with an ALTER SEQUENCE statement, which makes option E correct. Cached but unused sequence numbers are lost, not recovered, after an abnormal shutdown, a sequence is removed with DROP SEQUENCE rather than DELETE, and a sequence's numbers are not restricted to populating a single table, so A, C, and D are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2164,6 +2192,7 @@
     "sourcePosition": 29,
     "questionNumber": 29,
     "questionText": "Identify two true statements regarding a SAVEPOINT. (Choose two)",
+    "explanation": "Creating a SAVEPOINT does not commit any of the changes made so far in the transaction, which makes option B correct. Rolling back to a SAVEPOINT can undo DML statements performed after it, such as a DELETE, which makes option E correct. A SAVEPOINT cannot undo a DDL statement like CREATE INDEX or TRUNCATE, since those commit immediately when they execute, and more than one SAVEPOINT can be defined within the same transaction, so A, C, and D are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2231,6 +2260,7 @@
     "sourcePosition": 30,
     "questionNumber": 30,
     "questionText": "View and examine the following available responses.\nRequired: Display 5 percent of the rows from the SALES table for products with the lowest AMOUNT_SOLD and include the rows that have the same AMOUNT_SOLD even if this causes the output to exceed 5 percent of the rows. \nIdentity the response which would meet the requirement.",
+    "explanation": "FETCH FIRST n PERCENT ROWS WITH TIES returns the first n percent of the sorted rows and also includes any additional rows that tie with the last included value, which matches the requirement to include extra rows when AMOUNT_SOLD ties occur. The other options place the keywords in an order that is not valid syntax for this clause.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2295,6 +2325,7 @@
     "sourcePosition": 31,
     "questionNumber": 31,
     "questionText": "View and examine the following available responses.\nIndicate two true statements regarding the UNION and UNION ALL operators. (Choose two)",
+    "explanation": "Like other set operators, UNION does not simply ignore NULL values when checking for duplicates; two rows with NULL in the same position are treated as matching, which makes option A correct. Every SELECT statement combined in the same compound query must return the same number of columns, which makes option B correct. UNION ALL does not sort its output and does not eliminate duplicates, and the column names of the final result come from the first SELECT statement rather than requiring identical names throughout, so C, D, and E are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2365,6 +2396,7 @@
     "sourcePosition": 32,
     "questionNumber": 32,
     "questionText": "Identify two statements which are true regarding SAVEPOINTS. (Choose two)",
+    "explanation": "SAVEPOINTs only make sense within the DML portion of a transaction, since DDL statements commit immediately and cannot be rolled back to a savepoint, which makes option D correct. Their purpose is to mark a point that a ROLLBACK can return to, which makes option E correct. A SAVEPOINT has no effect on COMMIT, which always makes the entire transaction permanent regardless of any savepoints, so B and C are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2430,6 +2462,7 @@
     "sourcePosition": 33,
     "questionNumber": 33,
     "questionText": "View and examine the following SQL query.\nExhibit: 1\n\nIdentity the result of the query.",
+    "explanation": "The command ALTER TABLE orders SET UNUSED (order_date) marks the column as unused rather than physically dropping it right away; it is hidden from DESCRIBE and from normal queries, but Oracle frees up the name internally. Because of this, a new column also called ORDER_DATE can be added to the table afterward, which makes option D correct.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2503,6 +2536,7 @@
     "sourcePosition": 34,
     "questionNumber": 34,
     "questionText": "View and examine the following available responses.\nIdentity three actions that can be performed using the ALTER TABLE command.",
+    "explanation": "ALTER TABLE can rename a table, which makes option A correct. It can drop several columns at the same time by listing them together, which makes option C correct. It can also enable or disable constraints on a table, which makes option E correct.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2581,6 +2615,7 @@
     "sourcePosition": 35,
     "questionNumber": 35,
     "questionText": "View and examine the following available responses.\nIdentify the valid CREATE TABLE statement.",
+    "explanation": "Option C correctly defines ORD_NO and ITEM_NO as plain columns and then adds a composite PRIMARY KEY across both of them using a table-level CONSTRAINT clause, which is valid syntax. Option A incorrectly tries to list UNIQUE and NOT NULL as separate items after the column definition. Option B defines PRIMARY KEY twice, once for each column, but a table can only have one PRIMARY KEY. Option D writes DATE DEFAULT NOT NULL without actually supplying a default value between DEFAULT and NOT NULL, which is invalid.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2646,6 +2681,7 @@
     "sourcePosition": 36,
     "questionNumber": 36,
     "questionText": "View and examine the following available responses.\nIndicate two statements which best describe the benefits of using the WITH clause. (Choose two.)",
+    "explanation": "The WITH clause lets a session define a named query block once and reuse it later in the same SELECT statement wherever it would otherwise have to be repeated, which makes option C correct. Oracle can also materialize the result of that query block in temporary space, which can improve performance for a large or repeated block, which makes option D correct. It does not store anything permanently across sessions, so A and B are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2711,6 +2747,7 @@
     "sourcePosition": 37,
     "questionNumber": 37,
     "questionText": "View and examine the structure of the ORDERS table and exhibits.\nTable: ORDERS\n\nRequired: Find the total value of all the orders for each year.\nThis command has been executed.\nExhibit: 1\n\nIdentity the result of the query.",
+    "explanation": "The SELECT list uses TO_CHAR(order_date, 'rr'), but the GROUP BY clause uses TO_CHAR(order_date, 'yyyy'). Because these are two different expressions with different format models, Oracle cannot match the unaggregated SELECT expression to anything in GROUP BY, so the statement returns an error instead of executing.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2798,6 +2835,7 @@
     "sourcePosition": 38,
     "questionNumber": 38,
     "questionText": "View and examine the structure of the BOOKS table and exhibits.\nExhibit: 1\n\nExhibit: 2\n\nGiven: The BOOKS table contains details of 100 books.\nExamine the following commands executed and their outcomes.\nExhibit: 3\n\nIndicate statement which is true regarding the result?",
+    "explanation": "After the row is inserted, a SAVEPOINT named A is created, and then DELETE FROM books removes all 101 rows (the original 100 plus the new, still-uncommitted one). ROLLBACK TO SAVEPOINT A undoes only the DELETE, restoring the 101 rows, but a SAVEPOINT does not commit anything, so the originally inserted row is still uncommitted at that point, which matches option D. The final plain ROLLBACK then undoes the rest of the transaction, including that insert.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2899,6 +2937,7 @@
     "sourcePosition": 39,
     "questionNumber": 39,
     "questionText": "View and examine the structure of the PRODUCTS and SALES tables as well as the exhibit.\nTable: PRODUCTS\n\nTable: SALES\n\nRequired: Display PRODUCT_NAME and the number of times the product has been ordered.\nThe following SQL query has been executed.\nExhibit: 1\n\nIdentity the result of the query.",
+    "explanation": "An inline view (a subquery in the FROM clause) can include a GROUP BY clause, can be combined with an outer join, and its column aliases can be referenced by the outer query, so none of the restrictions described in options A, B, and D actually exist in Oracle SQL. Because of this, the statement executes successfully, which makes option C correct.",
     "contentBlocks": [
       {
         "type": "text",
@@ -2996,6 +3035,7 @@
     "sourcePosition": 40,
     "questionNumber": 40,
     "questionText": "View and examine the following available responses.\nIdentify two true statements about single row functions.",
+    "explanation": "A single-row function can return a different data type than the one it was given, such as TO_CHAR converting a number into a string, which makes option A correct. It also always produces exactly one result for each row it processes, which makes option B correct. Single-row functions can be nested more than two levels deep, can take more than one argument, and their arguments are not limited to column values or constants, so C, D, and E are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -3067,6 +3107,7 @@
     "sourcePosition": 41,
     "questionNumber": 41,
     "questionText": "View and examine the structure of the EMPLOYEES  and JOB_HISTORY tables as well as the exhibits.\n\nRequired: Select the employee IDs of all the employees who have held the job SA_MAN at any time during their employment.\nThe following SQL queries have been prepared.\nExhibit: 1\n\nExhibit: 2\n\nIndicate two correct SET operators which would cause the query to return the desired result. (Choose two.)",
+    "explanation": "The requirement is to find employees who held the job SA_MAN at any point, whether currently or in the past, so the two result sets need to be combined rather than compared. UNION ALL and UNION both combine all the rows from the two queries, satisfying that requirement, which makes options A and D correct. MINUS would remove matching rows instead of combining them, and INTERSECT would keep only employees appearing in both queries, so neither would return everyone who held the job at any time.",
     "contentBlocks": [
       {
         "type": "text",
@@ -3165,6 +3206,7 @@
     "sourcePosition": 42,
     "questionNumber": 42,
     "questionText": "View and examine the structure in the EMPLOYEES tables as well as the exhibit.\n\nEvaluate the following SQL statement.\nExhibit: 1\n\nIdentify the result of the query execution.",
+    "explanation": "In a compound query built with set operators, ORDER BY can only appear once, at the very end of the entire statement, applying to the combined result as a whole. It cannot be attached to one of the individual SELECT statements being combined, which is why the statement does not execute as written.",
     "contentBlocks": [
       {
         "type": "text",
@@ -3248,6 +3290,7 @@
     "sourcePosition": 43,
     "questionNumber": 43,
     "questionText": "View and examine the following available responses.\nIdentify two true statements about the results of using the INTERSECT operator in compound queries.",
+    "explanation": "INTERSECT returns only the rows that appear in the result of both queries, which makes option A correct. The column names shown in the final result come from the first SELECT statement, so the column names in each SELECT making up the compound query do not need to match, which makes option B correct. The number of columns in each SELECT does need to match, and reversing the order of the two queries does not change which rows are common to both, so C and D are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -3315,6 +3358,7 @@
     "sourcePosition": 44,
     "questionNumber": 44,
     "questionText": "View and examine the following available responses.\nIdentify two true statements about a full outer join.",
+    "explanation": "A FULL OUTER JOIN returns every matched row along with any unmatched rows from both tables, which makes option A correct. Since it includes all matched rows, it necessarily includes everything an INNER JOIN alone would return, which makes option E correct. The Oracle (+) operator cannot be used to express a full outer join, and a full outer join does not produce a Cartesian product, so B and D are false.",
     "contentBlocks": [
       {
         "type": "text",
@@ -3387,6 +3431,7 @@
     "sourcePosition": 45,
     "questionNumber": 45,
     "questionText": "View and examine the following available responses.\nIdentify two true responses about granting privileges on objects.",
+    "explanation": "Before another user can create a FOREIGN KEY that references a table they do not own, the table's owner must grant them the REFERENCES privilege on it, which makes option A correct. An object's owner automatically has every object privilege on that object without needing an explicit GRANT, which makes option B correct.",
     "contentBlocks": [
       {
         "type": "text",
@@ -3455,6 +3500,7 @@
     "sourcePosition": 46,
     "questionNumber": 46,
     "questionText": "View and examine the structure of the CUSTOMERS table.\nTable: CUSTOMERS\n\nGiven: CUSTNO is the PRIMARY KEY.\nRequired: Determine if any customers’ details have been entered more than once using a different CUSTNO, by listing all duplicate names.\nIdentify two methods which can be used to get the required result. (Choose two)",
+    "explanation": "A subquery can compare each customer's name against the other rows in the same table to find names that occur more than once, which makes option A correct. A self-join, where the CUSTOMERS table is joined to itself on the name columns but with different CUSTNO values, also finds pairs of rows with matching names, which makes option D correct.",
     "contentBlocks": [
       {
         "type": "text",

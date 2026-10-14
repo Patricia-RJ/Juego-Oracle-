@@ -544,6 +544,7 @@ function answerCurrentQuestion(q, optsContainer) {
       <strong>${correct ? "Correcto" : "Incorrecto"}</strong>
       <span>Respuesta(s) correcta(s): ${q.correctAnswers.join(", ")}</span>
       <span>Tema: ${escapeHtml((q.topics || [q.topic]).join(", "))} · Dificultad: ${CERT_DIFFICULTY_LABELS[getDynamicDifficulty(q)]} · Tiempo: ${Math.round(elapsedMs / 1000)}s${correct ? ` · +${CERT_STATE.activityLog[CERT_STATE.activityLog.length - 1].xp} XP` : ""}</span>
+      ${q.explanation ? `<div class="cert-explanation"><span class="cert-explanation-label">Explicación</span><p>${escapeHtml(q.explanation)}</p></div>` : ""}
       <button class="btn" id="cert-next">${CERT_SESSION.index + 1 < CERT_SESSION.ids.length ? "Siguiente pregunta" : "Ver resumen"}</button>
       <button class="btn secondary" id="cert-toggle-flag">${p.flagged ? "Quitar de marcadas" : "Marcar para repasar más tarde"}</button>
     </div>

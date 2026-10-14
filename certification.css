@@ -93,6 +93,15 @@
 .cert-feedback.bad { background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.4); }
 .cert-feedback button { align-self: flex-start; }
 
+.cert-explanation {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px;
+  padding: 10px 12px; display: flex; flex-direction: column; gap: 4px;
+}
+.cert-explanation-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--accent-strong); font-weight: 600;
+}
+.cert-explanation p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--text-dim); }
+
 .cert-summary { text-align: center; }
 .cert-exam-score { font-size: 32px; font-weight: 700; margin: 6px 0; }
 .cert-fail-list { text-align: left; max-width: 640px; margin: 10px auto; color: var(--text-dim); font-size: 13px; }
