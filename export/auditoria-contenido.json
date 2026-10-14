@@ -1,0 +1,836 @@
+[
+  {
+    "id": "examen-5-q42",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "opcion E: mucho mas corta que sus hermanas (posible truncado) -- \"#ERROR!\""
+  },
+  {
+    "id": "examen-6-q34",
+    "file": "examen6.json",
+    "severity": "MEDIA",
+    "reason": "opcion A: mucho mas corta que sus hermanas (posible truncado) -- \"It is optional.\""
+  },
+  {
+    "id": "examen-7-q12",
+    "file": "examen7.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-7-q16",
+    "file": "examen7.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-7-q17",
+    "file": "examen7.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-7-q18",
+    "file": "examen7.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-7-q19",
+    "file": "examen7.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-7-q21",
+    "file": "examen7.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-7-q52",
+    "file": "examen7.json",
+    "severity": "MEDIA",
+    "reason": "question: termina en conjuncion/articulo suelto en texto natural -- posible corte"
+  },
+  {
+    "id": "examen-7-q62",
+    "file": "examen7.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-8-q19",
+    "file": "examen8.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-8-q23",
+    "file": "examen8.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-8-q25",
+    "file": "examen8.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-8-q26",
+    "file": "examen8.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-8-q27",
+    "file": "examen8.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-9-q1",
+    "file": "examen9.json",
+    "severity": "REVISAR-CALCULO",
+    "reason": "contiene 'FROM dual': expresion autocontenida, verificable calculando el resultado a mano"
+  },
+  {
+    "id": "examen-14-oracle-1-q9",
+    "file": "examen14.json",
+    "severity": "MEDIA",
+    "reason": "opcion D: mucho mas corta que sus hermanas (posible truncado) -- \"It is optional.\""
+  },
+  {
+    "id": "examen-1-q3",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q28 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q4",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q40 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q8",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q26 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q9",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q34 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q11",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q41 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q13",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-5-q15 en examen5.json, similitud 93%"
+  },
+  {
+    "id": "examen-1-q13",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q27 en examen12.json, similitud 93%"
+  },
+  {
+    "id": "examen-1-q16",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q42 en examen9.json, similitud 92%"
+  },
+  {
+    "id": "examen-1-q17",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q16 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q20",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q6 en examen12.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q21",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q49 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q23",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q52 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q25",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q44 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q26",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q60 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q30",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q46 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q33",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-2-q31 en examen2.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q33",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-5-q28 en examen5.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q33",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q36 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q33",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q2 en examen12.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q35",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q18 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q37",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q15 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q39",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q57 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q41",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q10 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-1-q46",
+    "file": "examen1.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q58 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q3",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q9 en examen12.json, similitud 93%"
+  },
+  {
+    "id": "examen-2-q7",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q38 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q8",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q41 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q12",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q31 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q13",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-3-q24 en examen3.json, similitud 92%"
+  },
+  {
+    "id": "examen-2-q14",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-5-q37 en examen5.json, similitud 92%"
+  },
+  {
+    "id": "examen-2-q14",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q3 en examen10.json, similitud 92%"
+  },
+  {
+    "id": "examen-2-q14",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q23 en examen11.json, similitud 92%"
+  },
+  {
+    "id": "examen-2-q14",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q18 en examen13.json, similitud 92%"
+  },
+  {
+    "id": "examen-2-q14",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q64 en examen13.json, similitud 92%"
+  },
+  {
+    "id": "examen-2-q14",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q35 en examen14.json, similitud 92%"
+  },
+  {
+    "id": "examen-2-q17",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q29 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q20",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q14 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q22",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q25 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q24",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q47 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q27",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q52 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q28",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q12 en examen11.json, similitud 90%"
+  },
+  {
+    "id": "examen-2-q29",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q2 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q30",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-6-q42 en examen6.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q30",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q21 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q31",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q47 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q33",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q37 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q35",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q32 en examen13.json, similitud 92%"
+  },
+  {
+    "id": "examen-2-q39",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q9 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-2-q41",
+    "file": "examen2.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q55 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-3-q4",
+    "file": "examen3.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q15 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-3-q5",
+    "file": "examen3.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q5 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-3-q22",
+    "file": "examen3.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q20 en examen12.json, similitud 93%"
+  },
+  {
+    "id": "examen-3-q24",
+    "file": "examen3.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q33 en examen11.json, similitud 92%"
+  },
+  {
+    "id": "examen-3-q28",
+    "file": "examen3.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q15 en examen12.json, similitud 100%"
+  },
+  {
+    "id": "examen-3-q32",
+    "file": "examen3.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q13 en examen12.json, similitud 100%"
+  },
+  {
+    "id": "examen-3-q36",
+    "file": "examen3.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q12 en examen12.json, similitud 92%"
+  },
+  {
+    "id": "examen-3-q49",
+    "file": "examen3.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q9 en examen12.json, similitud 93%"
+  },
+  {
+    "id": "examen-5-q4",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q42 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q9",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q5 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q12",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-5-q31 en examen5.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q12",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-5-q38 en examen5.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q12",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q17 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q12",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q34 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q15",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q2 en examen10.json, similitud 93%"
+  },
+  {
+    "id": "examen-5-q17",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q37 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q19",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q58 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q22",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q27 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q24",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q44 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q25",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q45 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q26",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q50 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q27",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q38 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q28",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q47 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q31",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q49 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q31",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q6 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q32",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q12 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q34",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q51 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q37",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q3 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q37",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q48 en examen10.json, similitud 92%"
+  },
+  {
+    "id": "examen-5-q37",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q41 en examen11.json, similitud 92%"
+  },
+  {
+    "id": "examen-5-q38",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q49 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q38",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q6 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q44",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q22 en examen14.json, similitud 90%"
+  },
+  {
+    "id": "examen-5-q47",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q1 en examen14.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q54",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q29 en examen14.json, similitud 100%"
+  },
+  {
+    "id": "examen-5-q60",
+    "file": "examen5.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q38 en examen14.json, similitud 95%"
+  },
+  {
+    "id": "examen-6-q2",
+    "file": "examen6.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q41 en examen14.json, similitud 100%"
+  },
+  {
+    "id": "examen-6-q11",
+    "file": "examen6.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q3 en examen14.json, similitud 100%"
+  },
+  {
+    "id": "examen-6-q21",
+    "file": "examen6.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q11 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-6-q21",
+    "file": "examen6.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q42 en examen14.json, similitud 100%"
+  },
+  {
+    "id": "examen-6-q33",
+    "file": "examen6.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q61 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-6-q37",
+    "file": "examen6.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q25 en examen14.json, similitud 100%"
+  },
+  {
+    "id": "examen-6-q38",
+    "file": "examen6.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q34 en examen12.json, similitud 93%"
+  },
+  {
+    "id": "examen-6-q42",
+    "file": "examen6.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q50 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-7-q1",
+    "file": "examen7.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-8-q44 en examen8.json, similitud 100%"
+  },
+  {
+    "id": "examen-7-q31",
+    "file": "examen7.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-8-q40 en examen8.json, similitud 100%"
+  },
+  {
+    "id": "examen-8-q38",
+    "file": "examen8.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q14 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-8-q38",
+    "file": "examen8.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q16 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-9-q14",
+    "file": "examen9.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-9-q16 en examen9.json, similitud 100%"
+  },
+  {
+    "id": "examen-9-q47",
+    "file": "examen9.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q36 en examen10.json, similitud 100%"
+  },
+  {
+    "id": "examen-9-q47",
+    "file": "examen9.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q2 en examen12.json, similitud 100%"
+  },
+  {
+    "id": "examen-10-q2",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q27 en examen12.json, similitud 93%"
+  },
+  {
+    "id": "examen-10-q3",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-10-q48 en examen10.json, similitud 92%"
+  },
+  {
+    "id": "examen-10-q3",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q23 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-10-q3",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q41 en examen11.json, similitud 92%"
+  },
+  {
+    "id": "examen-10-q3",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q18 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-10-q3",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q64 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-10-q22",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q32 en examen13.json, similitud 92%"
+  },
+  {
+    "id": "examen-10-q48",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q23 en examen11.json, similitud 92%"
+  },
+  {
+    "id": "examen-10-q48",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q18 en examen13.json, similitud 92%"
+  },
+  {
+    "id": "examen-10-q48",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q64 en examen13.json, similitud 92%"
+  },
+  {
+    "id": "examen-10-q48",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q35 en examen14.json, similitud 92%"
+  },
+  {
+    "id": "examen-10-q50",
+    "file": "examen10.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q21 en examen11.json, similitud 100%"
+  },
+  {
+    "id": "examen-11-q11",
+    "file": "examen11.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q42 en examen14.json, similitud 100%"
+  },
+  {
+    "id": "examen-11-q23",
+    "file": "examen11.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-11-q41 en examen11.json, similitud 92%"
+  },
+  {
+    "id": "examen-11-q34",
+    "file": "examen11.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-12-q9 en examen12.json, similitud 93%"
+  },
+  {
+    "id": "examen-11-q41",
+    "file": "examen11.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q18 en examen13.json, similitud 92%"
+  },
+  {
+    "id": "examen-11-q41",
+    "file": "examen11.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q64 en examen13.json, similitud 92%"
+  },
+  {
+    "id": "examen-11-q49",
+    "file": "examen11.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q17 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-11-q49",
+    "file": "examen11.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q34 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-12-q39",
+    "file": "examen12.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-14-oracle-1-q22 en examen14.json, similitud 90%"
+  },
+  {
+    "id": "examen-13-q6",
+    "file": "examen13.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q17 en examen13.json, similitud 100%"
+  },
+  {
+    "id": "examen-13-q6",
+    "file": "examen13.json",
+    "severity": "MEDIA",
+    "reason": "posible casi-duplicado (no identico) de examen-13-q34 en examen13.json, similitud 100%"
+  }
+]

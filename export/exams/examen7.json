@@ -1,0 +1,2490 @@
+[
+  {
+    "id": "examen-7-q1",
+    "bankId": "EXAMEN 7.docx #1",
+    "set": "examen-7",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "What is right about a Synonym?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Synonym is a alias name for an object.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Synonym provide a level of security by masking object‘s name",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Synonym cannot mask the owner‘s name",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Synonym provide a level of security by masking owner‘s name",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B",
+      "D"
+    ],
+    "solution": "A - Synonym is a alias name for an object. B - Synonym provide a level of security by masking object‘s name D - Synonym provide a level of security by masking owner‘s name",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q2",
+    "bankId": "EXAMEN 7.docx #2",
+    "set": "examen-7",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "CREATE SEQUENCE seq_test INCREMENT BY 1\nSTART WITH 1\nMAXVALUE 10\nMINVALUE 1\nCYCLE\nCACHE 20\n/\nWhat is wrong in the syntax?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "CYCLE not allowed as CACHE size is more than MAXVALUE",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "CACHE size cannot be more than a MAXVALUE for CYCLE",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "START WITH 1 AND MINVALUE 1 cannot be put together.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Syntax is OK",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - CACHE size cannot be more than a MAXVALUE for CYCLE",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q3",
+    "bankId": "EXAMEN 7.docx #3",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "CREATE OR REPLACE VIEW v_emp AS\nSELECT e.empno, e.ename, d.loc FROM emp e, dept d WHERE d.deptno = e.deptno;\nDELETE FROM v_emp WHERE loc = ‘DALLAS‘;\nHow many records will be deleted.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image136.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "2 records from emp",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "1 record from dept",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "2 records from emp and 1 record from dept",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the above.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - 2 records from emp",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q4",
+    "bankId": "EXAMEN 7.docx #4",
+    "set": "examen-7",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Find all the tables accessible to a user (own tables and view access on tables from other schemas).",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "USER_TABLE",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "DBA_TABLE",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "ALL_TABLE",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "All the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - ALL_TABLE",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q5",
+    "bankId": "EXAMEN 7.docx #5",
+    "set": "examen-7",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Which data dictionary provides all roles available in database?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "USER_ROLES",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ALL_ROLES",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "DBA_ROLES",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "All of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - DBA_ROLES",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q6",
+    "bankId": "EXAMEN 7.docx #6",
+    "set": "examen-7",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "What is a role?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Group of database objects.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Group of database Privileges.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - Group of database Privileges.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q7",
+    "bankId": "EXAMEN 7.docx #7",
+    "set": "examen-7",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "GRANT CREATE TABLE is a what kind of privilege?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SYSTEM privilege",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "OBJECT privilege",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It is both SYSTEM privilege and OBJECT privilege",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - SYSTEM privilege",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q8",
+    "bankId": "EXAMEN 7.docx #8",
+    "set": "examen-7",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "What is true about SQL?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SQL can do data modification",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SQL can grant and revoke roles from users",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SQL can query data",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "All of the above.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - All of the above.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q9",
+    "bankId": "EXAMEN 7.docx #9",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "multiple-choice",
+    "question": "What is true about entity and attributes? (Choose three)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Entity are tables and attributes are columns",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "One to One and One to Many relationship can exist between entities",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "There can be multiple attributes for a entity.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Only One to One relationship can exist between entities",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B",
+      "C"
+    ],
+    "solution": "A - Entity are tables and attributes are columns B - One to One and One to Many relationship can exist between entities C - There can be multiple attributes for a entity.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q10",
+    "bankId": "EXAMEN 7.docx #10",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "SELECT *\nFROM emp ORDER BY sal",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The resultset will be displayed order by salary descending",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The resultset will be displayed order by salary ascending",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The resultset will be displayed as stored in the table as no ASC or DESC specified",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - The resultset will be displayed order by salary ascending",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q11",
+    "bankId": "EXAMEN 7.docx #11",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "How to define a substitution variable?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SET var_dept = 10",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "DEFINE var_dept = 10",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "ACCEPT var_dept = 10",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the Above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - DEFINE var_dept = 10",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q12",
+    "bankId": "EXAMEN 7.docx #12",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Find the output of the query.\nSELECT 10*(50+40)-30/10 output\nFROM dual",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "60",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "87",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "897",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "49",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - 897",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q13",
+    "bankId": "EXAMEN 7.docx #13",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "SELECT *\nFROM emp\nWHERE sal BETWEEN 800 AND 1600",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image137.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sal\n---------\n800\n1250\n1600",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Sal\n-------\n1250\n1250",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Sal\n-------\n1250",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Sal\n---------\n800\n1250\n1250",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "Sal\n-------\n800\n1250\n1250\n1600",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - Sal\n---------\n800\n1250\n1250",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q14",
+    "bankId": "EXAMEN 7.docx #14",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "SELECT val FROM A\nUNION ALL\nSELECT val FROM B",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image138.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Val\n--------\n20\n30",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Val\n--------\n10\n20\n30\n20\n30\n50",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Val\n--------\n10\n50",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - Val\n--------\n10\n20\n30\n20\n30\n50",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q15",
+    "bankId": "EXAMEN 7.docx #15",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which query will be faster UNION or UNION ALL?\n–Query1\nSELECT val FROM A\nUNION\nSELECT val FROM B\nOR\n—-Query2\nSELECT val FROM A\nUNION ALL\nSELECT val FROM B",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image139.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "UNION",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "UNION ALL",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Both will take same time to execute.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - UNION ALL",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q16",
+    "bankId": "EXAMEN 7.docx #16",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Find the output of below query?\nSELECT ROUND(515.43,-3),\nROUND(315.43,-3),\nROUND(315.43,-1),\nROUND(315.43,0),\nROUND(315.43,1)\nFROM dual",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "515, 315, 315, 315, 315",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "515, 315, 315, 315, 315.4",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "1000, 0, 320, 315, 315.4",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - 1000, 0, 320, 315, 315.4",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q17",
+    "bankId": "EXAMEN 7.docx #17",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Find the output of below query\nSELECT FLOOR(-10.5) , FLOOR(-10) , FLOOR(10), FLOOR(10.5)\nFROM dual",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "-11, -10, 10, 10",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "-10, -10, 10, 10",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "-11, -10, 10, 11",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - -11, -10, 10, 10",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q18",
+    "bankId": "EXAMEN 7.docx #18",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "What will be output of the query?\nSELECT MOD(13, 5),\nMOD(10, 5),\nMOD(11.5, 5)\nFROM dual;",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "3, 0, 1",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "3, 0, 1.5",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "15, 10, 11.5",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "3, 0, 0.5",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - 3, 0, 1.5",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q19",
+    "bankId": "EXAMEN 7.docx #19",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "What is the output of below query?\nSELECT LTRIM(RTRIM(‘^The hamlet@‘,‘@‘),‘^‘)  str\nFROM dual;",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "^The hamlet@",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "^The hamlet",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The hamlet@",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The hamlet",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - The hamlet",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q20",
+    "bankId": "EXAMEN 7.docx #20",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "To find the the coming MONDAY what is the best built-in function you would use?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "NEXT_DAY",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "LAST_DAY",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "TO_DATE",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "NEW_DAY",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - NEXT_DAY",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q21",
+    "bankId": "EXAMEN 7.docx #21",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "What is the output of below query?\nWITH t AS\n(\nSELECT ‘Welcome To Sequel‘ AS str FROM dual\n)\nSELECT SUBSTR(str, INSTR(str,‘To‘), LENGTH(str)) new_str FROM t;",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Welcome To Sequel",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "To Sequel",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Sequel",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "come To Sequel To Sequel",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - To Sequel",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q22",
+    "bankId": "EXAMEN 7.docx #22",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "What will be output of below query ?\nSELECT COALESCE(val1, val2, val3,val4, val5) output\nFROM TEST_NULL t\n/",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image140.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "OUTPUT\n------\n10\n11\n5\n15\n-",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "OUTPUT\n------\n10\n20\n-\n30\n40",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "OUTPUT\n------\n10\n11\n5\n15",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "OUTPUT\n------\n10\n11\n5\n15\n0",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - OUTPUT\n------\n10\n11\n5\n15\n-",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q23",
+    "bankId": "EXAMEN 7.docx #23",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "What is the output of below query?\nSELECT SUM(sal) sum_sal, AVG(sal) avg_sal, MIN(sal) min_sal, MAX(sal) max_sal\nFROM employee",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image141.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "sum_sal avg_sal min_sal max_sal\n------- ------- -------- --------\n5000 3000 1000 9000",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "sum_sal avg_sal min_sal max_sal\n------- ------- -------- --------\n9000 1000 3000 5000",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "sum_sal avg_sal min_sal max_sal\n------- ------- -------- --------\n9000 3000 1000 5000",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "sum_sal avg_sal min_sal max_sal\n------- ------- -------- --------\n5000 9000 3000 1000",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - sum_sal avg_sal min_sal max_sal\n------- ------- -------- --------\n9000 3000 1000 5000",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q24",
+    "bankId": "EXAMEN 7.docx #24",
+    "set": "examen-7",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "What type of sub-query you find in below statement?\nSELECT * FROM\n(SELECT *\nFROM emp\nWHERE deptno IN (10,20)\n)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Co-related subquery",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Inline View",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Simple subquery",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "All of these",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - Inline View",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q25",
+    "bankId": "EXAMEN 7.docx #25",
+    "set": "examen-7",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "What type of query is this?\nSELECT * FROM emp e\nWHERE deptno IN  (SELECT deptno\nFROM dept\nWHERE loc = ‘DALLAS‘\n)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Subquery",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Inline view",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Co-related subquery",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Subquery",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q26",
+    "bankId": "EXAMEN 7.docx #26",
+    "set": "examen-7",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "What will be output of below query?\nSELECT A.val a_val, B.val b_val\nFROM A INNER JOIN B ON A.ID = B.ID",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image142.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A_VAL B_VAL\n----- -----\n20 20\n30 30",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "A_VAL B_VAL\n----- -----\n10\n20 20\n30 30",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "A_VAL B_VAL\n----- -----\n10\n20 20\n30 30\n50",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "A_VAL B_VAL\n----- -----\n10\n50",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - A_VAL B_VAL\n----- -----\n20 20\n30 30",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q27",
+    "bankId": "EXAMEN 7.docx #27",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "SELECT  CASE\n              WHEN e.sal > 500 AND e.sal <= 3000 THEN e.sal * 0.25\n              WHEN e.sal > 3000 AND e.sal <= 5000 THEN  e.sal * 0.20\n              ELSE e.sal * 0.18\nEND Bonus   \nFROM emp e;\nIf salary of an employee FORD is 3500 dollars. What will be the bonus amount for FORD?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "350",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "700",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "900",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "950",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - 700",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q28",
+    "bankId": "EXAMEN 7.docx #28",
+    "set": "examen-7",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "What will be the output of the following query?\nsql\nSELECT A.VAL a_val, B.VAL b_val \nFROM A RIGHT OUTER JOIN B ON A.ID = B.ID;",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "a_val b_val\n------- ---------\n10\n20 20\n30 30",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "a_val b_val\n------- ------\n20 20\n30 30\n50",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "a_val b_val\n------- ------\n20 20\n30 30",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "a_val b_val\n------- ------\n10 20\n20 30\n30 50",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - a_val b_val\n------- ------\n20 20\n30 30\n50",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q29",
+    "bankId": "EXAMEN 7.docx #29",
+    "set": "examen-7",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "What will be the output of below query?\nSELECT A.VAL a_val, B.VAL b_val\nFROM A FULL OUTER JOIN B ON A.ID = B.ID",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image143.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "a_val b_val\n------- -----\n20 20\n30 30\n50",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "a_val b_val\n------- -----\n10\n20 20\n30 30",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "a_val b_val\n------- -----\n20 20\n30 30",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "val b_val\n----- -----\n10\n20 20\n30 30\n50",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - val b_val\n----- -----\n10\n20 20\n30 30\n50",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q30",
+    "bankId": "EXAMEN 7.docx #30",
+    "set": "examen-7",
+    "category": "Seguridad y diccionario de datos",
+    "type": "multiple-choice",
+    "question": "You can add your own comments to the data dictionary with the COMMENT statement for below objects ? (Choose 3)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Table",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Column",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Sequence",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "View",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B",
+      "D"
+    ],
+    "solution": "A - Table B - Column D - View",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q31",
+    "bankId": "EXAMEN 7.docx #31",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "How many columns are possible for a Table?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "100",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "500",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "1000",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Unlimited",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - 1000",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q32",
+    "bankId": "EXAMEN 7.docx #32",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "How many LONG columns are possible for a Table?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "1",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "1000",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "10",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Unlimited.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - 1",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q33",
+    "bankId": "EXAMEN 7.docx #33",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "What is the maximum size for CLOB column?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "4000 Bytes",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "2 Giga Bytes",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "4 Giga Bytes",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - 4 Giga Bytes",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q34",
+    "bankId": "EXAMEN 7.docx #34",
+    "set": "examen-7",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "What is true about a Global temporary table?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The data in a global temporary table is private, such that data inserted by a session can only be accessed by that session.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The session-specific rows in a global temporary table can be preserved for the whole session if there is clause\nON COMMIT PRESERVE ROWS",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "If user disconnect the session and reconnect the session data will be still present in the table if user commit the transaction.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The session-specific rows in a global temporary table can be preserved for the current transaction if there is clause\nON COMMIT DELETE ROWS",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B",
+      "D"
+    ],
+    "solution": "A - The data in a global temporary table is private, such that data inserted by a session can only be accessed by that session. B - The session-specific rows in a global temporary table can be preserved for the whole session if there is clause\nON COMMIT PRESERVE ROWS D - The session-specific rows in a global temporary table can be preserved for the current transaction if there is clause\nON COMMIT DELETE ROWS",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q35",
+    "bankId": "EXAMEN 7.docx #35",
+    "set": "examen-7",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which one of the following is a DML statement?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "ADD",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ALTER",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "UPDATE",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "MODIFY",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - UPDATE",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q36",
+    "bankId": "EXAMEN 7.docx #36",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "What is a MERGE?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "DDL statement",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "DML statement",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "DCL statement",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "DQL statement",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - DML statement",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q37",
+    "bankId": "EXAMEN 7.docx #37",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "INSERT ALL statement can Insert data",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Multiple records of single table",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Single record of multiple tables",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Multiple records of multiple tables",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of these",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - Multiple records of multiple tables",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q38",
+    "bankId": "EXAMEN 7.docx #38",
+    "set": "examen-7",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "What is part of TCL (Transaction Control Language)?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "ALTER",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "UPDATE",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "COMMIT",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "GRANT",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - COMMIT",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q39",
+    "bankId": "EXAMEN 7.docx #39",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "multiple-choice",
+    "question": "What is true about setting columns UNUSED?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "We cannot restore the UNUSED columns.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Multiple column can be set UNUSED together.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "We can restore the UNUSED columns.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Multiple UNUSED columns can be dropped together.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B",
+      "C"
+    ],
+    "solution": "A - We cannot restore the UNUSED columns. B - Multiple column can be set UNUSED together. C - We can restore the UNUSED columns.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q40",
+    "bankId": "EXAMEN 7.docx #40",
+    "set": "examen-7",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "What is right syntax to create a UNIQUE constraint?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "ALTER TABLE emp ADD CONSTRAINT UK_EMP UNIQUE KEY (email_id);",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ALTER TABLE emp ADD CONSTRAINT UK_EMP UNIQUE (email_id);",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "ALTER emp ADD CONSTRAINT UK_EMP UNIQUE (email_id);",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "ALTER emp ADD CONSTRAINT UNIQUE (email_id);",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - ALTER TABLE emp ADD CONSTRAINT UK_EMP UNIQUE (email_id);",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q41",
+    "bankId": "EXAMEN 7.docx #41",
+    "set": "examen-7",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "How to disable a constraint?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "ALTER TABLE emp DISABLE CONSTRAINT UK_EMP;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ALTER TABLE emp CONSTRAINT UK_EMP DISABLE;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "ALTER TABLE emp  DISABLE UK_EMP;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the above.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - ALTER TABLE emp DISABLE CONSTRAINT UK_EMP;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q42",
+    "bankId": "EXAMEN 7.docx #42",
+    "set": "examen-7",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "CREATE TABLE EMP\n(EMPNO NUMBER(4) CONSTRAINT PK_EMP PRIMARY KEY,\nENAME VARCHAR2(10) NOT NULL,\nEMAIL_ID VARCHAR2(30) CONSTRAINT UK_EMAIL UNIQUE,\nJOB VARCHAR2(9),\nMGR NUMBER(4),\nHIREDATE DATE CONSTRAINT CHK_HIREDATE CHECK (HIREDATE >= TO_DATE(‘01-01-1900‘,‘DD-MM-YYYY‘)),\nSAL NUMBER(7,2) NOT NULL,\nCOMM NUMBER(7,2),\nDEPTNO NUMBER(2) CONSTRAINT FK_DEPTNO FOREIGN KEY REFERENCES DEPT(deptno)\n);\nWhat is wrong in the creating constraint syntax?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "CONSTRAINT PK_EMP PRIMARY KEY",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "CONSTRAINT UK_EMAIL UNIQUE",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "CONSTRAINT  CHK_HIREDATE CHECK (HIREDATE >= TO_DATE(‘01-01-1900‘,‘DD-MM-YYYY‘))",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "CONSTRAINT FK_DEPTNO FOREIGN KEY REFERENCES DEPT( deptno)",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - CONSTRAINT FK_DEPTNO FOREIGN KEY REFERENCES DEPT( deptno)",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q43",
+    "bankId": "EXAMEN 7.docx #43",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "What is degree of Cardinality?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Number of distinct value / Total number of records",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Total number of records / Number of distinct value",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Total numbers of columns / Total number of records",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Number of distinct value / Total number of records",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q44",
+    "bankId": "EXAMEN 7.docx #44",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which index will be helpful in this scenario?\nSELECT * FROM emp\nWHERE UPPER(ename) = ‘KING‘",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "B-Tree Index",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Bitmap Index",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Function based Index",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Reverse Key Index",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - Function based Index",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q45",
+    "bankId": "EXAMEN 7.docx #45",
+    "set": "examen-7",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "In employee table there is column to store the gender. What will be most suitable index  in this scenario?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "B-Tree Index",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Bitmap Index",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Function based Index",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Reverse Key Index",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - Bitmap Index",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q46",
+    "bankId": "EXAMEN 7.docx #46",
+    "set": "examen-7",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "GRANT ALL ON emp means",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Only SELECT, INSERT,UPDATE and DELETE privileges",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Only SELECT and INSERT privileges",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "All SELECT, INSERT, DELETE, UPDATE, DEBUG etc privileges",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Only SELECT, INSERT,UPDATE privileges",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - All SELECT, INSERT, DELETE, UPDATE, DEBUG etc privileges",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q47",
+    "bankId": "EXAMEN 7.docx #47",
+    "set": "examen-7",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "USER_SYS_PRIVS data dictionary helps to find",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Object privileges associate with a user.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "System privileges associate with a user.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - System privileges associate with a user.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q48",
+    "bankId": "EXAMEN 7.docx #48",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "NEW_TIME converts following from one timezone to another",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Date only",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Date and Time Only",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Timestamp",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the Above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - Date and Time Only",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q49",
+    "bankId": "EXAMEN 7.docx #49",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "SYSTIMESTAMP stores",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Session Timestamp",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Database timestamp",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Database timestamp with local timezone",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - Database timestamp with local timezone",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q50",
+    "bankId": "EXAMEN 7.docx #50",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "From_TZ Converts following from one timezone to another.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Date and Time",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Date only",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Timestamp with timezone",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Timestamp only",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - Timestamp with timezone",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q51",
+    "bankId": "EXAMEN 7.docx #51",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "CURRENT_TIMESTAMP stores the below",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Database timestamp",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Session timestamp with session timezone",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Session timestamp without session timezone",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - Session timestamp with session timezone",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q52",
+    "bankId": "EXAMEN 7.docx #52",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "LOCALTIMESTAMP returns the",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Current date and time in the session time zone",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Database date and time",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Database date and time in the session time zone",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Current date and time in the session time zone",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q53",
+    "bankId": "EXAMEN 7.docx #53",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "CURRENT_DATE returns",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Database date",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Current session date",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "None of the above",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - Current session date",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q54",
+    "bankId": "EXAMEN 7.docx #54",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which is syntactically correct in writing column alias ?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT ename AS ‘Employee Name‘ FROM emp WHERE deptno = 10",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT ename AS Employee Name FROM emp WHERE deptno = 10",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT ename AS \"Employee Name\" FROM emp WHERE deptno = 10",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT ename  Employee Name FROM emp WHERE deptno = 10",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - SELECT ename AS \"Employee Name\" FROM emp WHERE deptno = 10",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q55",
+    "bankId": "EXAMEN 7.docx #55",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "For substitution variable in which case it read from from memory once input is provided, subsequent call variable is taken by using",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "&",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "&&",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "$",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "$$",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - &&",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q56",
+    "bankId": "EXAMEN 7.docx #56",
+    "set": "examen-7",
+    "category": "Combinación de datos",
+    "type": "multiple-choice",
+    "question": "Which two statements are true regarding the execution of the correlated subqueries?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The nested query executes after the outer query returns the row.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The nested query executes once for every row processed by the outer query.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The outer query executes only once for the result returned by the inner query.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Each row returned by the outer query is evaluated for the results returned by the inner query.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "D"
+    ],
+    "solution": "B - The nested query executes once for every row processed by the outer query. D - Each row returned by the outer query is evaluated for the results returned by the inner query.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q57",
+    "bankId": "EXAMEN 7.docx #57",
+    "set": "examen-7",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "DROP TABLE employees; Which three statements are true?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sequences used in the EMPLOYEES table become invalid.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "If there is an uncommitted transaction in the session, it is committed.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "All indexes and constraints defined on the table being dropped are also dropped.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The space used by the EMPLOYEES table is always reclaimed immediately",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "The EMPLOYEES table can be recovered using the ROLLBACK command.",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "The EMPLOYEES table may be moved to the recyclebin.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "C",
+      "F"
+    ],
+    "solution": "B - If there is an uncommitted transaction in the session, it is committed. C - All indexes and constraints defined on the table being dropped are also dropped. F - The EMPLOYEES table may be moved to the recyclebin.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q58",
+    "bankId": "EXAMEN 7.docx #58",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "There is a salary hike for CHICAGO office employees by 15 percent. Which all update statements will work fine?",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image144.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "UPDATE emp e\nSET e.sal= e.sal* 1.15\nWHERE e.deptno EXISTS (SELECT deptno\nFROM dept d\nWHERE e.deptno = d.deptno AND d.loc = ‘CHICAGO‘\n);",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "UPDATE emp e\nSET e.sal= e.sal* 1.15\nWHERE EXISTS (SELECT deptno\nFROM dept d\nWHERE e.deptno = d.deptno AND d.loc = ‘CHICAGO‘\n);",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "UPDATE emp e\nSET e.sal= e.sal* 1.15\nWHERE EXISTS (SELECT 1\nFROM dept d\nWHERE e.deptno = d.deptno AND d.loc = ‘CHICAGO‘\n);",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "UPDATE emp e\nSET e.sal= e.sal* 1.15\nWHERE EXISTS (SELECT *\nFROM dept d\nWHERE e.deptno = d.deptno AND d.loc = ‘CHICAGO‘\n);",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "UPDATE emp e\nSET e.sal= e.sal* 1.15\nWHERE EXISTS e.deptno IN (SELECT d.deptno\nFROM dept d\nWHERE e.deptno = d.deptno AND d.loc = ‘CHICAGO‘",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "C",
+      "D"
+    ],
+    "solution": "B - UPDATE emp e\nSET e.sal= e.sal* 1.15\nWHERE EXISTS (SELECT deptno\nFROM dept d\nWHERE e.deptno = d.deptno AND d.loc = ‘CHICAGO‘\n); C - UPDATE emp e\nSET e.sal= e.sal* 1.15\nWHERE EXISTS (SELECT 1\nFROM dept d\nWHERE e.deptno = d.deptno AND d.loc = ‘CHICAGO‘\n); D - UPDATE emp e\nSET e.sal= e.sal* 1.15\nWHERE EXISTS (SELECT *\nFROM dept d\nWHERE e.deptno = d.deptno AND d.loc = ‘CHICAGO‘\n);",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q59",
+    "bankId": "EXAMEN 7.docx #59",
+    "set": "examen-7",
+    "category": "Otros",
+    "type": "multiple-choice",
+    "question": "In which all data types, we can store binary data?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "BLOB",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "CLOB",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "LONG RAW",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "RAW",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "BFILE",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "C",
+      "D",
+      "E"
+    ],
+    "solution": "A - BLOB C - LONG RAW D - RAW E - BFILE",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q60",
+    "bankId": "EXAMEN 7.docx #60",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Find the total salary = sal + comm. Which is the best way to write the query?",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image145.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT empno, ename, sal,\nNVL2(comm, sal+comm, sal) total_sal\nFROM emp;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT empno, ename, sal,\nNVL2(comm, sal, sal+comm) total_sal\nFROM emp;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT empno, ename, sal,\nNVL2(sal, sal, sal+comm) total_sal\nFROM emp;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT empno, ename, sal,\nNVL2(sal, sal+comm, sal) total_sal\nFROM emp;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - SELECT empno, ename, sal,\nNVL2(comm, sal+comm, sal) total_sal\nFROM emp;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q61",
+    "bankId": "EXAMEN 7.docx #61",
+    "set": "examen-7",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "CREATE table class\n(roll_no NUMBER,\nStudent_name VARCHAR2(30)\n);\nINSERT INTO class VALUES(1, ‘Rahul‘);\nSAVEPOINT A;\nINSERT INTO class VALUES(2, ‘John‘);\nINSERT INTO class VALUES(3, ‘Wolfgang‘);\nSAVEPOINT B;\nINSERT INTO class VALUES(4, ‘Zimmermann‘);\n\nROLLBACK TO B;\nWhat will be the output of below query?\nSELECT *\nFROM class;",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "ROLL_NO STUDENT_NAME\n---------- -------------\n1 Rahul\n2 John",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ROLL_NO STUDENT_NAME\n---------- -------------\n1 Rahul\n2 John\n3 Wolfgang",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "ROLL_NO STUDENT_NAME\n---------- -------------\n1 Rahul\n2 John\n3 Wolfgang\n4 Zimmermann",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "ROLL_NO STUDENT_NAME\n---------- -------------\n1 Rahul",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - ROLL_NO STUDENT_NAME\n---------- -------------\n1 Rahul\n2 John\n3 Wolfgang",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  },
+  {
+    "id": "examen-7-q62",
+    "bankId": "EXAMEN 7.docx #62",
+    "set": "examen-7",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "What is the output of\nSELECT TRUNC(TO_DATE(‘12-07-2020 10:12:30‘,‘DD-MM-YYYY HH:MI:SS‘), ‘MONTH‘) trunc_month,\nTRUNC(TO_DATE(‘12-07-2020 10:12:30‘,‘DD-MM-YYYY HH:MI:SS‘), ‘YEAR‘) trunc_year,\nTRUNC(TO_DATE(‘12-07-2020 10:12:30‘,‘DD-MM-YYYY HH:MI:SS‘), ‘DD‘) trunc_day\nFROM dual;",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "TRUNC_MONTH TRUNC_YEAR TRUNC_DAY\n--------------- ------------ -------------------------\n01-JUL-2020 10:12:30 01-JAN-2020 10:12:30 12-JUL-2020 12:00:00",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "TRUNC_MONTH TRUNC_YEAR TRUNC_DAY\n--------------- ------------ -------------------------\n01-JAN-2020 10:12:30 01-JAN-2020 10:12:30 12-JUL-2020 12:00:00",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "TRUNC_MONTH TRUNC_YEAR TRUNC_DAY\n--------------- ------------ -------------------------\n01-JUL-2020 12:00:00 01-JAN-2020 12:00:00 12-JUL-2020 12:00:00",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - TRUNC_MONTH TRUNC_YEAR TRUNC_DAY\n--------------- ------------ -------------------------\n01-JUL-2020 12:00:00 01-JAN-2020 12:00:00 12-JUL-2020 12:00:00",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "EXAMEN 7.docx"
+  }
+]

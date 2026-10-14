@@ -1,0 +1,2096 @@
+[
+  {
+    "id": "examen-14-oracle-1-q1",
+    "bankId": "Examen 14 - Oracle (1).docx #1",
+    "set": "examen-14-oracle-1",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following SQL exhibit.\nGiven: These SQL statements are executed in the given order.\nExhibit: 1\n\n\nIdentify the status of the foreign key EMP_MGR_FK.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image272.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It will remain disabled and can be re-enabled manually.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It will remain disabled and can be enabled only by dropping the foreign key constraint and re-creating it.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It will be enabled and deferred.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It will be enabled and immediate.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It will remain disabled and can be re-enabled manually.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q2",
+    "bankId": "Examen 14 - Oracle (1).docx #2",
+    "set": "examen-14-oracle-1",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nIdentify the dictionary table would you use to list only those tables that you own.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "USER_TABLES",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "MY_TABLES",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "ALL_TABLES",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "DBA_TABLES",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - ALL_TABLES",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q3",
+    "bankId": "Examen 14 - Oracle (1).docx #3",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nRequired: Create a SELECT query component which would allow for filtering for those employees whose first_name contains the letters ‘ean‘ and also make salaries greater than or equal to 4000 and less than or equal to 8000.\nIdentity the SQL query which would give you the required output.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "WHERE first_name CONTAINS ‘%ean%\nAND salary >= 4000 AND <= 8000;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "WHERE first_name LIKE ‘%EAN%\nAND salary BETWEEN 4000 AND  8000;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "WHERE first_name LIKE ‘%ean%\nAND salary between 4000 AND 8000;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "WHERE first_name LIKE ‘%ean%\nAND salary > 4000 AND < 8000;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - WHERE first_name LIKE ‘%ean%\nAND salary between 4000 AND 8000;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q4",
+    "bankId": "Examen 14 - Oracle (1).docx #4",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nRequired: Update the sales_quota column in the top_salesperson table with the value from the salesperson table for the salesperson with store_id 80.\nIdentity the SQL query which would give you the required output.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "UPDATE top_salesperson a\nSET sales_quota = (SELECT sales_quota\n                                FROM salesperson b\n                                WHERE a.salesperson_id = b.salesperson_id\n                               AND store_id = 80);",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "UPDATE top_salesperson\nSET sales_quota = (SELECT sales_quota\n                                FROM salesperson)\nWHERE store_id = 80;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "UPDATE top_salesperson a\nSET sales_quota = (SELECT sales_quota\n                                 FROM salesperson b\n                                 WHERE a.salesperson_id = b.salesperson_id)\nWHERE store_id = 80;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "UPDATE top_salesperson a\nFROM salesperson b\nSET a.sales_quota = b.sales_quota\nWHERE store_id = 80;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - UPDATE top_salesperson a\nSET sales_quota = (SELECT sales_quota\n                                 FROM salesperson b\n                                 WHERE a.salesperson_id = b.salesperson_id)\nWHERE store_id = 80;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q5",
+    "bankId": "Examen 14 - Oracle (1).docx #5",
+    "set": "examen-14-oracle-1",
+    "category": "Combinación de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify the true statements regarding views. (Select three)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Rows added through a view are deleted from the table automatically when the view is dropped.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "A simple view in which column aliases have been used cannot be updated.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Rows cannot be deleted through a view if the view definition contains the DISTINCT keyword.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The OR REPLACE option is used to change the definition of an existing view without dropping and re-creating it.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "A subquery used in a complex view definition cannot contain group functions or joins.",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "The WITH CHECK OPTION constraint can be used to restrict what can be updated or inserted to the view",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C",
+      "D",
+      "F"
+    ],
+    "solution": "C - Rows cannot be deleted through a view if the view definition contains the DISTINCT keyword. D - The OR REPLACE option is used to change the definition of an existing view without dropping and re-creating it. F - The WITH CHECK OPTION constraint can be used to restrict what can be updated or inserted to the view",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q6",
+    "bankId": "Examen 14 - Oracle (1).docx #6",
+    "set": "examen-14-oracle-1",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "View and examine the following SUPPLIERS table along with the SQL query exhibit structure.\nTable: SUPPLIERS\nThe following SQL query is executed.\nExhibit: 1\n\nIndicated the number of records will the SQL Query return.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image273.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "1  record.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "5 records.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "4 records.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "All  records.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - 4 records.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q7",
+    "bankId": "Examen 14 - Oracle (1).docx #7",
+    "set": "examen-14-oracle-1",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nWhich statements are true about performing Data Manipulation Language (DML) operations on a view in Oracle? (Select two)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Views cannot be used to add rows to an underlying table if the table has columns with NOT NULL constraints lacking default values which are not referenced in the defining query of the view.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The WITH CHECK clause has no effect when deleting rows from the underlying table through the view.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Insert statements can always be done on a table through a view.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Views cannot be used to query rows from an underlying table if the table has a PRIMARY KEY and the PRIMARY KEY columns are not referenced in the defining query of the view.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "DML operations are not permitted on views that include group functions, a GROUP BY clause, the DISTINCT keyword, or the ROWNUM pseudocolumn",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "E"
+    ],
+    "solution": "A - Views cannot be used to add rows to an underlying table if the table has columns with NOT NULL constraints lacking default values which are not referenced in the defining query of the view. E - DML operations are not permitted on views that include group functions, a GROUP BY clause, the DISTINCT keyword, or the ROWNUM pseudocolumn",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q8",
+    "bankId": "Examen 14 - Oracle (1).docx #8",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Select all fields from the contacts table whose last_name is ‘Smith’, contact_id is greater than or equal to 1000 and less than or equal to 2000. Indicate the SQL query that does not fulfill the requirement.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT *\nFROM contacts\nWHERE last_name = ‘Smith‘\nAND contact_id >= 1000\nOR contact_id <= 2000;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "None of the statements solve the requirement.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "All of the statements solve the requirement.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT *\nFROM contacts\nWHERE last_name = ‘Smith‘\nAND contact_id BETWEEN 1000 AND  2000;",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "SELECT *\nFROM contacts\nWHERE last_name = ‘Smith‘\nAND contact_id >= 1000\nAND contact_id <= 2000;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - SELECT *\nFROM contacts\nWHERE last_name = ‘Smith‘\nAND contact_id >= 1000\nOR contact_id <= 2000;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q9",
+    "bankId": "Examen 14 - Oracle (1).docx #9",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Identify the true statement regarding the ORDER BY clause. (Choose two)",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "You cannot use the ORDER BY clause if there is no WHERE clause before it.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The ORDER BY clause can order data based on a column that is not specified in the SELECT list.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It is optional.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "When you specify a column in the ORDER BY clause, the default sorting mechanism for the data in that column is descending order.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C",
+      "D"
+    ],
+    "solution": "C - The ORDER BY clause can order data based on a column that is not specified in the SELECT list. D - It is optional.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q10",
+    "bankId": "Examen 14 - Oracle (1).docx #10",
+    "set": "examen-14-oracle-1",
+    "category": "Combinación de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the structure of the CUSTOMERS table.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image274.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Identify two tasks which would require subqueries or joins to be executed in a single statement. (Choose two)",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Finding the number of customers, in each city, whose credit limit is more than the average credit limit of all the customers",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Listing of customers who do not have a credit limit and were born before 1980",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Listing of those customers, whose credit limit is the same as the credit limit of customers residing in the city ‘Tokyo‘.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "Finding the number of customers, in each city, whose marital status is ‘married‘.",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "Finding the average credit limit of male customers residing in ‘Tokyo‘ or ‘Sydney‘",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "D"
+    ],
+    "solution": "B - Finding the number of customers, in each city, whose credit limit is more than the average credit limit of all the customers D - Listing of those customers, whose credit limit is the same as the credit limit of customers residing in the city ‘Tokyo‘.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q11",
+    "bankId": "Examen 14 - Oracle (1).docx #11",
+    "set": "examen-14-oracle-1",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View and examine the following image.\nExhibit: 1\n\nIndicate the JOIN type best represented by the available choices.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image275.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "COMPLETE JOIN",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "INNER JOIN",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "FULL OUTER JOIN",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "LEFT RIGHT JOIN",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - FULL OUTER JOIN",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q12",
+    "bankId": "Examen 14 - Oracle (1).docx #12",
+    "set": "examen-14-oracle-1",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "View and examine the following SQL query structure.\nExhibit: 1",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image276.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Identity the result of the query.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Customers who made a purchase within the last five days.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Customers who made a purchase within the last five years.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The query will fail and return an error.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "Customers who made a purchase more than five years ago.",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "Customers who made a purchase more than five days ago.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - Customers who made a purchase within the last five days.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q13",
+    "bankId": "Examen 14 - Oracle (1).docx #13",
+    "set": "examen-14-oracle-1",
+    "category": "Otros",
+    "type": "multiple-choice",
+    "question": "View and examine the EMPLOYEES table structure.\nTable: EMPLOYEES",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image277.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Identify two true statements regarding the creation and datatypes in the table structure.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The SALARY column would not be able to store decimals.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The HIRE_DATE column would be able to store the date and time including seconds and fractional seconds.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The EMP_ID column would cause an error.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "The FULLTIME_STATUS column would cause an error.",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "The EMP_STAUTUS column would store exactly one character.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "E",
+      "F"
+    ],
+    "solution": "E - The FULLTIME_STATUS column would cause an error. F - The EMP_STAUTUS column would store exactly one character.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q14",
+    "bankId": "Examen 14 - Oracle (1).docx #14",
+    "set": "examen-14-oracle-1",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Identify the true statement regarding the DELETE and TRUNCATE commands. (Select three)",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "DELETE can be used to remove data from specific columns as well as complete rows.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "DELETE cannot be used to remove rows from multiple tables in one statement.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "DELETE can be used to remove rows from only one table in one statement.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "DELETE can be used to remove rows only for tables that are parents for a child table that has a referential integrity constraint referring to the parent.",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "DELETE and TRUNCATE can be used for tables that are parents for a child table that has a referential integrity constraint having an ON DELETE rule.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C",
+      "D",
+      "F"
+    ],
+    "solution": "C - DELETE cannot be used to remove rows from multiple tables in one statement. D - DELETE can be used to remove rows from only one table in one statement. F - DELETE and TRUNCATE can be used for tables that are parents for a child table that has a referential integrity constraint having an ON DELETE rule.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q15",
+    "bankId": "Examen 14 - Oracle (1).docx #15",
+    "set": "examen-14-oracle-1",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Identify the true statement regarding the USING clause in table joins.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It can be used to restrict the number of columns used in a NATURAL JOIN or INNER JOIN only.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It can be used to join a maximum of three tables.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It can be used to join tables that have columns with the same name and compatible data types.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - It can be used to join tables that have columns with the same name and compatible data types.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q16",
+    "bankId": "Examen 14 - Oracle (1).docx #16",
+    "set": "examen-14-oracle-1",
+    "category": "Seguridad y diccionario de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nGiven:\n• MANAGER is an existing role with no privileges or roles.\n• EMP is an existing role containing the CREATE TABLE privilege.\n• EMPLOYEES is an existing table in the HR schema.\nIdentify two commands which execute successfully.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "GRANT CREATE ANY SESSION, CREATE ANY TABLE TO manager;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "GRANT CREATE TABLE, emp TO manager;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "GRANT CREATE SEQUENCE TO manager, emp;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "GRANT SELECT, INSERT ON hr.employees TO manager WITH GRANT OPTION;",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "GRANT CREATE TABLE, SELECT ON hr.employees TO manager;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "C"
+    ],
+    "solution": "B - GRANT CREATE TABLE, emp TO manager; C - GRANT CREATE SEQUENCE TO manager, emp;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q17",
+    "bankId": "Examen 14 - Oracle (1).docx #17",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the structure of the CUSTOMERS table.\n\nGiven: Evaluate the following SQL statement.\nExhibit 1:",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image278.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Identify the true statement regarding the outcome of the above query.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It returns an error because the BETWEEN operator cannot be used in the HAVING clause.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It returns an error because WHERE and HAVING clauses cannot be used in the same SELECT statement.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It returns an error because WHERE and HAVING clauses cannot be used to apply conditions on the same column.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "It executes successfully.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "E"
+    ],
+    "solution": "E - It executes successfully.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q18",
+    "bankId": "Examen 14 - Oracle (1).docx #18",
+    "set": "examen-14-oracle-1",
+    "category": "Seguridad y diccionario de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify two true statements about the data dictionary.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "All user actions are recorded in the data dictionary.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The data dictionary is constantly updated to reflect changes to database objects, permissions, and data.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "All users have permissions to access all information in the data dictionary by default.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It is a read-only set of tables.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "The SYS user owns all base tables and user-accessible views in the data dictionary.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D",
+      "E"
+    ],
+    "solution": "D - It is a read-only set of tables. E - The SYS user owns all base tables and user-accessible views in the data dictionary.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q19",
+    "bankId": "Examen 14 - Oracle (1).docx #19",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nGiven: The SALES table has columns PROD_ID and QUANTITY_SOLD of data type NUMBER.\nIdentify two queries which execute successfully.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT prod_id\nFROM sales\nWHERE quantity_sold > 55000\nGROUP BY prod_id\nHAVING COUNT(*) >10;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT prod_id\nFROM sales\nWHERE quantity_sold > 55000\nAND COUNT(*) > 10\nGROUP BY prod_id\nHAVING COUNT(*) >10;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT COUNT (prod_id)\nFROM sales\nWHERE quantity_sold > 55000\nGROUP BY prod_id;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT COUNT(prod_id)\nFROM sales\nGROUP BY prod_id\nWHERE quantity_sold > 55000;",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "SELECT prod_id\nFROM sales\nWHERE quantity_sold > 55000\nAND COUNT(*) > 10\nGROUP BY COUNT(*) >10;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "C"
+    ],
+    "solution": "A - SELECT prod_id\nFROM sales\nWHERE quantity_sold > 55000\nGROUP BY prod_id\nHAVING COUNT(*) >10; C - SELECT COUNT (prod_id)\nFROM sales\nWHERE quantity_sold > 55000\nGROUP BY prod_id;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q20",
+    "bankId": "Examen 14 - Oracle (1).docx #20",
+    "set": "examen-14-oracle-1",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View and examine the following image.\nExhibit: 1\n\nIndicate the JOIN type best represented by the available choices.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image279.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "INNER JOIN",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "COMPLETE JOIN",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "LEFT RIGHT JOIN",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "FULL OUTER JOIN",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - INNER JOIN",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q21",
+    "bankId": "Examen 14 - Oracle (1).docx #21",
+    "set": "examen-14-oracle-1",
+    "category": "Otros",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify three tasks which can be performed using SQL functions built into Oracle Database. (Choose three.)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Displaying a date in a nondefault format",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Finding the number of characters in an expression",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Combining more than two columns or expressions into a single column in the output",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Substituting a character string in a text expression with a specified string",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B",
+      "D"
+    ],
+    "solution": "A - Displaying a date in a nondefault format B - Finding the number of characters in an expression D - Substituting a character string in a text expression with a specified string",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q22",
+    "bankId": "Examen 14 - Oracle (1).docx #22",
+    "set": "examen-14-oracle-1",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following SQL exhibit.\n\nExhibit: 1\nIdentify the true statement regarding the above SQL statement.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image280.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It would execute successfully and only ORD_ITM_IDX index would be created.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It would give an error because the USING INDEX clause cannot be used on a composite primary.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It would give an error because the USING INDEX clause is not permitted in the CREATE TABLE command.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It would execute successfully and two indexes ORD_ITM_IDX and ORD_ITM_ID_PK would be created.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "It would give an error for a reason not listed.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "E"
+    ],
+    "solution": "E - It would give an error for a reason not listed.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q23",
+    "bankId": "Examen 14 - Oracle (1).docx #23",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nEvaluate the following SQL statement.\nExhibit: 1\n\nIdentify the true statement regarding the outcome of the above query.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image281.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It executes successfully but ignores the ORDER BY clause because it is not located at the end of the compound statement.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It executes successfully and displays rows in the descending order of PROMO_CATEGORY.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It produces an error because the ORDER BY clause should appear only at the end of a compound query-that is, with the last SELECT statement.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It produces an error because positional notation cannot be used in the ORDER BY clause with SET operators.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - It produces an error because the ORDER BY clause should appear only at the end of a compound query-that is, with the last SELECT statement.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q24",
+    "bankId": "Examen 14 - Oracle (1).docx #24",
+    "set": "examen-14-oracle-1",
+    "category": "Combinación de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify the true statements about the SQL EXISTS condition. (Select two)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Similar to the EXISTS condition, you can also use a NOT EXISTS condition in SQL.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The EXISTS condition cannot be used inside a subquery.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The EXITS condition can only be used in the SELECT and UPDATE statements. It cannot be used for INSERT and DELETE statements.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "If the subquery following an EXISTS clause returns no records, the outer query will also return no records.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "D"
+    ],
+    "solution": "A - Similar to the EXISTS condition, you can also use a NOT EXISTS condition in SQL. D - If the subquery following an EXISTS clause returns no records, the outer query will also return no records.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q25",
+    "bankId": "Examen 14 - Oracle (1).docx #25",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the structure of the ORDER_ITEMS and ORDERS tables.\n\n\nRequired: Retrieve the ORDER_ID, product_ID, and total price (UNIT_PRICE multiplied by QUANTITY), where the total price is greater than 50,000.\nGiven: The following SQL statement has been executed.\nExhibit 1:\n\n\nIdentify the true statement regarding the execution of the statement.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image282.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The statement would execute and provide the desired result.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The statement would not execute because the ON keyword is missing in the NATURAL JOIN clause.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The statement would not execute because the WHERE clause is before the NATURAL JOIN clause.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - The statement would not execute because the WHERE clause is before the NATURAL JOIN clause.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q26",
+    "bankId": "Examen 14 - Oracle (1).docx #26",
+    "set": "examen-14-oracle-1",
+    "category": "Otros",
+    "type": "multiple-choice",
+    "question": "View and examine the following scenario and the exhibit.\nGiven: The PRODUCT_INFORMATION table has a UNIT_PRICE column of data type NUMBER (8, 2).\nEvaluate the following exhibit.\nExhibit: 1\n\nIdentify two true statements about the output.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image283.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A row whose UNIT_PRICE column contains the value 10235.99 will be displayed as $1,0236.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "A row whose UNIT_PRICE column contains the value 1023.99 will be displayed as $1,024.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "A row whose UNIT_PRICE column contains the value 10235.99 will be displayed as #######.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "A row whose UNIT_PRICE column contains the value 1023.99 will be displayed as $1,023.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "A row whose UNIT_PRICE column contains the value 10235.99 will be displayed as $1,023.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "C"
+    ],
+    "solution": "B - A row whose UNIT_PRICE column contains the value 1023.99 will be displayed as $1,024. C - A row whose UNIT_PRICE column contains the value 10235.99 will be displayed as #######.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q27",
+    "bankId": "Examen 14 - Oracle (1).docx #27",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nIdentify the statement that is true about the usage of the BETWEEN condition.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The BETWEEN condition cannot be used with dates.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The following use of the BETWEEN clause is accurate.\nSELECT *\nFROM orders\nWHERE order_date BETWEEN TO_DATE (‘2019/04/19‘, ‘yyyy/mm/dd‘)\nAND TO_DATE (‘2019/05/01‘, ‘yyyy/mm/dd‘)",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The following use of the BETWEEN clause is accurate.\nSELECT *\nFROM orders\nWHERE order_date BETWEEN (‘2019/04/19‘, ‘yyyy/mm/dd‘)\nAND (‘2019/05/01‘, ‘yyyy/mm/dd‘)",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Given the below syntax:\nBETWEEN AND ;\nThe BETWEEN condition will not return the records where the column or the calculation is equal to value1 or value2.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - The following use of the BETWEEN clause is accurate.\nSELECT *\nFROM orders\nWHERE order_date BETWEEN TO_DATE (‘2019/04/19‘, ‘yyyy/mm/dd‘)\nAND TO_DATE (‘2019/05/01‘, ‘yyyy/mm/dd‘)",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q28",
+    "bankId": "Examen 14 - Oracle (1).docx #28",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following SQL exhibit.\nExhibit: 1\n\nGiven: All table and column references exist in the database.\nIndicate statement which is true regarding the result?\n\nGiven: All table and column references exist in the database.\nIndicate statement which is true regarding the result?",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image284.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The statement will execute but not sort because the ORDER BY clause is wrong.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The statement will execute successfully as intended.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The statement will fail to execute because the ORDER BY clause includes the word \"LIKE\".",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The statement will fail because the WHERE clause has a syntax error.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - The statement will fail to execute because the ORDER BY clause includes the word \"LIKE\".",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q29",
+    "bankId": "Examen 14 - Oracle (1).docx #29",
+    "set": "examen-14-oracle-1",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "View and examine the structure of the PROMOTIONS table:\n\nRequired: Find out the average cost for all promos in the range $0-2000 and $2000-5000 in category A.\nGiven: The following SQL statement has been executed.\nExhibit: 1\nIdentity the result of the query.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image285.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It generates an error because CASE cannot be used with group functions.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It generates an error because NULL cannot be specified as a return value.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It generates an error because multiple conditions cannot be specified for the WHEN clause.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It executes successfully and gives the required result.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - It executes successfully and gives the required result.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q30",
+    "bankId": "Examen 14 - Oracle (1).docx #30",
+    "set": "examen-14-oracle-1",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View and examine the structure of the CUSTOMERS and CUST_HISTORY tables.\nTable: CUSTOMERS\n\nTable: CUST_HISTORY\n\nGiven: The CUSTOMERS table contains the current location of all currently active customers.\nThe CUST_HISTORY table stores historical details relating to any changes in the location of all current as well as previous customers who are no longer active with the company.\nRequired: You need to find those customers who have never changed their address.\nIdentify the SET operator would you use to get the required output.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image286.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "MERGE",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "INTERSECT",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "MINUS",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "UNION",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "UNION ALL",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - MINUS",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q31",
+    "bankId": "Examen 14 - Oracle (1).docx #31",
+    "set": "examen-14-oracle-1",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nGiven: The SQL statements executed in a user session are as follows.\nExhibit: 1\n\nIdentify two statements which describe the consequences of issuing the ROLLBACK TO SAVE POINT a command in the session. (Choose two)",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image287.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Only the DELETE statements are rolled back.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Only the second DELETE statement is rolled back.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Both the DELETE statements and the UPDATE statement are rolled back.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "No SQL statements are rolled back.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "The rollback generates an error.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D",
+      "E"
+    ],
+    "solution": "D - No SQL statements are rolled back. E - The rollback generates an error.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q32",
+    "bankId": "Examen 14 - Oracle (1).docx #32",
+    "set": "examen-14-oracle-1",
+    "category": "Otros",
+    "type": "multiple-choice",
+    "question": "View and examine the following SQL exhibit.\nExhibit: 1\n\nGiven: These statements have been executed in a single session.\nIdentify three true statements.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image288.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "There is no row containing pen.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The code for pen is 1.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "There is no row containing fountain pen.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "There is no row containing pencil.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "The code for pen is 10.",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "The code for fountain pen is 3.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "D",
+      "F"
+    ],
+    "solution": "B - The code for pen is 1. D - There is no row containing pencil. F - The code for fountain pen is 3.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q33",
+    "bankId": "Examen 14 - Oracle (1).docx #33",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nIndicate the statement that is true regarding the ordering of data in a SELECT statement.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "NULL values are not considered by the ORDER BY clause.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "By default numeric values are displayed in descending order.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "When sorting on character data, the values are case-sensitive.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "You cannot ORDER BY a column that is not stated in the SELECT clause.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - When sorting on character data, the values are case-sensitive.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q34",
+    "bankId": "Examen 14 - Oracle (1).docx #34",
+    "set": "examen-14-oracle-1",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "View and examine the following SQL query structure.\nExhibit: 1\n\nGiven: The customers table has 8 rows\nIndicate the result of the executed query.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image289.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "An error code will be returned.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "8 rows will be returned.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "0  rows will be returned.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "4  rows will be returned.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - 0  rows will be returned.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q35",
+    "bankId": "Examen 14 - Oracle (1).docx #35",
+    "set": "examen-14-oracle-1",
+    "category": "Combinación de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify two true statements regarding multiple-row subqueries. (Choose two.)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "They should not be used with the NOT IN operator in the main query if NULL is likely to be a part of the result of the subquery.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "They can contain group functions.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "They use the < ALL operator to imply less than the maximum.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "They always contain a subquery within a subquery.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "They can be used to retrieve multiple rows from a single table only.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B"
+    ],
+    "solution": "A - They should not be used with the NOT IN operator in the main query if NULL is likely to be a part of the result of the subquery. B - They can contain group functions.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q36",
+    "bankId": "Examen 14 - Oracle (1).docx #36",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nIndicate the query which will create a projection of the ENAME and DEPTNO columns from the EMPLOYEES table.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT ename, deptno\nFROM employees;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT ename, deptno\nFROM emp;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT ename AS \"employee_name\nFROM employees;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT ename, deptno, dept_location\nFROM employees;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - SELECT ename, deptno\nFROM employees;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q37",
+    "bankId": "Examen 14 - Oracle (1).docx #37",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following SQL query.\nExhibit: 1\nGiven: All table and column references exist within the database.\nIdentify the problem with the syntax of the following SQL query.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image290.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "In the WHERE clause there is a syntax error after the word IN.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "There is nothing wrong with the syntax.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It needs to have either an equal sign or a not equal sign.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "In the WHERE clause there is a syntax error before the word SUPPLY.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - There is nothing wrong with the syntax.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q38",
+    "bankId": "Examen 14 - Oracle (1).docx #38",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following SQL query.\nExhibit: 1\n\nGiven: All table and column references exist within the database.\nIndicate statement which is true regarding the result.\nCorecta: d",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image291.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The statement will fail to execute because there is no WHERE clause.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The statement will fail to execute because the ORDER BY list includes a column that is not in the select list.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The rows will sort in order by PRODUCT_ID and then by PRICE. All rows will sort in descending order.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The rows will sort in order by PRODUCT_ID and then by PRICE.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - The rows will sort in order by PRODUCT_ID and then by PRICE.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q39",
+    "bankId": "Examen 14 - Oracle (1).docx #39",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify three true statements are true about Structured Query Language (SQL).",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It provides independence for logical data structures being manipulated from the underlying physical data storage.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It is used to define encapsulation and polymorphism for a relational table.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It best supports relational databases.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It is the only language that can be used for both relational and object-oriented databases.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "If a table contains hierarchical data, you can select rows in a hierarchical order using the hierarchical query clause.",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "It guarantees atomicity, consistency, isolation, and durability (ACID) features.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "E",
+      "F"
+    ],
+    "solution": "A - It provides independence for logical data structures being manipulated from the underlying physical data storage. E - If a table contains hierarchical data, you can select rows in a hierarchical order using the hierarchical query clause. F - It guarantees atomicity, consistency, isolation, and durability (ACID) features.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q40",
+    "bankId": "Examen 14 - Oracle (1).docx #40",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify two true statements regarding the COUNT function. (Choose two.)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "A SELECT statement using the COUNT function with a DISTINCT keyword cannot have a WHERE clause.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "COUNT(inv_amt) returns the number of rows in a table including rows with NULL in the INV_AMT column.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "COUNT(DISTINCT inv_amt) returns the number of rows excluding rows containing duplicates and NULLs in the INV_AMT column.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "COUNT(*) returns the number of rows including duplicate rows and rows containing NULL value in any column.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "It can only be used for NUMBER data types.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C",
+      "D"
+    ],
+    "solution": "C - COUNT(DISTINCT inv_amt) returns the number of rows excluding rows containing duplicates and NULLs in the INV_AMT column. D - COUNT(*) returns the number of rows including duplicate rows and rows containing NULL value in any column.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q41",
+    "bankId": "Examen 14 - Oracle (1).docx #41",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the data in the PRODUCT_INFORMATION table.\nTable: PRODUCT_INFORMATION\n Identify the two tasks which would require subqueries. (Choose two.)",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image292.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Displaying all the products whose minimum list prices are more than average list price of products having the status orderable",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Displaying the number of products whose list prices are more than the average list price",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Displaying the minimum list price for each product status",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Displaying all supplier IDs whose average list price is more than 500",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "Displaying the total number of products supplied by supplier 102071 and having product status OBSOLETE",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B"
+    ],
+    "solution": "A - Displaying all the products whose minimum list prices are more than average list price of products having the status orderable B - Displaying the number of products whose list prices are more than the average list price",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q42",
+    "bankId": "Examen 14 - Oracle (1).docx #42",
+    "set": "examen-14-oracle-1",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nIdentify the true statement about an inner join specified in a query‘s WHERE clause.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "None of the selections are true.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It must have primary-key and foreign-key constraints defined on the join columns.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It only applies for equijoin conditions.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It does not apply for equijoin and nonequijoin conditions.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "It requires column names to be the same in all tables being joined.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - None of the selections are true.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q43",
+    "bankId": "Examen 14 - Oracle (1).docx #43",
+    "set": "examen-14-oracle-1",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the description for the PRODUCTS and SALES table.\n\n\n\nGiven: PROD_ID is a primary key in the PRODUCTS table and foreign key in the SALES table with ON DELETE CASCADE option. The SALES table contains data for the last three years.\nRequired: Remove all the rows from the PRODUCTS table for which no sale was done for the last three years.\nIdentify the valid DELETE SQL query.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image293.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "DELETE FROM products\nWHERE prod_id = (SELECT prod_id\nFROM sales WHERE time_id - 3*365 = SYSDATE);",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "DELETE FROM products\nWHERE prod_id IN (\nSELECT prod_id\nFROM sales\nWHERE time_id >= SYSDATE - 3*365 );",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "DELETE FROM products\nWHERE prod_id IN (\nSELECT prod_id\nFROM sales\nWHERE SYSDATE -3*365 >= time_id);",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "DELETE FROM products\nWHERE prod_id = (\nSELECT prod_id\nFROM sales\nWHERE SYSDATE >= time_id - 3*365 );",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - DELETE FROM products\nWHERE prod_id IN (\nSELECT prod_id\nFROM sales\nWHERE SYSDATE -3*365 >= time_id);",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q44",
+    "bankId": "Examen 14 - Oracle (1).docx #44",
+    "set": "examen-14-oracle-1",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following SQL exhibit.\nGiven: The SQL statement has been executed.\nExhibit: 1",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image294.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It executes successfully and creates a NOT NULL and DEFAULT combination for the CITY column.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It fails because the NOT NULL and DEFAULT options cannot be combined for the same column.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It fails because the condition for the CNAMES constraint is not valid.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It succeeds and CITY can contain only ‘SEATTLE‘ or null for all rows.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It executes successfully and creates a NOT NULL and DEFAULT combination for the CITY column.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q45",
+    "bankId": "Examen 14 - Oracle (1).docx #45",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nIdentify the following statement which is syntactically accurate.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT *\nFROM invoices I\nJOIN customers C USING (customer_id);",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT D.customer.id\nFROM invoices\nJOIN customers C USING (C.customer_id = D.customer.id);",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT D.customer.id\nFROM invoices\nJOIN customers C USING (C.customer_id);",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT *\nFROM invoices\nJOIN customers C USING (C.customer_id);",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - SELECT *\nFROM invoices I\nJOIN customers C USING (customer_id);",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q46",
+    "bankId": "Examen 14 - Oracle (1).docx #46",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following SQL query structure.\nExhibit: 1\n\nIndicate the two literal components of the preceding SELECT query from the given choices.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image295.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "FROM",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "||",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "WHERE",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "51",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "Product Name:",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "E",
+      "F"
+    ],
+    "solution": "E - 51 F - Product Name:",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q47",
+    "bankId": "Examen 14 - Oracle (1).docx #47",
+    "set": "examen-14-oracle-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following SQL query structures in the available choices.\nIndicate the statement using correct syntax.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT NVL(DISTINCT (emp_name), ‘ABC‘),  phone_number\nFROM employees;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT NVL(emp_name), ‘ABC‘),  DISTINCT phone_number\nFROM employees;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT DISTINCT NVL(emp_name, ‘ABC‘),  phone_number\nFROM employees;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT NVL((emp_name), ‘ABC‘),  DISTINCT phone_number\nFROM employees;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - SELECT DISTINCT NVL(emp_name, ‘ABC‘),  phone_number\nFROM employees;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  },
+  {
+    "id": "examen-14-oracle-1-q48",
+    "bankId": "Examen 14 - Oracle (1).docx #48",
+    "set": "examen-14-oracle-1",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "View and examine the following SQL exhibit.\nExhibit: 1\n\nIdentify the correct output of the above query.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image296.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "+00-300, +00-650, +00 11:12:10.123457",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "+25-00, +00-650, +00 11:12:10.123457",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "+25-00, +54-02, +00 11:12:10.123457",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "+00-300, +54-02, +00 11:12:10.123457",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - +00-300, +54-02, +00 11:12:10.123457",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 14 - Oracle (1).docx"
+  }
+]

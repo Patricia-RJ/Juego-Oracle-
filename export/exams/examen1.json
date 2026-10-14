@@ -1,0 +1,1990 @@
+[
+  {
+    "id": "examen-1-q1",
+    "bankId": "Examen 1.docx #1",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the structure of the ORDER_ITEMS table. Required: Select the ORDER_ID of the order that has the highest total value among all the orders in the ORDER_ITEMS table. Identify the response which would meet the requirement.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image493.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT order_id, MAX(unit_price*quantity) AS \"LARGEST ORDER\" FROM order_items WHERE(unit_price*quantity) = (      SELECT MAX(unit_price*quantity)      FROM order_items) GROUP BY order_id;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT order_id, MAX(unit_price*quantity) AS \"LARGEST ORDER\" FROM order_items WHERE (unit_price*quantity) = (      SELECT MAX(unit_price*quantity)      FROM order_items      GROUP BY order_id);",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT order_id, MAX(unit_price*quantity) AS \"LARGEST ORDER\" FROM order_items WHERE(unit_price*quantity) = MAX(unit_price*quantity) GROUP BY order_id;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT order_id, MAX(unit_price*quantity) AS \"LARGEST ORDER\" FROM order_items GROUP BY order_id HAVING SUM(unit_price*quantity) = (      SELECT MAX(SUM(unit_price*quantity))      FROM order_items GROUP BY order_id);",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - SELECT order_id, MAX(unit_price*quantity) AS \"LARGEST ORDER\" FROM order_items GROUP BY order_id HAVING SUM(unit_price*quantity) = (      SELECT MAX(SUM(unit_price*quantity))      FROM order_items GROUP BY order_id);",
+    "solution_en": null,
+    "explanation": "D is correct because it groups the rows by ORDER_ID and uses SUM(unit_price*quantity) to calculate each order's total value, then uses HAVING to compare that total against the highest total from a subquery that also groups by ORDER_ID. HAVING is required here because aggregate functions like SUM cannot appear directly in a WHERE clause. Option C fails for that exact reason, option B's subquery returns multiple rows and cannot be compared with a single '=', and option A compares a single line item's value instead of the order's total.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q2",
+    "bankId": "Examen 1.docx #2",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentity two statements which are true about the SET VERIFY ON command? (Select two)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It is both an SQL Developer and SQL*Plus native command",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It can be used only in SQL*Plus.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It displays values for variables used only in the WHERE clause of a query.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It displays values for variables created by the DEFINE command.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "D"
+    ],
+    "solution": "A - It is both an SQL Developer and SQL*Plus native command D - It displays values for variables created by the DEFINE command.",
+    "solution_en": null,
+    "explanation": "SET VERIFY is a native SQL*Plus command that is also available in SQL Developer, so option A is correct and option B is false. It shows the old and new value of a substitution variable, including ones created implicitly or with the DEFINE command, which makes option D correct. It is not limited to variables in the WHERE clause, so option C is false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q3",
+    "bankId": "Examen 1.docx #3",
+    "set": "examen-1",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View the exhibit and examine the data in the PROJ_TASK_DETAILS table.\nTable: PROJ_TASK_DETAILS\n\nGiven: The PROJ_TASK_DETAILS table stores information about project tasks and the relation between them.\nThe BASED_ON column indicates dependencies between tasks.\nSome tasks do not depend on the completion of other tasks.\nRequired: Generate a report listing all task IDs, the task ID of any task upon which it depends and the name of the employee in charge of the task upon which it depends.\nIdentity the SQL query which would give you the required output.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image494.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT p.task_id, p.based_on, d.task_in_charge FROM proj_task_details p FULL OUTER JOIN proj_task_details d ON (p.based_on = d.task_id);",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT p.task_id, p.based_on, d.task_in_charge FROM proj_task_details p LEFT OUTER JOIN proj_task_details d ON (p.based_on = d.task_id);",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT p.task_id, p.based_on, d.task_in_charge FROM proj_task_details p JOIN proj_task_details d ON (p.based_on = d.task_id);",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT p.task_id, p.based_on, d.task_in_charge FROM proj_task_details p JOIN proj_task_details d ON (p.task_id = d.task_id);",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - SELECT p.task_id, p.based_on, d.task_in_charge FROM proj_task_details p LEFT OUTER JOIN proj_task_details d ON (p.based_on = d.task_id);",
+    "solution_en": null,
+    "explanation": "A LEFT OUTER JOIN keeps every row from the left table (p), even when there is no matching row in the right table (d). This is necessary here because some tasks are not based on another task, so BASED_ON has no matching TASK_ID for those rows. An INNER JOIN (option C) would drop those independent tasks, a FULL OUTER JOIN (option A) would add unmatched rows from the right side that are not needed, and option D joins on the wrong columns (TASK_ID to TASK_ID instead of BASED_ON to TASK_ID).",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q4",
+    "bankId": "Examen 1.docx #4",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentity the true statement regarding the default behaviour of the ORDER BY clause.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "NULLS are not included in the sort operation.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "In a character sort, the values are case-sensitive.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Only columns that are specified in the SELECT list can be used in the ORDER BY clause.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Numeric values are displayed in descending order if they have decimal positions.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "Column aliases can be used in the ORDER BY clause.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "E"
+    ],
+    "solution": "B - In a character sort, the values are case-sensitive. E - Column aliases can be used in the ORDER BY clause.",
+    "solution_en": null,
+    "explanation": "Oracle's default character sort is case-sensitive, so uppercase and lowercase letters are not treated as equal, which makes option B correct. ORDER BY is evaluated after the SELECT list, so it is allowed to reference a column alias defined there, which makes option E correct. NULLs are included in the sort rather than excluded, a column position number can be used instead of a SELECT-list name, and numeric sort order does not depend on whether a value has decimal positions, so A, C, and D are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q5",
+    "bankId": "Examen 1.docx #5",
+    "set": "examen-1",
+    "category": "Combinación de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentity two true statements about conditional INSERT ALL.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It cannot have an ELSE clause.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Each WHEN condition is tested for each row returned by the subquery.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The total number of rows inserted is always equal to the number of rows returned by the subquery.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "A single WHEN condition can be used for multiple INTO clauses.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "Each row returned by the subquery can be inserted into only a single target table.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "D"
+    ],
+    "solution": "B - Each WHEN condition is tested for each row returned by the subquery. D - A single WHEN condition can be used for multiple INTO clauses.",
+    "solution_en": null,
+    "explanation": "In a conditional INSERT ALL, each WHEN condition is evaluated separately for every row returned by the subquery, which makes option B correct. The same WHEN condition can be followed by more than one INTO clause, so a single condition can insert into several target tables, which makes option D correct. Conditional INSERT ALL can include an ELSE clause, a single subquery row can be inserted into more than one table if it satisfies more than one WHEN condition, and the total rows inserted depends on how many conditions match rather than simply the number of subquery rows, so A, C, and E are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q6",
+    "bankId": "Examen 1.docx #6",
+    "set": "examen-1",
+    "category": "Combinación de datos",
+    "type": "multiple-choice",
+    "question": "Identify the two minimal requirements for a self-join.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The table used for the self-join must have two different alias names in the query.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "There must be a condition on which the self-join is performed.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "No other condition except the self-join may be specified.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Outer joins must not be used in the query.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "Only equijoin conditions may be used in the query.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B"
+    ],
+    "solution": "A - The table used for the self-join must have two different alias names in the query. B - There must be a condition on which the self-join is performed.",
+    "solution_en": null,
+    "explanation": "A self-join joins a table to itself, so the same table must be given two different aliases in the FROM clause to tell the two copies apart, which makes option A correct. A join condition is also required, or the result would be an unintended Cartesian product, which makes option B correct. A self-join can include additional conditions, can be combined with an outer join, and is not limited to equijoin conditions, so C, D, and E are not requirements.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q7",
+    "bankId": "Examen 1.docx #7",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify two statements which are true regarding the USING and ON clauses in table joins.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "A maximum of one pair of columns can be joined between the two tables using the ON clause.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Both USING and ON can be used for equijoins and nonequijoins.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The WHERE clause can be used to apply additional conditions in SELECT statements containing the ON or the USING clause.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The ON clause can be used to join tables on columns that have different names but compatible data types.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C",
+      "D"
+    ],
+    "solution": "C - The WHERE clause can be used to apply additional conditions in SELECT statements containing the ON or the USING clause. D - The ON clause can be used to join tables on columns that have different names but compatible data types.",
+    "solution_en": null,
+    "explanation": "The WHERE clause can still be added to apply extra conditions to a query that already uses ON or USING, which makes option C correct. The ON clause can join columns that have different names, as long as their data types are compatible, which makes option D correct. The ON clause can actually join on more than one pair of columns, and both ON and USING can be used for equijoins and nonequijoins alike, so A and B are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q8",
+    "bankId": "Examen 1.docx #8",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the structure of the ORDERS table.\nTable: ORDERS\n\nGiven: The ORDERS table contains data and all orders have been assigned a customer ID.\nIdentity the statement which would add a NOT NULL constraint to the CUSTOMER_ID column.\nCorrecto: B",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image495.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ALTER TABLE orders ADD customer_id NUMBER(6) CONSTRAINT orders_cust_id_nn NOT NULL;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ALTER TABLE orders MODIFY customer_id NOT NULL;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "ALTER TABLE orders MODIFY CONSTRAINT orders_cust_id_nn NOT NULL (customer_id);",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "ALTER TABLE orders ADD CONSTRAINT orders_cust_id_nn NOT NULL (customer_id);",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - ALTER TABLE orders MODIFY customer_id NOT NULL;",
+    "solution_en": null,
+    "explanation": "ALTER TABLE ... MODIFY is used to change the definition of a column that already exists, including adding a NOT NULL constraint to it. Because every existing row already has a value in CUSTOMER_ID, this MODIFY succeeds immediately. ADD is used to create a new column rather than change an existing one, so options A and D use the wrong clause, and a NOT NULL constraint is always added with MODIFY rather than with an ADD CONSTRAINT statement, so option C is invalid syntax.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q9",
+    "bankId": "Examen 1.docx #9",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following scenario.\nGiven: The first DROP operation is performed on the PRODUCTS table using this command.\nExhibit: 1\n\nThen a FLASHBACK operation is performed using this command.\nExhibit: 2\n\nIdentity the result of the FLASHBACK command.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image496.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It recovers only the table structure.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It recovers the table structure, data and the indexes.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It is not possible to recover the table structure, data or the related indexes.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It recovers the table structure and data but not the related indexes.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - It is not possible to recover the table structure, data or the related indexes.",
+    "solution_en": null,
+    "explanation": "The table was dropped using DROP TABLE products PURGE, and PURGE permanently removes the object instead of sending it to the recycle bin. Because FLASHBACK TABLE ... TO BEFORE DROP works by restoring an object from the recycle bin, there is nothing left to restore once PURGE has been used, so the table structure, data, and related indexes cannot be recovered.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q10",
+    "bankId": "Examen 1.docx #10",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View the exhibit and examine the structure in ORDERS and ORDER_ITEMS tables. Required: Create a view that displays the ORDER_ID, ORDER_DATE, and the total number of items in each order indicated by appropriately named column. Identify the response which would meet the requirement.\n\nRequired: Create a view that displays the ORDER_ID, ORDER_DATE, and the total number of items in each order indicated by appropriately named column.\nIdentity the response which would meet the requirement.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image497.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "CREATE OR REPLACE VIEW ord_vu (order_id, order_date) AS      SELECT o.order_id, o.order_date,      COUNT(i.line_item_id)\"NO OF ITEMS\"      FROM orders o      JOIN order_items i ON (o.order_id = i.order_id)      GROUP BY o.order_id, o.order_date;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "CREATE OR REPLACE VIEW ord_vu AS      SELECT o.order_id, o.order_date,      COUNT(i.line_item_id) \"NO OF ITEMS\"      FROM orders o      JOIN order_items i      ON (o.order_id = i.order_id)      GROUP BY o.order_id,o.order_date;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "CREATE OR REPLACE VIEW ord_vu AS      SELECT o.order_id, o.order_date,      COUNT(i.line_item_id)      FROM orders o      JOIN order_items i      ON (o.order_id = i.order_id)      GROUP BY order_date;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "CREATE OR REPLACE VIEW ord_vu AS      SELECT o.order_id, o.order_date,      COUNT(i.line_item_id)||'NO OF ITEMS'      FROM orders o      JOIN order_items i ON (o.order_id = i.order_id)      GROUP BY o.order_id,o.order_date      WITH CHECK OPTION;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B"
+    ],
+    "solution": "B - CREATE OR REPLACE VIEW ord_vu AS      SELECT o.order_id, o.order_date,      COUNT(i.line_item_id) \"NO OF ITEMS\"      FROM orders o      JOIN order_items i      ON (o.order_id = i.order_id)      GROUP BY o.order_id,o.order_date;",
+    "solution_en": null,
+    "explanation": "Option B correctly creates the view without an explicit column list, letting the inline alias \"NO OF ITEMS\" name the COUNT column while ORDER_ID and ORDER_DATE keep their original names. Option A fails because it supplies a column alias list with only two names for a query that returns three columns. Option C never names the count column and groups only by ORDER_DATE while still selecting the ungrouped ORDER_ID, and option D uses the || operator on the count instead of giving it a real alias, which changes the value instead of naming it.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q11",
+    "bankId": "Examen 1.docx #11",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the structure of the BOOKS_TRANSACTIONS table and the exhibit.\nTable: BOOKS_TRANSACTIONS\n\nExamine this partial SQL statement.\nExhibit: 1\n\nRequired: Update this table such that BOOK_ID is set to ‘INVALID’ for all rows were no MEMBER_ID has been entered.\nIdentity the condition which must be used in the WHERE clause to perform the required update.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image498.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "member_id = \"\";",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "member_id = '';",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "member_id IS NULL;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "member_id = NULL;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - member_id IS NULL;",
+    "solution_en": null,
+    "explanation": "NULL represents an unknown or missing value, so it cannot be tested with the equality operator. Expressions like = '' or = NULL do not find NULL values; the only way to test for NULL is with IS NULL, which makes option C correct.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q12",
+    "bankId": "Examen 1.docx #12",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the structure of the EMPLOYEES table and the exhibit.\n\nThe following SQL query has been executed.\nExhibit: 1\n\nIndicate two statements which are true regarding the result. (Choose two.)",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image499.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The values in the SALARY column would be returned in descending order for all employees having the same value in the DEPARTMENT_ID and FIRST_NAME column.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The values in the FIRST_NAME column would be returned in ascending order for all employees having the same value in the DEPARTMENT_ID column.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The values in the FIRST_NAME column would be returned in descending order for all employees having the same value in the DEPARTMENT_ID column.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The values in the SALARY column would be returned in descending order for all employees having the same value in the DEPARTMENT_ID column.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "The values in all columns would be returned in descending order.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B"
+    ],
+    "solution": "A - The values in the SALARY column would be returned in descending order for all employees having the same value in the DEPARTMENT_ID and FIRST_NAME column. B - The values in the FIRST_NAME column would be returned in ascending order for all employees having the same value in the DEPARTMENT_ID column.",
+    "solution_en": null,
+    "explanation": "The query sorts by DEPARTMENT_ID, then FIRST_NAME, then SALARY DESC. Because SALARY DESC is the third sort key, it only decides the order between rows that already share the same DEPARTMENT_ID and the same FIRST_NAME, which makes option A correct. FIRST_NAME is the second sort key and uses the default ascending order, applying to rows that share the same DEPARTMENT_ID, which makes option B correct.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q13",
+    "bankId": "Examen 1.docx #13",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify three true statements regarding the SQL WHERE and HAVING clauses. (Choose three)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The WHERE clause is used to exclude rows before grouping data.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The HAVING clause conditions can use aliases for the columns.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The HAVING clause conditions can have aggregating functions.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The HAVING clause is used to exclude one or more aggregated results after grouping data.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "The WHERE and HAVING clauses cannot be used together in a SQL statement.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "C",
+      "D"
+    ],
+    "solution": "A - The WHERE clause is used to exclude rows before grouping data. C - The HAVING clause conditions can have aggregating functions. D - The HAVING clause is used to exclude one or more aggregated results after grouping data.",
+    "solution_en": null,
+    "explanation": "WHERE filters individual rows before any grouping takes place, which makes option A correct. HAVING is evaluated after GROUP BY and is specifically meant to filter on the result of aggregate functions such as SUM or COUNT, which makes options C and D correct. WHERE and HAVING can be used together in the same statement, and HAVING conditions reference the actual grouped expressions rather than SELECT-list aliases, so E and B are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q14",
+    "bankId": "Examen 1.docx #14",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the structure of the SALES and PROMOTIONS tables.\n\nRequired: Delete rows from the SALES table, where the PROMO_NAME column in the PROMOTIONS table has either blowout sale or everyday low price as values.\nIdentify three DELETE statements which are valid. (Choose three.)",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image500.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "DELETE FROM sales WHERE promo_id IN (      SELECT promo_id      FROM promotions      WHERE promo_name      IN = ('blowout sale','everyday low price'));",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "DELETE FROM sales WHERE promo_id IN (      SELECT promo_id      FROM promotions      WHERE promo_name      IN ('blowout sale','everyday low price'));",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "DELETE FROM sales WHERE promo_id = (      SELECT promo_id      FROM promotions      WHERE promo_name = 'blowout sale') OR promo_id = (       SELECT promo_id      FROM promotions      WHERE promo_name = 'everyday low price');",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "DELETE FROM sales WHERE promo_id IN (      SELECT promo_id      FROM promotions      WHERE promo_name      = ('blowout sale' OR 'everyday low price'));",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "DELETE FROM sales     WHERE promo_id IN ((     SELECT promo_id     FROM promotions     WHERE promo_name = 'blowout sale'),(     SELECT promo_id     FROM promotions     WHERE promo_name = 'everyday low price'));",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "C",
+      "E"
+    ],
+    "solution": "B - DELETE FROM sales WHERE promo_id IN (      SELECT promo_id      FROM promotions      WHERE promo_name      IN ('blowout sale','everyday low price')); C - DELETE FROM sales WHERE promo_id = (      SELECT promo_id      FROM promotions      WHERE promo_name = 'blowout sale') OR promo_id = (       SELECT promo_id      FROM promotions      WHERE promo_name = 'everyday low price'); E - DELETE FROM sales     WHERE promo_id IN ((     SELECT promo_id     FROM promotions     WHERE promo_name = 'blowout sale'),(     SELECT promo_id     FROM promotions     WHERE promo_name = 'everyday low price'));",
+    "solution_en": null,
+    "explanation": "All three statements build a valid condition for identifying which PROMO_ID values belong to the two named promotions. Option B uses IN with a subquery that returns both promo IDs. Option C uses two separate equality subqueries combined with OR. Option E uses IN with a list made of two single-value subqueries, which is valid because each subquery returns exactly one row. Option A is invalid because it combines IN and = together, and option D is invalid because OR cannot be used inside a value being compared with =.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q15",
+    "bankId": "Examen 1.docx #15",
+    "set": "examen-1",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nThe following query was successfully executed.\nExhibit: 1\n\nIdentify the result of the query execution.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image501.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "150.23",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "150.2",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "150.24",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "100",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "152",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "200",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "F"
+    ],
+    "solution": "F - 200",
+    "solution_en": null,
+    "explanation": "The query is SELECT ROUND(150.23, -2) FROM dual. A negative second argument to ROUND rounds to the left of the decimal point, in this case to the nearest hundred. Since 150.23 is past the midpoint between 100 and 200, it rounds up to 200.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q16",
+    "bankId": "Examen 1.docx #16",
+    "set": "examen-1",
+    "category": "Combinación de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the structure of the PRODUCTS and NEW_PRODUCTS tables.\nTable: PRODUCTS\n\nTable: NEW_PRODUCTS\n\nIdentity two queries which execute successfully? (Choose two.)",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image502.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT * FROM products MINUS SELECT prod_id FROM new_products;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT prod_id, exp_date FROM products UNION ALL SELECT prod_id, NULL FROM new_products;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT prod_id, prod_name FROM products INTERSECT SELECT 100, prod_name FROM new_products;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT * FROM products UNION SELECT * FROM new_products;",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "SELECT prod_id FROM products UNION ALL SELECT prod_id, prod_name FROM new_products;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "D"
+    ],
+    "solution": "B - SELECT prod_id, exp_date FROM products UNION ALL SELECT prod_id, NULL FROM new_products; D - SELECT * FROM products UNION SELECT * FROM new_products;",
+    "solution_en": null,
+    "explanation": "Option B is valid because both SELECT lists return two columns, and NULL can stand in for EXP_DATE since Oracle gives it a compatible type automatically. Option D is valid because SELECT * returns three columns from both PRODUCTS and NEW_PRODUCTS, and the corresponding columns use compatible data types (character types for PROD_ID and PROD_NAME, and TIMESTAMP/DATE for EXP_DATE, which Oracle can reconcile). Option A fails because SELECT * returns three columns from PRODUCTS, while the second query returns only PROD_ID, so the column counts do not match.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q17",
+    "bankId": "Examen 1.docx #17",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following SQL query.\nExhibit: 1\n\nRequired:   Prevent prompting for a hire date value when this query is executed\nIdentity the responses which would meet the requirement. (Select two)",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image503.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Replace '&1' with '&&1' in the query.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Execute the SET VERIFY ON command before executing the query.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Store the query in a script and pass the substitution value to the script when executing it.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Use the DEFINE command before executing the query.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "Execute the SET VERIFY OFF command before executing the query.",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "Use the UNDEFINE command before executing the query.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C",
+      "D"
+    ],
+    "solution": "C - Store the query in a script and pass the substitution value to the script when executing it. D - Use the DEFINE command before executing the query.",
+    "solution_en": null,
+    "explanation": "Storing the query in a script and supplying the substitution value as a parameter when running it avoids the prompt entirely, which makes option C correct. Using the DEFINE command to set the variable's value before running the query means Oracle already has a value and does not need to ask for one, which makes option D correct. SET VERIFY only controls whether the old and new values are echoed to the screen and does not stop the prompt, so B and E are false, UNDEFINE removes a value instead of supplying one, and changing '&1' to '&&1' only avoids re-prompting on later uses within the same session rather than the first prompt, so A and F are also false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q18",
+    "bankId": "Examen 1.docx #18",
+    "set": "examen-1",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nIndicate the true statement about the INTERSECT operator used in compound queries.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It processes NULLs in the selected columns.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It ignores NULLs.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "INTERSECT is of lower precedence than UNION or UNION ALL.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Multiple INTERSECT operators are not possible in the same SQL statement.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It processes NULLs in the selected columns.",
+    "solution_en": null,
+    "explanation": "Unlike a simple WHERE comparison, the INTERSECT operator treats two NULL values in the same column position as matching when it determines which rows are common to both queries, so NULLs are processed rather than ignored, which makes option A correct.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q19",
+    "bankId": "Examen 1.docx #19",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following SQL query which has been executed.\nExhibit: 1\n\nIndicate the status of the foreign key EMP_MGR_FK.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image504.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It would be automatically enabled and immediate.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It would remain disabled and can be enabled only by dropping the foreign key constraint and recreating it.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It would be automatically enabled and deferred.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It would remain disabled and has to be enabled manually using the ALTER TABLE command.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - It would remain disabled and has to be enabled manually using the ALTER TABLE command.",
+    "solution_en": null,
+    "explanation": "MGR_NO's foreign key, EMP_MGR_FK, references the primary key EMP_EMP_NO_PK. When EMP_EMP_NO_PK is disabled with the CASCADE option, Oracle automatically disables EMP_MGR_FK as well, since a foreign key cannot stay enabled once the key it depends on is disabled. The next statement only re-enables EMP_EMP_NO_PK; enabling a constraint does not automatically re-enable any constraint that was disabled by cascade, so EMP_MGR_FK stays disabled until it is enabled on its own with a separate ALTER TABLE statement.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q20",
+    "bankId": "Examen 1.docx #20",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify two true statements about transactions. (Select two)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "A transaction may consist of a set of DML or DCL statements.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "A part or an entire transaction can be made permanent with a COMMIT.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "A part or an entire transaction can be undone by using ROLLBACK command .",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "A transaction can consist only of a set of DML and DDL statements.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "A transaction can consist of only a set of queries or DML or DDL statements.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "C"
+    ],
+    "solution": "B - A part or an entire transaction can be made permanent with a COMMIT. C - A part or an entire transaction can be undone by using ROLLBACK command .",
+    "solution_en": null,
+    "explanation": "A COMMIT makes the changes made during a transaction permanent, which makes option B correct. A ROLLBACK can undo part or all of an uncommitted transaction, which makes option C correct. A transaction is defined by its DML statements followed by a COMMIT or ROLLBACK, not by DCL or DDL statements, so A, D, and E describe transactions incorrectly.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q21",
+    "bankId": "Examen 1.docx #21",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the structure of the PROMOTIONS table.\nTable: PROMOTIONS\n\nRequired: Generate a report that displays the promo name and start date for all promos that started after the last promo in the ‘INTERNET’ category.\nIdentity the SQL query which would give you the required output.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image505.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT promo_name, promo_begin_date FROM promotions WHERE promo_begin_date > ALL (      SELECT MAX (promo_begin_date)      FROM promotions) AND promo_category= 'INTERNET';",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT promo_name, promo_begin_date FROM promotions WHERE promo_begin_date> ANY (      SELECT promo_begin_date      FROM promotions      WHERE promo_category= 'INTERNET');",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT promo_name, promo_begin_date FROM promotions WHERE promo_begin_date > ALL (     SELECT promo_begin_date     FROM promotions     WHERE promo_category = 'INTERNET');",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT promo_name, promo_begin_date FROM promotions WHERE promo_begin_date IN (      SELECT promo_begin_date      FROM promotions      WHERE promo_category= 'INTERNET');",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - SELECT promo_name, promo_begin_date FROM promotions WHERE promo_begin_date > ALL (     SELECT promo_begin_date     FROM promotions     WHERE promo_category = 'INTERNET');",
+    "solution_en": null,
+    "explanation": "The subquery WHERE promo_category = 'INTERNET' first narrows the comparison set to only the INTERNET promotions, and > ALL means the outer PROMO_BEGIN_DATE must be later than every one of those dates, which is the same as being later than the latest INTERNET promotion. Option A compares against the single overall maximum date without restricting the subquery to INTERNET first, so no row could ever satisfy it. Option B uses > ANY, which only requires being later than the earliest INTERNET promotion rather than the last one. Option D uses IN, which tests for an exact match rather than a date that comes after.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q22",
+    "bankId": "Examen 1.docx #22",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify two true statements about working with dates. (Select two)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The default internal storage of dates is in the numeric format.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The default internal storage of dates is in the character format.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The RR date format automatically calculates the century from the SYSDATE function and does not allow the user to enter the century.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The RR date format is interchangeable with the YY element",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "The RRRR date format automatically calculates the century from the SYSDATE function but allows the user to enter the century if required.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "E"
+    ],
+    "solution": "A - The default internal storage of dates is in the numeric format. E - The RRRR date format automatically calculates the century from the SYSDATE function but allows the user to enter the century if required.",
+    "solution_en": null,
+    "explanation": "Oracle stores DATE values internally as numbers (representing century, year, month, day, and time), not as text, which makes option A correct. The RRRR format lets the century be entered explicitly if needed, while still calculating it automatically from SYSDATE when it is not, which makes option E correct. RR is not simply interchangeable with YY, since RR adjusts the century based on the current date while YY does not, and RR itself does not let the user type the century at all, so C and D are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q23",
+    "bankId": "Examen 1.docx #23",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nIndicate the true statement about aggregate functions.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Aggregate functions can be used in any clause of a SELECT statement.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Aggregate functions can be nested to any number of levels.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The MAX and MIN functions can be used on columns with character data types.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The AVG function implicitly converts NULLS to zero.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - The MAX and MIN functions can be used on columns with character data types.",
+    "solution_en": null,
+    "explanation": "MIN and MAX are not limited to numeric or date columns; they can also be applied to character columns, comparing the values alphabetically, which makes option C correct. AVG ignores NULLs instead of converting them to zero, and aggregate functions cannot be nested without limit or used in every clause of a SELECT statement, so A, B, and D are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q24",
+    "bankId": "Examen 1.docx #24",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the structure of the MEMBERS table and the SQL statement. Identify the result of the query. (Choose the best answer).\nTable: MEMBERS\n\nExamine the SQL statement.\nExhibit: 1\n\nIdentity the result of the query. (Choose the best answer)",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image506.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It displays all cities in ascending order, within which the last names are further sorted in descending order.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It fails because a column number and a column alias cannot be used together in the ORDER BY clause.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It displays all cities in descending order, within which the last names are further sorted in descending order.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It fails because a column alias cannot be used in the ORDER BY clause.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It displays all cities in ascending order, within which the last names are further sorted in descending order.",
+    "solution_en": null,
+    "explanation": "The query is ORDER BY 1, LNAME DESC, which mixes a column position (1, referring to CITY) with a column alias (LNAME). Position 1 sorts CITY in the default ascending order, and LNAME DESC then sorts the last names in descending order among rows that share the same city, which matches option A. Oracle does allow combining a position number and an alias in the same ORDER BY clause, so the statements claiming it would fail (B and D) are incorrect.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q25",
+    "bankId": "Examen 1.docx #25",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the structure of ORDERS and CUSTOMERS tables.\nTable: ORDERS\n\nTable: CUSTOMERS\n\nGiven: Assume there exists only one row with CUST_LAST_NAME as Roberts and CREDIT_LIMIT as 600.\nRequired: Add a row into the ORDERS table for the customer whose CUST_LAST_NAME is Roberts and CREDIT_LIMIT is 600.\nIdentity the SQL query which would give you the required output.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image507.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "INSERT INTO(      SELECT o.order_id, o.order_date, o.order_mode, c.customer_id, o.order_total      FROM orders o, customers c      WHERE o.customer_id = c.customer_id      AND c.cust_last_name='Roberts'      AND c.credit_limit=600) VALUES (1,'01/MAR/2020', 'direct', (      SELECT customer_id      FROM customers      WHERE customer_last_name='Roberts'      AND credit_limit=600), 1000);",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "INSERT INTO orders (order_id, order_date, order_mode,(      SELECT customer_id      FROM customers      WHERE customer_last_name='Roberts'      AND credit_limit=600), order_total) VALUES (1,'01/MAR/2020', 'direct', &&customer_id, 1000);",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "INSERT INTO orders ( order_id, order_date, order_mode,(      SELECT customer_id      FROM customers      WHERE customer_last_name='Roberts'      AND credit_limit=600), order_total) VALUES (1,'01/MAR/2020', 'direct', &customer_id, 1000);",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "INSERT INTO orders VALUES (1,'01/MAR/2020', 'direct',(      SELECT customer_id      FROM customers      WHERE customer_last_name='Roberts'      AND credit_limit=600),1000);",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - INSERT INTO orders VALUES (1,'01/MAR/2020', 'direct',(      SELECT customer_id      FROM customers      WHERE customer_last_name='Roberts'      AND credit_limit=600),1000);",
+    "solution_en": null,
+    "explanation": "A scalar subquery that is guaranteed to return a single row, like the one filtering on CUST_LAST_NAME = 'Roberts' AND CREDIT_LIMIT = 600, can be used directly as one of the values in a VALUES clause. Option D does exactly that. Options A, B, and C instead try to place a subquery inside the column list of the INSERT, which is not valid; a subquery can supply a value, but it cannot stand in for a column name.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q26",
+    "bankId": "Examen 1.docx #26",
+    "set": "examen-1",
+    "category": "Otros",
+    "type": "single-choice",
+    "question": "View and examine the following SQL exhibit and the available responses.\nRequired: Match the relationship examples which follow.\nExhibit: 1\n\nIdentify the response which indicates correctly matched relationships.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image508.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "1-c, 2-a, 3-b, and 4-d",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "1-a, 2-d, 3-c, and 4-b",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "1-a, 2-b, 3-c, and 4-d",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "1-d, 2-b, 3-a, and 4-c",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - 1-c, 2-a, 3-b, and 4-d",
+    "solution_en": null,
+    "explanation": "A one-to-one relationship matches a person to their SSN, since each belongs to exactly one of the other. A one-to-many relationship matches a teacher to their students, since one teacher can have many students. A many-to-one relationship matches employees to a manager, since many employees can report to the same manager. A many-to-many relationship matches customers to products, since a customer can buy many products and a product can be bought by many customers. This pairing is 1-c, 2-a, 3-b, 4-d, which is option A.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q27",
+    "bankId": "Examen 1.docx #27",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following SQL query.\nExhibit: 1\n\nIdentify two true statements about the result of the query.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image509.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "INSERT INTO rate_list VALUES (-10) produces an error.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "INSERT INTO rate_list VALUES (-99.99) inserts the value as 99.99.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "INSERT INTO rate_list VALUES (0.999) produces an error.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "INSERT INTO rate_list VALUES (0.551) inserts the value as .55.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "INSERT INTO rate_list VALUES (87654.556) inserts the value as 87654.6.",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "INSERT INTO rate_list VALUES (-.9) inserts the value as -.9",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D",
+      "F"
+    ],
+    "solution": "D - INSERT INTO rate_list VALUES (0.551) inserts the value as .55. F - INSERT INTO rate_list VALUES (-.9) inserts the value as -.9",
+    "solution_en": null,
+    "explanation": "RATE is defined as NUMBER(6,2), which allows up to 2 digits after the decimal point. Inserting 0.551 rounds to the nearest hundredth, giving .55, which makes option D correct. Inserting -.9 already fits within the allowed precision and scale without any rounding or error, giving -.9, which makes option F correct.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q28",
+    "bankId": "Examen 1.docx #28",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentity two true statements about sequences created in a single instance Oracle database. (Choose two)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "When a database instance shuts down abnormally, sequence numbers that have been cached but not used are available again when the instance is restarted.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "CURRVAL is used to refer to the most recent sequence number that has been generated for a particular sequence.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "DELETEwould remove a sequence from the database.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The numbers generated by an explicitly defined sequence can only be used to insert data in one table.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "When the MAXVALUE limit for a sequence is reached, it can be increased by using the ALTER SEQUENCE statement.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "E"
+    ],
+    "solution": "B - CURRVAL is used to refer to the most recent sequence number that has been generated for a particular sequence. E - When the MAXVALUE limit for a sequence is reached, it can be increased by using the ALTER SEQUENCE statement.",
+    "solution_en": null,
+    "explanation": "CURRVAL returns the most recently generated value of a sequence in the current session, which makes option B correct. If a sequence reaches its MAXVALUE, that limit can be raised with an ALTER SEQUENCE statement, which makes option E correct. Cached but unused sequence numbers are lost, not recovered, after an abnormal shutdown, a sequence is removed with DROP SEQUENCE rather than DELETE, and a sequence's numbers are not restricted to populating a single table, so A, C, and D are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q29",
+    "bankId": "Examen 1.docx #29",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "Identify two true statements regarding a SAVEPOINT. (Choose two)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Rolling back to a SAVEPOINT can undo a CREATE INDEX statement",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "A SAVEPOINT does not issue a COMMIT",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Rolling back to a SAVEPOINT can undo a TRUNCATE statement",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Only one SAVEPOINT may be issued in a transaction",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "Rolling back to a SAVEPOINT can undo a DELETE statement",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "B",
+      "E"
+    ],
+    "solution": "B - A SAVEPOINT does not issue a COMMIT E - Rolling back to a SAVEPOINT can undo a DELETE statement",
+    "solution_en": null,
+    "explanation": "Creating a SAVEPOINT does not commit any of the changes made so far in the transaction, which makes option B correct. Rolling back to a SAVEPOINT can undo DML statements performed after it, such as a DELETE, which makes option E correct. A SAVEPOINT cannot undo a DDL statement like CREATE INDEX or TRUNCATE, since those commit immediately when they execute, and more than one SAVEPOINT can be defined within the same transaction, so A, C, and D are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q30",
+    "bankId": "Examen 1.docx #30",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nRequired: Display 5 percent of the rows from the SALES table for products with the lowest AMOUNT_SOLD and include the rows that have the same AMOUNT_SOLD even if this causes the output to exceed 5 percent of the rows. \nIdentity the response which would meet the requirement.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT prod_id, cust_id, amount_sold FROM sales ORDER BY amount_sold FETCH FIRST 5 PERCENT ROWS WITH TIES;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT prod_id, cust_id, amount_sold FROM sales ORDER BY amount_sold FETCH FIRST 5 PERCENT ROWS WITH TIES ONLY;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT prod_id, cust_id, amount_sold FROM sales ORDER BY amount_sold FETCH FIRST 5 PERCENT ROWS ONLY;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT prod_id, cust_id, amount_sold FROM sales ORDER BY amount_sold FETCH FIRST 5 PERCENT ROWS ONLY WITH TIES;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - SELECT prod_id, cust_id, amount_sold FROM sales ORDER BY amount_sold FETCH FIRST 5 PERCENT ROWS WITH TIES;",
+    "solution_en": null,
+    "explanation": "FETCH FIRST n PERCENT ROWS WITH TIES returns the first n percent of the sorted rows and also includes any additional rows that tie with the last included value, which matches the requirement to include extra rows when AMOUNT_SOLD ties occur. The other options place the keywords in an order that is not valid syntax for this clause.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q31",
+    "bankId": "Examen 1.docx #31",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIndicate two true statements regarding the UNION and UNION ALL operators. (Choose two)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "NULLS are not ignored during duplicate checking",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The number of columns selected in each SELECT statement must be identical",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The output is sorted by the UNION ALL operator",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Duplicates are eliminated automatically by the UNION ALL operator",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "The names of columns selected in each SELECT statement must be identical",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B"
+    ],
+    "solution": "A - NULLS are not ignored during duplicate checking B - The number of columns selected in each SELECT statement must be identical",
+    "solution_en": null,
+    "explanation": "Like other set operators, UNION does not simply ignore NULL values when checking for duplicates; two rows with NULL in the same position are treated as matching, which makes option A correct. Every SELECT statement combined in the same compound query must return the same number of columns, which makes option B correct. UNION ALL does not sort its output and does not eliminate duplicates, and the column names of the final result come from the first SELECT statement rather than requiring identical names throughout, so C, D, and E are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q32",
+    "bankId": "Examen 1.docx #32",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "Identify two statements which are true regarding SAVEPOINTS. (Choose two)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SAVEPOINTS can be used for both DML and DDL statements",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SAVEPOINTS are effective for both COMMIT and ROLLBACK.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SAVEPOINTS are effective only for COMMIT.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SAVEPOINTS can be used for only DML statements.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "SAVEPOINTS may be used to ROLLBACK.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D",
+      "E"
+    ],
+    "solution": "D - SAVEPOINTS can be used for only DML statements. E - SAVEPOINTS may be used to ROLLBACK.",
+    "solution_en": null,
+    "explanation": "SAVEPOINTs only make sense within the DML portion of a transaction, since DDL statements commit immediately and cannot be rolled back to a savepoint, which makes option D correct. Their purpose is to mark a point that a ROLLBACK can return to, which makes option E correct. A SAVEPOINT has no effect on COMMIT, which always makes the entire transaction permanent regardless of any savepoints, so B and C are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q33",
+    "bankId": "Examen 1.docx #33",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following SQL query.\nExhibit: 1\n\nIdentity the result of the query.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image510.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The ORDER_DATE column must be empty for the ALTER TABLE command to execute successfully.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ROLLBACK can be used to restore the ORDER_DATE column.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The DESCRIBE command would still display the ORDER_DATE column.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "After executing the ALTER TABLE command, a new column called ORDER_DATE can be added to the ORDERS table.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - After executing the ALTER TABLE command, a new column called ORDER_DATE can be added to the ORDERS table.",
+    "solution_en": null,
+    "explanation": "The command ALTER TABLE orders SET UNUSED (order_date) marks the column as unused rather than physically dropping it right away; it is hidden from DESCRIBE and from normal queries, but Oracle frees up the name internally. Because of this, a new column also called ORDER_DATE can be added to the table afterward, which makes option D correct.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q34",
+    "bankId": "Examen 1.docx #34",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentity three actions that can be performed using the ALTER TABLE command.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Rename a table.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Restrict all DML statements on a table.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Drop several columns simultaneously from a table.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Drop pseudocolumns from a table.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "Enable or disable constraints on a table.",
+        "text_en": null
+      },
+      {
+        "letter": "F",
+        "text": "Lock a set of rows in a table.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "C",
+      "E"
+    ],
+    "solution": "A - Rename a table. C - Drop several columns simultaneously from a table. E - Enable or disable constraints on a table.",
+    "solution_en": null,
+    "explanation": "ALTER TABLE can rename a table, which makes option A correct. It can drop several columns at the same time by listing them together, which makes option C correct. It can also enable or disable constraints on a table, which makes option E correct.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q35",
+    "bankId": "Examen 1.docx #35",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following available responses.\nIdentify the valid CREATE TABLE statement.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "CREATE TABLE ord_details ( ord_no NUMBER(2) UNIQUE, NOT NULL, item_no NUMBER(3), ord_date DATE DEFAULT SYSDATE NOT NULL);",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "CREATE TABLE ord_details ( ord_no NUMBER(2) PRIMARY KEY, UNIQUE, NOT NULL, item_no NUMBER(3) PRIMARY KEY, ord_date DATE NOT NULL);",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "CREATE TABLE ord_details ( ord_no NUMBER(2), item_no NUMBER(3), ord_date DATE DEFAULT SYSDATE NOT NULL, CONSTRAINT ord_pk PRIMARY KEY (ord_no, item_no));",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "CREATE TABLE ord_details( ord_no NUMBER(2), item_no NUMBER(3), ord_date DATE DEFAULT NOT NULL, CONSTRAINT ord_uq UNIQUE (ord_no), CONSTRAINT ord_pk PRIMARY KEY (ord_no));",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - CREATE TABLE ord_details ( ord_no NUMBER(2), item_no NUMBER(3), ord_date DATE DEFAULT SYSDATE NOT NULL, CONSTRAINT ord_pk PRIMARY KEY (ord_no, item_no));",
+    "solution_en": null,
+    "explanation": "Option C correctly defines ORD_NO and ITEM_NO as plain columns and then adds a composite PRIMARY KEY across both of them using a table-level CONSTRAINT clause, which is valid syntax. Option A incorrectly tries to list UNIQUE and NOT NULL as separate items after the column definition. Option B defines PRIMARY KEY twice, once for each column, but a table can only have one PRIMARY KEY. Option D writes DATE DEFAULT NOT NULL without actually supplying a default value between DEFAULT and NOT NULL, which is invalid.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q36",
+    "bankId": "Examen 1.docx #36",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIndicate two statements which best describe the benefits of using the WITH clause. (Choose two.)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It enables sessions to store a query block permanently in memory and use it to create complex queries.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It enables sessions to store the results of a query permanently.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It enables sessions to reuse the same query block in a SELECT statement, if it occurs more than once in a complex query.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It can improve the performance of a large query by storing the result of a query block having the WITH clause in the session's temporary tablespace.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C",
+      "D"
+    ],
+    "solution": "C - It enables sessions to reuse the same query block in a SELECT statement, if it occurs more than once in a complex query. D - It can improve the performance of a large query by storing the result of a query block having the WITH clause in the session's temporary tablespace.",
+    "solution_en": null,
+    "explanation": "The WITH clause lets a session define a named query block once and reuse it later in the same SELECT statement wherever it would otherwise have to be repeated, which makes option C correct. Oracle can also materialize the result of that query block in temporary space, which can improve performance for a large or repeated block, which makes option D correct. It does not store anything permanently across sessions, so A and B are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q37",
+    "bankId": "Examen 1.docx #37",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the structure of the ORDERS table and exhibits.\nTable: ORDERS\n\nRequired: Find the total value of all the orders for each year.\nThis command has been executed.\nExhibit: 1\n\nIdentity the result of the query.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image511.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It return an error because the datatype conversion in the SELECT list does not match the data type conversion in the GROUP BY clause.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It executes successfully and gives the correct output.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It returns an error because the TO_CHAR function is not valid.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It executes successfully but does not give the correct output.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It return an error because the datatype conversion in the SELECT list does not match the data type conversion in the GROUP BY clause.",
+    "solution_en": null,
+    "explanation": "The SELECT list uses TO_CHAR(order_date, 'rr'), but the GROUP BY clause uses TO_CHAR(order_date, 'yyyy'). Because these are two different expressions with different format models, Oracle cannot match the unaggregated SELECT expression to anything in GROUP BY, so the statement returns an error instead of executing.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q38",
+    "bankId": "Examen 1.docx #38",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the structure of the BOOKS table and exhibits.\nExhibit: 1\n\nExhibit: 2\n\nGiven: The BOOKS table contains details of 100 books.\nExamine the following commands executed and their outcomes.\nExhibit: 3\n\nIndicate statement which is true regarding the result?",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image512.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Both ROLLBACK commands restore the 100 rows that were deleted.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The first rollback restores the 100 rows that were deleted and the second rollback commits only the changes.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Both ROLLBACK commands restore the 101 rows that were deleted.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The first rollback restores the 101 rows that were deleted leaving the inserted row uncommitted.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "D"
+    ],
+    "solution": "D - The first rollback restores the 101 rows that were deleted leaving the inserted row uncommitted.",
+    "solution_en": null,
+    "explanation": "After the row is inserted, a SAVEPOINT named A is created, and then DELETE FROM books removes all 101 rows (the original 100 plus the new, still-uncommitted one). ROLLBACK TO SAVEPOINT A undoes only the DELETE, restoring the 101 rows, but a SAVEPOINT does not commit anything, so the originally inserted row is still uncommitted at that point, which matches option D. The final plain ROLLBACK then undoes the rest of the transaction, including that insert.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q39",
+    "bankId": "Examen 1.docx #39",
+    "set": "examen-1",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View and examine the structure of the PRODUCTS and SALES tables as well as the exhibit.\nTable: PRODUCTS\n\nTable: SALES\n\nRequired: Display PRODUCT_NAME and the number of times the product has been ordered.\nThe following SQL query has been executed.\nExhibit: 1\n\nIdentity the result of the query.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image513.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The statement would not execute because the GROUP BY clause cannot be used in the inline.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The statement would not execute because inline views and outer joins cannot be used together.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The statement would execute successfully to produce the required output.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The statement would not execute because the ITEM_CNT alias cannot be displayed in the outer query.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "C"
+    ],
+    "solution": "C - The statement would execute successfully to produce the required output.",
+    "solution_en": null,
+    "explanation": "An inline view (a subquery in the FROM clause) can include a GROUP BY clause, can be combined with an outer join, and its column aliases can be referenced by the outer query, so none of the restrictions described in options A, B, and D actually exist in Oracle SQL. Because of this, the statement executes successfully, which makes option C correct.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q40",
+    "bankId": "Examen 1.docx #40",
+    "set": "examen-1",
+    "category": "Combinación de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify two true statements about single row functions.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "They can return a data type value different from the one that is referenced.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "They always return a single result row for every row of a queried table.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Arguments can only be column values or constants.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "They can be nested only to two levels.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "They accept only a single argument.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B"
+    ],
+    "solution": "A - They can return a data type value different from the one that is referenced. B - They always return a single result row for every row of a queried table.",
+    "solution_en": null,
+    "explanation": "A single-row function can return a different data type than the one it was given, such as TO_CHAR converting a number into a string, which makes option A correct. It also always produces exactly one result for each row it processes, which makes option B correct. Single-row functions can be nested more than two levels deep, can take more than one argument, and their arguments are not limited to column values or constants, so C, D, and E are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q41",
+    "bankId": "Examen 1.docx #41",
+    "set": "examen-1",
+    "category": "Combinación de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the structure of the EMPLOYEES  and JOB_HISTORY tables as well as the exhibits.\n\nRequired: Select the employee IDs of all the employees who have held the job SA_MAN at any time during their employment.\nThe following SQL queries have been prepared.\nExhibit: 1\n\nExhibit: 2\n\nIndicate two correct SET operators which would cause the query to return the desired result. (Choose two.)",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image514.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "UNION ALL",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "MINUS",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "INTERSECT",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "UNION",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "D"
+    ],
+    "solution": "A - UNION ALL D - UNION",
+    "solution_en": null,
+    "explanation": "The requirement is to find employees who held the job SA_MAN at any point, whether currently or in the past, so the two result sets need to be combined rather than compared. UNION ALL and UNION both combine all the rows from the two queries, satisfying that requirement, which makes options A and D correct. MINUS would remove matching rows instead of combining them, and INTERSECT would keep only employees appearing in both queries, so neither would return everyone who held the job at any time.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q42",
+    "bankId": "Examen 1.docx #42",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the structure in the EMPLOYEES tables as well as the exhibit.\n\nEvaluate the following SQL statement.\nExhibit: 1\n\nIdentify the result of the query execution.",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image515.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The statement would not execute because the ORDER BY clause should appear only at the end of the SQL statement, that is, in the last SELECT statement.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The statement would execute successfully and display all the rows in the ascending order of DEPARTMENT_ID.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The statement would not execute because the positional notation instead of the column name should be used with the ORDER BY clause.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The statement would execute successfully but it will ignore the ORDER BY clause and display the rows in random order.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - The statement would not execute because the ORDER BY clause should appear only at the end of the SQL statement, that is, in the last SELECT statement.",
+    "solution_en": null,
+    "explanation": "In a compound query built with set operators, ORDER BY can only appear once, at the very end of the entire statement, applying to the combined result as a whole. It cannot be attached to one of the individual SELECT statements being combined, which is why the statement does not execute as written.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q43",
+    "bankId": "Examen 1.docx #43",
+    "set": "examen-1",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify two true statements about the results of using the INTERSECT operator in compound queries.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "INTERSECT returns rows common to both sides of the compound query.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Column names in each SELECT in the compound query can be different.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Reversing the order of the intersected tables can sometimes affect the output.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The number of columns in each SELECT in the compound query can be different.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B"
+    ],
+    "solution": "A - INTERSECT returns rows common to both sides of the compound query. B - Column names in each SELECT in the compound query can be different.",
+    "solution_en": null,
+    "explanation": "INTERSECT returns only the rows that appear in the result of both queries, which makes option A correct. The column names shown in the final result come from the first SELECT statement, so the column names in each SELECT making up the compound query do not need to match, which makes option B correct. The number of columns in each SELECT does need to match, and reversing the order of the two queries does not change which rows are common to both, so C and D are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q44",
+    "bankId": "Examen 1.docx #44",
+    "set": "examen-1",
+    "category": "Combinación de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify two true statements about a full outer join.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It returns matched and unmatched rows from both tables being joined.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The Oracle join operator (+) must be used on both sides of the join condition in the WHERE clause.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It returns only unmatched rows from both tables being joined.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It includes rows that are returned by a Cartesian product.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "It includes rows that are returned by an inner join.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "E"
+    ],
+    "solution": "A - It returns matched and unmatched rows from both tables being joined. E - It includes rows that are returned by an inner join.",
+    "solution_en": null,
+    "explanation": "A FULL OUTER JOIN returns every matched row along with any unmatched rows from both tables, which makes option A correct. Since it includes all matched rows, it necessarily includes everything an INNER JOIN alone would return, which makes option E correct. The Oracle (+) operator cannot be used to express a full outer join, and a full outer join does not produce a Cartesian product, so B and D are false.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q45",
+    "bankId": "Examen 1.docx #45",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the following available responses.\nIdentify two true responses about granting privileges on objects.",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "A table owner must grant the REFERENCES privilege to allow other users to create FOREIGN KEY constraints using that table.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The owner of an object acquires all object privileges on that object by default.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "An object privilege can be granted to a role only by the owner of that object.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An object privilege can be granted to other users only by the owner of that object.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B"
+    ],
+    "solution": "A - A table owner must grant the REFERENCES privilege to allow other users to create FOREIGN KEY constraints using that table. B - The owner of an object acquires all object privileges on that object by default.",
+    "solution_en": null,
+    "explanation": "Before another user can create a FOREIGN KEY that references a table they do not own, the table's owner must grant them the REFERENCES privilege on it, which makes option A correct. An object's owner automatically has every object privilege on that object without needing an explicit GRANT, which makes option B correct.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  },
+  {
+    "id": "examen-1-q46",
+    "bankId": "Examen 1.docx #46",
+    "set": "examen-1",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "View and examine the structure of the CUSTOMERS table.\nTable: CUSTOMERS\n\nGiven: CUSTNO is the PRIMARY KEY.\nRequired: Determine if any customers’ details have been entered more than once using a different CUSTNO, by listing all duplicate names.\nIdentify two methods which can be used to get the required result. (Choose two)",
+    "question_en": null,
+    "imagePath": "provider/certifications/oracle-database-sql-certified-associate/image516.png",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Subquery",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Left outer-join with self-join",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Right outer-join with self-join",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Self-join",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "Full outer-join with self-join",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "D"
+    ],
+    "solution": "A - Subquery D - Self-join",
+    "solution_en": null,
+    "explanation": "A subquery can compare each customer's name against the other rows in the same table to find names that occur more than once, which makes option A correct. A self-join, where the CUSTOMERS table is joined to itself on the name columns but with different CUSTNO values, also finds pairs of rows with matching names, which makes option D correct.",
+    "explanation_en": null,
+    "source": "Examen 1.docx"
+  }
+]

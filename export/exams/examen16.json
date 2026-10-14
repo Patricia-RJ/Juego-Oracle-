@@ -1,0 +1,2014 @@
+[
+  {
+    "id": "examen-16-q1",
+    "bankId": "Examen 16.docx #1",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about the difference between COUNT(*) and COUNT(commission_pct) when run against the EMPLOYEES table?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "COUNT(*) counts every row in the table, while COUNT(commission_pct) counts only the rows where COMMISSION_PCT is not NULL.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "COUNT(*) and COUNT(commission_pct) always return the same value.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "COUNT(commission_pct) counts every row, while COUNT(*) skips rows that contain any NULL value.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "COUNT(*) raises an error if any row has a NULL value in any column.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - COUNT(*) counts every row in the table, while COUNT(commission_pct) counts only the rows where COMMISSION_PCT is not NULL.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q2",
+    "bankId": "Examen 16.docx #2",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT COUNT(DISTINCT department_id) FROM employees;\nWhat does this statement return?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The number of distinct, non-null DEPARTMENT_ID values found in the table.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The total number of rows in the table, regardless of DEPARTMENT_ID.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "An error, because DISTINCT cannot be used inside COUNT.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The number of rows where DEPARTMENT_ID is NULL.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - The number of distinct, non-null DEPARTMENT_ID values found in the table.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q3",
+    "bankId": "Examen 16.docx #3",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about using MIN and MAX on a VARCHAR2 column?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "MIN and MAX evaluate text values in alphabetical order, so MIN returns the value that sorts first and MAX the value that sorts last.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "MIN and MAX can only be used on NUMBER and DATE columns, never on VARCHAR2.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "MIN always returns the shortest string, and MAX always returns the longest string.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "MIN and MAX on a VARCHAR2 column always raise an error.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - MIN and MAX evaluate text values in alphabetical order, so MIN returns the value that sorts first and MAX the value that sorts last.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q4",
+    "bankId": "Examen 16.docx #4",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "The COMMISSION_PCT column is NULL for 70 of the 107 rows in EMPLOYEES. What does AVG(commission_pct) calculate?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The sum of the non-NULL COMMISSION_PCT values divided by the count of non-NULL values (37), not by the total number of rows (107).",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The sum of the non-NULL COMMISSION_PCT values divided by 107, treating each NULL as 0.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "NULL, because AVG cannot be computed when any row contains a NULL value.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because AVG requires every row to have a non-NULL value.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - The sum of the non-NULL COMMISSION_PCT values divided by the count of non-NULL values (37), not by the total number of rows (107).",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q5",
+    "bankId": "Examen 16.docx #5",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT department_id, COUNT(*)\nFROM employees;\nWhat happens when this statement is executed?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It raises an error, because DEPARTMENT_ID is not aggregated and there is no GROUP BY clause.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It returns one row per department with the count of employees in each.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It returns a single row with the total employee count and a NULL for DEPARTMENT_ID.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It returns every row of EMPLOYEES unchanged, ignoring COUNT(*).",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It raises an error, because DEPARTMENT_ID is not aggregated and there is no GROUP BY clause.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q6",
+    "bankId": "Examen 16.docx #6",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT department_id, employee_id\nFROM employees\nGROUP BY department_id;\nWhat happens when this statement is executed?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It raises an error, because EMPLOYEE_ID is neither aggregated nor included in the GROUP BY clause.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It executes successfully and shows the first EMPLOYEE_ID found in each department.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It executes successfully and shows NULL for EMPLOYEE_ID in every row.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It executes successfully, because any column can appear in SELECT as long as GROUP BY is present.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It raises an error, because EMPLOYEE_ID is neither aggregated nor included in the GROUP BY clause.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q7",
+    "bankId": "Examen 16.docx #7",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about the difference between ROLLUP and CUBE when used with GROUP BY?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "CUBE produces subtotal rows for every possible combination of the grouping columns, while ROLLUP produces subtotals only along a single hierarchical path from the rightmost column inward.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ROLLUP and CUBE always produce exactly the same result set.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "CUBE can only be used with a single grouping column, while ROLLUP requires at least two.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "ROLLUP produces more subtotal combinations than CUBE for the same two columns.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - CUBE produces subtotal rows for every possible combination of the grouping columns, while ROLLUP produces subtotals only along a single hierarchical path from the rightmost column inward.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q8",
+    "bankId": "Examen 16.docx #8",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT ROUND(salary, -3) AS salary_band, COUNT(*)\nFROM employees\nGROUP BY ROUND(salary, -3);\nWhich statement is true about this query?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It is valid: Oracle allows grouping by an expression, as long as the same expression is repeated in the GROUP BY clause.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It raises an error, because GROUP BY cannot contain a function call.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It raises an error, because the GROUP BY clause must repeat the column alias SALARY_BAND instead of the expression.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It silently ignores ROUND and groups by the raw SALARY value instead.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It is valid: Oracle allows grouping by an expression, as long as the same expression is repeated in the GROUP BY clause.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q9",
+    "bankId": "Examen 16.docx #9",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT CONCAT(first_name, last_name) FROM employees;\nWhich statement is true about the CONCAT function used here?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "CONCAT accepts exactly two arguments; to join three or more strings, CONCAT calls must be nested or the || operator must be used instead.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "CONCAT can accept any number of arguments, separated by commas.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "CONCAT automatically inserts a space between the two values it joins.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "CONCAT raises an error when used with more than one column.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - CONCAT accepts exactly two arguments; to join three or more strings, CONCAT calls must be nested or the || operator must be used instead.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q10",
+    "bankId": "Examen 16.docx #10",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT REPLACE(email, '@oldcorp.com', '@newcorp.com') FROM employees;\nWhat does the REPLACE function do in this statement?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It returns EMAIL with every occurrence of '@oldcorp.com' substituted by '@newcorp.com'.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It removes every occurrence of '@oldcorp.com' from EMAIL without inserting anything in its place.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It replaces only the first occurrence of '@oldcorp.com' and leaves any additional occurrences unchanged.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It raises an error, because REPLACE cannot be used on a column that contains the '@' character.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It returns EMAIL with every occurrence of '@oldcorp.com' substituted by '@newcorp.com'.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q11",
+    "bankId": "Examen 16.docx #11",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT LENGTH(commission_pct) FROM employees WHERE employee_id = 178;\nIf COMMISSION_PCT is NULL for this employee, what does LENGTH return?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "NULL, because LENGTH applied to a NULL value always returns NULL.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "0, because an empty value has zero length.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "An error, because LENGTH cannot accept a NULL argument.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "-1, indicating that no value is present.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - NULL, because LENGTH applied to a NULL value always returns NULL.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q12",
+    "bankId": "Examen 16.docx #12",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT LTRIM('xxyyHello', 'xy') FROM dual;\nWhat is the result?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Hello",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "xxyyHello",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "yyHello",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because LTRIM only accepts a single character to trim, not a set of characters.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Hello",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q13",
+    "bankId": "Examen 16.docx #13",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT ABS(-15), ABS(15) FROM dual;\nWhat is the result?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "15 and 15",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "-15 and 15",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "15 and -15",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because ABS cannot accept a negative argument.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - 15 and 15",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q14",
+    "bankId": "Examen 16.docx #14",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT POWER(2, 3) FROM dual;\nWhat is the result?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "8",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "6",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "9",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because POWER requires exactly one argument.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - 8",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q15",
+    "bankId": "Examen 16.docx #15",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT SIGN(-8), SIGN(0), SIGN(42) FROM dual;\nWhat is the result?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "-1, 0, and 1",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "-8, 0, and 42",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "-1, 1, and 1",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because SIGN cannot accept the value 0.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - -1, 0, and 1",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q16",
+    "bankId": "Examen 16.docx #16",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "A view named EMP_V already exists. Which statement allows its defining query to be changed without first dropping the view and without losing the object privileges already granted on it?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "CREATE OR REPLACE VIEW emp_v AS SELECT employee_id, last_name FROM employees;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ALTER VIEW emp_v AS SELECT employee_id, last_name FROM employees;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "UPDATE VIEW emp_v AS SELECT employee_id, last_name FROM employees;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "DROP VIEW emp_v; then CREATE VIEW emp_v AS SELECT employee_id, last_name FROM employees;, which preserves the original grants automatically.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - CREATE OR REPLACE VIEW emp_v AS SELECT employee_id, last_name FROM employees;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q17",
+    "bankId": "Examen 16.docx #17",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nCREATE VIEW emp_v (id_number, surname) AS\nSELECT employee_id, last_name FROM employees;\nWhat is the purpose of the (id_number, surname) column list in this CREATE VIEW statement?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It renames the columns exposed by the view, so that EMPLOYEE_ID appears as ID_NUMBER and LAST_NAME appears as SURNAME.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It restricts the view to showing only employees whose ID_NUMBER or SURNAME is not NULL.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It creates two additional columns in the view, in addition to EMPLOYEE_ID and LAST_NAME.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It raises an error, because a column list is not allowed in CREATE VIEW.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It renames the columns exposed by the view, so that EMPLOYEE_ID appears as ID_NUMBER and LAST_NAME appears as SURNAME.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q18",
+    "bankId": "Examen 16.docx #18",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "A view V2 is created as a query against another view, V1. What happens to V2 if V1 is later dropped?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "V2 becomes invalid, because it depends on V1, which no longer exists.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "V2 continues to work normally, because views never depend on each other.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "V1 cannot be dropped at all while V2 still exists.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "V2 is automatically dropped at the same time as V1.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - V2 becomes invalid, because it depends on V1, which no longer exists.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q19",
+    "bankId": "Examen 16.docx #19",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "A sequence ORDER_SEQ was created with START WITH 1. After it has generated several values, which statement is true about changing where it continues from?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "ALTER SEQUENCE cannot change the START WITH value; to restart a sequence from a specific value, it typically must be dropped and re-created.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ALTER SEQUENCE order_seq START WITH 1000; immediately changes the next value NEXTVAL will return to 1000.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The START WITH value can only be changed by a user with the DBA role, using a special RESTART command.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Sequences cannot be altered in any way once created; INCREMENT BY, MAXVALUE, and CACHE are fixed for the sequence's lifetime.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - ALTER SEQUENCE cannot change the START WITH value; to restart a sequence from a specific value, it typically must be dropped and re-created.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q20",
+    "bankId": "Examen 16.docx #20",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement correctly creates a sequence that counts downward, starting at 100 and decreasing by 1 each time?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "CREATE SEQUENCE countdown_seq START WITH 100 INCREMENT BY -1 MINVALUE 0;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "CREATE SEQUENCE countdown_seq START WITH 100 INCREMENT BY 1 MINVALUE 0 DESC;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "CREATE SEQUENCE countdown_seq START WITH 0 INCREMENT BY -1 MAXVALUE 100;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "CREATE SEQUENCE countdown_seq START WITH 100 DECREMENT BY 1;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - CREATE SEQUENCE countdown_seq START WITH 100 INCREMENT BY -1 MINVALUE 0;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q21",
+    "bankId": "Examen 16.docx #21",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "A table ORDERS uses ORDER_SEQ.NEXTVAL to populate its primary key. If every row is deleted from ORDERS with DELETE FROM orders;, what happens to ORDER_SEQ?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "ORDER_SEQ is completely unaffected: it keeps generating values from wherever it left off, because a sequence is independent of any table.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ORDER_SEQ automatically resets to its START WITH value.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "ORDER_SEQ is dropped along with the data in ORDERS.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "ORDER_SEQ raises an error the next time NEXTVAL is requested, because its associated rows no longer exist.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - ORDER_SEQ is completely unaffected: it keeps generating values from wherever it left off, because a sequence is independent of any table.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q22",
+    "bankId": "Examen 16.docx #22",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "A user named SCOTT has a private synonym named ORDERS pointing to SCOTT.MY_ORDERS, and a PUBLIC synonym also named ORDERS exists, pointing to a different table, HR.ALL_ORDERS. When SCOTT queries SELECT * FROM orders;, which table is used?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SCOTT.MY_ORDERS, because a user's private synonym takes precedence over a public synonym with the same name.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "HR.ALL_ORDERS, because public synonyms always take precedence over private ones.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Oracle raises an error, because the name ORDERS is ambiguous between the two synonyms.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Both tables are combined automatically through an implicit UNION.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - SCOTT.MY_ORDERS, because a user's private synonym takes precedence over a public synonym with the same name.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q23",
+    "bankId": "Examen 16.docx #23",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "A private synonym EMP_SYN points to the table HR.EMPLOYEES. If HR.EMPLOYEES is later dropped, what happens to EMP_SYN?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "EMP_SYN still exists as an object, but querying it fails because it no longer points to a valid object.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "EMP_SYN is automatically dropped at the same time as HR.EMPLOYEES.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "EMP_SYN automatically starts pointing to the next table created with the same name.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Dropping HR.EMPLOYEES is not allowed while a synonym refers to it.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - EMP_SYN still exists as an object, but querying it fails because it no longer points to a valid object.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q24",
+    "bankId": "Examen 16.docx #24",
+    "set": "examen-16",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about roles that Oracle provides out of the box, such as CONNECT, RESOURCE, and DBA?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "They are predefined roles that bundle together a common set of system privileges, which a DBA can grant to users without having to create the role first.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "They must be created manually by a DBA before they can be granted to any user.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "CONNECT, RESOURCE, and DBA are system privileges, not roles.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "They can only be granted to other roles, never directly to a user.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - They are predefined roles that bundle together a common set of system privileges, which a DBA can grant to users without having to create the role first.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q25",
+    "bankId": "Examen 16.docx #25",
+    "set": "examen-16",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Which statement correctly removes the HR_CLERK role from the user SCOTT, without dropping the role itself?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "REVOKE hr_clerk FROM scott;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "DROP ROLE hr_clerk FROM scott;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "REVOKE scott FROM hr_clerk;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "DELETE ROLE hr_clerk FOR scott;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - REVOKE hr_clerk FROM scott;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q26",
+    "bankId": "Examen 16.docx #26",
+    "set": "examen-16",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "A user has been granted a role but has not revoked it. Which statement is true about disabling that role for the current session only, using SET ROLE?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SET ROLE can temporarily disable a granted role for the current session, without permanently revoking it from the user.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SET ROLE permanently revokes the role from the user, the same as a REVOKE statement.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SET ROLE can only be used by a DBA, never by the role's grantee.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Once a role is granted, it cannot be disabled for any session until it is revoked.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - SET ROLE can temporarily disable a granted role for the current session, without permanently revoking it from the user.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q27",
+    "bankId": "Examen 16.docx #27",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nCREATE INDEX emp_dept_job_idx ON employees(department_id, job_id);\nWhich statement is true about this composite index?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It is most useful for queries that filter on DEPARTMENT_ID alone, or on both DEPARTMENT_ID and JOB_ID together; it is less useful for queries that filter on JOB_ID alone.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It can only be used by queries that filter on both columns at the same time.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It creates two completely independent indexes, one on each column.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It is equally useful regardless of which column a query filters on.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It is most useful for queries that filter on DEPARTMENT_ID alone, or on both DEPARTMENT_ID and JOB_ID together; it is less useful for queries that filter on JOB_ID alone.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q28",
+    "bankId": "Examen 16.docx #28",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nCREATE INDEX emp_upper_name_idx ON employees(UPPER(last_name));\nWhat is the purpose of this function-based index?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It allows queries that filter using UPPER(last_name) in the WHERE clause to use the index, instead of having to scan every row to evaluate the function.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It converts every value already stored in LAST_NAME to uppercase.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It prevents LAST_NAME from ever being inserted or updated with lowercase letters.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It is functionally identical to a regular index on LAST_NAME and provides no benefit for queries using UPPER().",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It allows queries that filter using UPPER(last_name) in the WHERE clause to use the index, instead of having to scan every row to evaluate the function.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q29",
+    "bankId": "Examen 16.docx #29",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "If an index on a table is dropped using DROP INDEX, what happens to the data in that table?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The table and its data are completely unaffected; only the index structure used to speed up access is removed.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "All rows in the table are deleted.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The table itself is dropped along with the index.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The column that was indexed is removed from the table.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - The table and its data are completely unaffected; only the index structure used to speed up access is removed.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q30",
+    "bankId": "Examen 16.docx #30",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement correctly lists departments where the average salary is greater than 8000 AND the number of employees is at least 5?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT department_id, AVG(salary), COUNT(*) FROM employees GROUP BY department_id HAVING AVG(salary) > 8000 AND COUNT(*) >= 5;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT department_id, AVG(salary), COUNT(*) FROM employees GROUP BY department_id WHERE AVG(salary) > 8000 AND COUNT(*) >= 5;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT department_id, AVG(salary), COUNT(*) FROM employees HAVING AVG(salary) > 8000 AND COUNT(*) >= 5 GROUP BY department_id;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SELECT department_id, AVG(salary), COUNT(*) FROM employees GROUP BY department_id HAVING AVG(salary) > 8000, COUNT(*) >= 5;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - SELECT department_id, AVG(salary), COUNT(*) FROM employees GROUP BY department_id HAVING AVG(salary) > 8000 AND COUNT(*) >= 5;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q31",
+    "bankId": "Examen 16.docx #31",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT department_id, COUNT(*)\nFROM employees\nGROUP BY department_id\nHAVING department_id > 50;\nIs this statement valid, even though DEPARTMENT_ID is not wrapped in an aggregate function in the HAVING clause?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Yes: HAVING can directly reference a column that appears in the GROUP BY clause, not only aggregated expressions.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "No: HAVING can only reference columns that are wrapped in an aggregate function such as COUNT or AVG.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "No: referencing DEPARTMENT_ID in HAVING requires it to also appear in the SELECT list with an alias.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Yes, but only if the same condition is repeated in a WHERE clause as well.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Yes: HAVING can directly reference a column that appears in the GROUP BY clause, not only aggregated expressions.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q32",
+    "bankId": "Examen 16.docx #32",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT NULLIF(salary, bonus) FROM employee_pay;\nWhat does NULLIF return for a row where SALARY and BONUS are equal, and for a row where they are different?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "NULL when they are equal, and the value of SALARY when they are different.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The value of SALARY in both cases.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "NULL in both cases.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because NULLIF requires its two arguments to always be different.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - NULL when they are equal, and the value of SALARY when they are different.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q33",
+    "bankId": "Examen 16.docx #33",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT last_name, commission_pct\nFROM employees\nORDER BY commission_pct DESC NULLS LAST;\nWhat does NULLS LAST control in this statement?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It forces rows with a NULL COMMISSION_PCT to appear at the end of the result set, even though DESC would otherwise place NULLs first.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It removes rows with a NULL COMMISSION_PCT from the result set entirely.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It replaces every NULL COMMISSION_PCT with the lowest non-NULL value before sorting.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It has no effect, because ORDER BY cannot be combined with NULLS LAST.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It forces rows with a NULL COMMISSION_PCT to appear at the end of the result set, even though DESC would otherwise place NULLs first.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q34",
+    "bankId": "Examen 16.docx #34",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "multiple-choice",
+    "question": "Which two statements are true about how Oracle SQL treats NULL? (Choose TWO)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "'Hello' || NULL evaluates to 'Hello', because NULL is treated as an empty string in string concatenation.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "5 + NULL evaluates to 5, because NULL is treated as 0 in arithmetic.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "5 + NULL evaluates to NULL, because any arithmetic operation involving NULL produces NULL.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "'Hello' || NULL raises an error, because NULL cannot be concatenated with a string.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "NULL = NULL evaluates to TRUE, allowing two NULL values to be matched directly with the equality operator.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "C"
+    ],
+    "solution": "A - 'Hello' || NULL evaluates to 'Hello', because NULL is treated as an empty string in string concatenation. C - 5 + NULL evaluates to NULL, because any arithmetic operation involving NULL produces NULL.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q35",
+    "bankId": "Examen 16.docx #35",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about the CAST function compared to TO_CHAR, TO_NUMBER, and TO_DATE?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "CAST is the ANSI SQL standard syntax for converting a value to a different data type, and can often be used as an alternative to the Oracle-specific TO_ functions.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "CAST can only convert a value to VARCHAR2, never to NUMBER or DATE.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "CAST and TO_CHAR are exactly the same function with two different names.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "CAST is used exclusively inside PL/SQL and cannot appear in a SQL SELECT statement.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - CAST is the ANSI SQL standard syntax for converting a value to a different data type, and can often be used as an alternative to the Oracle-specific TO_ functions.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q36",
+    "bankId": "Examen 16.docx #36",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT * FROM employees WHERE employee_id = 'ABC';\nEMPLOYEE_ID is a NUMBER column. What happens when this statement is executed?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Oracle raises an error, because the string 'ABC' cannot be implicitly converted to a NUMBER.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Oracle implicitly converts 'ABC' to NUMBER using 0, so the condition behaves as EMPLOYEE_ID = 0.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The comparison is always TRUE, regardless of EMPLOYEE_ID's actual value.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The comparison is always FALSE, and the statement returns no rows without an error.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Oracle raises an error, because the string 'ABC' cannot be implicitly converted to a NUMBER.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q37",
+    "bankId": "Examen 16.docx #37",
+    "set": "examen-16",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT TO_CHAR(1234, '9,999') FROM dual;\nWhat is the result?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "' 1,234' (with a leading space reserved for the sign, and a comma as the thousands separator).",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "'1234' (the comma in the format model is ignored).",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "An error, because a comma cannot appear inside a number format model.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "'9,999' (TO_CHAR returns the literal format model unchanged).",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - ' 1,234' (with a leading space reserved for the sign, and a comma as the thousands separator).",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q38",
+    "bankId": "Examen 16.docx #38",
+    "set": "examen-16",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT employee_id AS id, last_name AS surname FROM employees\nUNION\nSELECT contractor_id, contractor_name FROM contractors;\nWhat determines the column names shown in the final result set?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The column names (or aliases) from the first SELECT in the statement; the second query's names are ignored for display purposes.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The column names from the second SELECT, because UNION always favors the last query.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Oracle merges both sets of column names into a single combined header.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because the two queries use different column names.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - The column names (or aliases) from the first SELECT in the statement; the second query's names are ignored for display purposes.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q39",
+    "bankId": "Examen 16.docx #39",
+    "set": "examen-16",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT product_id FROM current_promotions\nINTERSECT\nSELECT product_id FROM low_stock_items;\nWhich rows does this statement return?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Only the PRODUCT_ID values that appear in both CURRENT_PROMOTIONS and LOW_STOCK_ITEMS.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Every PRODUCT_ID that appears in either table.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The PRODUCT_ID values that appear in CURRENT_PROMOTIONS but not in LOW_STOCK_ITEMS.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because INTERSECT requires a WHERE clause.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Only the PRODUCT_ID values that appear in both CURRENT_PROMOTIONS and LOW_STOCK_ITEMS.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q40",
+    "bankId": "Examen 16.docx #40",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about the effect of DELETE FROM employees; (with no WHERE clause)?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It removes every row from EMPLOYEES, but the table itself, its columns, and its constraints still exist afterward.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It removes every row from EMPLOYEES and also drops the table definition.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It raises an error, because DELETE always requires a WHERE clause.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It only removes rows where every column is NULL.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It removes every row from EMPLOYEES, but the table itself, its columns, and its constraints still exist afterward.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q41",
+    "bankId": "Examen 16.docx #41",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nUPDATE employees e\nSET salary = (SELECT AVG(salary) FROM employees WHERE department_id = e.department_id)\nWHERE department_id = 50;\nWhat does this statement do?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "For every employee in department 50, it sets SALARY to the average salary of that employee's department, calculated by a subquery.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It sets every employee's SALARY to the overall average salary of the entire company.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It raises an error, because a subquery cannot be used in the SET clause of an UPDATE statement.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It deletes every employee in department 50 and replaces them with the department average.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - For every employee in department 50, it sets SALARY to the average salary of that employee's department, calculated by a subquery.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q42",
+    "bankId": "Examen 16.docx #42",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "A column BONUS in the EMPLOYEES table is defined as NUMBER DEFAULT 0. Which statement correctly inserts a new row that uses this default value for BONUS, without the caller needing to know what that default actually is?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "INSERT INTO employees (employee_id, last_name, bonus) VALUES (300, 'Diaz', DEFAULT);",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "INSERT INTO employees (employee_id, last_name, bonus) VALUES (300, 'Diaz', NULL);",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "INSERT INTO employees (employee_id, last_name) VALUES (300, 'Diaz') USING DEFAULT bonus;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "INSERT INTO employees (employee_id, last_name, bonus) VALUES (300, 'Diaz', 0default);",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - INSERT INTO employees (employee_id, last_name, bonus) VALUES (300, 'Diaz', DEFAULT);",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q43",
+    "bankId": "Examen 16.docx #43",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement correctly renames the table OLD_ORDERS to ORDERS_ARCHIVE?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "RENAME old_orders TO orders_archive;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ALTER TABLE old_orders RENAME old_orders TO orders_archive;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "UPDATE TABLE old_orders SET NAME = 'orders_archive';",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "MODIFY TABLE old_orders TO orders_archive;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - RENAME old_orders TO orders_archive;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q44",
+    "bankId": "Examen 16.docx #44",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "multiple-choice",
+    "question": "Which two statements are true about the difference between TRUNCATE TABLE and DELETE (with no WHERE clause) when removing all rows from a table? (Choose TWO)",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "TRUNCATE TABLE is a DDL statement that implicitly commits and cannot be rolled back, while DELETE is a DML statement that can be rolled back before it is committed.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "DELETE fires any DELETE triggers defined on the table, while TRUNCATE TABLE does not.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "TRUNCATE TABLE and DELETE always perform identically in every respect.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "DELETE permanently removes the table's column definitions, while TRUNCATE TABLE does not.",
+        "text_en": null
+      },
+      {
+        "letter": "E",
+        "text": "TRUNCATE TABLE requires a WHERE clause, while DELETE does not.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A",
+      "B"
+    ],
+    "solution": "A - TRUNCATE TABLE is a DDL statement that implicitly commits and cannot be rolled back, while DELETE is a DML statement that can be rolled back before it is committed. B - DELETE fires any DELETE triggers defined on the table, while TRUNCATE TABLE does not.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q45",
+    "bankId": "Examen 16.docx #45",
+    "set": "examen-16",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "A table ORDERS already contains data and currently has no constraint on the STATUS column. Which statement could be used to add a CHECK constraint to that existing column?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "ALTER TABLE orders ADD CONSTRAINT orders_status_chk CHECK (status IN ('OPEN', 'CLOSED'));",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "UPDATE TABLE orders ADD CONSTRAINT orders_status_chk CHECK (status IN ('OPEN', 'CLOSED'));",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "CREATE CONSTRAINT orders_status_chk ON orders CHECK (status IN ('OPEN', 'CLOSED'));",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "A CHECK constraint can never be added to a column after the table has been created and already contains data.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - ALTER TABLE orders ADD CONSTRAINT orders_status_chk CHECK (status IN ('OPEN', 'CLOSED'));",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q46",
+    "bankId": "Examen 16.docx #46",
+    "set": "examen-16",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Which data dictionary view would a user query to see the views that they own, along with the text of each view's defining query?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "USER_VIEWS",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "USER_TABLES",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "USER_OBJECTS",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "USER_SOURCE",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - USER_VIEWS",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q47",
+    "bankId": "Examen 16.docx #47",
+    "set": "examen-16",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Which data dictionary view would show the sequences owned by the current user, including each sequence's current value in the LAST_NUMBER column?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "USER_SEQUENCES",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "USER_TAB_SEQUENCES",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "USER_OBJECTS",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "USER_TRIGGERS",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - USER_SEQUENCES",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q48",
+    "bankId": "Examen 16.docx #48",
+    "set": "examen-16",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "A user has created a private synonym named EMP for their own use. Which statement is true about finding it in the data dictionary?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It appears in USER_SYNONYMS; a PUBLIC synonym with the same name, by contrast, would appear in ALL_SYNONYMS with PUBLIC listed as the owner.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Private synonyms never appear in any data dictionary view.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It only appears in DBA_SYNONYMS, never in a view the synonym's own creator can query.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "USER_SYNONYMS lists only public synonyms, never private ones.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It appears in USER_SYNONYMS; a PUBLIC synonym with the same name, by contrast, would appear in ALL_SYNONYMS with PUBLIC listed as the owner.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q49",
+    "bankId": "Examen 16.docx #49",
+    "set": "examen-16",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Which statement correctly removes the SELECT privilege on the ORDERS table from the user HR, assuming SCOTT originally granted it?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "REVOKE SELECT ON orders FROM hr;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "REVOKE SELECT FROM orders ON hr;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "DELETE SELECT ON orders FROM hr;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "DROP PRIVILEGE SELECT ON orders FROM hr;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - REVOKE SELECT ON orders FROM hr;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  },
+  {
+    "id": "examen-16-q50",
+    "bankId": "Examen 16.docx #50",
+    "set": "examen-16",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "View and examine the following statement, executed by the owner of the ORDERS table.\nGRANT SELECT ON orders TO PUBLIC;\nWhat is the effect of granting a privilege TO PUBLIC?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Every user in the database is able to SELECT from ORDERS, not just a specific named user or role.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The privilege is granted only to users who are currently connected to the database.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "PUBLIC is treated as the name of a specific role that must be created before this statement can succeed.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "GRANT ... TO PUBLIC has no practical effect and is simply ignored by Oracle.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Every user in the database is able to SELECT from ORDERS, not just a specific named user or role.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 16.docx"
+  }
+]

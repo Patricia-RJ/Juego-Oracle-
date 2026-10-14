@@ -1,0 +1,2002 @@
+[
+  {
+    "id": "examen-18-q1",
+    "bankId": "Examen 18.docx #1",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT GREATEST(10, NULL, 25) FROM dual;\nWhat is the result?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "NULL, because if any argument passed to GREATEST (or LEAST) is NULL, the result is NULL.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "25, because GREATEST ignores NULL arguments and compares only the remaining values.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "10, because GREATEST returns the first non-NULL argument.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because GREATEST cannot accept a NULL argument.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - NULL, because if any argument passed to GREATEST (or LEAST) is NULL, the result is NULL.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q2",
+    "bankId": "Examen 18.docx #2",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about the difference between LENGTH and LENGTHB?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "LENGTH returns the number of characters in a string, while LENGTHB returns the number of bytes, which can differ when multi-byte character sets are used.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "LENGTHB returns the number of characters, while LENGTH returns the number of bytes.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "LENGTH and LENGTHB always return exactly the same value, regardless of character set.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "LENGTHB can only be used on NUMBER columns, never on VARCHAR2.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - LENGTH returns the number of characters in a string, while LENGTHB returns the number of bytes, which can differ when multi-byte character sets are used.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q3",
+    "bankId": "Examen 18.docx #3",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about SYS_CONTEXT('USERENV', 'CURRENT_SCHEMA')?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It returns the name of the schema currently in effect for the session, which can differ from the originally logged-in user if ALTER SESSION SET CURRENT_SCHEMA has been used.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It always returns the same value as USER, with no exceptions.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It returns the name of the database instance, not any schema-related information.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It can only be used by a user with the DBA role.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It returns the name of the schema currently in effect for the session, which can differ from the originally logged-in user if ALTER SESSION SET CURRENT_SCHEMA has been used.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q4",
+    "bankId": "Examen 18.docx #4",
+    "set": "examen-18",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "SCOTT creates a private synonym named ORD for HR.ORDERS, but SCOTT has not been granted any privilege on HR.ORDERS itself. What happens when SCOTT runs SELECT * FROM ord;?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Oracle raises an error, because a synonym by itself does not grant any privilege; SCOTT still needs to be granted the appropriate object privilege on HR.ORDERS.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The statement succeeds, because creating a synonym for an object automatically grants SELECT on that object.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The statement succeeds, but only returns an empty result set.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The synonym cannot be created at all unless SCOTT already has a privilege on HR.ORDERS.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Oracle raises an error, because a synonym by itself does not grant any privilege; SCOTT still needs to be granted the appropriate object privilege on HR.ORDERS.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q5",
+    "bankId": "Examen 18.docx #5",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "SCOTT already owns a table named REPORTS. What happens if SCOTT then runs CREATE SYNONYM reports FOR hr.monthly_reports;?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Oracle raises an error, because the name REPORTS is already used by an existing object that SCOTT owns.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Oracle silently renames SCOTT's existing REPORTS table before creating the synonym.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The synonym is created, and from then on REPORTS refers to both objects at once.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Oracle automatically creates the synonym under a different, auto-generated name instead.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Oracle raises an error, because the name REPORTS is already used by an existing object that SCOTT owns.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q6",
+    "bankId": "Examen 18.docx #6",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "A private synonym EMP_SYN points to the table HR.EMPLOYEES. If HR.EMPLOYEES is later renamed to HR.STAFF using RENAME, what happens to EMP_SYN?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "EMP_SYN becomes invalid, because it still points to the name HR.EMPLOYEES, which no longer exists.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "EMP_SYN is automatically updated to point to HR.STAFF instead.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The RENAME statement fails as long as any synonym refers to the table.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "EMP_SYN is automatically dropped as soon as the table is renamed.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - EMP_SYN becomes invalid, because it still points to the name HR.EMPLOYEES, which no longer exists.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q7",
+    "bankId": "Examen 18.docx #7",
+    "set": "examen-18",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about PUBLIC in the context of Oracle privileges and roles?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "PUBLIC is a special keyword representing every user in the database; it is not an actual role, so it cannot be created or dropped with CREATE ROLE or DROP ROLE.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "PUBLIC is a predefined role like CONNECT or RESOURCE, and can be dropped with DROP ROLE PUBLIC.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "PUBLIC refers only to users who have not yet been granted any role.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "PUBLIC must be explicitly created by a DBA before any privilege can be granted to it.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - PUBLIC is a special keyword representing every user in the database; it is not an actual role, so it cannot be created or dropped with CREATE ROLE or DROP ROLE.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q8",
+    "bankId": "Examen 18.docx #8",
+    "set": "examen-18",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "A user has been granted the HR_CLERK role, but it is not one of that user's default roles and has not been enabled with SET ROLE in the current session. What happens if the user tries to use a privilege that comes only from HR_CLERK?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The action fails, because a granted role that is not currently enabled does not make its privileges available in that session.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The action succeeds, because once a role is granted, all of its privileges are always available regardless of whether the role is enabled.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The action succeeds, but only for SELECT statements.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Oracle automatically enables every granted role the first time any of its privileges are needed.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - The action fails, because a granted role that is not currently enabled does not make its privileges available in that session.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q9",
+    "bankId": "Examen 18.docx #9",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about how many views a single CREATE VIEW statement can define?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "A single CREATE VIEW statement defines exactly one view; creating multiple views always requires multiple separate statements.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "A single CREATE VIEW statement can define as many views as there are tables referenced in its query.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "CREATE VIEW can accept a comma-separated list of view names to create several views at once.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "CREATE VIEW always creates one view per column selected in the query.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - A single CREATE VIEW statement defines exactly one view; creating multiple views always requires multiple separate statements.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q10",
+    "bankId": "Examen 18.docx #10",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "SCOTT already owns a table named ARCHIVE. What happens if SCOTT then runs CREATE VIEW archive AS SELECT * FROM employees;?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Oracle raises an error, because the name ARCHIVE is already used by an existing table that SCOTT owns.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Oracle replaces the ARCHIVE table with the new view automatically.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The statement succeeds, creating a view that coexists with the table under the same name.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Oracle automatically renames the new view to ARCHIVE_V.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Oracle raises an error, because the name ARCHIVE is already used by an existing table that SCOTT owns.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q11",
+    "bankId": "Examen 18.docx #11",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT department_id, job_id, COUNT(*)\nFROM employees\nGROUP BY job_id, department_id;\nIs this statement valid, even though the GROUP BY clause lists JOB_ID before DEPARTMENT_ID while the SELECT clause lists DEPARTMENT_ID first?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Yes: the order of the columns in GROUP BY does not need to match their order in the SELECT clause.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "No: the columns in GROUP BY must appear in exactly the same order as in the SELECT clause.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "No: GROUP BY must always list its columns in the same order they appear in the table definition.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Yes, but only because COUNT(*) is present; otherwise the order would matter.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Yes: the order of the columns in GROUP BY does not need to match their order in the SELECT clause.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q12",
+    "bankId": "Examen 18.docx #12",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT CASE WHEN salary < 4000 THEN 'Low' ELSE 'High' END AS salary_band, COUNT(*)\nFROM employees\nGROUP BY CASE WHEN salary < 4000 THEN 'Low' ELSE 'High' END;\nIs this statement valid?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Yes: Oracle allows grouping by an expression such as a CASE expression, as long as the exact same expression is repeated in the GROUP BY clause.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "No: GROUP BY can never contain a CASE expression.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Yes, but only if the alias SALARY_BAND is used in GROUP BY instead of repeating the CASE expression.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "No: CASE expressions can only be used in the SELECT clause, never in GROUP BY.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Yes: Oracle allows grouping by an expression such as a CASE expression, as long as the exact same expression is repeated in the GROUP BY clause.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q13",
+    "bankId": "Examen 18.docx #13",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT FLOOR(8), CEIL(8) FROM dual;\nWhat is the result?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "8 and 8, because FLOOR and CEIL return a whole number unchanged when it is already an integer.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "7 and 9",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "8 and 9",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because FLOOR and CEIL require a non-integer argument.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - 8 and 8, because FLOOR and CEIL return a whole number unchanged when it is already an integer.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q14",
+    "bankId": "Examen 18.docx #14",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about TRUNC(145.67, 0) compared to TRUNC(145.67)?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "They return the same result, 145, because 0 is the default value TRUNC uses for its second argument when none is specified.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "TRUNC(145.67, 0) raises an error, because 0 is not a valid second argument.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "TRUNC(145.67, 0) returns 145.67 unchanged, while TRUNC(145.67) returns 145.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "TRUNC(145.67, 0) returns 146, rounding up, while TRUNC(145.67) returns 145.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - They return the same result, 145, because 0 is the default value TRUNC uses for its second argument when none is specified.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q15",
+    "bankId": "Examen 18.docx #15",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT INITCAP('item123 for sale') FROM dual;\nWhat is the result?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Item123 For Sale",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Item123 for sale",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "ITEM123 FOR SALE",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because INITCAP cannot be used on a string that contains digits.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Item123 For Sale",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q16",
+    "bankId": "Examen 18.docx #16",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT UPPER('price: $45-99!') FROM dual;\nWhat is the result?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "PRICE: $45-99!",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "price: $45-99!",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "An error, because UPPER cannot be applied to a string containing digits or symbols.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "PRICE: $45-99! with the digits converted to their word form.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - PRICE: $45-99!",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q17",
+    "bankId": "Examen 18.docx #17",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement correctly lists departments where either the employee count is over 10 or the average salary is over 9000?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SELECT department_id, COUNT(*), AVG(salary) FROM employees GROUP BY department_id HAVING COUNT(*) > 10 OR AVG(salary) > 9000;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SELECT department_id, COUNT(*), AVG(salary) FROM employees GROUP BY department_id WHERE COUNT(*) > 10 OR AVG(salary) > 9000;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SELECT department_id, COUNT(*), AVG(salary) FROM employees HAVING COUNT(*) > 10 OR AVG(salary) > 9000 GROUP BY department_id;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "HAVING cannot combine two different aggregate conditions with OR, only with AND.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - SELECT department_id, COUNT(*), AVG(salary) FROM employees GROUP BY department_id HAVING COUNT(*) > 10 OR AVG(salary) > 9000;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q18",
+    "bankId": "Examen 18.docx #18",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about whether a HAVING clause can contain a subquery?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Yes: a HAVING condition can compare an aggregate result against the result of a subquery, similar to how WHERE can use a subquery.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "No: HAVING can only compare an aggregate result against a literal value.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "No: subqueries are only allowed in WHERE and FROM, never in HAVING.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Yes, but only if the subquery itself contains no aggregate functions.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Yes: a HAVING condition can compare an aggregate result against the result of a subquery, similar to how WHERE can use a subquery.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q19",
+    "bankId": "Examen 18.docx #19",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about a column defined with a UNIQUE constraint?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Oracle automatically creates a unique index to enforce that constraint, the same way it does for a PRIMARY KEY.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "A UNIQUE constraint does not use an index at all; uniqueness is checked row by row without one.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Only a PRIMARY KEY causes Oracle to create an index automatically; a UNIQUE constraint never does.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "A UNIQUE constraint requires the DBA to manually create the supporting index beforehand.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Oracle automatically creates a unique index to enforce that constraint, the same way it does for a PRIMARY KEY.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q20",
+    "bankId": "Examen 18.docx #20",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about index names in a given schema?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "An index name must be unique within its schema, just like a table name; two different tables in the same schema cannot have indexes with the same name.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Index names only need to be unique within the table they belong to, so two different tables can have indexes with identical names.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Oracle automatically generates index names, and a name can never be chosen by the person creating the index.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Index names are scoped per column, so the same index name can be reused as long as it is on a different column.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - An index name must be unique within its schema, just like a table name; two different tables in the same schema cannot have indexes with the same name.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q21",
+    "bankId": "Examen 18.docx #21",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about whether a sequence can be used by more than one table?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Yes: a sequence is an independent schema object, and nothing prevents two different tables from both using the same sequence to generate values with NEXTVAL.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "No: each sequence can only ever be referenced by the single table it was created for.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "No: using one sequence for two tables causes Oracle to merge the two tables automatically.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Yes, but only if both tables have identical column structures.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Yes: a sequence is an independent schema object, and nothing prevents two different tables from both using the same sequence to generate values with NEXTVAL.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q22",
+    "bankId": "Examen 18.docx #22",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "A sequence ORDER_SEQ has already generated values using INCREMENT BY 1. A DBA then runs ALTER SEQUENCE order_seq INCREMENT BY 10;. What happens to the values already generated before this statement?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "They are unaffected; only the step used for values generated by NEXTVAL calls made after the ALTER SEQUENCE takes effect.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Every previously generated value is retroactively recalculated using the new increment.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The sequence restarts from its original START WITH value.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "ALTER SEQUENCE cannot change INCREMENT BY once any value has been generated.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - They are unaffected; only the step used for values generated by NEXTVAL calls made after the ALTER SEQUENCE takes effect.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q23",
+    "bankId": "Examen 18.docx #23",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "A sequence is used to generate a value that needs to be stored in a VARCHAR2 column. Which statement is true?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The sequence always produces a NUMBER value, so it typically needs to be converted (implicitly or with TO_CHAR) before being stored in a VARCHAR2 column.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "A sequence can be configured to generate VARCHAR2 values directly, with no conversion needed.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Sequences cannot be used at all if the target column is VARCHAR2.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Oracle automatically creates a second, text-based version of every sequence.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - The sequence always produces a NUMBER value, so it typically needs to be converted (implicitly or with TO_CHAR) before being stored in a VARCHAR2 column.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q24",
+    "bankId": "Examen 18.docx #24",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about how STDDEV and VARIANCE handle NULL values in the column they are applied to?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Like other aggregate functions such as AVG and SUM, they ignore NULL values and calculate their result only from the non-NULL values.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "They treat every NULL value as 0 in their calculation.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "They raise an error if any row has a NULL value in the relevant column.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "They always return NULL if the column contains even a single NULL value.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Like other aggregate functions such as AVG and SUM, they ignore NULL values and calculate their result only from the non-NULL values.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q25",
+    "bankId": "Examen 18.docx #25",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT COUNT(1) FROM employees;\nHow does COUNT(1) compare to COUNT(*) here?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "They return the same result: COUNT(1) counts every row, because the constant 1 is evaluated for each row and is never NULL.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "COUNT(1) only counts rows where the first column is not NULL.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "COUNT(1) always returns exactly 1, regardless of how many rows exist.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "COUNT(1) raises an error, because COUNT requires a column name or *.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - They return the same result: COUNT(1) counts every row, because the constant 1 is evaluated for each row and is never NULL.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q26",
+    "bankId": "Examen 18.docx #26",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about how MIN and MAX handle NULL values in the column they are evaluating?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "They ignore NULL values and return the smallest or largest value among the non-NULL values in the column.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "They treat NULL as smaller than any other value, so MIN always returns NULL if any row has one.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "They raise an error if the column contains any NULL value.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "They treat NULL as larger than any other value, so MAX always returns NULL if any row has one.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - They ignore NULL values and return the smallest or largest value among the non-NULL values in the column.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q27",
+    "bankId": "Examen 18.docx #27",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about the default placement of NULL values when sorting a column?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "By default, NULLs are sorted last in ascending order and first in descending order, unless NULLS FIRST or NULLS LAST is explicitly specified.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "By default, NULLs are always sorted first, regardless of ASC or DESC.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "By default, NULLs are always sorted last, regardless of ASC or DESC.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Oracle always raises an error when sorting a column that contains NULL values.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - By default, NULLs are sorted last in ascending order and first in descending order, unless NULLS FIRST or NULLS LAST is explicitly specified.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q28",
+    "bankId": "Examen 18.docx #28",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT employee_id,\n  CASE WHEN commission_pct = NULL THEN 'No commission' ELSE 'Has commission' END AS status\nFROM employees;\nFor a row where COMMISSION_PCT is NULL, what does this CASE expression return?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "'Has commission', because commission_pct = NULL never evaluates to TRUE, so the WHEN condition is never matched even when the value really is NULL.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "'No commission', because the CASE expression correctly detects the NULL value.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "NULL, because CASE cannot be used with a column that contains NULL values.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because CASE cannot compare a column to the literal NULL.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - 'Has commission', because commission_pct = NULL never evaluates to TRUE, so the WHEN condition is never matched even when the value really is NULL.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q29",
+    "bankId": "Examen 18.docx #29",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT TO_CHAR(SYSDATE, 'HH24:MI:SS') FROM dual;\nWhat does this statement return?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The current time (hours, minutes, seconds) formatted as a string, based on the time portion stored in SYSDATE.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Only the current date, with the time portion ignored.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "An error, because TO_CHAR cannot extract a time-only format from a DATE value.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "The number of seconds that have elapsed since midnight, as a NUMBER.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - The current time (hours, minutes, seconds) formatted as a string, based on the time portion stored in SYSDATE.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q30",
+    "bankId": "Examen 18.docx #30",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT 5 || ' items in stock' FROM dual;\nWhat happens when this statement is executed?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Oracle implicitly converts the NUMBER 5 to the VARCHAR2 value '5' and concatenates it with the rest of the string, producing '5 items in stock'.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Oracle raises an error, because the || operator cannot be used with a NUMBER on either side.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "The statement returns just the number 5, ignoring the string.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Oracle returns NULL, because mixing a NUMBER and a VARCHAR2 with || is undefined.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Oracle implicitly converts the NUMBER 5 to the VARCHAR2 value '5' and concatenates it with the rest of the string, producing '5 items in stock'.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q31",
+    "bankId": "Examen 18.docx #31",
+    "set": "examen-18",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about combining two queries with UNION when they select from two completely unrelated tables, such as EMPLOYEES and PRODUCTS?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It is valid, as long as both queries return the same number of columns with data types that correspond position by position; the tables themselves do not need to be related in any way.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "UNION can only combine two queries that select from the same table.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "UNION requires the two tables to share at least one column with the same name.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "UNION automatically fails if the two tables have a different number of total columns, even if the SELECT lists match.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It is valid, as long as both queries return the same number of columns with data types that correspond position by position; the tables themselves do not need to be related in any way.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q32",
+    "bankId": "Examen 18.docx #32",
+    "set": "examen-18",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View and examine the following statement, which combines three queries without using parentheses.\nSELECT product_id FROM a\nUNION\nSELECT product_id FROM b\nINTERSECT\nSELECT product_id FROM c;\nWhich statement is true about the order in which the set operators are evaluated?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "INTERSECT is evaluated before UNION, so the statement behaves as if it were written as: (query against A) UNION ((query against B) INTERSECT (query against C)).",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "The operators are always evaluated strictly left to right, so UNION is applied before INTERSECT here.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Oracle raises an error whenever UNION and INTERSECT appear in the same statement without parentheses.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "MINUS, UNION, and INTERSECT always have exactly the same precedence, evaluated left to right with no exceptions.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - INTERSECT is evaluated before UNION, so the statement behaves as if it were written as: (query against A) UNION ((query against B) INTERSECT (query against C)).",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q33",
+    "bankId": "Examen 18.docx #33",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement correctly gives every employee in department 80 a 10% raise and also updates their commission percentage to 0.05, in a single UPDATE statement?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "UPDATE employees SET salary = salary * 1.1, commission_pct = 0.05 WHERE department_id = 80;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "UPDATE employees SET salary = salary * 1.1 AND commission_pct = 0.05 WHERE department_id = 80;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "UPDATE employees SET salary = salary * 1.1; SET commission_pct = 0.05; WHERE department_id = 80;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An UPDATE statement can only change one column at a time, so two separate statements are always required.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - UPDATE employees SET salary = salary * 1.1, commission_pct = 0.05 WHERE department_id = 80;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q34",
+    "bankId": "Examen 18.docx #34",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nUPDATE employees e\nSET (job_id, salary) = (SELECT job_id, salary FROM new_hires WHERE new_hires.employee_id = e.employee_id)\nWHERE employee_id IN (SELECT employee_id FROM new_hires);\nWhat is this statement doing?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "For each matching employee, it updates both JOB_ID and SALARY at once, using the corresponding values returned by a subquery against NEW_HIRES.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It is invalid syntax; SET can only assign one column at a time, never a list of columns from a single subquery.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It deletes the matching rows from EMPLOYEES and reinserts them using data from NEW_HIRES.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It updates every row in EMPLOYEES, ignoring the WHERE clause entirely.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - For each matching employee, it updates both JOB_ID and SALARY at once, using the corresponding values returned by a subquery against NEW_HIRES.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q35",
+    "bankId": "Examen 18.docx #35",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nDELETE FROM employees e\nWHERE NOT EXISTS (\n  SELECT 1 FROM departments d WHERE d.department_id = e.department_id\n);\nWhat does this statement do?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It deletes every employee whose DEPARTMENT_ID does not match any row in DEPARTMENTS.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It deletes every employee whose DEPARTMENT_ID does match a row in DEPARTMENTS.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It raises an error, because DELETE cannot use a correlated subquery in its WHERE clause.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It deletes every row from both EMPLOYEES and DEPARTMENTS.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It deletes every employee whose DEPARTMENT_ID does not match any row in DEPARTMENTS.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q36",
+    "bankId": "Examen 18.docx #36",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement correctly renames the COMM column of the EMPLOYEES table to COMMISSION_PCT, keeping all of its existing data?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "ALTER TABLE employees RENAME COLUMN comm TO commission_pct;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ALTER TABLE employees RENAME comm TO commission_pct;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "RENAME COLUMN employees.comm TO commission_pct;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "UPDATE employees RENAME COLUMN comm TO commission_pct;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - ALTER TABLE employees RENAME COLUMN comm TO commission_pct;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q37",
+    "bankId": "Examen 18.docx #37",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "The EMPLOYEES table already contains 107 rows. Which statement is true about running ALTER TABLE employees ADD badge_number NUMBER NOT NULL;, without specifying a DEFAULT?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It fails, because a NOT NULL column cannot be added to a table that already has rows unless a DEFAULT value is provided.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It succeeds, and every existing row automatically gets NULL for BADGE_NUMBER.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It succeeds, and every existing row automatically gets 0 for BADGE_NUMBER.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It succeeds only for new rows inserted afterward; existing rows are left without the new column entirely.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It fails, because a NOT NULL column cannot be added to a table that already has rows unless a DEFAULT value is provided.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q38",
+    "bankId": "Examen 18.docx #38",
+    "set": "examen-18",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about the NUM_ROWS column in USER_TABLES?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It reflects the row count as of the last time statistics were gathered on the table, and can be out of date compared to the table's actual current row count.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It always shows the exact, live number of rows currently in the table at the moment it is queried.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It is automatically recalculated after every INSERT, UPDATE, or DELETE statement.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "NUM_ROWS is only populated for tables that have a PRIMARY KEY.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It reflects the row count as of the last time statistics were gathered on the table, and can be out of date compared to the table's actual current row count.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q39",
+    "bankId": "Examen 18.docx #39",
+    "set": "examen-18",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Which data dictionary view would show object privileges that have been granted to the current user, including on objects owned by other users, without requiring DBA privileges?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "ALL_TAB_PRIVS",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "USER_TAB_COLUMNS",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "DBA_TAB_PRIVS",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "USER_OBJECTS",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - ALL_TAB_PRIVS",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q40",
+    "bankId": "Examen 18.docx #40",
+    "set": "examen-18",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Which statement correctly revokes every object privilege that SCOTT had previously granted to HR on the ORDERS table, in a single statement?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "REVOKE ALL ON orders FROM hr;",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "REVOKE EVERYTHING ON orders FROM hr;",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "DROP ALL PRIVILEGES ON orders FROM hr;",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "REVOKE * ON orders FROM hr;",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - REVOKE ALL ON orders FROM hr;",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q41",
+    "bankId": "Examen 18.docx #41",
+    "set": "examen-18",
+    "category": "Seguridad y diccionario de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about the privileges an object's owner has on that object?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The owner automatically has full privileges on their own object, without needing any GRANT statement.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "Even the owner of a table must be explicitly granted SELECT on it before querying it.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "An object's owner can only read from it, never modify or drop it, without an explicit GRANT.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Ownership of an object does not include the ability to grant privileges on it to others.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - The owner automatically has full privileges on their own object, without needing any GRANT statement.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q42",
+    "bankId": "Examen 18.docx #42",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT department_id, salary\nFROM employees\nORDER BY department_id, salary DESC;\nHow are the results sorted?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "By DEPARTMENT_ID in ascending order (the default), and then by SALARY in descending order within each department.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "By both DEPARTMENT_ID and SALARY in descending order, because DESC applies to the whole ORDER BY list.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "By both DEPARTMENT_ID and SALARY in ascending order, because DESC only applies if placed immediately after ORDER BY.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "An error, because DESC can only be applied to the first column listed in ORDER BY.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - By DEPARTMENT_ID in ascending order (the default), and then by SALARY in descending order within each department.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q43",
+    "bankId": "Examen 18.docx #43",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT salary * 1.1 AS projected_salary\nFROM employees\nORDER BY projected_salary;\nIs it valid to use the alias PROJECTED_SALARY in the ORDER BY clause here?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "Yes: unlike WHERE or GROUP BY, ORDER BY is evaluated after the SELECT list, so it can reference a column alias defined there.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "No: aliases defined in SELECT can never be used anywhere else in the same statement.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "No: ORDER BY can only reference actual column names, never expressions or aliases.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "Yes, but only if the alias is also repeated in a GROUP BY clause.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - Yes: unlike WHERE or GROUP BY, ORDER BY is evaluated after the SELECT list, so it can reference a column alias defined there.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q44",
+    "bankId": "Examen 18.docx #44",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "Which statement is true about the value returned by SYSDATE?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "SYSDATE includes both a date and a time component, even though the default display format in some tools shows only the date portion.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "SYSDATE only stores the date, with no time information at all.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "SYSDATE returns a VARCHAR2 string, not a DATE value.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "SYSDATE always returns midnight (00:00:00) as its time component.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - SYSDATE includes both a date and a time component, even though the default display format in some tools shows only the date portion.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q45",
+    "bankId": "Examen 18.docx #45",
+    "set": "examen-18",
+    "category": "Consultas y funciones",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT MONTHS_BETWEEN(DATE '2024-02-15', DATE '2024-01-01') FROM dual;\nWhich statement is true about the result?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It is a value slightly greater than 1, because the day-of-month differs between the two dates, adding a fractional part based on the extra days.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It is exactly 1, because both dates fall in consecutive months.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It is exactly 45, representing the number of days between the two dates.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It raises an error, because MONTHS_BETWEEN requires both dates to have the same day of the month.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It is a value slightly greater than 1, because the day-of-month differs between the two dates, adding a fractional part based on the extra days.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q46",
+    "bankId": "Examen 18.docx #46",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about a plain ROLLBACK statement (without a TO SAVEPOINT clause)?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It undoes every change made since the start of the current transaction, not just the most recent statement.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It only undoes the single most recently executed DML statement.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It undoes changes back to the most recently defined SAVEPOINT automatically, even without naming one.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It has no effect unless a SAVEPOINT was defined earlier in the transaction.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It undoes every change made since the start of the current transaction, not just the most recent statement.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q47",
+    "bankId": "Examen 18.docx #47",
+    "set": "examen-18",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "View and examine the following statement.\nSELECT dept_summary.department_id, dept_summary.total_salary\nFROM (SELECT department_id, SUM(salary) AS total_salary\n      FROM employees\n      GROUP BY department_id) dept_summary\nWHERE dept_summary.total_salary > 50000;\nWhat is required for the subquery used in the FROM clause here?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "It must be given an alias (DEPT_SUMMARY in this case) so that the outer query can reference its columns.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "It must not be given an alias; inline views in FROM are referenced only by position.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "It must return exactly one row, the same restriction that applies to a scalar subquery.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "It cannot contain a GROUP BY clause.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - It must be given an alias (DEPT_SUMMARY in this case) so that the outer query can reference its columns.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q48",
+    "bankId": "Examen 18.docx #48",
+    "set": "examen-18",
+    "category": "Combinación de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about the difference between an ON clause and a USING clause in a join?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "USING requires the join column to have the exact same name in both tables and that column cannot be prefixed with a table alias anywhere else in the statement, while ON allows differently named columns and any comparison condition.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "ON and USING are simply two different keywords for writing exactly the same kind of join condition, with no practical difference.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "USING allows differently named join columns, while ON requires them to match.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "ON can only be used with INNER JOIN, while USING can only be used with OUTER JOIN.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - USING requires the join column to have the exact same name in both tables and that column cannot be prefixed with a table alias anywhere else in the statement, while ON allows differently named columns and any comparison condition.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q49",
+    "bankId": "Examen 18.docx #49",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about a column that is part of a FOREIGN KEY constraint, if that column does not also have a NOT NULL constraint?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "The foreign key column can contain NULL, meaning that particular row simply has no associated parent row.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "A foreign key column is automatically NOT NULL, whether or not NOT NULL is explicitly declared.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Oracle raises an error if a foreign key column is ever left NULL.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "A NULL foreign key value is treated as matching every row in the parent table.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - The foreign key column can contain NULL, meaning that particular row simply has no associated parent row.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  },
+  {
+    "id": "examen-18-q50",
+    "bankId": "Examen 18.docx #50",
+    "set": "examen-18",
+    "category": "Manipulación y definición de datos",
+    "type": "single-choice",
+    "question": "Which statement is true about UNIQUE constraints and PRIMARY KEY constraints on the same table?",
+    "question_en": null,
+    "imagePath": null,
+    "options": [
+      {
+        "letter": "A",
+        "text": "A table can have multiple UNIQUE constraints on different columns, but at most one PRIMARY KEY constraint.",
+        "text_en": null
+      },
+      {
+        "letter": "B",
+        "text": "A table can have multiple PRIMARY KEY constraints, one per column that needs to be unique.",
+        "text_en": null
+      },
+      {
+        "letter": "C",
+        "text": "Defining a UNIQUE constraint on a column automatically makes it the table's PRIMARY KEY.",
+        "text_en": null
+      },
+      {
+        "letter": "D",
+        "text": "A table cannot have both a PRIMARY KEY and any UNIQUE constraints at the same time.",
+        "text_en": null
+      }
+    ],
+    "correct": [
+      "A"
+    ],
+    "solution": "A - A table can have multiple UNIQUE constraints on different columns, but at most one PRIMARY KEY constraint.",
+    "solution_en": null,
+    "explanation": null,
+    "explanation_en": null,
+    "source": "Examen 18.docx"
+  }
+]

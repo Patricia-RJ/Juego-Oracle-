@@ -1,0 +1,80 @@
+[
+  {
+    "file": "examen11.json",
+    "id": "examen-11-q30",
+    "problem": "enunciado_contradice_respuestas_detectadas",
+    "detalle": "El enunciado indica explicitamente \"Choose 2\" pero hay 1 respuesta(s) correcta(s) detectada(s) en el documento original. type se dejo en \"single-choice\" (coherente con las 1 respuestas reales conocidas), pero el numero de respuestas podria estar mal extraido del documento original -- requiere revisar el .docx fuente."
+  },
+  {
+    "file": "examen11.json",
+    "id": "examen-11-q32",
+    "problem": "enunciado_contradice_respuestas_detectadas",
+    "detalle": "El enunciado indica explicitamente \"Choose 4\" pero hay 3 respuesta(s) correcta(s) detectada(s) en el documento original. type se dejo en \"multiple-choice\" (coherente con las 3 respuestas reales conocidas), pero el numero de respuestas podria estar mal extraido del documento original -- requiere revisar el .docx fuente."
+  },
+  {
+    "file": "examen2.json",
+    "id": "examen-2-q38",
+    "problem": "sin_respuesta_correcta_conocida",
+    "detalle": "type actual \"multiple-choice\" se deja igual porque no hay ninguna respuesta correcta marcada; no se puede determinar el numero de selecciones sin inventar."
+  },
+  {
+    "file": "examen2.json",
+    "id": "examen-2-q38",
+    "problem": "enunciado_contradice_respuestas_detectadas",
+    "detalle": "El enunciado indica explicitamente \"Choose 4\" pero hay 0 respuesta(s) correcta(s) detectada(s) en el documento original. type se dejo en \"multiple-choice\" (coherente con las 0 respuestas reales conocidas), pero el numero de respuestas podria estar mal extraido del documento original -- requiere revisar el .docx fuente."
+  },
+  {
+    "file": "examen3.json",
+    "id": "examen-3-q14",
+    "problem": "sin_respuesta_correcta_conocida",
+    "detalle": "type actual \"single-choice\" se deja igual porque no hay ninguna respuesta correcta marcada; no se puede determinar el numero de selecciones sin inventar."
+  },
+  {
+    "file": "examen4.json",
+    "id": "examen-4-q8",
+    "problem": "sin_respuesta_correcta_conocida",
+    "detalle": "type actual \"single-choice\" se deja igual porque no hay ninguna respuesta correcta marcada; no se puede determinar el numero de selecciones sin inventar."
+  },
+  {
+    "file": "examen4.json",
+    "id": "examen-4-q9",
+    "problem": "sin_respuesta_correcta_conocida",
+    "detalle": "type actual \"single-choice\" se deja igual porque no hay ninguna respuesta correcta marcada; no se puede determinar el numero de selecciones sin inventar."
+  },
+  {
+    "file": "examen4.json",
+    "id": "examen-4-q10",
+    "problem": "sin_respuesta_correcta_conocida",
+    "detalle": "type actual \"multiple-choice\" se deja igual porque no hay ninguna respuesta correcta marcada; no se puede determinar el numero de selecciones sin inventar."
+  },
+  {
+    "file": "examen4.json",
+    "id": "examen-4-q10",
+    "problem": "enunciado_contradice_respuestas_detectadas",
+    "detalle": "El enunciado indica explicitamente \"Choose 3\" pero hay 0 respuesta(s) correcta(s) detectada(s) en el documento original. type se dejo en \"multiple-choice\" (coherente con las 0 respuestas reales conocidas), pero el numero de respuestas podria estar mal extraido del documento original -- requiere revisar el .docx fuente."
+  },
+  {
+    "file": "examen4.json",
+    "id": "examen-4-q11",
+    "problem": "sin_respuesta_correcta_conocida",
+    "detalle": "type actual \"single-choice\" se deja igual porque no hay ninguna respuesta correcta marcada; no se puede determinar el numero de selecciones sin inventar."
+  },
+  {
+    "file": "examen5.json",
+    "id": "examen-5-q7",
+    "problem": "enunciado_contradice_respuestas_detectadas",
+    "detalle": "El enunciado indica explicitamente \"Choose 3\" pero hay 2 respuesta(s) correcta(s) detectada(s) en el documento original. type se dejo en \"multiple-choice\" (coherente con las 2 respuestas reales conocidas), pero el numero de respuestas podria estar mal extraido del documento original -- requiere revisar el .docx fuente."
+  },
+  {
+    "file": "examen5.json",
+    "id": "examen-5-q27",
+    "problem": "enunciado_contradice_respuestas_detectadas",
+    "detalle": "El enunciado indica explicitamente \"Choose 2\" pero hay 1 respuesta(s) correcta(s) detectada(s) en el documento original. type se dejo en \"single-choice\" (coherente con las 1 respuestas reales conocidas), pero el numero de respuestas podria estar mal extraido del documento original -- requiere revisar el .docx fuente."
+  },
+  {
+    "file": "examen6.json",
+    "id": "examen-6-q2",
+    "problem": "enunciado_contradice_respuestas_detectadas",
+    "detalle": "El enunciado indica explicitamente \"Choose 2\" pero hay 1 respuesta(s) correcta(s) detectada(s) en el documento original. type se dejo en \"single-choice\" (coherente con las 1 respuestas reales conocidas), pero el numero de respuestas podria estar mal extraido del documento original -- requiere revisar el .docx fuente."
+  }
+]
