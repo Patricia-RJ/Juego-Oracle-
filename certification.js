@@ -1133,6 +1133,7 @@ function renderAdminRow(q) {
       <ul class="cert-admin-options">
         ${q.options.map(o => `<li class="${o.isCorrect ? "is-correct" : ""}">${escapeHtml(o.id)}. ${escapeHtml(o.text)}</li>`).join("")}
       </ul>
+      ${q.explanation ? `<div class="cert-explanation"><span class="cert-explanation-label">Explicación</span><p>${escapeHtml(q.explanation)}</p></div>` : ""}
       ${q.reviewReasons && q.reviewReasons.length ? `<p class="cert-admin-reasons">Motivo de revisión: ${escapeHtml(q.reviewReasons.join("; "))}</p>` : ""}
       ${q.duplicateOf ? `<p class="cert-admin-reasons">Posible duplicado de <strong>${escapeHtml(q.duplicateOf)}</strong></p>` : ""}
       <div class="cert-admin-edit">
