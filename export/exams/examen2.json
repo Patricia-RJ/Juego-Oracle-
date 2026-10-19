@@ -35,7 +35,7 @@
     ],
     "solution": "B - 2, 4, 1, 3",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "The correlated subquery evaluates row by row: first a candidate row is fetched from the outer table (step 2), then the inner query runs using that candidate's value to return its rows (step 4), then the outer WHERE clause is evaluated against that result (step 1), and this repeats for every remaining row of the outer table (step 3). That order is 2, 4, 1, 3.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -75,7 +75,7 @@
     ],
     "solution": "D - It displays the item nos with their average quantity where the average quantity is more than double the minimum quantity of that item in the table.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "The HAVING clause filters on AVG(qty) > MIN(qty) * 2, and both aggregates are computed per group (per ITEM_NO), not against the whole table, so option D is correct and B is wrong. Writing HAVING before GROUP BY is valid Oracle syntax (Oracle does not require GROUP BY to precede HAVING), so A is false, and aggregate functions used in HAVING do not need to also appear in the SELECT list, so C is false too.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -122,7 +122,7 @@
     ],
     "solution": "A - They can be used with a SQL statement that has a GROUP BY clause. C - They can be used together with the single-row functions in the SELECT clause. E - They can be used on columns or expressions.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Group functions can appear in a statement with GROUP BY (A), can be combined with single-row functions in the same SELECT clause, e.g. ROUND(AVG(salary)) (C), and can operate on columns or expressions, e.g. SUM(price*quantity) (E). A group function cannot be nested directly inside another group function without a subquery (B is false), and it is not restricted to a single column (D is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -174,7 +174,7 @@
     ],
     "solution": "A - A TRUNCATE command issued in a session causes all rows in a GLOBAL TEMPORARY TABLE for the issuing session to be deleted. B - Any GLOBAL TEMPORARY TABLE rows existing at session termination will be deleted. E - A GLOBAL TEMPORARY TABLE's definition is available to multiple sessions.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "A GLOBAL TEMPORARY TABLE stores data privately per session: TRUNCATE only clears the issuing session's own rows (A), and any rows left in the table are removed automatically when the session ends (B). The table's definition (metadata) is shared and visible to all sessions, even though the data is not (E). Space is allocated on first use, not at session start (C is false), another session's user cannot see your private GTT rows just because they have SELECT privilege (D is false), and DELETE on a GTT participates in the normal transaction and can be rolled back like any other DML (F is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -226,7 +226,7 @@
     ],
     "solution": "C - An inner join returns matched rows. D - A full outer join returns matched and unmatched rows. F - Outer joins can be used when there are multiple join conditions on two tables.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "An inner join returns only the rows that match the join condition on both sides (C), and a full outer join returns both matched rows and the unmatched rows from either side (D). Outer joins are not restricted to a single join condition between two tables (F). A full outer join does not require Oracle's proprietary (+) syntax; ANSI FULL OUTER JOIN works too (A is false), and left/right outer joins return matched rows as well as the unmatched ones, not only unmatched rows (E is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -273,7 +273,7 @@
     ],
     "solution": "B - Modifying a table to prevent data that violate certain conditions from being entered in a column D - Providing an alternative name for a table E - Preventing any data modification to a table",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "DDL can modify a table to add a constraint that rejects invalid data, e.g. a CHECK constraint (B), create a synonym to provide an alternative name for a table (D), and, since Oracle 11g, lock a table against any data modification with ALTER TABLE ... READ ONLY (E). Restricting access by time of day is not a DDL capability on its own (A is false), and savepoints are part of transaction control, not DDL (C is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -318,7 +318,7 @@
     ],
     "solution": "C - MINUS",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "MINUS returns the rows produced by the first query that do not appear in the result of the second query, which is exactly what's needed to show SALES1 rows absent from SALES2. UNION would combine and deduplicate both tables instead of subtracting one from the other, INTERSECT would return only the rows common to both, and SUBTRACT/PLUS are not Oracle set operators at all.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -358,7 +358,7 @@
     ],
     "solution": "D - All table rows are displayed sorted in ascending order of the values in the third column.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "ORDER BY 3 is valid Oracle syntax that sorts by the position of the column in the SELECT list (the third one), in ascending order by default, and with no WHERE clause every row in the table is returned. Positional ORDER BY does not require replacing the number with a column name, so B is false, and it does not limit the result to the first or lowest three rows (A and C confuse column position with a row limit).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -405,7 +405,7 @@
     ],
     "solution": "B - Una subconsulta puede usarse en la cláusula FROM de una sentencia SELECT. C - La cláusula ORDER BY puede usarse en una subconsulta. E - Si una subconsulta devuelve NULL, la consulta principal puede seguir devolviendo filas.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Una subconsulta puede colocarse en la cláusula FROM de un SELECT, comportándose como una vista en línea (B); dentro de una subconsulta sí puede usarse ORDER BY, por ejemplo junto con FETCH o en una subconsulta de FROM (C); y si una subconsulta de una sola fila no devuelve filas, la expresión se evalúa como NULL, lo que no impide que la consulta principal siga devolviendo las filas que no dependen de esa comparación (E). No es cierto que las subconsultas no admitan AND/OR/NOT en su WHERE (D es falsa), ni que no puedan usarse también en GROUP BY/HAVING como describe A de forma completa.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -446,7 +446,7 @@
     ],
     "solution": "A - The INTO clause is misplaced in the command. B - The CUSTOMER_ID column cannot be updated.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "In a MERGE statement, a column referenced in the ON clause (here CUSTOMER_ID, used to match rows between CUSTOMERS and CUSTOMER_VU) cannot also be updated in the WHEN MATCHED UPDATE SET clause — Oracle raises ORA-38104 for this. The INTO clause is used correctly, CUSTOMER_VU is a valid data source for a MERGE, and a WHERE clause is allowed on the INSERT branch, so the other options don't describe real errors.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -486,7 +486,7 @@
     ],
     "solution": "A - It executes successfully.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "The query uses only standard, valid predicates — NOT LIKE with wildcards, BETWEEN, NOT IN and NOT BETWEEN — against columns that exist in the CUSTOMERS table, so it executes successfully. CUST_CREDIT_LIMIT being nullable doesn't cause an error; rows with NULL in that column are simply excluded by the comparison, which is normal filtering behavior, not a syntax error.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -540,7 +540,7 @@
     ],
     "solution": "A - SELECT TRUNC(SYSDATE) - TO_DATE('01-JAN-2019') FROM dual; B - SELECT SYSDATE - TO_DATE('01-01-2019', 'mm-dd-yyyy') FROM dual; D - SELECT TRUNC(SYSDATE) - TO_DATE('2019-01-01', 'yyyy-mm-dd') FROM dual; E - SELECT ROUND(SYSDATE) - TO_DATE('01-JANUARY-19', 'DD-MONTH-RR') FROM dual; F - SELECT ROUND(SYSDATE) - TO_DATE('01-JAN-19', 'DD-MON-YY') FROM dual;",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Options A, B, D, E and F all convert the literal string to a date with TO_DATE and an explicit format mask that matches how the string is written, so each conversion is deterministic no matter what the session's NLS settings are. Option C instead subtracts the raw string '01-JAN-2019' straight from SYSDATE, relying on Oracle's implicit string-to-date conversion using the session's current NLS_DATE_FORMAT — which isn't guaranteed to match that string in every session, so it's excluded as the one query that isn't reliably safe.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -580,7 +580,7 @@
     ],
     "solution": "C - All rows are evaluated by all the three WHEN clauses.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "INSERT ALL (unconditional evaluation) tests every row against all of the WHEN conditions independently, so a row can end up inserted into more than one target table if it satisfies more than one condition. This is different from INSERT FIRST, which stops at the first WHEN condition a row satisfies; there's no ELSE clause requirement for INSERT ALL to be valid.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -626,7 +626,7 @@
     ],
     "solution": "C - If the subquery returns 0 rows, then the value returned by the subquery expression is NULL. D - A subquery can be used to access data from one or more tables or views.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "If a single-row subquery returns no rows, the value of that subquery expression is NULL rather than causing an error (C), and a subquery can draw data from one or more tables or views (D). There is no requirement to qualify subquery columns with a table alias (A is false), no such three-level nesting limit specifically for WHERE-clause subqueries (B is false), and no limit of two subqueries per level (E is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -677,7 +677,7 @@
     ],
     "solution": "A - INTERVAL DAY TO SECOND columns support fractions of seconds. C - INTERVAL YEAR TO MONTH columns only support monthly intervals within a range of years.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "An INTERVAL DAY TO SECOND value stores a span down to fractional seconds, so it supports them (A). An INTERVAL YEAR TO MONTH value only stores a span of years and months, i.e. months within a range of years, with no day-level component (C). The two interval families are not interchangeable by direct assignment (D is false), the YEAR component can be negative to represent a negative interval (E is false), and INTERVAL YEAR TO MONTH is not restricted to a single year (F is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -724,7 +724,7 @@
     ],
     "solution": "A - MOD: returns the remainder of a division operation D - TRUNC: can be used with NUMBER and DATE values E - CEIL: can be used for positive and negative numbers",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "MOD returns the remainder of a division (A), TRUNC accepts both NUMBER and DATE arguments (D), and CEIL works correctly on both positive and negative numbers (E). FLOOR actually returns the largest integer less than or equal to the number, not the smallest greater than or equal — that description belongs to CEIL, so B is false — and CONCAT in Oracle only accepts exactly two arguments, unlike the concatenation operator ||, so C is false.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -775,7 +775,7 @@
     ],
     "solution": "E - The COMPONENT_ID must be of VARCHAR2 data type. F - The EXECUTION_DATETIME must be of DATE data type.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "COMPONENT_ID needs a variable-length alphanumeric identifier up to 12 characters, which is exactly what VARCHAR2 provides (CHAR would pad to a fixed length and ROWID is a pseudocolumn type, not meant for storing arbitrary identifiers). EXECUTION_DATETIME needs century through seconds for comparisons and calculations, which the DATE type already stores natively and efficiently; TIMESTAMP would add fractional-second precision that isn't required here, making DATE the more efficient, sufficient choice.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -815,7 +815,7 @@
     ],
     "solution": "D - SELECT LISTAGG(last_name, '; ') WITHIN GROUP (ORDER BY hire_date, last_name) \"Emp_list\", MIN(hire_date) \"Earliest\" FROM employees WHERE department_id = 30;",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "LISTAGG requires the WITHIN GROUP (ORDER BY ...) clause, with the ORDER BY inside its own parentheses, to determine the order of the concatenated values — option D is the only one written that way. The other options either omit WITHIN GROUP, place ORDER BY after the statement's semicolon, or leave WITHIN GROUP without a properly parenthesized ORDER BY, all of which are syntax errors.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -861,7 +861,7 @@
     ],
     "solution": "A - Querying data from tables in different databases B - Changing the password for an existing database user",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Oracle SQL statements can query data across databases via a database link (A) and can change an existing user's password with ALTER USER ... IDENTIFIED BY, which is itself a SQL DDL statement (B). Connecting to an instance and starting one up are client/administrative actions performed outside of a SQL statement (SQL*Plus commands like CONNECT and STARTUP, not SQL itself), and executing OS commands requires a host/exec utility, not a SQL statement — so C, D and E are false.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -907,7 +907,7 @@
     ],
     "solution": "C - SALES1 has NOT NULL constraints on any selected columns which had that constraint in the SALES table. D - SALES1 is created with 55,000 rows.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "CREATE TABLE ... AS SELECT with a WHERE clause that is always true (1 = 1) copies every row from SALES into SALES1, so the new table ends up with the full 55,000 rows (D). A CTAS also carries over NOT NULL constraints from the source columns automatically (C), but it does not carry over PRIMARY KEY, UNIQUE or FOREIGN KEY constraints, so A, B and E are false.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -954,7 +954,7 @@
     ],
     "solution": "A - UPDATE statements can have different subqueries to specify the values for each updated column. B - DELETE statements can remove multiple rows based on multiple conditions. E - INSERT statements can insert NULLS explicitly into a column.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "An UPDATE statement can use a different subquery to compute the new value for each column being set (A), a DELETE can remove multiple rows that satisfy multiple conditions (B), and an INSERT can explicitly place a NULL into a column (E). DML does not require a primary key to exist on the table (C is false), and INSERT does not commit automatically — a COMMIT is still a separate, explicit action (D is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -994,7 +994,7 @@
     ],
     "solution": "A - It produces an error because COUNT (*) should be only in the HAVING clause and not in the WHERE clause.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "COUNT(*) is an aggregate function, and aggregate functions cannot be used in a WHERE clause — only in the SELECT list or in HAVING, after the rows have been grouped — so the statement fails with a syntax error. The query would need to move that condition into the HAVING clause (where COUNT(*) > 10 already correctly appears) instead of WHERE.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1034,7 +1034,7 @@
     ],
     "solution": "B - The statement will execute and a new row will be inserted in the SALES table.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "The INSERT statement lists six columns and supplies six corresponding values, one of which is a scalar subquery (SELECT channel_id FROM channels WHERE channel_desc = 'Direct Sales') used in place of a literal — this is valid Oracle syntax as long as the subquery returns a single value, so the statement executes and inserts a new row into SALES.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1074,7 +1074,7 @@
     ],
     "solution": "A - Number of days since the employee was hired based on the current Toronto Canada date and time.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "SYSDATE always reflects the date and time of the database server's operating system clock, regardless of where the client connecting to it is physically located. Since the session is connected to the remote database in Toronto, SYSDATE — and therefore the computed days-since-hire value — is based on Toronto's current date and time, not Madrid's.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1125,7 +1125,7 @@
     ],
     "solution": "B - If a session has an uncommitted transaction, then a DDL statement issues a COMMIT before starting a new transaction. F - A session can always see uncommitted updates made by itself.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "If a session has an uncommitted transaction and then issues a DDL statement, Oracle implicitly commits that pending transaction before executing the DDL (B), and a session can always see the uncommitted changes it has made itself, within that same session (F). DDL does not commit only the dictionary-related changes — it commits the whole pending transaction (A is false); an active transaction continues to accumulate DML rather than each statement starting a new one (C is false); exiting SQL*Plus normally does commit, but that's not guaranteed for every kind of session termination, so stating it as an absolute is false (D); and other sessions can never see your uncommitted changes (E is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1165,7 +1165,7 @@
     ],
     "solution": "D - The ORDERS_MASTER table would contain the ORDER_IDs 1, 2 and 4.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "In the MERGE, any ORDER_ID present in both tables is matched: its ORDER_TOTAL is updated from MONTHLY_ORDERS, and if that monthly total is NULL the DELETE WHERE clause removes the row from ORDERS_MASTER instead. Any ORDER_ID that exists in MONTHLY_ORDERS but not yet in ORDERS_MASTER is inserted through the WHEN NOT MATCHED branch, while an ORDER_ID that only exists in ORDERS_MASTER and has no counterpart in MONTHLY_ORDERS is left untouched. Working through the matches/inserts/deletes implied by the two tables in the exhibit leaves ORDER_IDs 1, 2 and 4 in ORDERS_MASTER.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1211,7 +1211,7 @@
     ],
     "solution": "A - An associative table must be created with a composite key of STUDENT_ID and PROJECT_ID, which is the foreign key linked to the STUDENTS and PROJECTS entities. B - The ERD must have a M:M relationship between the STUDENTS and PROJECTS entities that must be resolved into 1:M relationships.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Each student can work on multiple projects and each project can involve multiple students, which is a many-to-many relationship, and a many-to-many relationship must be resolved into two one-to-many relationships through an associative (junction) table (B) that carries the composite key STUDENT_ID + PROJECT_ID as foreign keys back to STUDENTS and PROJECTS (A). It is not a direct one-to-many relationship between STUDENTS and PROJECTS (C is false), and STUDENT_ID/PROJECT_ID remain the primary keys of their own entities rather than becoming foreign keys in the other entity (D and E are false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1258,7 +1258,7 @@
     ],
     "solution": "B - Raising to a power D - Addition E - Finding the lowest value",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Oracle provides dedicated single-row functions for raising a value to a power (POWER) and for finding the lowest value (LEAST, or MIN as a group function), and ordinary arithmetic like addition is a basic built-in capability of SQL expressions. There is no dedicated Oracle function purely for \"finding the quotient\" or for subtraction — those are done with the standard / and - operators — which is why A and C are not selected.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1298,7 +1298,7 @@
     ],
     "solution": "A - SELECT cust_first_name, cust_credit_limit * .05 AS TAX_AMOUNT FROM customers WHERE cust_income_level IS NOT NULL  AND cust_credit_limit IS NOT NULL;",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Option A filters on the real column CUST_CREDIT_LIMIT IS NOT NULL, which correctly excludes rows where the computed tax would be null. Option D instead tries to reference TAX_AMOUNT — a SELECT-list alias — inside the WHERE clause, but WHERE is evaluated before the SELECT list's aliases exist, so that would raise an invalid-identifier error; C's cust_income_level <> NULL and tax_amount <> NULL are also invalid, since NULL can never be compared with <>, only with IS NULL / IS NOT NULL.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1345,7 +1345,7 @@
     ],
     "solution": "A - The USER_OBJECTS view can provide information about the tables and views created by the user who queries the view. B - DICTIONARY is a view that contains the names of all the data dictionary views that the user can access. E - The USER_SYNONYMS view can provide information about private synonyms.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "USER_OBJECTS reports the objects (tables, views, etc.) owned by the user who runs the query (A); DICTIONARY is itself a data dictionary view that lists the names of all the other dictionary views the current user can access (B); and USER_SYNONYMS reports the private synonyms that belong to the current user (E). SYS, not SYSTEM, is the schema that owns the base tables and views of the data dictionary (C is false), and the V$ dynamic performance views require specific privileges — they are not accessible to every database user by default (D is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1385,7 +1385,7 @@
     ],
     "solution": "A - 1 row",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Both SELECT statements return the identical row (1, 'John'); the column aliases differ (first_name vs. name) but UNION compares and deduplicates rows by their values, not by their column labels, so the two identical rows are merged into a single row. ORDER BY 1 only sorts the result — it doesn't add or remove any rows — so the final result is 1 row.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1415,7 +1415,7 @@
     ],
     "solution": "A - TRUE",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Oracle Database supports implicit data type conversion: in many contexts it automatically converts a value from one data type to another (for example a NUMBER to VARCHAR2, or a correctly formatted string to a DATE) when the surrounding expression requires it, so the statement is true.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1466,7 +1466,7 @@
     ],
     "solution": "A - CURRENT_TIMESTAMP returns the same date as CURRENT_DATE. E - CURRENT_DATE returns the current date and time as per the session time zone.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "CURRENT_TIMESTAMP and CURRENT_DATE are both based on the session's time zone and return the same current date (A), and CURRENT_DATE specifically returns the current date and time as seen in that session's time zone (E). CURRENT_TIMESTAMP is not simply SYSDATE plus fractional seconds — SYSDATE reflects the database server's OS time zone instead of the session's (B and C are false), SYSDATE doesn't require the default date format to be DD-MON-RR in order to be used in expressions (D is false), and SYSDATE can be queried in any SQL statement, not only from DUAL (F is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1512,7 +1512,7 @@
     ],
     "solution": "C - The LOCATION clause D - The access driver TYPE clause",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "An external table (ORGANIZATION EXTERNAL) needs the TYPE clause to specify which access driver to use (such as ORACLE_LOADER or ORACLE_DATAPUMP) and the LOCATION clause to specify where the actual data file(s) are found; without them the CREATE TABLE statement shown is incomplete and won't compile. ACCESS PARAMETERS/REJECT LIMIT and a default directory can refine the definition further, but TYPE and LOCATION are the two clauses this particular statement is still missing.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1558,7 +1558,7 @@
     ],
     "solution": "A - If the SELECT clause has an aggregate function, then those individual columns without an aggregate function in the SELECT clause should be included in the GROUP BY cause. D - Using the WHERE clause before the GROUP BY clause excludes the rows before creating groups.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "When the SELECT clause mixes an aggregate function with individual (non-aggregated) columns, every one of those individual columns must appear in the GROUP BY clause (A); and because WHERE is evaluated before GROUP BY, filtering with WHERE excludes rows before the groups are even formed (D). A column alias defined in the SELECT list cannot be used in GROUP BY (C is false), and GROUP BY is only required when the SELECT list combines an aggregate with other columns — a statement that selects only an aggregate, like SELECT COUNT(*) FROM employees, needs no GROUP BY at all (E is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1599,7 +1599,7 @@
     ],
     "solution": "B - You can use the ON clause to specify multiple conditions while joining tables. C - You can use the USING clause to join tables on more than one column.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "The ON clause can combine several conditions with AND, giving full control over a multi-condition join (B), and the USING clause accepts more than one shared column name to join on, e.g. USING (col1, col2) (C). A JOIN clause is not limited to joining only two tables — you can chain multiple JOINs in one query (A is false) — and NATURAL JOIN never lets you supply the join condition explicitly; it always joins automatically on identically named columns, which is precisely its limitation (D is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1642,7 +1642,7 @@
     ],
     "solution": "A - The foreign key must reference either the primary key or a unique key of the primary key has multiple columns, the foreign key must matching columns. B - It is possible for child rows that have a foreign key to remain in the child table at the time the parent row is deleted. C - Primary key and foreign key constraints can be defined at both the column and table level. D - A table can have only one primary key but multiple foreign keys.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "A foreign key must reference the primary key, or a unique key, of the parent table, matching all of its columns when that key is composite (A); because of referential actions other than a strict cascade, a child row can still exist after its parent row is deleted (B); primary key and foreign key constraints can both be declared at the column or the table level (C); and a table can only ever have a single primary key, while it can have multiple foreign keys (D).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1682,7 +1682,7 @@
     ],
     "solution": "B - UPDATE dept d SET city = (      SELECT city      FROM locations l      WHERE d.location_id = l.location_id);",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "The subquery is correlated to the outer UPDATE through d.location_id = l.location_id inside its own WHERE clause, so Oracle recomputes the matching CITY for each DEPT row individually — this is the only version that is both syntactically valid and actually per-row correlated. ALL() doesn't apply to a single scalar comparison like this (A), the subquery in C has no correlation at all and would just return an arbitrary CITY from LOCATIONS, and D places the join condition in the outer UPDATE's WHERE clause where l is out of scope, which raises an invalid-identifier error.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1733,7 +1733,7 @@
     ],
     "solution": "B - Read data from an external table and load it into a table in the database. E - Read data from a table in the database and insert it into an external table.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "The ORACLE_DATAPUMP access driver can both read an external file's data and load it into a database table (B), and — unlike ORACLE_LOADER, which is read-only — it can also take data already in a database table and write it out to an external file (E). Creating a directory object is done with a separate CREATE DIRECTORY statement, not through the access driver itself (C is false), and external tables are read-only: no DML can be executed directly against one (D is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1773,7 +1773,7 @@
     ],
     "solution": "C - CREATE TABLE sales( salesid NUMBER(4), storeid NUMBER(4), itemid NUMBER(4), qty NUMBER DEFAULT 1, slsdate DATE DEFAULT SYSDATE, payment VARCHAR2(30) DEFAULT 'CASH' );",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Option C is the only version with correct DEFAULT syntax: the default value follows the column's data type directly, with no '=' sign, and the string literal 'CASH' is enclosed in single quotes. Options B and D both write \"DEFAULT =\", which is invalid, and D additionally double-quotes \"CASH\", which Oracle treats as an identifier rather than a string literal; option A quotes 'SYSDATE' as a string, which would store the literal text SYSDATE instead of the actual current date.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1813,7 +1813,7 @@
     ],
     "solution": "B - SELECT COUNT (NVL(list_price, 0)) FROM product_information WHERE list_price is NULL",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "COUNT(column) ignores NULL values, so COUNT(list_price) over rows already filtered to list_price IS NULL would always return 0, never the real count of NULL prices. Wrapping it as COUNT(NVL(list_price, 0)) first substitutes 0 for every NULL, so none of those rows are skipped and the count reflects how many products actually have a NULL LIST_PRICE.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1853,7 +1853,7 @@
     ],
     "solution": "C - SELECT product_name, category_id, SYSDATE + warranty_period AS \"Warranty expire date\" FROM product_information ORDER BY SYSDATE + warranty_period;",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Ordering ascending by SYSDATE + warranty_period puts the smallest expiration dates first: products with no warranty (the smallest added interval) appear at the top, and the product with the longest warranty period produces the latest expiration date, placing it at the bottom — exactly the layout required. Ordering by plain SYSDATE (A) doesn't actually sort by warranty at all since it's the same value for every row, option B's formula sorts in the wrong direction, and option D's WHERE clause would exclude rows instead of just ordering the full list as required.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1895,7 +1895,7 @@
     ],
     "solution": "A - For each DML operation performed on a table, the corresponding indexes are automatically updated if required. B - A non-deferrable PRIMARY KEY or UNIQUE KEY constraint in a table automatically attempts to create a unique index. D - When a table is dropped, corresponding indexes are automatically dropped.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "Oracle automatically maintains indexes whenever a DML operation changes the indexed column's data (A); a non-deferrable PRIMARY KEY or UNIQUE constraint automatically creates a supporting unique index when it's added (B); and dropping a table automatically drops the indexes built on it, since they can't exist without their base table (D). Indexes are most useful on columns frequently used in search/join predicates, not simply any column that appears in some expression — a column wrapped in a function generally won't use a standard index unless a function-based index is built for it — so C is false.",
     "explanation_en": null,
     "source": "Examen 2.docx"
   },
@@ -1935,7 +1935,7 @@
     ],
     "solution": "C - In a character sort, the values are case-sensitive.",
     "solution_en": null,
-    "explanation": null,
+    "explanation": "By default, Oracle performs a character sort in a case-sensitive, binary way, so uppercase and lowercase letters are not treated as equivalent for ordering purposes. NULLs are included in the sort rather than excluded, by default placed last in an ascending sort (B is false); numeric values with decimal positions aren't singled out for descending order (A is false); and a column used in ORDER BY does not have to appear in the SELECT list (D is false).",
     "explanation_en": null,
     "source": "Examen 2.docx"
   }
